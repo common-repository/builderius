@@ -1,0 +1,124 @@
+services:
+  builderius_graphql.type_config.deliverable_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInterfaceTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusDeliverable'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.deliverable_type.field.id' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.deliverable_type.field.tag' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.deliverable_type.field.description' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.deliverable_type.field.sub_modules' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.deliverable_type.field.author' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.deliverable_type.field.created_at' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.deliverable_type.field.status' ] ]
+      - [ 'setTypeResolver', [ '@builderius_graphql.type_resolver.builderius_deliverable' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.deliverable_type.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\AbstractBuilderiusDeliverable::ID_FIELD
+        type: 'Int'
+
+  builderius_graphql.type_config.deliverable_type.field.tag:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\AbstractBuilderiusDeliverable::TAG_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.deliverable_type.field.description:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\AbstractBuilderiusDeliverable::DESCRIPTION_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.deliverable_type.field.sub_modules:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\AbstractBuilderiusDeliverable::SUB_MODULES_FIELD
+        type: '[BuilderiusDeliverableSubModule]'
+
+  builderius_graphql.type_config.deliverable_type.field.author:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\AbstractBuilderiusDeliverable::AUTHOR_FIELD
+        type: 'User'
+
+  builderius_graphql.type_config.deliverable_type.field.created_at:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\AbstractBuilderiusDeliverable::CREATED_AT_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.deliverable_type.field.status:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\AbstractBuilderiusDeliverable::STATUS_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.dsm_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusDeliverableSubModule'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.dsm_type.field.id' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.dsm_type.field.name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.dsm_type.field.entity_type' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.dsm_type.field.type' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.dsm_type.field.technology' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.dsm_type.field.content_config' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.dsm_type.field.attributes' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.dsm_type.field.owner' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.dsm_type.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\BuilderiusDeliverableSubModule::ID_FIELD
+        type: 'Int'
+
+  builderius_graphql.type_config.dsm_type.field.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\BuilderiusDeliverableSubModule::NAME_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.dsm_type.field.entity_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\BuilderiusDeliverableSubModule::ENTITY_TYPE_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.dsm_type.field.type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\BuilderiusDeliverableSubModule::TYPE_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.dsm_type.field.technology:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\BuilderiusDeliverableSubModule::TECHNOLOGY_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.dsm_type.field.content_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\BuilderiusDeliverableSubModule::CONTENT_CONFIG_FIELD
+        type: 'Json'
+
+  builderius_graphql.type_config.dsm_type.field.attributes:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\BuilderiusDeliverableSubModule::ATTRIBUTES_FIELD
+        type: 'Json'
+
+  builderius_graphql.type_config.dsm_type.field.owner:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\DeliverableBundle\Model\BuilderiusDeliverableSubModule::OWNER_FIELD
+        type: 'BuilderiusDeliverable'

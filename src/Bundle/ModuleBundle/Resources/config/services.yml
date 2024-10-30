@@ -1,0 +1,322 @@
+services:
+  builderius_module.rest_api.endpoint.builderius_applicant_gbblocks_data:
+    class: Builderius\Bundle\ModuleBundle\RestApi\Endpoint\BuilderiusApplicantGbBlocksDataEndpoint
+    arguments:
+      - '@builderius.cache.persistent'
+      - '@builderius_template.rest_api.endpoint.builderius_template_applicant_data'
+    tags:
+      - { name: moomoo_rest_endpoint }
+
+  builderius_module.rest_api.endpoint.builderius_applicant_shortcodes_data:
+    class: Builderius\Bundle\ModuleBundle\RestApi\Endpoint\BuilderiusApplicantShortcodesDataEndpoint
+    arguments:
+      - '@builderius.cache.persistent'
+      - '@builderius_template.rest_api.endpoint.builderius_template_applicant_data'
+    tags:
+      - { name: moomoo_rest_endpoint }
+
+  builderius_module.registration.builderius_module_rendering_conditions_asset_localization:
+    class: 'Builderius\Bundle\ModuleBundle\Registration\BuilderiusModuleRenderingConditionsScriptLocalization'
+    arguments:
+      - '@builderius_module.provider.rendering_conditions'
+    calls:
+      - [ addCondition, ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_module.registration.builderius_modules_asset_localization:
+    class: 'Builderius\Bundle\ModuleBundle\Registration\BuilderiusModulesScriptLocalization'
+    arguments:
+      - '@builderius_module.provider.composite'
+      - '@builderius_module.provider.composite_modules'
+      - '@builderius_category.provider.categories.composite'
+      - '@builderius_template.provider.template'
+      - '@builderius_template.version_converter.composite'
+    calls:
+      - [ addCondition, ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_module.provider.regular_modules:
+    class: 'Builderius\Bundle\ModuleBundle\Provider\BuilderiusRegularModulesProvider'
+    lazy: true
+    public: true
+    arguments:
+      - '@builderius_module.checker.module'
+      - '@builderius_setting.registry.settings'
+      - '@builderius.cache.runtime'
+      - '@builderius_builder.condition.is_builder_mode'
+    tags:
+      - { name: builderius_modules_provider }
+
+  builderius_module.provider.composite_modules.regular:
+    class: 'Builderius\Bundle\ModuleBundle\Provider\BuilderiusCompositeRegularModulesProvider'
+    lazy: true
+    public: true
+    arguments:
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_composite_modules_provider }
+
+  builderius_module.provider.composite_modules.saved:
+    class: 'Builderius\Bundle\ModuleBundle\Provider\BuilderiusCompositeSavedModulesProvider'
+    lazy: true
+    public: true
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_composite_modules_provider }
+
+  builderius_module.provider.composite_modules:
+    class: 'Builderius\Bundle\ModuleBundle\Provider\CompositeBuilderiusCompositeModulesProvider'
+    arguments:
+      - '@builderius.cache.runtime'
+    lazy: true
+
+  builderius_module.provider.composite:
+    class: 'Builderius\Bundle\ModuleBundle\Provider\CompositeBuilderiusModulesProvider'
+    arguments:
+      - '@builderius.cache.runtime'
+    lazy: true
+
+  builderius_module.twig.module_extension:
+    class: 'Builderius\Bundle\ModuleBundle\Twig\ModuleExtension'
+    tags:
+      - { name: twig.extension }
+
+  builderius_module.checker.module.chain_element.base:
+    class: 'Builderius\Bundle\ModuleBundle\Checker\Chain\Element\BaseBuilderiusModuleCheckerChainElement'
+    public: false
+
+  builderius_module.checker.module:
+    parent: builderius_module.checker.module.chain_element.base
+
+  builderius_module.helper.mustache_template_rendering:
+    class: Builderius\Bundle\ModuleBundle\Helper\MustacheTemplateRenderingHelper
+    arguments:
+      - '@builderius_el.expression_language'
+
+  builderius_module.event_listener.data_content_modules.final_html_rendering:
+    class: Builderius\Bundle\ModuleBundle\EventListener\DataContentModulesFinalHtmlRenderingEventListener
+    arguments:
+      - '@builderius_module.helper.mustache_template_rendering'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_html_rendered, method: onBuilderiusHtmlRendered, priority: 10 }
+
+  builderius_module.hook.applicant_gbblock_scripts_data_pre_providing:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleScriptsDataPreProvidingHook
+    arguments:
+      - tag: wp_default_scripts
+    calls:
+      - [setCache, ['@builderius.cache.runtime']]
+      - [setPostParameter, ['builderius-applicant-gbblock-data']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_shortcode_scripts_data_pre_providing:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleScriptsDataPreProvidingHook
+    arguments:
+      - tag: wp_default_scripts
+    calls:
+      - [setCache, ['@builderius.cache.runtime']]
+      - [setPostParameter, ['builderius-applicant-shortcode-data']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_gbblock_styles_data_pre_providing:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleStylesDataPreProvidingHook
+    arguments:
+      - tag: wp_default_styles
+    calls:
+      - [setCache, ['@builderius.cache.runtime']]
+      - [setPostParameter, ['builderius-applicant-gbblock-data']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_shortcode_styles_data_pre_providing:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleStylesDataPreProvidingHook
+    arguments:
+      - tag: wp_default_styles
+    calls:
+      - [setCache, ['@builderius.cache.runtime']]
+      - [setPostParameter, ['builderius-applicant-shortcode-data']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_gbblock_wp_head_inline_assets_data_pre_providing_start:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleInlineAssetsDataPreProvidingStartHook
+    arguments:
+      - tag: wp_head
+        priority: !php/const PHP_INT_MIN
+    calls:
+      - [setPostParameter, ['builderius-applicant-gbblock-data']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_gbblock_wp_footer_inline_assets_data_pre_providing_start:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleInlineAssetsDataPreProvidingStartHook
+    arguments:
+      - tag: wp_footer
+        priority: !php/const PHP_INT_MIN
+    calls:
+      - [setPostParameter, ['builderius-applicant-gbblock-data']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_shortcode_wp_head_inline_assets_data_pre_providing_start:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleInlineAssetsDataPreProvidingStartHook
+    arguments:
+      - tag: wp_head
+        priority: !php/const PHP_INT_MIN
+    calls:
+      - [setPostParameter, ['builderius-applicant-shortcode-data']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_shortcode_wp_footer_inline_assets_data_pre_providing_start:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleInlineAssetsDataPreProvidingStartHook
+    arguments:
+      - tag: wp_footer
+        priority: !php/const PHP_INT_MIN
+    calls:
+      - [setPostParameter, ['builderius-applicant-shortcode-data']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_gbblock_wp_head_inline_assets_data_pre_providing_end:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleInlineAssetsDataPreProvidingEndHook
+    arguments:
+      - tag: wp_head
+        priority: !php/const PHP_INT_MAX
+    calls:
+      - [setPostParameter, ['builderius-applicant-gbblock-data']]
+      - [setCache, ['@builderius.cache.runtime']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_gbblock_wp_footer_inline_assets_data_pre_providing_end:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleInlineAssetsDataPreProvidingEndHook
+    arguments:
+      - tag: wp_footer
+        priority: 2147483646
+    calls:
+      - [setLocation, ['footer']]
+      - [setPostParameter, ['builderius-applicant-gbblock-data']]
+      - [setCache, ['@builderius.cache.runtime']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_shortcode_wp_head_inline_assets_data_pre_providing_end:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleInlineAssetsDataPreProvidingEndHook
+    arguments:
+      - tag: wp_head
+        priority: !php/const PHP_INT_MAX
+    calls:
+      - [setPostParameter, ['builderius-applicant-shortcode-data']]
+      - [setCache, ['@builderius.cache.runtime']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_shortcode_wp_footer_inline_assets_data_pre_providing_end:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantModuleInlineAssetsDataPreProvidingEndHook
+    arguments:
+      - tag: wp_footer
+        priority: 2147483646
+    calls:
+      - [setLocation, ['footer']]
+      - [setPostParameter, ['builderius-applicant-shortcode-data']]
+      - [setCache, ['@builderius.cache.runtime']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_gbblock_content_providing:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantGbBlockContentProvidingHook
+    arguments:
+      - tag: the_content
+        priority: 0
+    calls:
+      - ['setRuntimeCache', ['@builderius.cache.runtime']]
+      - ['setPersistentCache', ['@builderius.cache.persistent']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_shortcode_content_providing:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantShortcodeContentProvidingHook
+    arguments:
+      - tag: the_content
+        priority: 0
+    calls:
+      - ['setRuntimeCache', ['@builderius.cache.runtime']]
+      - ['setPersistentCache', ['@builderius.cache.persistent']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_gbblock_data_providing:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantGbBlockDataProvidingHook
+    arguments:
+      - tag: wp_footer
+        priority: !php/const PHP_INT_MAX
+    calls:
+      - ['setApplicantDataProvider', ['@builderius_template.provider.applicant_data.composite']]
+      - ['setPersistentCache', ['@builderius.cache.persistent']]
+      - ['setRuntimeCache', ['@builderius.cache.runtime']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.applicant_shortcode_data_providing:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantShortcodeDataProvidingHook
+    arguments:
+      - tag: wp_footer
+        priority: !php/const PHP_INT_MAX
+    calls:
+      - ['setApplicantDataProvider', ['@builderius_template.provider.applicant_data.composite']]
+      - ['setPersistentCache', ['@builderius.cache.persistent']]
+      - ['setRuntimeCache', ['@builderius.cache.runtime']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.template_change.applicant:
+    class: Builderius\Bundle\ModuleBundle\Hook\ApplicantTemplateChangingHook
+    arguments:
+      - tag: 'template_include'
+        priority: !php/const PHP_INT_MAX
+    calls:
+      - ['setTemplatePath', ['BuilderiusModuleBundle:templates/applicant.twig']]
+      - ['setTemplatingEngine', ['@templating']]
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.hide_admin_bar_for_gbblock_applicant_data_request:
+    class: Builderius\Bundle\ModuleBundle\Hook\HideAdminBarForModuleApplicantDataRequestHook
+    arguments:
+      - tag: 'show_admin_bar'
+    calls:
+      - [setPostParameter, ['builderius-applicant-gbblock-data']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.hook.hide_admin_bar_for_shortcode_applicant_data_request:
+    class: Builderius\Bundle\ModuleBundle\Hook\HideAdminBarForModuleApplicantDataRequestHook
+    arguments:
+      - tag: 'show_admin_bar'
+    calls:
+      - [setPostParameter, ['builderius-applicant-shortcode-data']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_module.registration.builderius_saved_composite_module_post_type:
+    class: Builderius\Bundle\ModuleBundle\Registration\BuilderiusSavedCompositeModulePostType
+    tags:
+      - { name: moomoo_post_type }
+
+  builderius_module.expression_function_provider.visibility_conditions:
+    class: Builderius\Bundle\ModuleBundle\ExpressionLanguage\Provider\VisibilityConditionsFunctionsProvider
+    arguments:
+      - '@builderius_el.expression_language'
+      - '@builderius_module.provider.rendering_conditions'
+      - '@event_dispatcher'
+    tags:
+      - { name: builderius_expression_function_provider }

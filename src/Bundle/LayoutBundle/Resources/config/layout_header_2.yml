@@ -1,0 +1,627 @@
+services:
+  builderius_layout.layout_header_2:
+    class: 'Builderius\Bundle\LayoutBundle\Model\BuilderiusLayout'
+    arguments:
+      - name: 'layout_header_2'
+        label: 'Header #2'
+        technologies: ['html']
+        category: 'headers'
+        image: 'https://showcase.builderius.io/wp-content/uploads/2023/02/layout_header_2.png'
+        tags:
+          - 'dark'
+          - 'one column'
+        config:
+          ---
+          modules:
+            ub5275f37:
+              id: ub5275f37
+              name: GenericBlock
+              label: 'header #2'
+              settings:
+                - name: backgroundColor
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--bgcolor'
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            u052d9a46:
+              id: u052d9a46
+              name: GenericBlock
+              label: headerInner
+              settings:
+                - name: transition
+                  value:
+                    all:
+                      ' #hamburger-input2:checked ~ label:after':
+                        i1:
+                          - d1: 0
+                            c1: linear
+                            b1: 0.2
+                            a1: all
+                      ' #hamburger-input2:checked ~ label:before':
+                        i1:
+                          - d1: 0
+                            c1: linear
+                            b1: 0.2
+                            a1: transform
+                - name: transform
+                  value:
+                    all:
+                      ' #hamburger-input2:checked ~ label:after':
+                        i1:
+                          - c1: rotate
+                            a1: -45
+                            b1: deg
+                      ' #hamburger-input2:checked ~ label:before':
+                        i1:
+                          - c1: rotate
+                            a1: 45
+                            b1: deg
+                - name: top
+                  value:
+                    all:
+                      ' #hamburger-input2:checked ~ label:before':
+                        b1: px
+                        a1: 6
+                - name: color
+                  value:
+                    all:
+                      ' #hamburger-input2:checked ~ label':
+                        a1: 'rgba(255, 255, 255, 0.00)'
+                - name: position
+                  value:
+                    all:
+                      original:
+                        a1: relative
+                - name: flexWrap
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: wrap
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 50
+                        b4: px
+                        a2: 50
+                        b2: px
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 1440
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 80
+                    '(max-width: 800px)':
+                      original:
+                        b1: auto
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                      ' #hamburger-input2:checked ~ label:after':
+                        b1: px
+                        a1: 16
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                      ' #hamburger-input2:checked ~ nav':
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ub5275f37
+              index: 0
+            ube5d4335:
+              id: ube5d4335
+              name: Input
+              label: hamburger checkbox
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: tagId
+                  value:
+                    a1: hamburger-input2
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: type
+                        b1: checkbox
+                      - a1: name
+                        b1: hamburger2
+              parent: u052d9a46
+              index: 0
+            u1be5d704:
+              id: u1be5d704
+              name: Anchor
+              label: logo
+              settings:
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: textAlign
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: width
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a4: 30
+                        b4: px
+                        a2: 50
+                        b2: px
+                    '(max-width: 800px)':
+                      original:
+                        a4: 20
+                        b4: px
+                        a2: 20
+                        b2: px
+                - name: textTransform
+                  value:
+                    all:
+                      original:
+                        a1: uppercase
+                - name: textDecoration
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 30
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: serif
+                        c1: Spectral
+                - name: dataAnchor
+                  value:
+                    a1: logo
+              parent: u052d9a46
+              index: 3
+            u7b35200d:
+              id: u7b35200d
+              name: RawHtml
+              label: nav
+              settings:
+                - name: order
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: 2
+                - name: backgroundColor
+                  value:
+                    all: [ ]
+                - name: flexWrap
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: wrap
+                - name: padding
+                  value:
+                    all: [ ]
+                    '(max-width: 800px)':
+                      ' ul':
+                        a1: 20
+                        b1: px
+                        a3: 20
+                        b3: px
+                - name: borderRadius
+                  value:
+                    all: [ ]
+                - name: border
+                  value:
+                    all: [ ]
+                - name: textTransform
+                  value:
+                    all: [ ]
+                - name: font
+                  value:
+                    all:
+                      ' ul li a':
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                        a2: normal
+                        a5: 18
+                        b5: px
+                - name: textDecoration
+                  value:
+                    all:
+                      ' ul li a':
+                        a1: none
+                      ' ul li a:hover':
+                        a1: underline
+                - name: margin
+                  value:
+                    all:
+                      ' ul li a':
+                        a2: 25
+                        b2: px
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                    '(max-width: 800px)':
+                      original:
+                        a1: center
+                - name: color
+                  value:
+                    all:
+                      ' ul':
+                        v1:
+                          - '--textcolor-alt'
+                      ' ul li a':
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: modCssVars
+                  value:
+                    all:
+                      original: [ ]
+                - name: listStyle
+                  value:
+                    all:
+                      ' ul':
+                        a1: none
+                - name: display
+                  value:
+                    all:
+                      ' ul':
+                        a1: flex
+                      original:
+                        a1: flex
+                    '(max-width: 800px)':
+                      original:
+                        a1: none
+                - name: dataRawHtml
+                  value:
+                    a1: |-
+                      <ul>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Contact</a></li>
+                      </ul>
+                - name: htmlTagContainer
+                  value:
+                    a1: nav
+              parent: u052d9a46
+              index: 4
+            ue0464720:
+              id: ue0464720
+              name: RawHtml
+              label: nav
+              settings:
+                - name: order
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: 2
+                - name: flexWrap
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: wrap
+                - name: padding
+                  value:
+                    '(max-width: 800px)':
+                      ' ul':
+                        a1: 20
+                        b1: px
+                        a3: 20
+                        b3: px
+                - name: font
+                  value:
+                    all:
+                      ' ul li a':
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                        a2: normal
+                        a5: 18
+                        b5: px
+                - name: textDecoration
+                  value:
+                    all:
+                      ' ul li a':
+                        a1: none
+                      ' ul li a:hover':
+                        a1: underline
+                - name: margin
+                  value:
+                    all:
+                      ' ul li a':
+                        a2: 25
+                        b2: px
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                    '(max-width: 800px)':
+                      original:
+                        a1: center
+                - name: color
+                  value:
+                    all:
+                      ' ul':
+                        v1:
+                          - '--textcolor-alt'
+                      ' ul li a':
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: listStyle
+                  value:
+                    all:
+                      ' ul':
+                        a1: none
+                - name: display
+                  value:
+                    all:
+                      ' ul':
+                        a1: flex
+                      original:
+                        a1: flex
+                    '(max-width: 800px)':
+                      original:
+                        a1: none
+                - name: dataRawHtml
+                  value:
+                    a1: |-
+                      <ul class="regularMenu">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Tour</a></li>
+                      </ul>
+                - name: htmlTagContainer
+                  value:
+                    a1: nav
+              parent: u052d9a46
+              index: 2
+            u5f15465c:
+              id: u5f15465c
+              name: Label
+              label: hamburger icon
+              settings:
+                - name: right
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 50
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                - name: top
+                  value:
+                    all:
+                      ':after':
+                        b1: px
+                        a1: 6
+                    '(max-width: 800px)':
+                      original:
+                        b1: px
+                        a1: 15
+                - name: content
+                  value:
+                    all:
+                      ':before':
+                        a1: '""'
+                      ':after':
+                        a1: '""'
+                - name: boxSizing
+                  value:
+                    all:
+                      ':before':
+                        a1: border-box
+                      ':after':
+                        a1: border-box
+                - name: backgroundColor
+                  value:
+                    all:
+                      ':before':
+                        v1:
+                          - '--textcolor-alt'
+                      ':after':
+                        v1:
+                          - '--textcolor-alt'
+                - name: modCssVars
+                  value:
+                    all:
+                      original:
+                        i1:
+                          - a1: color
+                            a2: '--textcolor-alt'
+                            b2: 'rgba(191, 206, 217, 1.00)'
+                          - a1: color
+                            a2: '--bgcolor'
+                            b2: 'rgba(15, 26, 38, 1.00)'
+                - name: boxShadow
+                  value:
+                    all:
+                      ':before':
+                        i1:
+                          - a2: 12
+                            a1: 0
+                            b2: px
+                            b1: px
+                            d2: px
+                            d1: 0
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                      ':before':
+                        a1: block
+                      ':after':
+                        a1: block
+                    '(max-width: 800px)':
+                      original:
+                        a1: block
+                - name: textIndent
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: -9999
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 16
+                      ':before':
+                        b1: px
+                        a1: 2
+                      ':after':
+                        b1: px
+                        a1: 2
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 16
+                      ':before':
+                        b1: px
+                        a1: 16
+                      ':after':
+                        b1: px
+                        a1: 10
+                - name: position
+                  value:
+                    all:
+                      original:
+                        a1: absolute
+                      ':before':
+                        a1: absolute
+                      ':after':
+                        a1: absolute
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: for
+                        b1: hamburger-input2
+                - name: dataLabel
+                  value:
+                    a1: X
+              parent: u052d9a46
+              index: 1
+          indexes:
+            root:
+              - ub5275f37
+            ub5275f37:
+              - u052d9a46
+            u052d9a46:
+              - ube5d4335
+              - u5f15465c
+              - u1be5d704
+              - ue0464720
+              - u7b35200d
+          version:
+            builderius: 0.9.6
+    tags:
+      - { name: builderius_layout }

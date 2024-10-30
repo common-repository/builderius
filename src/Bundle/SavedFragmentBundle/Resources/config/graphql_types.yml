@@ -1,0 +1,383 @@
+services:
+  builderius_saved_fragment.type_config.builderius_root_query.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_query
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_saved_fragment.type_config.builderius_root_query.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.root_query.field.saved_fragment' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.root_query.field.saved_fragments' ] ]
+
+  builderius_saved_fragment.type_config.root_query.field.saved_fragment:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'saved_fragment'
+        type: 'BuilderiusSavedFragment'
+    calls:
+      - [ 'addArgument', ['@builderius_saved_fragment.type_config.root_query.field.saved_fragment.argument.id'] ]
+
+  builderius_saved_fragment.type_config.root_query.field.saved_fragments:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'saved_fragments'
+        type: '[BuilderiusSavedFragment]'
+    calls:
+      - [ addArgument, ['@builderius_saved_fragment.type_config.root_query.field.saved_fragments.argument.type'] ]
+      - [ addArgument, ['@builderius_saved_fragment.type_config.root_query.field.saved_fragments.argument.technology'] ]
+      - [ addArgument, [ '@builderius_saved_fragment.type_config.root_query.field.saved_fragments.argument.author_name' ] ]
+      - [ addArgument, [ '@builderius_saved_fragment.type_config.root_query.field.saved_fragments.argument.author_id' ] ]
+
+  builderius_saved_fragment.type_config.root_query.field.saved_fragment.argument.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::ID_FIELD
+        type: 'Int!'
+
+  builderius_saved_fragment.type_config.root_query.field.saved_fragments.argument.type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::TYPE_FIELD
+        type: 'BuilderiusSavedFragmentType'
+
+  builderius_saved_fragment.type_config.root_query.field.saved_fragments.argument.technology:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'technology'
+        type: !php/const Builderius\Bundle\TemplateBundle\GraphQL\TypeConfig\TemplateTechnologyTypeConfig::NAME
+
+  builderius_saved_fragment.type_config.root_query.field.saved_fragments.argument.author_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'author_name'
+        type: 'String'
+
+  builderius_saved_fragment.type_config.root_query.field.saved_fragments.argument.author_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'author_id'
+        type: 'Int'
+
+  builderius_saved_fragment.type_config.saved_fragment_type_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusSavedFragmentType'
+    calls:
+      - ['addValue', ['@builderius_saved_fragment.type_config.saved_fragment_type.value.module']]
+      - ['addValue', ['@builderius_saved_fragment.type_config.saved_fragment_type.value.layout']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_saved_fragment.type_config.saved_fragment_type.value.module:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    lazy: true
+    arguments:
+      - name: 'module'
+        value: 'module'
+
+  builderius_saved_fragment.type_config.saved_fragment_type.value.layout:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    lazy: true
+    arguments:
+      - name: 'layout'
+        value: 'layout'
+
+  builderius_saved_fragment.type_config.saved_fragment_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusSavedFragment'
+    calls:
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.id' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.name' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.title' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.description' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.type' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.technologies' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.category' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.tags' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.static_content_config' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.dynamic_content_config' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.author' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.image' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.created_at' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.updated_at' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_saved_fragment.type_config.saved_fragment.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::ID_FIELD
+        type: 'Int'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::NAME_FIELD
+        type: 'String'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.title:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::TITLE_FIELD
+        type: 'String'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.description:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::DESCRIPTION_FIELD
+        type: 'String'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::TYPE_FIELD
+        type: 'String'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.technologies:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::TECHNOLOGIES_FIELD
+        type: '[String]'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.category:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::CATEGORY_FIELD
+        type: 'String'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.tags:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::TAGS_FIELD
+        type: '[String]'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.static_content_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::STATIC_CONTENT_CONFIG_FIELD
+        type: 'Json'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.dynamic_content_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::DYNAMIC_CONTENT_CONFIG_FIELD
+        type: 'Json'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.author:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::AUTHOR_FIELD
+        type: 'User'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.image:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::IMAGE_FIELD
+        type: 'String'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.created_at:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::CREATED_AT_FIELD
+        type: 'String'
+
+  builderius_saved_fragment.type_config.saved_fragment.field.updated_at:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::UPDATED_AT_FIELD
+        type: 'String'
+
+#-------------mutations----------------------
+
+  builderius_saved_fragment.type_config.builderius_root_mutation.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_mutation
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_saved_fragment.type_config.builderius_root_mutation.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.create_saved_fragment' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.update_saved_fragment' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.delete_saved_fragment' ] ]
+
+  builderius_graphql.type_config.create_saved_fragment_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateSavedFragmentInput'
+    calls:
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.name' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.create_saved_fragment.field.title' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.description' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.create_saved_fragment.field.category' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.create_saved_fragment.field.type' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.create_saved_fragment.field.technology' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.tags' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.create_saved_fragment.field.author_id'] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.create_saved_fragment.field.serialized_static_content_config' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.create_saved_fragment.field.serialized_dynamic_content_config' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.image' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.create_saved_fragment.field.replace']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_saved_fragment.type_config.create_saved_fragment.field.title:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'title'
+        type: 'String!'
+
+  builderius_saved_fragment.type_config.create_saved_fragment.field.category:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'category'
+        type: 'String!'
+
+  builderius_saved_fragment.type_config.create_saved_fragment.field.type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::TYPE_FIELD
+        type: 'BuilderiusSavedFragmentType!'
+
+  builderius_saved_fragment.type_config.create_saved_fragment.field.technology:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'technology'
+        type: 'BuilderiusTechnologyType!'
+
+  builderius_saved_fragment.type_config.create_saved_fragment.field.author_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'author_id'
+        type: 'Int'
+
+  builderius_saved_fragment.type_config.create_saved_fragment.field.serialized_static_content_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::SERIALIZED_STATIC_CONTENT_CONFIG_GRAPHQL
+        type: 'String!'
+
+  builderius_saved_fragment.type_config.create_saved_fragment.field.serialized_dynamic_content_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::SERIALIZED_DYNAMIC_CONTENT_CONFIG_GRAPHQL
+        type: 'String'
+
+  builderius_saved_fragment.type_config.create_saved_fragment.field.replace:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'replace'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.update_saved_fragment_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusUpdateSavedFragmentInput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.update_saved_fragment_input_type.field.id' ]]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.name' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.title' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.description' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.category' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.tags' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.create_saved_fragment.field.author_id'] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.update_saved_fragment.field.serialized_static_content_config' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.create_saved_fragment.field.serialized_dynamic_content_config' ] ]
+      - [ 'addField', [ '@builderius_saved_fragment.type_config.saved_fragment.field.image' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.update_saved_fragment_input_type.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::ID_FIELD
+        type: 'Int!'
+
+  builderius_saved_fragment.type_config.update_saved_fragment.field.serialized_static_content_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::SERIALIZED_STATIC_CONTENT_CONFIG_GRAPHQL
+        type: 'String'
+
+  builderius_graphql.type_config.root_mutation.field.create_saved_fragment:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'createSavedFragment'
+        type: 'BuilderiusCreateSavedFragmentOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.create_saved_fragment.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.update_saved_fragment:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'updateSavedFragment'
+        type: 'BuilderiusCreateSavedFragmentOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.update_saved_fragment.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.delete_saved_fragment:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'deleteSavedFragment'
+        type: 'BuilderiusDeleteSavedFragmentOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.delete_saved_fragment.argument.id'] ]
+
+  builderius_graphql.type_config.root_mutation.field.create_saved_fragment.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusCreateSavedFragmentInput!'
+
+  builderius_graphql.type_config.root_mutation.field.delete_saved_fragment.argument.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'id'
+        type: 'Int!'
+
+  builderius_graphql.type_config.root_mutation.field.update_saved_fragment.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusUpdateSavedFragmentInput!'
+
+  builderius_graphql.type_config.create_saved_fragment_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateSavedFragmentOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.create_saved_fragment_output_type.field.saved_fragment' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_saved_fragment_output_type.field.saved_fragment:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'saved_fragment'
+        type: 'BuilderiusSavedFragment'
+
+  builderius_graphql.type_config.delete_saved_fragment_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusDeleteSavedFragmentOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.delete_saved_fragment_output_type.field.result' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.delete_saved_fragment_output_type.field.message' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.delete_saved_fragment_output_type.field.result:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'result'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.delete_saved_fragment_output_type.field.message:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'message'
+        type: 'String'

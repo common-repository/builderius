@@ -1,0 +1,686 @@
+services:
+  builderius_layout.layout_footer_1:
+    class: 'Builderius\Bundle\LayoutBundle\Model\BuilderiusLayout'
+    arguments:
+      - name: 'layout_footer_1'
+        label: 'Footer #1'
+        technologies: ['html']
+        category: 'footers'
+        image: 'https://showcase.builderius.io/wp-content/uploads/2023/02/layout_footer_1.png'
+        tags:
+          - 'two columns'
+          - 'dark'
+        config:
+          ---
+          modules:
+            u11851598:
+              id: u11851598
+              name: GenericBlock
+              label: 'footer #1'
+              settings:
+                - name: backgroundColor
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--bgcolor'
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            u046b436b:
+              id: u046b436b
+              name: GenericBlock
+              label: footerInner
+              settings:
+                - name: transition
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label:after':
+                        i1:
+                          - d1: 0
+                            c1: linear
+                            b1: 0.2
+                            a1: all
+                      ' #hamburger-input3:checked ~ label:before':
+                        i1:
+                          - d1: 0
+                            c1: linear
+                            b1: 0.2
+                            a1: transform
+                - name: transform
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label:before':
+                        i1:
+                          - c1: rotate
+                            a1: 45
+                            b1: deg
+                      ' #hamburger-input3:checked ~ label:after':
+                        i1:
+                          - c1: rotate
+                            a1: -45
+                            b1: deg
+                - name: top
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label:before':
+                        b1: px
+                        a1: 6
+                - name: color
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label':
+                        a1: 'rgba(255, 255, 255, 0.00)'
+                - name: flexWrap
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: wrap
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 50
+                        a3: 40
+                        b4: px
+                        a2: 50
+                        b3: px
+                        a1: 40
+                        b2: px
+                        b1: px
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 1440
+                - name: height
+                  value:
+                    all: [ ]
+                    '(max-width: 800px)':
+                      original:
+                        b1: auto
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                      ' #hamburger-input3:checked ~ label:after':
+                        b1: px
+                        a1: 16
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: space-between
+                    '(max-width: 700px)':
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                      ' #hamburger-input3:checked ~ nav':
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u11851598
+              index: 0
+            ub7a6f364:
+              id: ub7a6f364
+              name: GenericBlock
+              label: footer col
+              settings:
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 300
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u046b436b
+              index: 0
+            u69118568:
+              id: u69118568
+              name: Paragraph
+              label: Paragraph
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a1: 30
+                        b1: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a6: 20
+                        a5: 15
+                        b6: px
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                - name: dataParagraph
+                  value:
+                    a1: © 2021 Builderius Layouts
+              parent: ub7a6f364
+              index: 2
+            u6c081d27:
+              id: u6c081d27
+              name: Heading
+              label: Heading
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 15
+                        b3: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: textTransform
+                  value:
+                    all:
+                      original:
+                        a1: uppercase
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a1: google
+                        b1: serif
+                        c1: Spectral
+                        a2: normal
+                - name: htmlTagHeading
+                  value:
+                    a1: h3
+                - name: dataHeading
+                  value:
+                    a1: About us
+              parent: ub7a6f364
+              index: 0
+            ub7b591fc:
+              id: ub7b591fc
+              name: Paragraph
+              label: Paragraph
+              settings:
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a6: 20
+                        a5: 15
+                        b6: px
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                - name: dataParagraph
+                  value:
+                    a1: >-
+                      Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+                      nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+                      volutpat.
+              parent: ub7a6f364
+              index: 1
+            u277a885c:
+              id: u277a885c
+              name: GenericBlock
+              label: footer col
+              settings:
+                - name: margin
+                  value:
+                    '(max-width: 700px)':
+                      original:
+                        a1: 50
+                        b1: px
+                - name: alignItems
+                  value:
+                    '(max-width: 700px)':
+                      original:
+                        a1: flex-start
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 300
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u046b436b
+              index: 1
+            u70b93eac:
+              id: u70b93eac
+              name: Heading
+              label: Heading
+              settings:
+                - name: textAlign
+                  value:
+                    all:
+                      original:
+                        a1: right
+                    '(max-width: 700px)':
+                      original:
+                        a1: left
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 15
+                        b3: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: textTransform
+                  value:
+                    all:
+                      original:
+                        a1: uppercase
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a1: google
+                        b1: serif
+                        c1: Spectral
+                        a2: normal
+                - name: htmlTagHeading
+                  value:
+                    a1: h3
+                - name: dataHeading
+                  value:
+                    a1: Get in touch
+              parent: u277a885c
+              index: 0
+            uf94d76f8:
+              id: uf94d76f8
+              name: Paragraph
+              label: Paragraph
+              settings:
+                - name: textAlign
+                  value:
+                    all:
+                      original:
+                        a1: right
+                    '(max-width: 700px)':
+                      original:
+                        a1: left
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a6: 20
+                        a5: 15
+                        b6: px
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                - name: dataParagraph
+                  value:
+                    a1: |-
+                      Builderius Layouts<br>
+                      12372 Fantasy Road<br>
+                      Neverland, Megacity 00001<br>
+                      123-123-1234<br> info@builderiuslayouts.com
+              parent: u277a885c
+              index: 1
+            u21f681a6:
+              id: u21f681a6
+              name: GenericBlock
+              label: socials
+              settings:
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: flex-end
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a1: 20
+                        b1: px
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u277a885c
+              index: 2
+            uad29a46b:
+              id: uad29a46b
+              name: GenericBlock
+              label: twitter link
+              settings:
+                - name: fill
+                  value:
+                    all:
+                      ' path':
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                        v1:
+                          - '--textcolor-alt'
+                      ':hover path':
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                        v1:
+                          - '--textcolor'
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: href
+                  value:
+                    a1: 'https://twitter.com'
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: true
+              parent: u21f681a6
+              index: 2
+            uda3ea7c2:
+              id: uda3ea7c2
+              name: Svg
+              label: twi
+              settings:
+                - name: fill
+                  value:
+                    all: [ ]
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 30
+                - name: dataSvg
+                  value:
+                    a1: >-
+                      <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"
+                      class="svg-inline--fa fa-twitter-square fa-w-14"
+                      data-icon="twitter-square" data-prefix="fab" aria-hidden="true"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M400 32H48C21.5
+                      32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5
+                      48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0
+                      86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8
+                      15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5
+                      19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9
+                      29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3
+                      39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9
+                      47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1
+                      13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"
+                      fill="currentColor"></path></svg>
+              parent: uad29a46b
+              index: 0
+            u70c10aad:
+              id: u70c10aad
+              name: GenericBlock
+              label: fb link
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a2: 10
+                        b2: px
+                - name: fill
+                  value:
+                    all:
+                      ' path':
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                        v1:
+                          - '--textcolor-alt'
+                      ':hover path':
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                        v1:
+                          - '--textcolor'
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: href
+                  value:
+                    a1: 'https://fb.com'
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: true
+              parent: u21f681a6
+              index: 1
+            ub7eda598:
+              id: ub7eda598
+              name: Svg
+              label: fb
+              settings:
+                - name: fill
+                  value:
+                    all: [ ]
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 30
+                - name: dataSvg
+                  value:
+                    a1: >-
+                      <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"
+                      class="svg-inline--fa fa-facebook-square fa-w-14"
+                      data-icon="facebook-square" data-prefix="fab" aria-hidden="true"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M400 32H48A48 48
+                      0 0 0 0 80v352a48 48 0 0 0 48
+                      48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48
+                      27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42
+                      38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48
+                      0 0 0-48-48z" fill="currentColor"></path></svg>
+              parent: u70c10aad
+              index: 0
+            u71ba8132:
+              id: u71ba8132
+              name: GenericBlock
+              label: insta link
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a2: 10
+                        b2: px
+                - name: fill
+                  value:
+                    all:
+                      ' path':
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                        v1:
+                          - '--textcolor-alt'
+                      ':hover path':
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                        v1:
+                          - '--textcolor'
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: href
+                  value:
+                    a1: 'https://instgram.com'
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: true
+              parent: u21f681a6
+              index: 0
+            ueb3fe03c:
+              id: ueb3fe03c
+              name: Svg
+              label: insta
+              settings:
+                - name: fill
+                  value:
+                    all: [ ]
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 30
+                - name: dataSvg
+                  value:
+                    a1: >-
+                      <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"
+                      class="svg-inline--fa fa-instagram-square fa-w-14"
+                      data-icon="instagram-square" data-prefix="fab" aria-hidden="true"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"><path
+                      d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"
+                      fill="currentColor"></path></svg>
+              parent: u71ba8132
+              index: 0
+          indexes:
+            root:
+              - u11851598
+            u11851598:
+              - u046b436b
+            u046b436b:
+              - ub7a6f364
+              - u277a885c
+            ub7a6f364:
+              - u6c081d27
+              - ub7b591fc
+              - u69118568
+            u277a885c:
+              - u70b93eac
+              - uf94d76f8
+              - u21f681a6
+            u21f681a6:
+              - u71ba8132
+              - uad29a46b
+              - u70c10aad
+            uad29a46b:
+              - uda3ea7c2
+            u70c10aad:
+              - ub7eda598
+            u71ba8132:
+              - ueb3fe03c
+          version:
+            builderius: 0.9.6
+    tags:
+      - { name: builderius_layout }

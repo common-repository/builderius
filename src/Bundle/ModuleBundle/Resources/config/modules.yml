@@ -1,0 +1,671 @@
+services:
+  # Universal Modules
+  builderius_module.generic_block_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'HtmlElement'
+        label: 'Html Element'
+        sort_order: 10
+        templateTypes: ['template']
+        technologies: ['html']
+        tags:
+          - 'html'
+          - 'element'
+          - 'container'
+          - 'generic'
+          - 'block'
+          - 'row'
+          - 'column'
+          - 'div'
+          - 'section'
+          - 'main'
+          - 'nav'
+          - 'figure'
+          - 'aside'
+          - 'article'
+          - 'header'
+          - 'footer'
+          - 'details'
+          - 'picture'
+          - 'li'
+          - 'span'
+          - 'ul'
+          - 'ol'
+          - 'dl'
+          - 'label'
+          - 'address'
+        category: 'universal'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/HtmlElement.twig'
+    tags:
+      - { name: builderius_module }
+
+  #TODO: remove after 0.12.0
+  builderius_module.generic_inline_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'InlineElement'
+        label: 'Inline Element'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'generic'
+          - 'inline'
+          - 'content'
+        category: 'universal'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/InlineElement.twig'
+
+  builderius_module.rawhtml_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'HtmlCode'
+        label: 'Html Code'
+        sort_order: 30
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        exclude_all_css_settings: true
+        exclude_settings: [ 'htmlAttribute', 'tagClass', 'tagId' ]
+        tags:
+          - 'html'
+          - 'rawhtml'
+          - 'generic'
+          - 'code'
+        category: 'universal'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/HtmlCode.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.svg_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'SvgCode'
+        label: 'Svg Code'
+        sort_order: 40
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        public: false
+        tags:
+          - 'svg'
+          - 'generic'
+        category: 'universal'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/SvgCode.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.template_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'Template'
+        label: 'Template'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        exclude_all_css_settings: true
+        tags:
+          - 'template'
+        category: 'universal'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Template.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.generic_table_block_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'GenericTableBlock'
+        label: 'Generic table block'
+        templateTypes: ['template']
+        technologies: ['html']
+        tags:
+          - 'container'
+          - 'generic'
+          - 'block'
+          - 'table'
+        category: 'table_content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/GenericTableBlock.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.paragraph_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'Paragraph'
+        label: 'Paragraph'
+        sort_order: 10
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        public: false
+        tags:
+          - 'content'
+          - 'text'
+          - 'paragraph'
+        category: 'content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Paragraph.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.time_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'Time'
+        label: 'Time'
+        sort_order: 30
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'content'
+          - 'text'
+          - 'time'
+        category: 'content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Time.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.heading_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'Heading'
+        label: 'Heading'
+        sort_order: 30
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'content'
+          - 'text'
+          - 'heading'
+          - 'h1'
+          - 'h2'
+          - 'h3'
+          - 'h4'
+          - 'h5'
+          - 'h6'
+        category: 'content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Heading.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.image_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'Image'
+        label: 'Image'
+        sort_order: 40
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'content'
+          - 'image'
+          - 'picture'
+          - 'media'
+        category: 'media'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Image.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.source_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'Source'
+        label: 'Source'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        exclude_all_css_settings: true
+        tags:
+          - 'content'
+          - 'image'
+          - 'picture'
+          - 'media'
+          - 'video'
+          - 'audio'
+          - 'source'
+        category: 'media'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Source.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.textarea_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'Textarea'
+        label: 'Textarea'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'textarea'
+          - 'form field'
+        category: 'form'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Textarea.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.form_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'Form'
+        label: 'Form'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'form'
+        category: 'form'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Form.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.input_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'Input'
+        label: 'Input'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'form'
+          - 'input'
+          - 'field'
+        category: 'form'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Input.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.button_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'Button'
+        label: 'Submit Button'
+        sort_order: 70
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        public: false
+        tags:
+          - 'form'
+          - 'button'
+        category: 'form'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Button.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.select_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'Select'
+        label: 'Select'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'form'
+          - 'dropdown'
+          - 'select'
+        category: 'form'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Select.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.table_header:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'TableHeader'
+        label: 'Table Header'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'table'
+          - 'inline'
+          - 'th'
+        category: 'table_content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/TableHeader.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.table_cell:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'TableCell'
+        label: 'Table Cell'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'table'
+          - 'inline'
+        category: 'table_content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/TableCell.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.col:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'Col'
+        label: 'Table Column'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'table'
+          - 'inline'
+        category: 'table_content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Col.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.table:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'Table'
+        label: 'Table'
+        templateTypes: ['template']
+        technologies: ['html']
+        containerFor: ['Caption', 'Colgroup', 'TableHead', 'TableBody', 'TableFoot', 'TableRow', 'Template']
+        public: false
+        tags:
+          - 'container'
+          - 'table'
+          - 'block'
+        category: 'table_content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Table.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.table_body:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'TableBody'
+        label: 'Table Body'
+        templateTypes: ['template']
+        technologies: ['html']
+        containerFor: ['TableRow', 'Template']
+        tags:
+          - 'container'
+          - 'table'
+          - 'block'
+        category: 'table_content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/TableBody.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.table_row:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'TableRow'
+        label: 'Table Row'
+        templateTypes: ['template']
+        technologies: ['html']
+        containerFor: ['TableCell', 'TableHeader', 'Template', 'Script']
+        tags:
+          - 'container'
+          - 'table'
+          - 'block'
+        category: 'table_content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/TableRow.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.table_head:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'TableHead'
+        label: 'Table Head'
+        templateTypes: ['template']
+        technologies: ['html']
+        containerFor: ['TableRow', 'Template']
+        tags:
+          - 'container'
+          - 'table'
+          - 'block'
+        category: 'table_content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/TableHead.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.table_foot:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'TableFoot'
+        label: 'Table Foot'
+        templateTypes: ['template']
+        technologies: ['html']
+        containerFor: ['TableRow', 'Template']
+        tags:
+          - 'container'
+          - 'table'
+          - 'block'
+        category: 'table_content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/TableFoot.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.colgroup:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusContainerModule'
+    arguments:
+      - name: 'Colgroup'
+        label: 'Table Column Group'
+        templateTypes: ['template']
+        technologies: ['html']
+        containerFor: ['Col', 'Template']
+        tags:
+          - 'container'
+          - 'table'
+          - 'block'
+        category: 'table_content'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Colgroup.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.collection_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\AssetAwareBuilderiusContainerModule'
+    arguments:
+      - name: 'Collection'
+        label: 'Collection'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        containerFor: ['Template']
+        public: false
+        tags:
+          - 'repeater'
+          - 'grid'
+          - 'collection'
+        category: 'dynamic'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Collection.twig'
+    calls:
+      - ['addAsset', ['@builderius_module.collection.asset.js.builderius-collection']]
+      - ['addAsset', ['@builderius_module.collection.asset.js.builderius-collection-ssr']]
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.collection.asset.js.builderius-collection:
+    class: Builderius\Bundle\ModuleBundle\Model\ModuleScriptWithCondition
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-collection'
+        source: 'builderius:webcomponents/builderius-collection.js'
+        dependencies: ['builderius-frontend', 'builderius-custom-elements']
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+        condition_expression: "interactiveMode == true"
+    calls:
+    #- ['addAssetDataItem', ['@builderius_builder.asset.data_item.defer']]
+
+  builderius_module.collection.asset.js.builderius-collection-ssr:
+    class: Builderius\Bundle\ModuleBundle\Model\ModuleScriptWithCondition
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-collection-ssr'
+        source: 'builderius:webcomponents/builderius-collection-ssr.js'
+        dependencies: ['builderius-custom-elements']
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+        load_if_empty_context: true
+        condition_expression: "interactiveMode == false"
+    calls:
+    #- ['addAssetDataItem', ['@builderius_builder.asset.data_item.defer']]
+
+  builderius_module.accordion_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\AssetAwareBuilderiusModule'
+    arguments:
+      - name: 'Accordion'
+        label: 'Accordion'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        public: false
+        tags:
+          - 'accordion'
+          - 'faq'
+        category: 'interactive'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Accordion.twig'
+    calls:
+      - ['addAsset', ['@builderius_module.accordion.asset.js.builderius-accordion']]
+      - ['addAsset', ['@builderius_module.accordion.asset.css.builderius-accordion']]
+      - ['addAsset', ['@builderius_module.accordion.0.9.9.4.asset.js.builderius-accordion']]
+      - ['addAsset', ['@builderius_module.accordion.0.9.9.4.asset.css.builderius-accordion']]
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.accordion.asset.js.builderius-accordion:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-accordion'
+        source: 'builderius:webcomponents/builderius-accordion.js'
+        dependencies: ['builderius-custom-elements']
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+    #- ['addAssetDataItem', ['@builderius_builder.asset.data_item.defer']]
+
+  builderius_module.accordion.asset.css.builderius-accordion:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Style'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-accordion'
+        source: 'builderius:webcomponents/builderius-accordion.css'
+        dependencies: []
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: false
+
+  builderius_module.accordion.0.9.9.4.asset.js.builderius-accordion:
+    class: 'Builderius\Bundle\ModuleBundle\Model\ModuleConfigVersionsRelatedScript'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-accordion'
+        source: 'builderius:older/0.9.9.4/webcomponents/builderius-accordion.js'
+        dependencies: ['builderius-custom-elements']
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+        config_versions:
+          builderius: 0.9.9.4
+    calls:
+    #- ['addAssetDataItem', ['@builderius_builder.asset.data_item.defer']]
+
+  builderius_module.accordion.0.9.9.4.asset.css.builderius-accordion:
+    class: 'Builderius\Bundle\ModuleBundle\Model\ModuleConfigVersionsRelatedStyle'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-accordion'
+        source: 'builderius:older/0.9.9.4/webcomponents/builderius-accordion.css'
+        dependencies: []
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: false
+        config_versions:
+          builderius: 0.9.9.4
+
+  builderius_module.cookieconsent_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\AssetAwareBuilderiusModule'
+    arguments:
+      - name: 'Cookieconsent'
+        label: 'Cookie Consent'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        public: false
+        tags:
+          - 'cookie consent'
+          - 'gdpr'
+        category: 'interactive'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Cookieconsent.twig'
+    calls:
+      - ['addAsset', ['@builderius_module.cookieconsent.asset.js.builderius-cookieconsent']]
+      - ['addAsset', ['@builderius_module.cookieconsent.asset.css.builderius-cookieconsent']]
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.cookieconsent.asset.js.builderius-cookieconsent:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-cookieconsent'
+        source: 'builderius:webcomponents/builderius-cookieconsent.js'
+        dependencies: ['builderius-custom-elements']
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+    - ['addAssetDataItem', ['@builderius_builder.asset.data_item.defer']]
+
+  builderius_module.cookieconsent.asset.css.builderius-cookieconsent:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Style'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-cookieconsent'
+        source: 'builderius:webcomponents/builderius-cookieconsent.css'
+        dependencies: []
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: false
+
+  builderius_module.shortcode_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'Shortcode'
+        label: 'Shortcode'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        exclude_all_css_settings: true
+        exclude_settings: ['htmlAttribute', 'tagClass', 'tagId']
+        tags:
+          - 'shortcode'
+        category: 'wordpress'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/Shortcode.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.gutenberg_block_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\BuilderiusModule'
+    arguments:
+      - name: 'GutenbergBlock'
+        label: 'Gutenberg Block'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        exclude_all_css_settings: true
+        exclude_settings: ['htmlAttribute', 'tagClass', 'tagId']
+        tags:
+          - 'block'
+          - 'gutenberg'
+        category: 'wordpress'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/GutenbergBlock.twig'
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.cookie_notice_module:
+    class: 'Builderius\Bundle\ModuleBundle\Model\AssetAwareBuilderiusContainerModule'
+    arguments:
+      - name: 'CookieNotice'
+        label: 'Cookie Notice'
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        public: false
+        tags:
+          - 'cookie consent'
+          - 'cookie notice'
+          - 'gdpr'
+        category: 'interactive'
+        htmlTemplate: 'BuilderiusModuleBundle:modules/CookieNotice.twig'
+    calls:
+      - ['addAsset', ['@builderius_module.cookie_notice.asset.js.builderius-cookie_notice']]
+    tags:
+      - { name: builderius_module }
+
+  builderius_module.cookie_notice.asset.js.builderius-cookie_notice:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-cookie-notice'
+        source: 'builderius:webcomponents/builderius-cookie-notice.js'
+        dependencies: []
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      - ['addAssetDataItem', ['@builderius_builder.asset.data_item.defer']]

@@ -1,0 +1,241 @@
+services:
+  builderius_graphql.type_config.root_all_type.decorator:
+    decorates: builderius_graphql.type_config.all_root_type
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectRootTypeConfigDecorator
+    arguments:
+      - '@builderius_graphql.type_config.root_all_type.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_field_object' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_post_object_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_multiple_post_object_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_relationship_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_group_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_repeater_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_user_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_multiple_user_value' ] ]
+
+  builderius_graphql.type_config.root_singular_type.decorator:
+    decorates: builderius_graphql.type_config.singular_root_type
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectRootTypeConfigDecorator
+    arguments:
+      - '@builderius_graphql.type_config.root_singular_type.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_field_object' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_post_object_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_multiple_post_object_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_relationship_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_group_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_repeater_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_user_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_option_multiple_user_value' ] ]
+
+  builderius_graphql.type_config.post_type.decorator:
+    decorates: builderius_graphql.type_config.post_type
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_graphql.type_config.post_type.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_post_object_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_multiple_post_object_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_relationship_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_group_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_repeater_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_user_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_multiple_user_value' ] ]
+
+  builderius_graphql.type_config.user_type.decorator:
+    decorates: builderius_graphql.type_config.user_type
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_graphql.type_config.user_type.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_post_object_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_multiple_post_object_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_relationship_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_group_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_repeater_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_user_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_multiple_user_value' ] ]
+
+  builderius_graphql.type_config.field.acf_field_object:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_field_object'
+        type: 'Mixed'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_value'
+        type: 'Mixed'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_post_object_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_post_object_value'
+        type: 'Post'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_multiple_post_object_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_multiple_post_object_value'
+        type: '[Post]'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_relationship_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_relationship_value'
+        type: '[Post]'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_group_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_group_value'
+        type: 'AcfGroupField'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_repeater_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_repeater_value'
+        type: '[AcfRepeaterRow]'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_user_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_user_value'
+        type: 'User'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_multiple_user_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_multiple_user_value'
+        type: '[User]'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_option_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_option_value'
+        type: 'Mixed'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_option_post_object_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_option_post_object_value'
+        type: 'Post'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_option_multiple_post_object_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_option_multiple_post_object_value'
+        type: '[Post]'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_option_relationship_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_option_relationship_value'
+        type: '[Post]'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_option_group_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_option_group_value'
+        type: 'AcfGroupField'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_option_repeater_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_option_repeater_value'
+        type: '[AcfRepeaterRow]'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_option_user_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_option_user_value'
+        type: 'User'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.acf_option_multiple_user_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'acf_option_multiple_user_value'
+        type: '[User]'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.acf_repeater_row_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'AcfRepeaterRow'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_post_object_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_multiple_post_object_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_relationship_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_group_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_repeater_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_user_value' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.field.acf_multiple_user_value' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.acf_group_field_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    parent: builderius_graphql.type_config.acf_repeater_row_type
+    calls:
+      - [ 'setName', ['AcfGroupField'] ]
+    tags:
+      - { name: builderius_graphql_type_config }

@@ -1,0 +1,327 @@
+services:
+  builderius_template.type_config.builderius_root_query.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_query
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_template.type_config.builderius_root_query.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_template.type_config.root_query.field.template' ] ]
+      - [ 'addField', [ '@builderius_template.type_config.root_query.field.templates' ] ]
+
+  builderius_template.type_config.builderius_root_mutation.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_mutation
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_template.type_config.builderius_root_mutation.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.create_template' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.update_template' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.delete_template' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.duplicate_template' ] ]
+
+  builderius_template.type_config.root_query.field.template:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'template'
+        type: 'BuilderiusTemplate'
+    calls:
+      - [ 'addArgument', ['@builderius_template.type_config.root_query.field.template.argument.id'] ]
+
+  builderius_template.type_config.root_query.field.templates:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'templates'
+        type: '[BuilderiusTemplate]'
+    calls:
+      - [ addArgument, ['@builderius_template.type_config.root_query.field.templates.argument.standalone'] ]
+      - [ addArgument, ['@builderius_template.type_config.root_query.field.templates.argument.type'] ]
+      - [ addArgument, ['@builderius_template.type_config.root_query.field.templates.argument.technology'] ]
+      - [ addArgument, [ '@builderius_graphql.type_config.root_query.field.vcs_owners.argument.author_name' ] ]
+      - [ addArgument, [ '@builderius_graphql.type_config.root_query.field.vcs_owners.argument.author_id' ] ]
+
+  builderius_template.type_config.root_query.field.template.argument.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::ID_FIELD
+        type: 'Int!'
+
+  builderius_template.type_config.root_query.field.templates.argument.standalone:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'standalone'
+        type: 'Boolean'
+
+  builderius_template.type_config.root_query.field.templates.argument.type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::TYPE_FIELD
+        type: !php/const Builderius\Bundle\TemplateBundle\GraphQL\TypeConfig\TemplateTypeTypeConfig::NAME
+
+  builderius_template.type_config.root_query.field.templates.argument.technology:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::TECHNOLOGY_FIELD
+        type: !php/const Builderius\Bundle\TemplateBundle\GraphQL\TypeConfig\TemplateTechnologyTypeConfig::NAME
+
+  builderius_graphql.type_config.template_type_type:
+    class: Builderius\Bundle\TemplateBundle\GraphQL\TypeConfig\TemplateTypeTypeConfig
+    calls:
+      - [setTemplateTypesProvider, ['@builderius_template.provider.template_types']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.template_technology_type:
+    class: Builderius\Bundle\TemplateBundle\GraphQL\TypeConfig\TemplateTechnologyTypeConfig
+    calls:
+      - [setTemplateTypesProvider, ['@builderius_template.provider.template_types']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.template_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusTemplate'
+    calls:
+      - [ 'addInterface', ['@builderius_graphql.type_config.vcs_owner_type']]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.sort_order' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.sub_type' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.apply_rules_config' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.builder_mode_link' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.hook_type'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.hook'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.hook_acc_args'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.clear_existing_hooks'] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.template_type.field.sort_order:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::SORT_ORDER_FIELD
+        type: 'Int'
+
+  builderius_graphql.type_config.template_type.field.sub_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::SUB_TYPE_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.template_type.field.apply_rules_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::APPLY_RULES_CONFIG_FIELD
+        type: 'Json'
+
+  builderius_graphql.type_config.template_type.field.serialized_apply_rules_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::SERIALIZED_APPLY_RULES_CONFIG_GRAPHQL
+        type: 'String'
+
+  builderius_graphql.type_config.template_type.field.builder_mode_link:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::BUILDER_MODE_LINK_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.template_type.field.hook_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::HOOK_TYPE_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.template_type.field.hook:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::HOOK_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.template_type.field.hook_acc_args:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::HOOK_ACCEPTED_ARGS_FIELD
+        type: 'Int'
+
+  builderius_graphql.type_config.template_type.field.clear_existing_hooks:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::CLEAR_EXISTING_HOOKS_FIELD
+        type: 'Boolean'
+
+  builderius_graphql.type_config.hook_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumTypeConfig
+    lazy: true
+    arguments:
+      - name: 'HookType'
+    calls:
+      - ['addValue', ['@builderius_graphql.type_config.hook_type.value.action']]
+      - ['addValue', ['@builderius_graphql.type_config.hook_type.value.filter']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.hook_type.value.filter:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    arguments:
+      - name: 'filter'
+        value: 'filter'
+
+  builderius_graphql.type_config.hook_type.value.action:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    arguments:
+      - name: 'action'
+        value: 'action'
+
+  builderius_graphql.type_config.create_template_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateTemplateInput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_template_input_type.field.title' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.type' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.technology' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.sort_order' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.sub_type' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_template_input_type.field.author_id'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.serialized_apply_rules_config' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_template_input_type.field.hook_type'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.hook'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.hook_acc_args'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.clear_existing_hooks'] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.update_template_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusUpdateTemplateInput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.update_template_input_type.field.id' ]]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.title' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.active_branch_name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.sort_order' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.sub_type' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.serialized_apply_rules_config' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_template_input_type.field.hook_type'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.hook'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.hook_acc_args'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.template_type.field.clear_existing_hooks'] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_template_input_type.field.title:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'title'
+        type: 'String!'
+
+  builderius_graphql.type_config.update_template_input_type.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'id'
+        type: 'Int!'
+
+  builderius_graphql.type_config.create_template_input_type.field.author_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'author_id'
+        type: 'Int'
+
+  builderius_graphql.type_config.create_template_input_type.field.hook_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::HOOK_TYPE_FIELD
+        type: 'HookType'
+
+  builderius_graphql.type_config.root_mutation.field.create_template:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'createTemplate'
+        type: 'BuilderiusCreateTemplateOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.create_template.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.update_template:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'updateTemplate'
+        type: 'BuilderiusCreateTemplateOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.update_template.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.delete_template:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'deleteTemplate'
+        type: 'BuilderiusDeleteTemplateOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.delete_template.argument.id'] ]
+
+  builderius_graphql.type_config.root_mutation.field.duplicate_template:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'duplicateTemplate'
+        type: 'BuilderiusCreateTemplateOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.delete_template.argument.id'] ]
+
+  builderius_graphql.type_config.root_mutation.field.create_template.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusCreateTemplateInput!'
+
+  builderius_graphql.type_config.root_mutation.field.delete_template.argument.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'id'
+        type: 'Int!'
+
+  builderius_graphql.type_config.root_mutation.field.update_template.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusUpdateTemplateInput!'
+
+  builderius_graphql.type_config.create_template_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateTemplateOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.create_template_output_type.field.template' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_template_output_type.field.template:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'template'
+        type: 'BuilderiusTemplate'
+
+  builderius_graphql.type_config.delete_template_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusDeleteTemplateOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.delete_template_output_type.field.result' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.delete_template_output_type.field.message' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.delete_template_output_type.field.result:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'result'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.delete_template_output_type.field.message:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'message'
+        type: 'String'

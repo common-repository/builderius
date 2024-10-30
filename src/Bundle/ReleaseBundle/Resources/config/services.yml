@@ -1,0 +1,161 @@
+services:
+  builderius_release.model.builderius_release_post_type:
+    class: Builderius\Bundle\ReleaseBundle\Registration\BulderiusReleasePostType
+    tags:
+      - { name: moomoo_post_type }
+
+  builderius_release.registration.builderius_releases_asset_localization:
+    class: Builderius\Bundle\ReleaseBundle\Registration\BuilderiusReleasesScriptLocalization
+    arguments:
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-admin-deliverables-index, priority: 0 }
+
+  builderius_release.factory.builderius_release_from_post:
+    class: Builderius\Bundle\ReleaseBundle\Factory\BuilderiusReleaseFromPostFactory
+    public: true
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_deliverable.factory.dsm_from_post'
+      - '@builderius.cache.runtime'
+
+  builderius_release.factory.builderius_deliverable_release_from_post:
+    class: Builderius\Bundle\ReleaseBundle\Factory\BuilderiusDeliverableReleaseFromPostFactory
+    arguments:
+      - '@builderius_release.factory.builderius_release_from_post'
+
+  builderius_release.provider.release:
+    class: Builderius\Bundle\ReleaseBundle\Provider\BuilderiusDeliverableReleaseProvider
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_release.factory.builderius_release_from_post'
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_deliverable_provider, priority: 10 }
+
+  builderius_release.registration.builderius_releases_quantity_asset_localization:
+    class: Builderius\Bundle\ReleaseBundle\Registration\BuilderiusReleasesQuantityScriptLocalization
+    arguments:
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-admin-home-index, priority: 0 }
+
+  builderius_release.registration.builderius_published_releaseexists_asset_localization:
+    class: Builderius\Bundle\ReleaseBundle\Registration\BuilderiusPublishedReleaseExistsScriptLocalization
+    arguments:
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-admin-home-index, priority: 0 }
+
+  builderius_release.event_listener.builderius_global_type_settings_transformation_on_release_import:
+    class: Builderius\Bundle\ReleaseBundle\EventListener\BuilderiusGlobalTypeSettingsTransformationBeforeReleaseImportListener
+    arguments:
+      - '@builderius_template.provider.template_types'
+      - '@builderius_setting.registry.settings'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_release_config_before_import, method: beforeImport }
+
+  builderius_release.event_listener.clear_published_release_cache:
+    class: Builderius\Bundle\ReleaseBundle\EventListener\ClearPublishedReleaseCacheEventListener
+    arguments:
+      - '@builderius.cache.persistent'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_release_unpublished, method: deleteCache }
+      - { name: moomoo_event_listener, event: builderius_release_before_publish, method: deleteCache }
+
+  builderius_release.hook.delete_published_release_cache_on_clean_post_cache:
+    class: Builderius\Bundle\ReleaseBundle\Hook\ClearPublishedReleaseCacheOnCleanPostCacheHook
+    arguments:
+      - tag: 'clean_post_cache'
+        accepted_args: 2
+    calls:
+      - [ 'setPersistentCache', [ '@builderius.cache.persistent' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_release.hook.delete_published_release_cache_on_clean_term_cache:
+    class: Builderius\Bundle\ReleaseBundle\Hook\ClearPublishedReleaseCacheOnCleanTermCacheHook
+    arguments:
+      - tag: 'clean_term_cache'
+    calls:
+      - [ 'setPersistentCache', [ '@builderius.cache.persistent' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_release.hook.delete_published_release_cache_on_post_meta_update:
+    class: Builderius\Bundle\ReleaseBundle\Hook\ClearPublishedReleaseCacheOnMetaUpdateHook
+    arguments:
+      - tag: 'updated_post_meta'
+        accepted_args: 2
+    calls:
+      - [ 'setPersistentCache', [ '@builderius.cache.persistent' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_release.hook.delete_published_release_cache_on_comment_meta_update:
+    class: Builderius\Bundle\ReleaseBundle\Hook\ClearPublishedReleaseCacheOnMetaUpdateHook
+    arguments:
+      - tag: 'updated_comment_meta'
+        accepted_args: 2
+    calls:
+      - [ 'setPersistentCache', [ '@builderius.cache.persistent' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_release.hook.delete_published_release_cache_on_term_meta_update:
+    class: Builderius\Bundle\ReleaseBundle\Hook\ClearPublishedReleaseCacheOnMetaUpdateHook
+    arguments:
+      - tag: 'updated_term_meta'
+        accepted_args: 2
+    calls:
+      - [ 'setPersistentCache', [ '@builderius.cache.persistent' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_release.hook.delete_published_release_cache_on_user_meta_update:
+    class: Builderius\Bundle\ReleaseBundle\Hook\ClearPublishedReleaseCacheOnMetaUpdateHook
+    arguments:
+      - tag: 'updated_user_meta'
+        accepted_args: 2
+    calls:
+      - [ 'setPersistentCache', [ '@builderius.cache.persistent' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_release.hook.delete_published_release_cache_on_option_added:
+    class: Builderius\Bundle\ReleaseBundle\Hook\ClearPublishedReleaseCacheOnOptionUpdateHook
+    arguments:
+      - tag: 'added_option'
+        accepted_args: 1
+    calls:
+      - [ 'setPersistentCache', [ '@builderius.cache.persistent' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_release.hook.delete_published_release_cache_on_option_updated:
+    class: Builderius\Bundle\ReleaseBundle\Hook\ClearPublishedReleaseCacheOnOptionUpdateHook
+    arguments:
+      - tag: 'updated_option'
+        accepted_args: 1
+    calls:
+      - [ 'setPersistentCache', [ '@builderius.cache.persistent' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_release.hook.delete_published_release_cache_on_option_deleted:
+    class: Builderius\Bundle\ReleaseBundle\Hook\ClearPublishedReleaseCacheOnOptionUpdateHook
+    arguments:
+      - tag: 'deleted_option'
+        accepted_args: 1
+    calls:
+      - ['setPersistentCache', ['@builderius.cache.persistent']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_release.rest_api.endpoint.release_cache_clear:
+    class: Builderius\Bundle\ReleaseBundle\RestApi\Endpoint\ReleaseCacheClearEndpoint
+    arguments:
+      - '@builderius.cache.persistent'
+    public: true
+    tags:
+      - { name: moomoo_rest_endpoint }

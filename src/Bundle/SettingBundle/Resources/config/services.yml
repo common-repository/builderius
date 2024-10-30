@@ -1,0 +1,209 @@
+services:
+  builderius_setting.model.builderius_global_settings_set_post_type:
+    class: Builderius\Bundle\SettingBundle\Registration\BuilderiusGlobalSettingsSetPostType
+    tags:
+      - { name: moomoo_post_type }
+
+  builderius_setting.provider.settings_default_values:
+    class: Builderius\Bundle\SettingBundle\Provider\DefaultSettingsValuesProvider
+    arguments:
+      - '@builderius_setting.registry.settings'
+      - '@event_dispatcher'
+      - '@builderius_setting.converter.to_array'
+      - '@builderius.cache.runtime'
+
+  builderius_setting.registry.global_setting_value_generators:
+    class: Builderius\Bundle\SettingBundle\Registry\BuilderiusGlobalSettingValueGeneratorsRegistry
+
+  builderius_setting.generator.final_setting_value:
+    class: Builderius\Bundle\SettingBundle\Generator\FinalSettingValue\FinalSettingValueGenerator
+    arguments:
+      - '@builderius_el.expression_language'
+
+  builderius_setting.global_setting_value_generator.cssvars:
+    class: Builderius\Bundle\SettingBundle\Generator\GlobalSetting\CssVarsBuilderiusGlobalSettingValueGenerator
+    arguments:
+      - '@builderius_template.provider.template_types'
+      - '@builderius_setting.registry.settings'
+      - '@builderius_setting.factory.setting_value.css'
+      - '@builderius_setting.generator.final_setting_value'
+    tags:
+      - { name: builderius_global_setting_value_generator }
+
+  builderius_setting.command.fonts_generation:
+    class: Builderius\Bundle\SettingBundle\Command\BuilderiusFontsGenerationCommand
+    tags:
+      - { name: moomoo_wpcli_command }
+
+  builderius_setting.registry.settings_components:
+    class: Builderius\Bundle\SettingBundle\Registry\BuilderiusSettingsComponentsRegistry
+    lazy: true
+    arguments:
+      - '@builderius_setting.checker.setting_component'
+
+  builderius_setting.registry.settings:
+    class: Builderius\Bundle\SettingBundle\Registry\BuilderiusSettingsRegistry
+    lazy: true
+    public: true
+    arguments:
+      - '@builderius_setting.checker.setting'
+      - '@builderius_template.provider.template_types'
+      - '@builderius.cache.runtime'
+
+  builderius_setting.converter.to_array.abstract:
+    class: Builderius\Bundle\SettingBundle\Converter\Setting\ToArray\Chain\Element\AbstractBuilderiusSettingToArrayConverter
+    abstract: true
+    arguments:
+      - '@builderius_setting.checker.setting_value'
+      - '@builderius_setting.registry.settings'
+
+  builderius_setting.converter.to_array.non_module_setting:
+    class: Builderius\Bundle\SettingBundle\Converter\Setting\ToArray\Chain\Element\BuilderiusNonModuleSettingToArrayConverterChainElement
+    parent: builderius_setting.converter.to_array.abstract
+    calls:
+      - [ 'setSuccessor', [ '@builderius_setting.converter.to_array.module_setting' ] ]
+
+  builderius_setting.converter.to_array.module_setting:
+    class: Builderius\Bundle\SettingBundle\Converter\Setting\ToArray\Chain\Element\BuilderiusModuleSettingToArrayConverterChainElement
+    parent: builderius_setting.converter.to_array.abstract
+    calls:
+      - [ setModulesProvider, ['@builderius_module.provider.composite']]
+
+  builderius_setting.converter.to_array:
+    parent: builderius_setting.converter.to_array.non_module_setting
+    public: true
+
+  builderius_setting.registration.builderius_global_settings_values_asset_localization:
+    class: Builderius\Bundle\SettingBundle\Registration\BuilderiusGlobalSettingsScriptLocalization
+    arguments:
+      - '@builderius_template.provider.template'
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+    calls:
+      - [addCondition, ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_setting.registration.builderius_settings_list_asset_localization:
+    class: Builderius\Bundle\SettingBundle\Registration\BuilderiusSettingsListScriptLocalization
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_setting.converter.to_array'
+      - '@builderius_setting.registry.settings'
+      - '@builderius_template.provider.template'
+    calls:
+      - [ addCondition, ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_setting.hook.setting_value_checking:
+    class: Builderius\Bundle\SettingBundle\Hook\SettingValueCheckingHook
+    arguments:
+      - tag: 'builderius_setting_add_value'
+        accepted_args: 2
+    calls:
+      - [ 'setSettingValueChecker', [ '@builderius_setting.checker.setting_value' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_setting.hook.post_name_like:
+    class: Builderius\Bundle\SettingBundle\Hook\WpQueryPostNameLikeArgumentAddingHook
+    arguments:
+      - tag: 'posts_where'
+        priority: 999
+        accepted_args: 2
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_setting.factory.builderius_global_settings_set_from_post:
+    class: Builderius\Bundle\SettingBundle\Factory\BuilderiusGlobalSettingsSetFromPostFactory
+    public: true
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_vcs.factory.builderius_branch_from_post'
+      - '@builderius.cache.runtime'
+      - '@builderius_setting.provider.settings_default_values'
+      - '@event_dispatcher'
+
+  builderius_setting.factory.builderius_vcs_owner_global_settings_set_from_post:
+    class: Builderius\Bundle\SettingBundle\Factory\BuilderiusVCSOwnerGlobalSettingsSetFromPostFactory
+    arguments:
+      - '@builderius_setting.factory.builderius_global_settings_set_from_post'
+
+  #-------------------------- Setting Checkers----------------------------------------------------------------------------
+
+  builderius_setting.checker.setting.chain_element.base:
+    class: Builderius\Bundle\SettingBundle\Checker\Setting\Chain\Element\BaseBuilderiusSettingCheckerChainElement
+    public: false
+    arguments:
+      - '@builderius_setting.registry.settings_components'
+    calls:
+      - [ 'setSuccessor', [ '@builderius_setting.checker.setting.chain_element.setting_component_existance' ] ]
+
+  builderius_setting.checker.setting.chain_element.setting_component_existance:
+    class: Builderius\Bundle\SettingBundle\Checker\Setting\Chain\Element\BuilderiusSettingCheckerSettingComponentExistenceChainElement
+    public: false
+    arguments:
+      - '@builderius_setting.registry.settings_components'
+    calls:
+      - [ 'setSuccessor', [ '@builderius_setting.checker.setting.chain_element.required_options' ] ]
+
+  builderius_setting.checker.setting.chain_element.required_options:
+    class: Builderius\Bundle\SettingBundle\Checker\Setting\Chain\Element\BuilderiusSettingCheckerRequiredOptionsChainElement
+    public: false
+    arguments:
+      - '@builderius_setting.registry.settings_components'
+    calls:
+      - [ 'setSuccessor', [ '@builderius_setting.checker.setting.chain_element.options_types' ] ]
+
+  builderius_setting.checker.setting.chain_element.options_types:
+    class: Builderius\Bundle\SettingBundle\Checker\Setting\Chain\Element\BuilderiusSettingCheckerOptionsTypesChainElement
+    public: false
+    arguments:
+      - '@builderius_setting.registry.settings_components'
+    calls:
+      - [ 'setSuccessor', [ '@builderius_setting.checker.setting.chain_element.default_options' ] ]
+
+  builderius_setting.checker.setting.chain_element.default_options:
+    class: Builderius\Bundle\SettingBundle\Checker\Setting\Chain\Element\BuilderiusSettingCheckerDefaultOptionsChainElement
+    public: false
+    arguments:
+      - '@builderius_setting.registry.settings_components'
+    #calls:
+    #  - ['setSuccessor', ['@builderius_setting.checker.setting.chain_element.value_schema']]
+
+  builderius_setting.checker.setting.chain_element.value_schema:
+    class: Builderius\Bundle\SettingBundle\Checker\Setting\Chain\Element\BuilderiusSettingCheckerSettingValueSchemaChainElement
+    public: false
+
+  builderius_setting.checker.setting:
+    parent: builderius_setting.checker.setting.chain_element.base
+
+  #-------------------------- Setting Type Checkers----------------------------------------------------------------------------
+
+  builderius_setting.checker.setting_component.chain_element.base:
+    class: Builderius\Bundle\SettingBundle\Checker\SettingComponent\Chain\Element\BaseBuilderiusSettingComponentCheckerChainElement
+    public: false
+
+  builderius_setting.checker.setting_component:
+    parent: builderius_setting.checker.setting_component.chain_element.base
+
+  #-------------------------- Setting Value Checkers----------------------------------------------------------------------
+
+  builderius_setting.checker.setting_value.chain_element.value_class:
+    class: Builderius\Bundle\SettingBundle\Checker\SettingValue\Chain\Element\BuilderiusSettingValueCheckerValueClassChainElement
+    public: false
+    calls:
+      - [ 'setSuccessor', [ '@builderius_setting.checker.setting_value.chain_element.value_schema' ] ]
+
+  builderius_setting.checker.setting_value.chain_element.value_schema:
+    class: Builderius\Bundle\SettingBundle\Checker\SettingValue\Chain\Element\BuilderiusSettingValueCheckerValueSchemaChainElement
+    public: false
+    calls:
+      - [ 'setSuccessor', [ '@builderius_setting.checker.setting_value.chain_element.same_value_existence' ] ]
+
+  builderius_setting.checker.setting_value.chain_element.same_value_existence:
+    class: Builderius\Bundle\SettingBundle\Checker\SettingValue\Chain\Element\BuilderiusSettingValueCheckerSameValueExistenceChainElement
+    public: false
+
+  builderius_setting.checker.setting_value:
+    parent: builderius_setting.checker.setting_value.chain_element.value_class

@@ -1,0 +1,2 @@
+bundles:
+    - { name: Builderius\Bundle\ResponsiveBundle\BuilderiusResponsiveBundle, priority: 20 }

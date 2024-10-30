@@ -1,0 +1,1103 @@
+services:
+  builderius_layout.layout_footer_2:
+    class: 'Builderius\Bundle\LayoutBundle\Model\BuilderiusLayout'
+    arguments:
+      - name: 'layout_footer_2'
+        label: 'Footer #2'
+        technologies: ['html']
+        category: 'footers'
+        image: 'https://showcase.builderius.io/wp-content/uploads/2023/02/layout_footer_2.png'
+        tags:
+          - 'footer'
+          - 'responsive'
+        config:
+          ---
+          modules:
+            u7e853621:
+              id: u7e853621
+              name: Svg
+              label: insta
+              settings:
+                - name: fill
+                  value:
+                    all: []
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 30
+                - name: dataSvg
+                  value:
+                    a1: >-
+                      <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"
+                      class="svg-inline--fa fa-instagram-square fa-w-14"
+                      data-icon="instagram-square" data-prefix="fab" aria-hidden="true"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"><path
+                      d="M224,202.66A53.34,53.34,0,1,0,277.36,256,53.38,53.38,0,0,0,224,202.66Zm124.71-41a54,54,0,0,0-30.41-30.41c-21-8.29-71-6.43-94.3-6.43s-73.25-1.93-94.31,6.43a54,54,0,0,0-30.41,30.41c-8.28,21-6.43,71.05-6.43,94.33S91,329.26,99.32,350.33a54,54,0,0,0,30.41,30.41c21,8.29,71,6.43,94.31,6.43s73.24,1.93,94.3-6.43a54,54,0,0,0,30.41-30.41c8.35-21,6.43-71.05,6.43-94.33S357.1,182.74,348.75,161.67ZM224,338a82,82,0,1,1,82-82A81.9,81.9,0,0,1,224,338Zm85.38-148.3a19.14,19.14,0,1,1,19.13-19.14A19.1,19.1,0,0,1,309.42,189.74ZM400,32H48A48,48,0,0,0,0,80V432a48,48,0,0,0,48,48H400a48,48,0,0,0,48-48V80A48,48,0,0,0,400,32ZM382.88,322c-1.29,25.63-7.14,48.34-25.85,67s-41.4,24.63-67,25.85c-26.41,1.49-105.59,1.49-132,0-25.63-1.29-48.26-7.15-67-25.85s-24.63-41.42-25.85-67c-1.49-26.42-1.49-105.61,0-132,1.29-25.63,7.07-48.34,25.85-67s41.47-24.56,67-25.78c26.41-1.49,105.59-1.49,132,0,25.63,1.29,48.33,7.15,67,25.85s24.63,41.42,25.85,67.05C384.37,216.44,384.37,295.56,382.88,322Z"
+                      fill="currentColor"></path></svg>
+              parent: u3adb371c
+            udaf684bf:
+              id: udaf684bf
+              name: GenericBlock
+              label: 'footer #2'
+              settings:
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: backgroundImage
+                  value:
+                    all:
+                      original:
+                        i1:
+                          - b1: linear-gradient
+                            c1: 148
+                            d1: 'rgba(236, 237, 238, 255.00) 0%%, rgba(71, 120, 183, 1.00) 99%%'
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 20
+                        b3: px
+                - name: modCssVars
+                  value:
+                    all:
+                      original:
+                        i1:
+                          - a2: '--textcolor'
+                            a1: color
+                            b2: 'rgba(255, 255, 255, 1.00)'
+                          - a1: color
+                            a2: '--textcolor-alt'
+                            b2: 'rgba(191, 206, 217, 1.00)'
+                          - a1: color
+                            a2: '--accentcolor'
+                            b2: 'rgba(252, 54, 59, 1.00)'
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            ua3dc6ab5:
+              id: ua3dc6ab5
+              name: GenericBlock
+              label: footer col
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a1: 10
+                        b1: px
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 180
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u4da01328
+            u2ec09c19:
+              id: u2ec09c19
+              name: List
+              label: list pages
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      ' li':
+                        a3: 15
+                        b3: px
+                - name: textTransform
+                  value:
+                    all:
+                      ' li a':
+                        a1: uppercase
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: textDecoration
+                  value:
+                    all:
+                      ' li a:hover':
+                        a1: underline
+                      ' li a':
+                        a1: none
+                - name: cursor
+                  value:
+                    all:
+                      ' li a:hover':
+                        a1: pointer
+                - name: color
+                  value:
+                    all:
+                      ' li':
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                        v1:
+                          - '--bgcolor'
+                - name: font
+                  value:
+                    all:
+                      ' li':
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                        a2: normal
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: listStyle
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: htmlTagList
+                  value:
+                    a1: ul
+                - name: dataList
+                  value:
+                    a1: |-
+                      <li><a href="#">About us</a></li>
+                      <li><a href="#">Our mission</a></li>
+              parent: u1523be98
+            u4b69ab59:
+              id: u4b69ab59
+              name: GenericBlock
+              label: twitter link
+              settings:
+                - name: fill
+                  value:
+                    all:
+                      ' path':
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                        v1:
+                          - '--textcolor-alt'
+                      ':hover path':
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                        v1:
+                          - '--textcolor'
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: href
+                  value:
+                    a1: 'https://twitter.com'
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: true
+              parent: u890131bc
+            u828743ba:
+              id: u828743ba
+              name: List
+              label: list pages
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      ' li':
+                        a3: 15
+                        b3: px
+                - name: textTransform
+                  value:
+                    all:
+                      ' li a':
+                        a1: uppercase
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: textDecoration
+                  value:
+                    all:
+                      ' li a:hover':
+                        a1: underline
+                      ' li a':
+                        a1: none
+                - name: cursor
+                  value:
+                    all:
+                      ' li a:hover':
+                        a1: pointer
+                - name: color
+                  value:
+                    all:
+                      ' li':
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                        v1:
+                          - '--bgcolor'
+                - name: font
+                  value:
+                    all:
+                      ' li':
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                        a2: normal
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: listStyle
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: htmlTagList
+                  value:
+                    a1: ul
+                - name: dataList
+                  value:
+                    a1: |-
+                      <li><a href="#">Features</a></li>
+                      <li><a href="#">Free vs pro</a></li>
+                      <li><a href="#">Documentation</a></li>
+                      <li><a href="#">Faq</a></li>
+              parent: u700d7ccd
+            u3db43e58:
+              id: u3db43e58
+              name: Paragraph
+              label: copyright
+              settings:
+                - name: margin
+                  value:
+                    '(max-width: 420px)':
+                      original:
+                        a1: 20
+                        b1: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                        a2: normal
+                - name: dataParagraph
+                  value:
+                    a1: © 2021 Builderius Layouts
+              parent: uc58974f8
+            u943a51d7:
+              id: u943a51d7
+              name: GenericBlock
+              label: bottomInner
+              settings:
+                - name: backgroundColor
+                  value:
+                    all:
+                      original:
+                        a1: 'rgba(255, 255, 255, 0.33)'
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a3: 20
+                        b3: px
+                        a1: 20
+                        b1: px
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: udaf684bf
+            udd723584:
+              id: udd723584
+              name: Svg
+              label: twi
+              settings:
+                - name: fill
+                  value:
+                    all: []
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 30
+                - name: dataSvg
+                  value:
+                    a1: >-
+                      <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"
+                      class="svg-inline--fa fa-twitter-square fa-w-14"
+                      data-icon="twitter-square" data-prefix="fab" aria-hidden="true"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M400 32H48C21.5
+                      32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5
+                      48-48V80c0-26.5-21.5-48-48-48zm-48.9 158.8c.2 2.8.2 5.7.2 8.5 0
+                      86.7-66 186.6-186.6 186.6-37.2 0-71.7-10.8-100.7-29.4 5.3.6 10.4.8
+                      15.8.8 30.7 0 58.9-10.4 81.4-28-28.8-.6-53-19.5-61.3-45.5 10.1 1.5
+                      19.2 1.5 29.6-1.2-30-6.1-52.5-32.5-52.5-64.4v-.8c8.7 4.9 18.9 7.9
+                      29.6 8.3a65.447 65.447 0 0 1-29.2-54.6c0-12.2 3.2-23.4 8.9-33.1 32.3
+                      39.8 80.8 65.8 135.2 68.6-9.3-44.5 24-80.6 64-80.6 18.9 0 35.9 7.9
+                      47.9 20.7 14.8-2.8 29-8.3 41.6-15.8-4.9 15.2-15.2 28-28.8 36.1
+                      13.2-1.4 26-5.1 37.8-10.2-8.9 13.1-20.1 24.7-32.9 34z"
+                      fill="currentColor"></path></svg>
+              parent: u4b69ab59
+            u700d7ccd:
+              id: u700d7ccd
+              name: GenericBlock
+              label: footer col
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a1: 10
+                        b1: px
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 180
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u4da01328
+            u32f6e311:
+              id: u32f6e311
+              name: Svg
+              label: fb
+              settings:
+                - name: fill
+                  value:
+                    all: []
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 30
+                - name: dataSvg
+                  value:
+                    a1: >-
+                      <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"
+                      class="svg-inline--fa fa-facebook-square fa-w-14"
+                      data-icon="facebook-square" data-prefix="fab" aria-hidden="true"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M400 32H48A48 48
+                      0 0 0 0 80v352a48 48 0 0 0 48
+                      48h137.25V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48
+                      27.14 0 55.52 4.84 55.52 4.84v61h-31.27c-30.81 0-40.42 19.12-40.42
+                      38.73V256h68.78l-11 71.69h-57.78V480H400a48 48 0 0 0 48-48V80a48 48
+                      0 0 0-48-48z" fill="currentColor"></path></svg>
+              parent: u5b0e0448
+            u70c018b5:
+              id: u70c018b5
+              name: List
+              label: list pages
+              settings:
+                - name: textDecoration
+                  value:
+                    all:
+                      ' li a:hover':
+                        a1: underline
+                      ' li a':
+                        a1: none
+                - name: cursor
+                  value:
+                    all:
+                      ' li a:hover':
+                        a1: pointer
+                - name: border
+                  value:
+                    all:
+                      ' li':
+                        a4: 1
+                        b4: px
+                        c4: solid
+                        d4: 'rgba(15, 26, 38, 1.00)'
+                      ' li:nth-last-of-type(1)':
+                        g4: unset
+                - name: margin
+                  value:
+                    all:
+                      ' li':
+                        a2: 20
+                        b2: px
+                      ' li:nth-last-of-type(1)':
+                        b2: unset
+                - name: padding
+                  value:
+                    all:
+                      ' li':
+                        a2: 20
+                        b2: px
+                      ' li:nth-last-of-type(1)':
+                        b2: unset
+                - name: color
+                  value:
+                    all:
+                      ' li':
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                        v1:
+                          - '--bgcolor'
+                - name: font
+                  value:
+                    all:
+                      ' li':
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                        a2: normal
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: listStyle
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: htmlTagList
+                  value:
+                    a1: ul
+                - name: dataList
+                  value:
+                    a1: |-
+                      <li><a href="#">Privacy Policy</a></li>
+                      <li><a href="#">Terms</a></li>
+              parent: uc58974f8
+            u890131bc:
+              id: u890131bc
+              name: GenericBlock
+              label: socials
+              settings:
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: flex-end
+                    '(max-width: 420px)':
+                      original:
+                        a1: flex-start
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a1: 20
+                        b1: px
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ua3dc6ab5
+            u3adb371c:
+              id: u3adb371c
+              name: GenericBlock
+              label: insta link
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a2: 10
+                        b2: px
+                - name: fill
+                  value:
+                    all:
+                      ' path':
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                        v1:
+                          - '--textcolor-alt'
+                      ':hover path':
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                        v1:
+                          - '--textcolor'
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: href
+                  value:
+                    a1: 'https://instgram.com'
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: true
+              parent: u890131bc
+            uc58974f8:
+              id: uc58974f8
+              name: GenericBlock
+              label: innerBottomInner
+              settings:
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: transition
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label:after':
+                        i1:
+                          - d1: 0
+                            c1: linear
+                            b1: 0.2
+                            a1: all
+                      ' #hamburger-input3:checked ~ label:before':
+                        i1:
+                          - d1: 0
+                            c1: linear
+                            b1: 0.2
+                            a1: transform
+                - name: transform
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label:before':
+                        i1:
+                          - c1: rotate
+                            a1: 45
+                            b1: deg
+                      ' #hamburger-input3:checked ~ label:after':
+                        i1:
+                          - c1: rotate
+                            a1: -45
+                            b1: deg
+                - name: top
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label:before':
+                        b1: px
+                        a1: 6
+                - name: color
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label':
+                        a1: 'rgba(255, 255, 255, 0.00)'
+                - name: flexWrap
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: wrap
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 50
+                        b4: px
+                        a2: 50
+                        b2: px
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 1440
+                - name: height
+                  value:
+                    all: []
+                    '(max-width: 800px)':
+                      original:
+                        b1: auto
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                      ' #hamburger-input3:checked ~ label:after':
+                        b1: px
+                        a1: 16
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: space-between
+                    '(max-width: 700px)':
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                      ' #hamburger-input3:checked ~ nav':
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u943a51d7
+            u650546eb:
+              id: u650546eb
+              name: Anchor
+              label: logo
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 30
+                        b3: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--accentcolor'
+                        a1: 'rgba(252, 54, 59, 1.00)'
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: modCssVars
+                  value:
+                    all:
+                      original:
+                        i1:
+                          - a2: '--textcolor'
+                            a1: color
+                            b2: 'rgba(255, 255, 255, 1.00)'
+                - name: textTransform
+                  value:
+                    all:
+                      original:
+                        a1: uppercase
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 30
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: serif
+                        c1: Spectral
+                - name: textDecoration
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: dataAnchor
+                  value:
+                    a1: Logo
+              parent: u1523be98
+            u0948b7bf:
+              id: u0948b7bf
+              name: List
+              label: list pages
+              settings:
+                - name: textAlign
+                  value:
+                    all:
+                      original:
+                        a1: right
+                    '(max-width: 420px)':
+                      original:
+                        a1: left
+                - name: margin
+                  value:
+                    all:
+                      ' li':
+                        a3: 15
+                        b3: px
+                - name: textTransform
+                  value:
+                    all:
+                      ' li a':
+                        a1: uppercase
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: textDecoration
+                  value:
+                    all:
+                      ' li a:hover':
+                        a1: underline
+                      ' li a':
+                        a1: none
+                - name: cursor
+                  value:
+                    all:
+                      ' li a:hover':
+                        a1: pointer
+                - name: color
+                  value:
+                    all:
+                      ' li':
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                        v1:
+                          - '--bgcolor'
+                - name: font
+                  value:
+                    all:
+                      ' li':
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                        a2: normal
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: listStyle
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: htmlTagList
+                  value:
+                    a1: ul
+                - name: dataList
+                  value:
+                    a1: |-
+                      <li><a href="#">Blog</a></li>
+                      <li><a href="#">FB Community</a></li>
+                      <li><a href="#">Newsletter</a></li>
+                      <li><a href="#">Contac us</a></li>
+              parent: ua3dc6ab5
+            u4da01328:
+              id: u4da01328
+              name: GenericBlock
+              label: topInner
+              settings:
+                - name: transition
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label:after':
+                        i1:
+                          - d1: 0
+                            c1: linear
+                            b1: 0.2
+                            a1: all
+                      ' #hamburger-input3:checked ~ label:before':
+                        i1:
+                          - d1: 0
+                            c1: linear
+                            b1: 0.2
+                            a1: transform
+                - name: transform
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label:before':
+                        i1:
+                          - c1: rotate
+                            a1: 45
+                            b1: deg
+                      ' #hamburger-input3:checked ~ label:after':
+                        i1:
+                          - c1: rotate
+                            a1: -45
+                            b1: deg
+                - name: top
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label:before':
+                        b1: px
+                        a1: 6
+                - name: color
+                  value:
+                    all:
+                      ' #hamburger-input3:checked ~ label':
+                        a1: 'rgba(255, 255, 255, 0.00)'
+                - name: flexWrap
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: wrap
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 50
+                        a3: 40
+                        b4: px
+                        a2: 50
+                        b3: px
+                        a1: 40
+                        b2: px
+                        b1: px
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 1440
+                - name: height
+                  value:
+                    all: []
+                    '(max-width: 800px)':
+                      original:
+                        b1: auto
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                      ' #hamburger-input3:checked ~ label:after':
+                        b1: px
+                        a1: 16
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: space-between
+                    '(max-width: 700px)':
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                      ' #hamburger-input3:checked ~ nav':
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: udaf684bf
+            u1523be98:
+              id: u1523be98
+              name: GenericBlock
+              label: footer col
+              settings:
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 180
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u4da01328
+            u5b0e0448:
+              id: u5b0e0448
+              name: GenericBlock
+              label: fb link
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a2: 10
+                        b2: px
+                - name: fill
+                  value:
+                    all:
+                      ' path':
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                        v1:
+                          - '--textcolor-alt'
+                      ':hover path':
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                        v1:
+                          - '--textcolor'
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: href
+                  value:
+                    a1: 'https://fb.com'
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: true
+              parent: u890131bc
+          indexes:
+            root:
+              - udaf684bf
+            udaf684bf:
+              - u4da01328
+              - u943a51d7
+            ua3dc6ab5:
+              - u0948b7bf
+              - u890131bc
+            u4b69ab59:
+              - udd723584
+            u943a51d7:
+              - uc58974f8
+            u700d7ccd:
+              - u828743ba
+            u890131bc:
+              - u3adb371c
+              - u5b0e0448
+              - u4b69ab59
+            u3adb371c:
+              - u7e853621
+            uc58974f8:
+              - u70c018b5
+              - u3db43e58
+            u4da01328:
+              - u1523be98
+              - u700d7ccd
+              - ua3dc6ab5
+            u1523be98:
+              - u650546eb
+              - u2ec09c19
+            u5b0e0448:
+              - u32f6e311
+          template:
+            settings:
+              - name: cssVars
+                value:
+                  all:
+                    original:
+                      i1:
+                        - a2: '--bgcolor'
+                          a1: color
+                          b2: 'rgba(15, 26, 38, 1.00)'
+                        - a2: '--textcolor'
+                          a1: color
+                          b2: 'rgba(255, 255, 255, 1.00)'
+                        - a1: color
+                          a2: '--textcolor-alt'
+                          b2: 'rgba(191, 206, 217, 1.00)'
+                        - a2: '--accentcolor'
+                          a1: color
+                          b2: 'rgba(252, 54, 59, 1.00)'
+                        - a2: '--accentborder'
+                          a1: any-value
+                          b2: 1px solid var(--accentcolor)
+              - name: responsiveStrategy
+                value:
+                  a1: desktop-first
+            type: singular
+            technology: html
+          version:
+            builderius: 0.9.6
+    tags:
+      - { name: builderius_layout }

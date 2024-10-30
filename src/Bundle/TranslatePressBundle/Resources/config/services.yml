@@ -1,0 +1,9 @@
+services:
+  builderius_trp.hook.disable_language_switcher.builder_mode:
+    class: Builderius\Bundle\TranslatePressBundle\Hook\DisableLanguageSwitcherHook
+    arguments:
+      - tag: 'trp_floating_ls_html'
+    calls:
+      - [ 'addCondition', [ '@is_builderius_builder_mode' ] ]
+    tags:
+      - { name: moomoo_hook }

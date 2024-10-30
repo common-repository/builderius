@@ -1,0 +1,22 @@
+services:
+  builderius_pll.hook.clear_language_in_cookie.builder_mode:
+    class: Builderius\Bundle\PolylangBundle\Hook\ClearLanguageInCookieHook
+    arguments:
+      - tag: 'pll_pre_init'
+        init_hook: 'plugins_loaded'
+        init_hook_priority: -1
+    calls:
+      - [ 'addCondition', [ '@is_builderius_builder_mode_light' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_pll.hook.clear_language_in_cookie.backend:
+    class: Builderius\Bundle\PolylangBundle\Hook\ClearLanguageInCookieHook
+    arguments:
+      - tag: 'pll_pre_init'
+        init_hook: 'plugins_loaded'
+        init_hook_priority: -1
+    calls:
+      - [ 'addCondition', [ '@is_backend' ] ]
+    tags:
+      - { name: moomoo_hook }

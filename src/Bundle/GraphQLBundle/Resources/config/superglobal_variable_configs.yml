@@ -1,0 +1,33 @@
+services:
+  builderius_graphql.type_config.field.superglobal_variable:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'superglobal_variable'
+        type: 'Mixed'
+    calls:
+      - [ 'addArgument', [ '@builderius_graphql.type_config.field.superglobal_variable.argument.variable' ] ]
+      - [ 'addArgument', [ '@builderius_graphql.type_config.field.superglobal_variable.argument.key' ] ]
+      - [ 'addArgument', [ '@builderius_graphql.type_config.field.superglobal_variable.argument.fallback' ] ]
+
+  builderius_graphql.type_config.field.superglobal_variable.argument.variable:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    lazy: true
+    arguments:
+      - name: 'variable'
+        description: 'SERVER|GET|POST|FILES|REQUEST|SESSION|ENV|COOKIE'
+        type: 'StringOrDataVar!'
+
+  builderius_graphql.type_config.field.superglobal_variable.argument.key:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    lazy: true
+    arguments:
+      - name: 'key'
+        type: 'MixedOrDataVar!'
+
+  builderius_graphql.type_config.field.superglobal_variable.argument.fallback:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    lazy: true
+    arguments:
+      - name: 'fallback'
+        type: 'MixedOrDataVar'

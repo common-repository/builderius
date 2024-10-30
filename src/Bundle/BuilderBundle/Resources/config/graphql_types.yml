@@ -1,0 +1,16 @@
+services:
+  builderius_graphql.type_config.builderius_root_query:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusRootQuery'
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.builderius_root_mutation:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusRootMutation'
+    tags:
+      - { name: builderius_graphql_type_config }

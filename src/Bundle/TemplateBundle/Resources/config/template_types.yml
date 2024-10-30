@@ -1,0 +1,43 @@
+services:
+  builderius_template.provider.template_types:
+    class: Builderius\Bundle\TemplateBundle\Provider\TemplateType\BuilderiusTemplateTypesProvider
+    public: true
+
+  builderius_template.provider.template_sub_types:
+    class: Builderius\Bundle\TemplateBundle\Provider\TemplateSubType\BuilderiusTemplateSubTypesProvider
+    public: true
+
+  builderius_template.technology.html:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateTechnology
+    arguments:
+      - name: 'html'
+        label: 'Html'
+
+  builderius_template.type.template:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateType
+    arguments:
+      - name: 'template'
+        label: 'Template'
+        technologies:
+          html: '@builderius_template.technology.html'
+    tags:
+      - { name: builderius_template_type }
+
+  builderius_template.sub_type.regular:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateSubType
+    arguments:
+      - name: 'regular'
+        label: 'Regular Template'
+        type: 'template'
+    tags:
+      - { name: builderius_template_sub_type }
+
+  builderius_template.sub_type.hook:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateSubType
+    arguments:
+      - name: 'hook'
+        label: 'Hook Template'
+        type: 'template'
+        theme_disabled: false
+    tags:
+      - { name: builderius_template_sub_type }

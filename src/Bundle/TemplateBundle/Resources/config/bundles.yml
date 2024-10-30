@@ -1,0 +1,2 @@
+bundles:
+    - { name: Builderius\Bundle\TemplateBundle\BuilderiusTemplateBundle, priority: 50 }

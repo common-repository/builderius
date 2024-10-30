@@ -1,0 +1,132 @@
+services:
+  builderius_setting.event_listener.builderius_global_settings_set_vcs_owner_from_post_creation:
+    class: Builderius\Bundle\SettingBundle\EventListener\BuilderiusGlobalSettingsSetVCSOwnerFromPostCreationEventListener
+    arguments:
+      - '@builderius_setting.factory.builderius_global_settings_set_from_post'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_vcs_owner_from_post_creation, method: createOwner }
+
+  builderius_setting.event_listener.before_final_value_generation.css_vars:
+    class: 'Builderius\Bundle\SettingBundle\EventListener\CssVarsBeforeFinalValueGenerationEventListener'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_setting_before_generate_final_value, method: beforeFinalValueGeneration }
+
+  builderius_setting.event_listener.before_final_value_generation.mod_css_vars:
+    class: 'Builderius\Bundle\SettingBundle\EventListener\ModCssVarsBeforeFinalValueGenerationEventListener'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_setting_before_generate_final_value, method: beforeFinalValueGeneration }
+
+  builderius_setting.event_listener.global_settings_set_on_template_creation:
+    class: 'Builderius\Bundle\SettingBundle\EventListener\GlobalSettingsSetPostCreationOnNewTemplatePostCreationEventListener'
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_template_created, method: onTemplateCreation }
+
+  builderius_setting.event_listener.builderius_config_before_export:
+    class: Builderius\Bundle\SettingBundle\EventListener\BuilderiusConfigBeforeExportEventListener
+    tags:
+      - { name: moomoo_event_listener, event: builderius_config_before_export, method: onConfigExport }
+
+  builderius_setting.event_listener.builderius_config_before_import:
+    class: Builderius\Bundle\SettingBundle\EventListener\BuilderiusConfigBeforeImportEventListener
+    arguments:
+      - '@builderius_setting.factory.builderius_global_settings_set_from_post'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_config_before_import, method: onConfigImport }
+
+  builderius_setting.event_listener.builderius_global_settings_delete_before_deliverable_extraction:
+    class: Builderius\Bundle\SettingBundle\EventListener\BuilderiusGlobalSettingsDeleteBeforeDeliverableExtractListener
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_deliverable_before_extraction, method: beforeDeliverableExtraction }
+
+  builderius_setting.event_listener.builderius_global_settings_creation_on_deliverable_extraction:
+    class: Builderius\Bundle\SettingBundle\EventListener\BuilderiusGlobalSettingsCreationOnDeliverableExtractListener
+    arguments:
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+      - '@builderius_template.version_converter.composite'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_deliverable_extraction, method: onDeliverableExtraction, priority: 100 }
+
+  builderius_setting.event_listener.builderius_gss_vcs_owners_resolve:
+    class: Builderius\Bundle\SettingBundle\EventListener\BuilderiusGlobalSettingSetVCSOwnersResolveEventListener
+    arguments:
+      - '@builderius_graphql.field_resolver.builderius_root_query.global_settings_sets'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_vcs_owners_resolve, method: onResolve }
+
+  builderius_setting.event_listener.builderius_gss_dsm_post_creation:
+    class: Builderius\Bundle\SettingBundle\EventListener\BuilderiusGlobalSettingsSetDSMPostCreationEventListener
+    tags:
+      - { name: moomoo_event_listener, event: builderius_dsm_post_creation, method: onDSMPostCreation }
+
+  builderius_setting.event_listener.global_settings_set_vcs_owner_graphql_type_resolving:
+    class: Builderius\Bundle\SettingBundle\EventListener\GlobalSettingsSetVCSOwnerGraphQLTypeResolvingEventListener
+    tags:
+      - { name: moomoo_event_listener, event: builderius_vcs_owner_graphql_type_resolving, method: onTypeResolving }
+
+  builderius_setting.event_listener.inline_assets_registration.at_rules.frontend:
+    class: Builderius\Bundle\SettingBundle\EventListener\AtRulesRegistrationInFrontendModeEventListener
+    arguments:
+      - '@builderius_deliverable.provider.deliverable.composite'
+      - '@builderius_template.provider.deliverable_template_sub_module'
+      - '@builderius_template.provider.deliverable_hook_template_sub_modules'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_applied_any_of_deliverable_builderius_entities']]
+    tags:
+      - { name: moomoo_event_listener, event: builderius_template_css_at_rules_registration_frontend, method: beforeAtRulesRegistration, priority: 10 }
+
+  builderius_setting.event_listener.inline_assets_registration.at_rules.preview:
+    class: Builderius\Bundle\SettingBundle\EventListener\AtRulesRegistrationInPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.template'
+      - '@builderius_template.provider.hook_templates'
+      - '@builderius_setting.factory.builderius_global_settings_set_from_post'
+      - '@moomoo_query.wp_query'
+      - '@builderius.cache.runtime'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_any_of_builderius_entities']]
+    tags:
+      - { name: moomoo_event_listener, event: builderius_template_css_at_rules_registration_preview, method: beforeAtRulesRegistration, priority: 10 }
+
+  builderius_setting.event_listener.inline_assets_registration.css.frontend:
+    class: Builderius\Bundle\SettingBundle\EventListener\CssRegistrationInFrontendModeEventListener
+    arguments:
+      - '@builderius_deliverable.provider.deliverable.composite'
+      - '@builderius_template.provider.deliverable_template_sub_module'
+      - '@builderius_template.provider.deliverable_hook_template_sub_modules'
+      - '@templating'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_applied_any_of_deliverable_builderius_entities']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_styles_registration, method: beforeAssetsRegistration, priority: 100 }
+
+  builderius_setting.event_listener.inline_assets_registration.css.preview:
+    class: Builderius\Bundle\SettingBundle\EventListener\CssRegistrationInPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.template'
+      - '@builderius_template.provider.hook_templates'
+      - '@builderius_setting.factory.builderius_global_settings_set_from_post'
+      - '@moomoo_query.wp_query'
+      - '@builderius.cache.runtime'
+      - '@templating'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_any_of_builderius_entities']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_styles_registration, method: beforeAssetsRegistration, priority: 100 }

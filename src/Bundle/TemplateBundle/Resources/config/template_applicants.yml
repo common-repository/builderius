@@ -1,0 +1,194 @@
+services:
+  builderius_template.provider.template_applicant_categories:
+    class: Builderius\Bundle\TemplateBundle\Applicant\BuilderiusTemplateApplicantCategoriesProvider
+
+  builderius_template.template_applicant_category.other:
+    class: Builderius\Bundle\TemplateBundle\Applicant\BuilderiusTemplateApplicantCategory
+    arguments:
+      - name: other
+        label: Other pages
+        sortOrder: 1000
+    tags:
+      - { name: builderius_template_applicant_category }
+
+  builderius_template.template_applicant_category.special_pages:
+    class: Builderius\Bundle\TemplateBundle\Applicant\BuilderiusTemplateApplicantCategory
+    arguments:
+      - name: special_pages
+        label: Special pages
+        sortOrder: 10
+    tags:
+      - { name: builderius_template_applicant_category }
+
+  builderius_template.template_applicant_category.static_pages:
+    class: Builderius\Bundle\TemplateBundle\Applicant\BuilderiusTemplateApplicantCategory
+    arguments:
+      - name: static_pages
+        label: Static pages
+        sortOrder: 20
+    tags:
+      - { name: builderius_template_applicant_category }
+
+  builderius_template.template_applicant_category.blog_posts:
+    class: Builderius\Bundle\TemplateBundle\Applicant\BuilderiusTemplateApplicantCategory
+    arguments:
+      - name: blog_posts
+        label: Blog posts
+        sortOrder: 30
+    tags:
+      - { name: builderius_template_applicant_category }
+
+  builderius_template.asset_localization.possible_applicants:
+    class: 'Builderius\Bundle\TemplateBundle\Registration\BuilderiusTemplatePossibleApplicantsScriptLocalization'
+    arguments:
+      - '@builderius_template.factory.builderius_template_from_post'
+      - '@builderius_template.provider.template_applicants'
+      - '@moomoo_query.wp_query'
+      - '@builderius_template.registry.apply_rule_categories'
+      - '@builderius_template.provider.template'
+    calls:
+      - [addCondition, ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder, priority: 20 }
+
+  builderius_template.provider.applicant_data.composite:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\DataProvider\CompositeBuilderiusTemplateApplicantDataProvider'
+    lazy: true
+
+  builderius_template.provider.applicant_data.body_classes:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\DataProvider\BodyClassesBuilderiusTemplateApplicantDataProvider'
+    lazy: true
+    tags:
+      - { name: builderius_template_applicant_data_provider }
+
+  builderius_template.provider.applicant_data.l10n:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\DataProvider\L10nBuilderiusTemplateApplicantDataProvider'
+    lazy: true
+    tags:
+      - { name: builderius_template_applicant_data_provider }
+
+  builderius_template.provider.applicant_data.scripts:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\DataProvider\ScriptsBuilderiusTemplateApplicantDataProvider'
+    lazy: true
+    arguments:
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_template_applicant_data_provider }
+
+  builderius_template.provider.applicant_data.inline_scripts:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\DataProvider\InlineScriptsBuilderiusTemplateApplicantDataProvider'
+    lazy: true
+    arguments:
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_template_applicant_data_provider }
+
+  builderius_template.provider.applicant_data.styles:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\DataProvider\StylesBuilderiusTemplateApplicantDataProvider'
+    lazy: true
+    arguments:
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_template_applicant_data_provider }
+
+  builderius_template.provider.applicant_data.inline_styles:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\DataProvider\InlineStylesBuilderiusTemplateApplicantDataProvider'
+    lazy: true
+    arguments:
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_template_applicant_data_provider }
+
+  builderius_template.provider.rule_applicants.composite:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\CompositeBuilderiusTemplateRuleApplicantsProvider'
+    lazy: true
+
+  builderius_template.provider.rule_applicant_parameters.composite:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\ParametersProvider\CompositeBuilderiusTemplateRuleApplicantParametersProvider'
+    lazy: true
+
+  builderius_template.provider.applicants.singular_page_all:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplateAllPagesApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }
+
+  builderius_template.provider.applicants.singular_page_with_id:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplatePageWithIdApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }
+
+  builderius_template.provider.applicants.singular_page_not_with_id:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplatePageNotWithIdApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }
+
+  builderius_template.provider.applicants.singular_single_blog_post_all:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplateAllBlogPostsApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }
+
+  builderius_template.provider.applicants.singular_single_blog_post_with_id:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplateBlogPostWithIdApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }
+
+  builderius_template.provider.applicants.singular_single_blog_posts_not_with_id:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplateBlogPostsNotWithIdApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }
+
+  builderius_template.provider.applicants.singular.blog_post.in_category:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplateBlogPostInCategoryApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }
+
+  builderius_template.provider.applicants.singular.blog_post.not_in_category:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplateBlogPostNotInCategoryApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }
+
+  builderius_template.provider.applicants.singular.blog_post.has_tag:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplateBlogPostHasTagApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }
+
+  builderius_template.provider.applicants.singular.blog_post.has_no_tag:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplateBlogPostHasNoTagApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }
+
+  builderius_template.provider.applicants.has_status:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplateHasStatusApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_template.provider.template_applicant_categories'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }
+
+  builderius_template.provider.applicants.has_no_status:
+    class: 'Builderius\Bundle\TemplateBundle\Applicant\Provider\BuilderiusTemplateHasNoStatusApplicantsProvider'
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_template.provider.template_applicant_categories'
+    tags:
+      - { name: builderius_template_rule_applicants_provider }

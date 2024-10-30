@@ -1,0 +1,201 @@
+services:
+  builderius_theme.twig.theme_extension:
+    class: 'Builderius\Bundle\ThemeBundle\Twig\ThemeExtension'
+    tags:
+      - { name: twig.extension }
+
+  builderius_theme.hook.template_change.builder_mode:
+    class: 'Builderius\Bundle\ThemeBundle\Hook\ThemeTemplateChangingHook'
+    arguments:
+      - tag: 'template_include'
+        priority: !php/const PHP_INT_MAX
+    calls:
+      - ['setTemplatePath', ['BuilderiusThemeBundle:themes/builder.twig']]
+      - ['setTemplatingEngine', ['@templating']]
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_builderius_builder_mode']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.boot_service.template_change.frontend_early_mode:
+    class: Builderius\Bundle\ThemeBundle\Boot\ThemeFrontendEarlyTemplateChanging
+    tags:
+      - { name: moomoo_boot_service, priority: 10 }
+
+  builderius_theme.hook.template_change.frontend_late_mode:
+    class: 'Builderius\Bundle\ThemeBundle\Hook\ThemeFrontendLateTemplateChangingHook'
+    arguments:
+      - tag: 'template_include'
+        priority: !php/const PHP_INT_MAX
+    calls:
+      - ['setTemplatePath', ['BuilderiusThemeBundle:themes/frontend.twig']]
+      - ['setTemplatingEngine', ['@templating']]
+      - ['setPersistentCache', ['@builderius.cache.persistent']]
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_template']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.template_change.preview_mode:
+    class: 'Builderius\Bundle\ThemeBundle\Hook\ThemeTemplateChangingHook'
+    arguments:
+      - tag: 'template_include'
+        priority: !php/const PHP_INT_MAX
+    calls:
+      - ['setTemplatePath', ['BuilderiusThemeBundle:themes/frontend.twig']]
+      - ['setTemplatingEngine', ['@templating']]
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.before_setup_theme.preview_mode:
+    class: 'Builderius\Bundle\ThemeBundle\Hook\BeforeSetupThemeHook'
+    arguments:
+      - tag: 'setup_theme'
+        init_hook: 'plugins_loaded'
+        priority: !php/const PHP_INT_MAX
+    calls:
+      - ['setCache', ['@builderius.cache.runtime']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.after_setup_theme.preview_mode:
+    class: 'Builderius\Bundle\ThemeBundle\Hook\AfterSetupThemeHook'
+    arguments:
+      - tag: 'after_setup_theme'
+        init_hook: 'plugins_loaded'
+        priority: 0
+    calls:
+      - ['setCache', ['@builderius.cache.runtime']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.remove_theme_hooks.builder_mode:
+    class: Builderius\Bundle\ThemeBundle\Hook\ThemeHooksRemovalHook
+    arguments:
+      - tag: 'wp'
+        priority: 1
+    calls:
+      - ['setCache', ['@builderius.cache.runtime']]
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_builderius_builder_mode']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.remove_theme_hooks.frontend_mode:
+    class: Builderius\Bundle\ThemeBundle\Hook\ThemeHooksRemovalHook
+    arguments:
+      - tag: 'wp'
+        priority: 1
+    calls:
+      - ['setCache', ['@builderius.cache.runtime']]
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_template']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.remove_theme_hooks.preview_mode:
+    class: Builderius\Bundle\ThemeBundle\Hook\ThemeHooksRemovalHook
+    arguments:
+      - tag: 'wp'
+        priority: 1
+    calls:
+      - ['setCache', ['@builderius.cache.runtime']]
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.remove_theme_hooks.applicant_data_request:
+    class: Builderius\Bundle\ThemeBundle\Hook\ThemeHooksRemovalHook
+    arguments:
+      - tag: 'wp'
+        priority: 1
+    calls:
+      - ['setCache', ['@builderius.cache.runtime']]
+      - ['addCondition', ['@is_applicant_data_request']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.remove_theme_scripts_and_styles.builder_mode:
+    class: 'Builderius\Bundle\ThemeBundle\Hook\ThemeScriptsAndStylesRemovalHook'
+    arguments:
+      - tag: 'wp_enqueue_scripts'
+        priority: !php/const PHP_INT_MAX
+        init_hook: 'wp_enqueue_scripts'
+    calls:
+      - ['setCache', ['@builderius.cache.runtime']]
+      - [ 'setEventDispatcher', [ '@event_dispatcher'] ]
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_builderius_builder_mode']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.remove_theme_scripts_and_styles.frontend_mode:
+    class: 'Builderius\Bundle\ThemeBundle\Hook\ThemeScriptsAndStylesRemovalHook'
+    arguments:
+      - tag: 'wp_enqueue_scripts'
+        priority: !php/const PHP_INT_MAX
+        init_hook: 'wp_enqueue_scripts'
+    calls:
+      - ['setCache', ['@builderius.cache.runtime']]
+      - [ 'setEventDispatcher', [ '@event_dispatcher'] ]
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_template']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.remove_theme_scripts_and_styles.preview_mode:
+    class: 'Builderius\Bundle\ThemeBundle\Hook\ThemeScriptsAndStylesRemovalHook'
+    arguments:
+      - tag: 'wp_enqueue_scripts'
+        priority: !php/const PHP_INT_MAX
+        init_hook: 'wp_enqueue_scripts'
+    calls:
+      - ['setCache', ['@builderius.cache.runtime']]
+      - [ 'setEventDispatcher', [ '@event_dispatcher'] ]
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.remove_theme_scripts_and_styles.applicant_data_request:
+    class: 'Builderius\Bundle\ThemeBundle\Hook\ThemeScriptsAndStylesRemovalHook'
+    arguments:
+      - tag: 'wp_enqueue_scripts'
+        priority: !php/const PHP_INT_MAX
+        init_hook: 'wp_enqueue_scripts'
+    calls:
+      - ['setCache', ['@builderius.cache.runtime']]
+      - [ 'setEventDispatcher', [ '@event_dispatcher'] ]
+      - ['addCondition', ['@is_applicant_data_request']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_theme.hook.remove_plugins_hooks.builder_mode:
+    class: Builderius\Bundle\ThemeBundle\Hook\PluginsHooksRemovalHook
+    arguments:
+      - tag: 'wp'
+        priority: 1
+    calls:
+      - ['setPluginsVersionsProvider', ['@moomoo_kernel.provider.plugins_versions']]
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_builderius_builder_mode']]
+    tags:
+      - { name: moomoo_hook }

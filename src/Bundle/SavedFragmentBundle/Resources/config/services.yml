@@ -1,0 +1,58 @@
+services:
+  builderius_saved_fragment.registration.builderius_saved_fragment_post_type:
+    class: Builderius\Bundle\SavedFragmentBundle\Registration\BuilderiusSavedFragmentPostType
+    tags:
+      - { name: moomoo_post_type }
+
+  builderius_saved_fragment.registration.taxonomy.builderius_saved_fragment_tag:
+    class: Builderius\Bundle\SavedFragmentBundle\Registration\BuilderiusSavedFragmentTagTaxonomy
+    tags:
+      - { name: moomoo_taxonomy }
+
+  builderius_saved_fragment.registration.taxonomy.builderius_saved_fragment_type:
+    class: Builderius\Bundle\SavedFragmentBundle\Registration\BuilderiusSavedFragmentTypeTaxonomy
+    calls:
+      - ['addTerm', ['@builderius_saved_fragment.registration.taxonomy.builderius_saved_fragment_type.term_module']]
+      - ['addTerm', ['@builderius_saved_fragment.registration.taxonomy.builderius_saved_fragment_type.term_layout']]
+    tags:
+      - { name: moomoo_taxonomy }
+
+  builderius_saved_fragment.registration.taxonomy.builderius_saved_fragment_type.term_module:
+    class: Builderius\MooMoo\Platform\Bundle\TaxonomyBundle\Model\Term
+    arguments:
+      - name: module
+        slug: module
+
+  builderius_saved_fragment.registration.taxonomy.builderius_saved_fragment_type.term_layout:
+    class: Builderius\MooMoo\Platform\Bundle\TaxonomyBundle\Model\Term
+    arguments:
+      - name: layout
+        slug: layout
+
+  builderius_saved_fragment.registration.taxonomy.builderius_saved_fragment_category:
+    class: Builderius\Bundle\SavedFragmentBundle\Registration\BuilderiusSavedFragmentCategoryTaxonomy
+    tags:
+      - { name: moomoo_taxonomy }
+
+  builderius_saved_fragment.hook.template_taxonomies_assigning:
+    class: Builderius\Bundle\SavedFragmentBundle\Hook\TemplateTaxonomiesAssigningHook
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_saved_fragment.registration.builderius_saved_fragments_asset_localization:
+    class: Builderius\Bundle\SavedFragmentBundle\Registration\BuilderiusSavedFragmentsScriptLocalization
+    arguments:
+      - '@builderius_template.provider.template'
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+    calls:
+      - [ addCondition, ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder, priority: 0 }
+
+  builderius_saved_fragment.provider.categories:
+    class: Builderius\Bundle\SavedFragmentBundle\Provider\SavedFragmentsCategoriesProvider
+    lazy: true
+    arguments:
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_categories_provider }

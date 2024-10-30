@@ -1,0 +1,2 @@
+bundles:
+    - { name: Builderius\MooMoo\Platform\Bundle\SettingBundle\SettingBundle }

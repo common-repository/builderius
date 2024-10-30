@@ -1,0 +1,46 @@
+services:
+  builderius_graphql.type_config.featuredimage_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'FeaturedImage'
+    calls:
+      - ['addField', ['@builderius_graphql.type_config.featuredimage_type.field.title']]
+      - ['addField', ['@builderius_graphql.type_config.featuredimage_type.field.alt_text']]
+      - ['addField', ['@builderius_graphql.type_config.featuredimage_type.field.caption']]
+      - ['addField', ['@builderius_graphql.type_config.featuredimage_type.field.description']]
+      - ['addField', ['@builderius_graphql.type_config.featuredimage_type.field.file_url']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.featuredimage_type.field.title:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'title'
+        type: 'String'
+
+  builderius_graphql.type_config.featuredimage_type.field.alt_text:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'alt_text'
+        type: 'String'
+
+  builderius_graphql.type_config.featuredimage_type.field.caption:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'caption'
+        type: 'String'
+
+  builderius_graphql.type_config.featuredimage_type.field.description:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'description'
+        type: 'String'
+
+  builderius_graphql.type_config.featuredimage_type.field.file_url:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'file_url'
+        type: 'String'
+    calls:
+      - ['addArgument', ['@builderius_graphql.type_config.post_type.field.featured_image.argument.size']]

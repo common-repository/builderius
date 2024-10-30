@@ -1,0 +1,715 @@
+services:
+  builderius_builder.registry.builder_form_tabs:
+    class: 'Builderius\Bundle\BuilderBundle\Registry\BuilderiusBuilderFormTabsRegistry'
+    lazy: true
+
+  builderius_builder.registry.css_frameworks:
+    class: 'Builderius\Bundle\BuilderBundle\Registry\BuilderiusCssFrameworksRegistry'
+    lazy: true
+
+  builderius_builder.css_framework.acss:
+    class: 'Builderius\Bundle\BuilderBundle\CssFramework\ACSSFramework'
+    tags:
+      - { name: builderius_css_framework }
+
+  builderius_builder.css_framework.cf:
+    class: 'Builderius\Bundle\BuilderBundle\CssFramework\CFFramework'
+    tags:
+      - { name: builderius_css_framework }
+
+  builderius_builder.registration.builderius_form_tabs_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderFormTabsScriptLocalization'
+    arguments:
+      - '@builderius_builder.registry.builder_form_tabs'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_builder.registration.builderius_ajax_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderAjaxScriptLocalization'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+      - { name: moomoo_script_localization, handle: builderius-admin-deliverables-index }
+
+  builderius_builder.registration.builderius_user_os_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderUserOsScriptLocalization'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_builder.registration.builderius_user_browser_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderUserBrowserScriptLocalization'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_builder.registration.builderius_user_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderUserScriptLocalization'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_builder.registration.builderius_admin_bar_preview_mode_change_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusAdminBarPreviewModeChangeScriptLocalization'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-admin-bar-admin }
+      - { name: moomoo_script_localization, handle: builderius-admin-bar-frontend }
+
+  builderius_builder.registration.builderius_applied_to_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderAppliedToScriptLocalization'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_builder.registration.builderius_framework_classes_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderFrameworkClassesScriptLocalization'
+    arguments:
+      - '@builderius_builder.registry.css_frameworks'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_builder.registration.builderius_framework_variables_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderFrameworkVariablesScriptLocalization'
+    arguments:
+      - '@builderius_builder.registry.css_frameworks'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_builder.registration.builderius_allowed_mime_types_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderAllowedMimeTypesScriptLocalization'
+    arguments:
+      - '@moomoo_media.registry.mime_types'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_builder.registration.builderius_max_upload_size_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderMaxUploadSizeScriptLocalization'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_builder.registration.builderius_versions_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderVersionsScriptLocalization'
+    arguments:
+      - '@moomoo_kernel.provider.plugins_versions'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_builder.registration.builderius_edit_url_asset_localization:
+    class: 'Builderius\Bundle\BuilderBundle\Registration\BuilderiusEditUrlScriptLocalization'
+    arguments:
+      - '@moomoo_builder.builder_mode.url_generator'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-gutenberg }
+
+  builderius_builder.condition.user_has_development_capability:
+      class: 'Builderius\MooMoo\Platform\Bundle\ConditionBundle\Model\SimpleCondition'
+      arguments:
+        - name: user_has_development_capability
+          description: 'Condition to check whether the current user has Builderius development capability'
+          function: current_user_can
+          arguments: ['builderius-development']
+      tags:
+        - {name: moomoo_condition}
+
+  builderius_builder.condition.is_admin_bar_showing:
+    class: 'Builderius\MooMoo\Platform\Bundle\ConditionBundle\Model\SimpleCondition'
+    arguments:
+      - name: is_admin_bar_showing
+        description: 'Condition to check whether the admin bar should be showing'
+        function: is_admin_bar_showing
+    tags:
+      - {name: moomoo_condition}
+
+  builderius_builder.asset.data_item.defer:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\AssetDataItem'
+    arguments:
+      - group: 'htmlAttributes'
+        key: 'defer'
+
+  builderius_builder.asset.data_item.async:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\AssetDataItem'
+    arguments:
+      - group: 'htmlAttributes'
+        key: 'async'
+
+  builderius_builder.asset.js.react:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-react'
+        source: 'builderius:vendors/react.production.min.js'
+        version: '17.0.1'
+        inFooter: true
+    calls:
+      - [ 'addAssetDataItem', [ '@builderius_builder.asset.data_item.defer' ] ]
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_builderius_builder_mode' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.js.react_dom:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-react-dom'
+        source: 'builderius:vendors/react-dom.production.min.js'
+        dependencies: [ 'builderius-react' ]
+        version: '17.0.1'
+        inFooter: true
+    calls:
+      - [ 'addAssetDataItem', [ '@builderius_builder.asset.data_item.defer' ] ]
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_builderius_builder_mode' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.js.builder:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-builder'
+        source: 'builderius:builder.js'
+        dependencies: [ 'wp-api-request', 'wp-auth-check', 'builderius-react-dom' ]
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      - [ 'addAssetDataItem', [ '@builderius_builder.asset.data_item.defer' ] ]
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_builderius_builder_mode' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.hook.builder_sctipt_translations_file_path_change:
+    class: Builderius\Bundle\BuilderBundle\Hook\BuilderScriptTranslationsFilePathChangeHook
+    arguments:
+      - tag: 'load_script_translation_file'
+        accepted_args: 3
+    calls:
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_builderius_builder_mode' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.builder_sctipt_translations_load:
+    class: Builderius\Bundle\BuilderBundle\Hook\BuilderScriptTranslationsLoadHook
+    arguments:
+      - tag: 'wp_enqueue_scripts'
+        priority: 20
+    calls:
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_builderius_builder_mode' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.determine_user_locale:
+    class: Builderius\Bundle\BuilderBundle\Hook\DetermineUserLocaleHook
+    arguments:
+      - tag: 'determine_locale'
+        priority: !php/const PHP_INT_MAX
+        init_hook: null
+    calls:
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_builderius_builder_mode_light' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.disable_auto_update:
+    class: Builderius\Bundle\BuilderBundle\Hook\DisableAutoUpdateHook
+    arguments:
+      - tag: 'auto_update_plugin'
+        priority: 10
+        accepted_args: 2
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.disable_new_version_update_notification:
+    class: Builderius\Bundle\BuilderBundle\Hook\DisableNewVersionUpdateNotificationHook
+    arguments:
+      - tag: 'site_transient_update_plugins'
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.asset.js.preview:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - registerOnly: true
+        category: 'frontend'
+        handle: 'builderius-frontend'
+        source: 'builderius:webcomponents/frontend.js'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      - [ 'addAssetDataItem', [ '@builderius_builder.asset.data_item.defer' ] ]
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_builderius_preview_in_dev_mode' ] ]
+      - [ 'addCondition', [ '@has_applied_any_of_builderius_entities' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.js.preview.ssr:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - registerOnly: true
+        category: 'frontend'
+        handle: 'builderius-custom-elements'
+        source: 'builderius:webcomponents/custom-elements.js'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      - [ 'addAssetDataItem', [ '@builderius_builder.asset.data_item.defer' ] ]
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_builderius_preview_in_dev_mode' ] ]
+      - [ 'addCondition', [ '@has_applied_any_of_builderius_entities' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.js.frontend:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - registerOnly: true
+        category: 'frontend'
+        handle: 'builderius-frontend'
+        source: 'builderius:webcomponents/frontend.js'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      - [ 'addAssetDataItem', [ '@builderius_builder.asset.data_item.defer' ] ]
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_not_builderius_preview_in_dev_mode' ] ]
+      - [ 'addCondition', [ '@has_applied_builderius_deliverable' ] ]
+      - [ 'addCondition', [ '@has_applied_any_of_deliverable_builderius_entities' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.js.frontend.ssr:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - registerOnly: true
+        category: 'frontend'
+        handle: 'builderius-custom-elements'
+        source: 'builderius:webcomponents/custom-elements.js'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      - [ 'addAssetDataItem', [ '@builderius_builder.asset.data_item.defer' ] ]
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_not_builderius_preview_in_dev_mode' ] ]
+      - [ 'addCondition', [ '@has_applied_builderius_deliverable' ] ]
+      - [ 'addCondition', [ '@has_applied_any_of_deliverable_builderius_entities' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.js.admin_bar_frontend:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-admin-bar-frontend'
+        source: 'builderius:admin-bar.js'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      - [ 'addAssetDataItem', [ '@builderius_builder.asset.data_item.defer' ] ]
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_admin_bar_showing'] ]
+      - [ 'addCondition', [ '@user_is_builderius_developer' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.js.admin_bar_admin:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - category: 'admin'
+        handle: 'builderius-admin-bar-admin'
+        source: 'builderius:admin-bar.js'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      - [ 'addAssetDataItem', [ '@builderius_builder.asset.data_item.defer' ] ]
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_admin_bar_showing'] ]
+      - [ 'addCondition', [ '@user_is_builderius_developer' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.datepicker.asset.js.builderius-flatpickr:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-flatpickr'
+        source: 'builderius:webcomponents/builderius-flatpickr.js'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      #- [ 'addAssetDataItem', [ '@builderius_builder.asset.data_item.defer' ] ]
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_builderius_builder_mode' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.css.builder:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Style'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-builder'
+        source: 'builderius:builder.css'
+        dependencies: [ 'wp-auth-check' ]
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+    calls:
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_builderius_builder_mode' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.css.frontend:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Style'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-frontend'
+        source: 'builderius:frontend.css'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+    calls:
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_not_builderius_preview_in_dev_mode' ] ]
+      - [ 'addCondition', [ '@has_applied_builderius_deliverable' ] ]
+      - [ 'addCondition', [ '@has_applied_any_of_deliverable_builderius_entities' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.css.preview:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Style'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-frontend'
+        source: 'builderius:frontend.css'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+    calls:
+      - [ 'addCondition', [ '@is_frontend']]
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_builderius_preview_in_dev_mode' ] ]
+      - [ 'addCondition', [ '@has_applied_any_of_builderius_entities' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.css.admin_bar_frontend:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Style'
+    arguments:
+      - category: 'frontend'
+        handle: 'builderius-admin-bar'
+        source: 'builderius:admin-bar.css'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+    calls:
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_admin_bar_showing'] ]
+      - [ 'addCondition', [ '@user_is_builderius_developer' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.css.admin_bar_admin:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Style'
+    arguments:
+      - category: 'admin'
+        handle: 'builderius-admin-bar'
+        source: 'builderius:admin-bar.css'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+    calls:
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_admin_bar_showing'] ]
+      - [ 'addCondition', [ '@user_is_builderius_developer' ] ]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.condition.is_builder_mode:
+    class: 'Builderius\MooMoo\Platform\Bundle\ConditionBundle\Model\IsRequestHasParameterCondition'
+    arguments:
+      - name: is_builderius_builder_mode
+        description: 'Condition to check whether the current request is for Builderius builder mode'
+        arguments:
+          requestType: 'GET'
+          parameter: 'builderius'
+    calls:
+      - [ addDependOnCondition, [ '@user_is_builderius_developer' ] ]
+    tags:
+      - { name: moomoo_condition }
+
+  builderius_builder.condition.is_not_builder_mode:
+    class: 'Builderius\Bundle\BuilderBundle\Condition\IsNotBuilderModeCondition'
+    calls:
+      - [ setName, [ is_not_builderius_builder_mode ] ]
+      - [ setDescription, [ 'Condition to check whether the current request is not for Builderius builder mode' ] ]
+    tags:
+      - { name: moomoo_condition }
+
+  builderius_builder.condition.is_builder_mode_lite:
+    class: 'Builderius\MooMoo\Platform\Bundle\ConditionBundle\Model\IsRequestHasParameterCondition'
+    arguments:
+      - name: is_builderius_builder_mode_light
+        description: 'Condition to check whether the current request is for Builderius builder mode'
+        arguments:
+          requestType: 'GET'
+          parameter: 'builderius'
+    tags:
+      - { name: moomoo_condition }
+
+  builderius_builder.condition.user_is_builderius_developer:
+    class: Builderius\Bundle\BuilderBundle\Condition\UserIsBuilderiusDeveloper
+    calls:
+      - [ setCache, ['@builderius.cache.runtime'] ]
+      - [ setName, [ user_is_builderius_developer ] ]
+      - [ setDescription, [ 'Condition to check whether the current user is builderius developer' ] ]
+    tags:
+      - { name: moomoo_condition }
+
+  builderius_builder.condition.is_preview_in_dev_mode:
+    class: 'Builderius\Bundle\BuilderBundle\Condition\BuilderiusPreviewInDevMode'
+    arguments:
+      - name: is_builderius_preview_in_dev_mode
+        description: 'Condition to check whether the current request is for Builderius preview in dev mode'
+    calls:
+      - [ setCache, ['@builderius.cache.runtime'] ]
+    tags:
+      - { name: moomoo_condition }
+
+  builderius_builder.condition.is_not_preview_in_dev_mode:
+    parent: builderius_builder.condition.is_preview_in_dev_mode
+    calls:
+      - [ setCache, ['@builderius.cache.runtime'] ]
+      - [ setName, [ is_not_builderius_preview_in_dev_mode ] ]
+      - [ setDescription, [ 'Condition to check whether the current request is not for Builderius preview in devmode' ] ]
+      - [ setValidResult, [ false ] ]
+    tags:
+      - { name: moomoo_condition }
+
+  builderius_builder.hook.admin_home_index_sctipt_translations_load:
+    class: Builderius\Bundle\BuilderBundle\Hook\AdminHomeIndexScriptTranslationsLoadHook
+    arguments:
+      - tag: 'admin_enqueue_scripts'
+        priority: 20
+    calls:
+      - [addCondition, ['@is_builderius_home_admin_page']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.admin_home_index_sctipt_translations_file_path_change:
+    class: Builderius\Bundle\BuilderBundle\Hook\AdminHomeIndexScriptTranslationsFilePathChangeHook
+    arguments:
+      - tag: 'load_script_translation_file'
+        accepted_args: 3
+    calls:
+      - [addCondition, ['@is_builderius_home_admin_page']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.add_allowed_mime_types_for_builderius_developer_hook:
+    class: Builderius\Bundle\BuilderBundle\Hook\AddAllowedMimeTypesForBuilderiusDeveloperHook
+    arguments:
+      - tag: 'upload_mimes'
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.allow_unfiltered_uploads_for_builderius_developer_hook:
+    class: Builderius\Bundle\BuilderBundle\Hook\AllowUnfilteredUploadsForBuilderiusDeveloperHook
+    arguments:
+      - tag: 'map_meta_cap'
+        accepted_args: 3
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.builderius_development_capability_adding:
+    class: Builderius\Bundle\BuilderBundle\Hook\BuilderiusDevelopmentCapabilityAddingHook
+    arguments:
+      - tag: 'init'
+        init_hook: 'plugins_loaded'
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.hide_admin_bar_in_builder_mode:
+    class: 'Builderius\Bundle\BuilderBundle\Hook\HideAdminBarHook'
+    arguments:
+      - tag: 'show_admin_bar'
+    calls:
+      - [ 'addCondition', [ '@is_builderius_builder_mode' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.load_plugin_text_domain:
+    class: 'Builderius\Bundle\BuilderBundle\Hook\LoadPluginTextDomainHook'
+    arguments:
+      - tag: 'plugins_loaded'
+        init_hook: null
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.builderius_preview_mode_changing_init:
+    class: Builderius\Bundle\BuilderBundle\Hook\PreviewModeChangingInitHook
+    arguments:
+      - tag: 'init'
+        init_hook: null
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.show_changelog_admin_notice:
+    class: Builderius\Bundle\BuilderBundle\Hook\ShowChangelogAdminNoticeHook
+    arguments:
+      - tag: 'admin_notices'
+    calls:
+      - [ addCondition, [ '@user_has_development_capability' ] ]
+      - [ setPluginsVersionsProvider, ['@moomoo_kernel.provider.plugins_versions'] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.dismiss_changelog_admin_notice:
+    class: Builderius\Bundle\BuilderBundle\Hook\DismissChangelogAdminNoticeHook
+    arguments:
+      - tag: 'admin_init'
+    calls:
+      - [ setPluginsVersionsProvider, ['@moomoo_kernel.provider.plugins_versions']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.hook.wp_auth_check_html:
+    class: 'Builderius\Bundle\BuilderBundle\Hook\WpAuthCheckHtmlHook'
+    arguments:
+      - tag: 'wp_print_footer_scripts'
+    calls:
+      - [ 'addCondition', [ '@is_builderius_builder_mode' ] ]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_builder.form.module:
+    class: 'Builderius\Bundle\BuilderBundle\Model\BuilderiusBuilderForm'
+    arguments:
+      - name: 'module'
+        label: 'Module'
+    tags:
+      - { name: builderius_builder_form }
+
+  builderius_builder.form.template:
+    class: 'Builderius\Bundle\BuilderBundle\Model\BuilderiusBuilderForm'
+    arguments:
+      - name: 'template'
+        label: 'Template'
+    tags:
+      - { name: builderius_builder_form }
+
+  builderius_builder.form.global:
+    class: 'Builderius\Bundle\BuilderBundle\Model\BuilderiusBuilderForm'
+    arguments:
+      - name: 'global'
+        label: 'Global'
+    tags:
+      - { name: builderius_builder_form }
+
+  builderius_builder.form_tab.primary:
+    class: 'Builderius\Bundle\BuilderBundle\Model\BuilderiusBuilderFormTab'
+    arguments:
+      - name: 'primary'
+        label: 'Data settings'
+        sortOrder: 10
+    tags:
+      - { name: builderius_builder_form_tab }
+
+  builderius_builder.form_tab.advanced:
+    class: 'Builderius\Bundle\BuilderBundle\Model\BuilderiusBuilderFormTab'
+    arguments:
+      - name: 'advanced'
+        label: 'CSS settings'
+        sortOrder: 20
+    tags:
+      - { name: builderius_builder_form_tab }
+
+  builderius_builder.condition.is_builderius_home_admin_page:
+    class: 'Builderius\MooMoo\Platform\Bundle\ConditionBundle\Model\IsRequestHasParameterCondition'
+    arguments:
+      - name: is_builderius_home_admin_page
+        description: 'Condition to check whether the current admin page is Builderius Home page'
+        arguments:
+          requestType: 'GET'
+          parameter: 'page'
+          value: 'builderius'
+    calls:
+      - ['addDependOnCondition', ['@is_backend']]
+    tags:
+      - { name: moomoo_condition }
+
+  builderius_builder.asset.js.admin_home_index:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - category: 'admin'
+        handle: 'builderius-admin-home-index'
+        source: 'builderius:admin-home-index.js'
+        dependencies: ['builderius-admin-react-dom']
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      - [addCondition, ['@is_builderius_home_admin_page']]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.css.admin_home_index:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Style'
+    arguments:
+      - category: 'admin'
+        handle: 'builderius-admin-home-index'
+        source: 'builderius:admin-home-index.css'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+    calls:
+      - [addCondition, ['@is_builderius_home_admin_page']]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.hook.script_translations.admin_home_index:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script'
+    arguments:
+      - category: 'admin'
+        handle: 'builderius-admin-home-index'
+        source: 'builderius:admin-home-index.js'
+        dependencies: ['builderius-admin-react-dom']
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      - [addCondition, ['@is_builderius_home_admin_page']]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.asset.css.admin:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Style'
+    arguments:
+      - category: 'admin'
+        handle: 'builderius-admin'
+        source: 'builderius:admin.css'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+    calls:
+      - [addCondition, ['@is_backend']]
+      - [addCondition, ['@is_not_customize_preview']]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_builder.rest_api.endpoint.preview_mode_change:
+    class: Builderius\Bundle\BuilderBundle\RestApi\Endpoint\PreviewModeChangeEndpoint
+    public: true
+    tags:
+      - { name: moomoo_rest_endpoint }
+
+  builderius_builder.condition.has_applied_any_of_builderius_entities:
+    class: Builderius\MooMoo\Platform\Bundle\ConditionBundle\Model\OrCondition
+    arguments:
+      - name: has_applied_any_of_builderius_entities
+        description: 'Condition to check whether any of Builderius entities applied'
+        lazy: true
+    calls:
+      - [addCondition, ['@has_applied_builderius_template']]
+      - [addCondition, ['@has_applied_builderius_hook_templates']]
+    tags:
+      - {name: moomoo_condition}
+
+  builderius_builder.condition.has_applied_any_of_deliverable_builderius_entities:
+    class: Builderius\MooMoo\Platform\Bundle\ConditionBundle\Model\OrCondition
+    arguments:
+      - name: has_applied_any_of_deliverable_builderius_entities
+        description: 'Condition to check whether any of deliverable Builderius entities applied'
+        lazy: true
+    calls:
+      - [addCondition, ['@has_applied_builderius_deliverable_template']]
+      - [addCondition, ['@has_applied_builderius_deliverable_hook_templates']]
+    tags:
+      - {name: moomoo_condition}

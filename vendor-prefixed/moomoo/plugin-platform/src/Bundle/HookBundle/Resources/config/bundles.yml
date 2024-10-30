@@ -1,0 +1,2 @@
+bundles:
+  - { name: Builderius\MooMoo\Platform\Bundle\HookBundle\HookBundle, priority: 100 }

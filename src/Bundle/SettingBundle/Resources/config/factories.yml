@@ -1,0 +1,14 @@
+services:
+  builderius_setting.factory.setting_value.css:
+    class: 'Builderius\Bundle\SettingBundle\Factory\SettingValue\Chain\Element\BuilderiusSettingCssValueFactoryChainElement'
+    calls:
+      - [ 'setSuccessor', [ '@builderius_setting.factory.setting_value.non_css' ] ]
+
+  builderius_setting.factory.setting_value.non_css:
+    class: 'Builderius\Bundle\SettingBundle\Factory\SettingValue\Chain\Element\BuilderiusSettingNonCssValueFactoryChainElement'
+
+  builderius_setting.factory.setting_value:
+    parent: builderius_setting.factory.setting_value.css
+
+  builderius_setting.factory.setting_value_expression:
+    class: 'Builderius\Bundle\SettingBundle\Factory\SettingValueExpression\BuilderiusSettingValueExpressionFactory'

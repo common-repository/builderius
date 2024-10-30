@@ -1,0 +1,13 @@
+[% if visibilityCondition is defined and not null %]
+[^- ('[% if builderius_visibility_condition(\"' ~ (visibilityCondition)|escape_quotes|raw ~ '\") == true %]')|raw -^]
+[% endif %]
+<tfoot[^ (' class="uni-node-' ~ id ~ (tagClass is defined and not null ? ' ' ~ tagClass|join(' ') ~ '"' : '"') ~ (htmlAttribute is defined and not null ? ' ' ~ builderius_format_htmlattributes(htmlAttribute|raw) : ''))|raw ^]>
+    [%- if children is defined and children is iterable -%]
+        [%- for child in children -%]
+            [^- child|raw -^]
+        [%- endfor -%]
+    [%- endif -%]
+</tfoot>
+[% if visibilityCondition is defined and not null %]
+[^- ('[% endif %]')|raw -^]
+[% endif %]

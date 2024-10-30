@@ -1,0 +1,14 @@
+services:
+  builderius_graphql.field_resolver.builderius_root_query.category:
+    class: Builderius\Bundle\CategoryBundle\GraphQL\Resolver\BuilderiusRootQueryFieldCategoryResolver
+    arguments:
+      - '@builderius_category.provider.categories.composite'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.categories:
+    class: Builderius\Bundle\CategoryBundle\GraphQL\Resolver\BuilderiusRootQueryFieldCategoriesResolver
+    arguments:
+      - '@builderius_category.provider.categories.composite'
+    tags:
+      - { name: builderius_graphql_field_resolver }

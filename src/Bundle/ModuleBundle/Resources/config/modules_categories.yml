@@ -1,0 +1,110 @@
+services:
+  builderius_module.category.layout:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'layout'
+        label: 'Layout Modules'
+        sortOrder: 110
+        groups: ['module']
+    tags:
+      - { name: builderius_category }
+
+  builderius_module.category.content:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'content'
+        label: 'Content Modules'
+        sortOrder: 120
+        groups: ['module']
+    tags:
+      - { name: builderius_category }
+
+  builderius_module.category.universal:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'universal'
+        label: 'Universal Modules'
+        sortOrder: 130
+        groups: ['module']
+    tags:
+      - { name: builderius_category }
+
+  builderius_module.category.wordpress:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'wordpress'
+        label: 'Wordpress Modules'
+        sortOrder: 140
+        groups: ['module']
+    tags:
+      - { name: builderius_category }
+
+  builderius_module.category.media:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'media'
+        label: 'Multimedia/Embedded Modules'
+        sortOrder: 150
+        groups: ['module']
+    tags:
+      - { name: builderius_category }
+
+  builderius_module.category.dynamic:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'dynamic'
+        label: 'Dynamic Modules'
+        sortOrder: 160
+        groups: ['module']
+    tags:
+      - { name: builderius_category }
+
+  builderius_module.category.interactive:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'interactive'
+        label: 'Interactive Modules'
+        sortOrder: 170
+        groups: ['module']
+    tags:
+      - { name: builderius_category }
+
+  builderius_module.category.forms:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'form'
+        label: 'Form Modules'
+        sortOrder: 180
+        groups: ['module']
+    tags:
+      - { name: builderius_category }
+
+  builderius_module.category.web_components:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'web_components'
+        label: 'Web components'
+        sortOrder: 190
+        groups: ['module']
+    tags:
+      - { name: builderius_category }
+
+  builderius_module.category.table_content:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'table_content'
+        label: 'Table Modules'
+        sortOrder: 200
+        groups: ['module']
+    tags:
+      - { name: builderius_category }
+
+  builderius_module.category.custom:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'custom'
+        label: 'Custom modules'
+        sortOrder: 210
+        groups: ['module']
+    tags:
+      - { name: builderius_category }

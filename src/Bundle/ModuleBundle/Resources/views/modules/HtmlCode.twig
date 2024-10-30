@@ -1,0 +1,7 @@
+[% if visibilityCondition is defined and not null %]
+[^- ('[% if builderius_visibility_condition(\"' ~ (visibilityCondition)|escape_quotes|raw ~ '\") == true %]')|raw -^]
+[% endif %]
+[^- dataHtmlCode|raw -^]
+[% if visibilityCondition is defined and not null %]
+[^- ('[% endif %]')|raw -^]
+[% endif %]

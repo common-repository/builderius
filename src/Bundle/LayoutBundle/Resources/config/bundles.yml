@@ -1,0 +1,2 @@
+bundles:
+    - { name: Builderius\Bundle\LayoutBundle\BuilderiusLayoutBundle, priority: 60 }

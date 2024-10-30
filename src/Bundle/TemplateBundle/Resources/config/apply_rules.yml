@@ -1,0 +1,182 @@
+services:
+  builderius_template.registry.apply_rules:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\Registry\BuilderiusTemplateApplyRulesRegistry'
+    lazy: true
+
+  builderius_template.registry.apply_rule_categories:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\Category\Registry\BuilderiusTemplateApplyRuleCategoriesRegistry'
+    lazy: true
+
+  builderius_template.apply_rule.checker:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\Checker\BuilderiusTemplateApplyRulesChecker'
+    arguments:
+      - '@builderius_template.registry.apply_rules'
+      - '@builderius_template.registry.apply_rule_categories'
+      - '@builderius_el.expression_language'
+      - '@moomoo_kernel.provider.plugins_versions'
+      - '@event_dispatcher'
+
+  #----------------------- Apply Rule Categories --------------------------------
+
+  builderius_template.apply_rule_category.theme:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\Category\BuilderiusTemplateApplyRuleThemeCategory'
+    tags:
+      - { name: builderius_template_apply_rule_category }
+
+  #----------------------- Apply Rule -------------------------------------------
+
+  builderius_template.apply_rule.is_singular:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\BuilderiusTemplateApplyRule'
+    arguments:
+      - templateTypes: ['template']
+        name: 'singular'
+        label: 'Singular Page'
+        category: 'theme'
+        parent: null
+        expression: 'query.is_singular === true'
+        select_all: false
+    tags:
+      - { name: builderius_template_apply_rule }
+
+  builderius_template.apply_rule.is_page:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\BuilderiusTemplateApplyRule'
+    arguments:
+      - templateTypes: ['template']
+        name: 'page'
+        label: 'Static Page'
+        category: 'theme'
+        parent: 'singular'
+        expression: 'query.is_page === true'
+        select_all: true
+    tags:
+      - { name: builderius_template_apply_rule }
+
+  builderius_template.apply_rule.is_single:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\BuilderiusTemplateApplyRule'
+    arguments:
+      - templateTypes: ['template']
+        name: 'single'
+        label: 'Single Post Page'
+        category: 'theme'
+        parent: 'singular'
+        expression: 'query.is_single === true'
+        select_all: false
+    tags:
+      - { name: builderius_template_apply_rule }
+
+  builderius_template.apply_rule.is_blog_post:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\BuilderiusTemplateApplyRule'
+    arguments:
+      - templateTypes: ['template']
+        name: 'blog_post'
+        label: 'Blog Post'
+        category: 'theme'
+        parent: 'single'
+        expression: 'query.post.post_type === "post"'
+        select_all: true
+    tags:
+      - { name: builderius_template_apply_rule }
+
+  #----------------------- Apply Rule Variants ---------------------------------
+
+  builderius_template.apply_rule_variant.abstract.with_id:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\BuilderiusTemplateApplyRuleVariant'
+    abstract: true
+    arguments:
+      - name: 'with_id'
+        label: 'ID'
+
+  builderius_template.apply_rule_variant.is_page.with_id:
+    parent: builderius_template.apply_rule_variant.abstract.with_id
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\BuilderiusTemplateApplyRuleVariant'
+    calls:
+      - [setRule, ['page']]
+      - [setExpression, ['query.is_page(argument) operator true']]
+      - [setPossibleArgumentsProvider, ['@builderius_template.apply_rule.arguments_provider.available_pages.id']]
+    tags:
+      - { name: builderius_template_apply_rule_variant }
+
+  builderius_template.apply_rule_variant.is_blog_post.with_id:
+    parent: builderius_template.apply_rule_variant.abstract.with_id
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\BuilderiusTemplateApplyRuleVariant'
+    calls:
+      - [setRule, ['blog_post']]
+      - [setExpression, ['query.post.post_type === "post" && query.is_single(argument) operator true']]
+      - [setPossibleArgumentsProvider, ['@builderius_template.apply_rule.arguments_provider.available_blog_posts.id']]
+    tags:
+      - { name: builderius_template_apply_rule_variant }
+
+  builderius_template.apply_rule_variant.is_blog_post.has_status:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\BuilderiusTemplateApplyRuleVariant'
+    arguments:
+      - name: 'has_status'
+        label: 'Status'
+        rule: 'blog_post'
+        expression: 'query.post.post_status operator argument'
+        select_all: false
+    calls:
+      - [setPossibleArgumentsProvider, ['@builderius_template.apply_rule.arguments_provider.available_post_statuses']]
+    tags:
+      - { name: builderius_template_apply_rule_variant }
+
+  builderius_template.apply_rule_variant.is_page.has_status:
+    parent: builderius_template.apply_rule_variant.is_blog_post.has_status
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\BuilderiusTemplateApplyRuleVariant'
+    calls:
+      - [setRule, ['page']]
+    tags:
+      - { name: builderius_template_apply_rule_variant }
+
+  builderius_template.apply_rule_variant.is_blog_post.in_category:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\BuilderiusTemplateApplyRuleVariant'
+    arguments:
+      - name: 'in_category'
+        label: 'Category'
+        rule: 'blog_post'
+        expression: 'has_term(argument, "category", query.post) operator true'
+        select_all: false
+    calls:
+      - [setPossibleArgumentsProvider, ['@builderius_template.apply_rule.arguments_provider.available_categories']]
+    tags:
+      - { name: builderius_template_apply_rule_variant }
+
+  builderius_template.apply_rule_variant.is_blog_post.has_tag:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\BuilderiusTemplateApplyRuleVariant'
+    arguments:
+      - name: 'has_tag'
+        label: 'Tag'
+        rule: 'blog_post'
+        expression: 'has_term(argument, "post_tag", query.post) operator true'
+        select_all: false
+    calls:
+      - [setPossibleArgumentsProvider, ['@builderius_template.apply_rule.arguments_provider.available_tags']]
+    tags:
+      - { name: builderius_template_apply_rule_variant }
+
+  #----------------------- Possible Arguments Providers ----------------------------
+
+  builderius_template.apply_rule.arguments_provider.available_singulars.id:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\Provider\AvailableSingularsProvider'
+
+  builderius_template.apply_rule.arguments_provider.available_pages.id:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\Provider\AvailablePagesProvider'
+    tags:
+      - { name: builderius_available_singulars_provider_id }
+
+  builderius_template.apply_rule.arguments_provider.available_blog_posts.id:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\Provider\AvailablePostsProvider'
+    arguments:
+      - post_type: 'post'
+    calls:
+      - [setWpQuery, ['@moomoo_query.wp_query']]
+    tags:
+      - { name: builderius_available_singulars_provider_id }
+
+  builderius_template.apply_rule.arguments_provider.available_categories:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\Provider\AvailableCategoriesProvider'
+
+  builderius_template.apply_rule.arguments_provider.available_tags:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\Provider\AvailableTagsProvider'
+
+  builderius_template.apply_rule.arguments_provider.available_post_statuses:
+    class: 'Builderius\Bundle\TemplateBundle\ApplyRule\Provider\AvailablePostStatusesProvider'

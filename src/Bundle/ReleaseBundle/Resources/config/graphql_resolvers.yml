@@ -1,0 +1,61 @@
+services:
+  builderius_graphql.field_resolver.builderius_root_mutation.create_release:
+    class: Builderius\Bundle\ReleaseBundle\GraphQL\Resolver\BuilderiusRootMutationFieldCreateReleaseResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_vcs.factory.builderius_vcs_owner_from_post'
+      - '@builderius_release.factory.builderius_release_from_post'
+      - '@moomoo_query.wp_query'
+      - '@builderius_graphql.field_resolver.builderius_root_mutation.publish_release'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.extract_release:
+    class: Builderius\Bundle\ReleaseBundle\GraphQL\Resolver\BuilderiusRootMutationFieldExtractReleaseResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_release.factory.builderius_release_from_post'
+      - '@event_dispatcher'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.delete_release:
+    class: Builderius\Bundle\ReleaseBundle\GraphQL\Resolver\BuilderiusRootMutationFieldDeleteReleaseResolver
+    arguments:
+      - '@event_dispatcher'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.publish_release:
+    class: Builderius\Bundle\ReleaseBundle\GraphQL\Resolver\BuilderiusRootMutationFieldPublishReleaseResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_release.factory.builderius_release_from_post'
+      - '@event_dispatcher'
+      - '@builderius_graphql.field_resolver.builderius_root_mutation.unpublish_release'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.unpublish_release:
+    class: Builderius\Bundle\ReleaseBundle\GraphQL\Resolver\BuilderiusRootMutationFieldUnpublishReleaseResolver
+    arguments:
+      - '@builderius_release.factory.builderius_release_from_post'
+      - '@event_dispatcher'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.release:
+    class: Builderius\Bundle\ReleaseBundle\GraphQL\Resolver\BuilderiusRootQueryFieldReleaseResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_release.factory.builderius_release_from_post'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.releases:
+    class: Builderius\Bundle\ReleaseBundle\GraphQL\Resolver\BuilderiusRootQueryFieldReleasesResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_release.factory.builderius_release_from_post'
+    tags:
+      - { name: builderius_graphql_field_resolver }

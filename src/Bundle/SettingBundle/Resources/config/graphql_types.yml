@@ -1,0 +1,104 @@
+services:
+  builderius_setting.type_config.builderius_root_query.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_query
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_setting.type_config.builderius_root_query.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_setting.type_config.root_query.field.global_settings_set' ] ]
+      - [ 'addField', [ '@builderius_setting.type_config.root_query.field.global_settings_sets' ] ]
+
+  builderius_setting.type_config.builderius_root_mutation.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_mutation
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_setting.type_config.builderius_root_mutation.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.update_global_settings_set' ] ]
+
+  builderius_setting.type_config.root_query.field.global_settings_set:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'global_settings_set'
+        type: 'BuilderiusGlobalSettingsSet'
+    calls:
+      - [ 'addArgument', [ '@builderius_setting.type_config.root_query.field.global_settings_set.argument.id' ] ]
+
+  builderius_setting.type_config.root_query.field.global_settings_sets:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'global_settings_sets'
+        type: '[BuilderiusGlobalSettingsSet]'
+    calls:
+      - [ addArgument, [ '@builderius_setting.type_config.root_query.field.global_settings_sets.argument.technology' ] ]
+
+  builderius_setting.type_config.root_query.field.global_settings_set.argument.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SettingBundle\Model\BuilderiusGlobalSettingsSet::ID_FIELD
+        type: 'Int!'
+
+  builderius_setting.type_config.root_query.field.global_settings_sets.argument.technology:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SettingBundle\Model\BuilderiusGlobalSettingsSet::TECHNOLOGY_FIELD
+        type: !php/const Builderius\Bundle\TemplateBundle\GraphQL\TypeConfig\TemplateTechnologyTypeConfig::NAME
+
+  builderius_graphql.type_config.global_settings_set_type_type:
+    class: Builderius\Bundle\SettingBundle\GraphQL\TypeConfig\GlobalSettingsSetTypeTypeConfig
+    calls:
+      - [setTemplateTypesProvider, ['@builderius_template.provider.template_types']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.global_settings_set_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusGlobalSettingsSet'
+    calls:
+      - [ 'addInterface', ['@builderius_graphql.type_config.vcs_owner_type']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.root_mutation.field.update_global_settings_set:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'updateGlobalSettingsSet'
+        type: 'BuilderiusUpdateGlobalSettingsSetOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.update_global_settings_set.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.update_global_settings_set.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusUpdateGlobalSettingsSetInput!'
+
+  builderius_graphql.type_config.update_global_settings_set_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusUpdateGlobalSettingsSetInput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.update_template_input_type.field.id' ]]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.active_branch_name' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.update_global_settings_set_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusUpdateGlobalSettingsSetOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.update_global_settings_set_output_type.field.global_settings_set' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.update_global_settings_set_output_type.field.global_settings_set:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'global_settings_set'
+        type: 'BuilderiusGlobalSettingsSet'
+

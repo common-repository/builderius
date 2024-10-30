@@ -1,0 +1,140 @@
+services:
+  builderius_setting.setting_category.layout:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'layout'
+        label: 'Layout'
+        sortOrder: 10
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.setting_category.positioning:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'positioning'
+        label: 'Positioning'
+        sortOrder: 20
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.setting_category.size:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'size'
+        label: 'Size'
+        sortOrder: 30
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.setting_category.typography:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'typography'
+        label: 'Typography'
+        sortOrder: 40
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.setting_category.quick_typography:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'quick_typography'
+        label: 'Typography'
+        sortOrder: 40
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.setting_category.border:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'border'
+        label: 'Border'
+        sortOrder: 50
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.setting_category.background:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'background'
+        label: 'Background'
+        sortOrder: 60
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.setting_category.extra:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'extra'
+        label: 'Extra'
+        sortOrder: 70
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.setting_category.content:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'content'
+        label: 'Content'
+        sortOrder: 10
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.category.html_attr:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'html_attr'
+        label: 'HTML attributes'
+        sortOrder: 200
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.setting_category.dynamic_data:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'dynamic_data'
+        label: 'Dynamic Data'
+        sortOrder: 10
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.category.data_vars:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'data_vars'
+        label: 'Data Variables'
+        sortOrder: 20
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.category.css_vars:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'css_vars'
+        label: 'CSS Variables'
+        sortOrder: 5
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }
+
+  builderius_setting.category.conditions:
+    class: 'Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory'
+    arguments:
+      - name: 'conditions'
+        label: 'Conditions'
+        sortOrder: 210
+        groups: ['setting']
+    tags:
+      - { name: builderius_category }

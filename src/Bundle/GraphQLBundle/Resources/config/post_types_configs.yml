@@ -1,0 +1,155 @@
+services:
+  builderius_graphql.type_config.post_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'Post'
+    calls:
+      - ['addField', ['@builderius_graphql.type_config.field.id']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_type']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_name']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_title']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_excerpt']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_content']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_parent']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_status']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_author']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_date']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_date_gmt']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_modified']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.post_modified_gmt']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.permalink']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.guid']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.has_featured_image']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.featured_image']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.comments_open']]
+      - ['addField', ['@builderius_graphql.type_config.post_type.field.comments']]
+      - ['addField', ['@builderius_graphql.type_config.field.meta']]
+      - ['addField', ['@builderius_graphql.type_config.field.meta_value']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.post_type.field.post_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_type'
+        type: 'String'
+
+  builderius_graphql.type_config.post_type.field.post_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_name'
+        type: 'String'
+
+  builderius_graphql.type_config.post_type.field.post_title:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_title'
+        type: 'String'
+
+  builderius_graphql.type_config.post_type.field.post_excerpt:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_excerpt'
+        type: 'String'
+
+  builderius_graphql.type_config.post_type.field.post_content:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_content'
+        type: 'String'
+    calls:
+      - ['addArgument', ['@builderius_graphql.type_config.post_type.field.post_content.argument.raw']]
+
+  builderius_graphql.type_config.post_type.field.post_content.argument.raw:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'raw'
+        type: 'BooleanOrDataVar'
+        defaultValue: false
+
+  builderius_graphql.type_config.post_type.field.post_parent:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_parent'
+        type: 'Int'
+
+  builderius_graphql.type_config.post_type.field.post_status:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_status'
+        type: 'String'
+
+  builderius_graphql.type_config.post_type.field.post_author:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_author'
+        type: 'User'
+
+  builderius_graphql.type_config.post_type.field.post_date:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_date'
+        type: 'String'
+
+  builderius_graphql.type_config.post_type.field.post_date_gmt:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_date_gmt'
+        type: 'String'
+
+  builderius_graphql.type_config.post_type.field.post_modified:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_modified'
+        type: 'String'
+
+  builderius_graphql.type_config.post_type.field.post_modified_gmt:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'post_modified_gmt'
+        type: 'String'
+
+  builderius_graphql.type_config.post_type.field.permalink:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'permalink'
+        type: 'String'
+
+  builderius_graphql.type_config.post_type.field.guid:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'guid'
+        type: 'String'
+
+  builderius_graphql.type_config.post_type.field.has_featured_image:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'has_featured_image'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.post_type.field.featured_image.argument.size:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'size'
+        type: 'ThumbnailSize'
+
+  builderius_graphql.type_config.post_type.field.featured_image:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'featured_image'
+        type: 'FeaturedImage'
+    calls:
+      - ['addArgument', ['@builderius_graphql.type_config.post_type.field.featured_image.argument.size']]
+
+  builderius_graphql.type_config.post_type.field.comments_open:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comments_open'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.post_type.field.comments:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comments'
+        type: '[Comment]'

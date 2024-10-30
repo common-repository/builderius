@@ -1,0 +1,226 @@
+services:
+  builderius_module.type_config.builderius_root_query.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_query
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_module.type_config.builderius_root_query.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_module.type_config.root_query.field.saved_composite_modules' ] ]
+
+  builderius_module.type_config.root_query.field.saved_composite_modules:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'saved_composite_modules'
+        type: '[BuilderiusSavedCompositeModule]'
+    calls:
+      - [ addArgument, ['@builderius_module.type_config.root_query.field.saved_composite_modules.argument.technology'] ]
+
+  builderius_module.type_config.root_query.field.saved_composite_modules.argument.technology:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'technology'
+        type: !php/const Builderius\Bundle\TemplateBundle\GraphQL\TypeConfig\TemplateTechnologyTypeConfig::NAME
+
+  builderius_module.type_config.saved_composite_module_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusSavedCompositeModule'
+    calls:
+      - [ 'addField', [ '@builderius_module.type_config.saved_composite_module.field.id' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.saved_composite_module.field.name' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.saved_composite_module.field.label' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.saved_composite_module.field.icon' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.saved_composite_module.field.category' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.saved_composite_module.field.tags' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.saved_composite_module.field.config' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.saved_composite_module.field.public' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_module.type_config.saved_composite_module.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\ModuleBundle\Model\BuilderiusSavedCompositeModule::ID_FIELD
+        type: 'Int'
+
+  builderius_module.type_config.saved_composite_module.field.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\ModuleBundle\Model\BuilderiusModule::NAME_FIELD
+        type: 'String'
+
+  builderius_module.type_config.saved_composite_module.field.label:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\ModuleBundle\Model\BuilderiusModule::LABEL_FIELD
+        type: 'String'
+
+  builderius_module.type_config.saved_composite_module.field.icon:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\ModuleBundle\Model\BuilderiusModule::ICON_FIELD
+        type: 'String'
+
+  builderius_module.type_config.saved_composite_module.field.category:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\ModuleBundle\Model\BuilderiusModule::CATEGORY_FIELD
+        type: 'String'
+
+  builderius_module.type_config.saved_composite_module.field.tags:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\ModuleBundle\Model\BuilderiusModule::TAGS_FIELD
+        type: '[String]'
+
+  builderius_module.type_config.saved_composite_module.field.config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule::CONFIG_FIELD
+        type: 'Json'
+
+  builderius_module.type_config.saved_composite_module.field.public:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule::PUBLIC_FIELD
+        type: 'Boolean'
+
+#-------------mutations----------------------
+
+  builderius_module.type_config.builderius_root_mutation.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_mutation
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_module.type_config.builderius_root_mutation.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.create_saved_composite_module' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.delete_saved_composite_module' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.delete_all_saved_composite_modules' ] ]
+
+  builderius_graphql.type_config.create_saved_composite_module_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateSavedCompositeModuleInput'
+    calls:
+      - [ 'addField', [ '@builderius_module.type_config.create_saved_composite_module.field.label' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.saved_composite_module.field.icon' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.create_saved_composite_module.field.category' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.create_saved_composite_module.field.technology' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.saved_composite_module.field.tags' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.create_saved_composite_module.field.serialized_config' ] ]
+      - [ 'addField', [ '@builderius_module.type_config.create_saved_composite_module.field.replace']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_module.type_config.create_saved_composite_module.field.label:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'label'
+        type: 'String!'
+
+  builderius_module.type_config.create_saved_composite_module.field.category:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'category'
+        type: 'String!'
+
+  builderius_module.type_config.create_saved_composite_module.field.technology:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'technology'
+        type: 'BuilderiusTechnologyType!'
+
+  builderius_module.type_config.create_saved_composite_module.field.serialized_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'serialized_config'
+        type: 'String!'
+
+  builderius_module.type_config.create_saved_composite_module.field.replace:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'replace'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.root_mutation.field.create_saved_composite_module:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'createSavedCompositeModule'
+        type: 'BuilderiusCreateSavedCompositeModuleOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.create_saved_composite_module.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.delete_saved_composite_module:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'deleteSavedCompositeModule'
+        type: 'BuilderiusDeleteSavedCompositeModuleOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.delete_saved_composite_module.argument.id'] ]
+
+  builderius_graphql.type_config.root_mutation.field.delete_all_saved_composite_modules:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'deleteAllSavedCompositeModules'
+        type: 'BuilderiusDeleteSavedCompositeModuleOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.delete_all_saved_composite_modules.argument.technology'] ]
+
+  builderius_graphql.type_config.root_mutation.field.create_saved_composite_module.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusCreateSavedCompositeModuleInput!'
+
+  builderius_graphql.type_config.root_mutation.field.delete_saved_composite_module.argument.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'id'
+        type: 'Int!'
+
+  builderius_graphql.type_config.root_mutation.field.delete_all_saved_composite_modules.argument.technology:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'technology'
+        type: 'String!'
+
+  builderius_graphql.type_config.create_saved_composite_module_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateSavedCompositeModuleOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.create_saved_composite_module_output_type.field.saved_composite_module' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_saved_composite_module_output_type.field.saved_composite_module:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'saved_composite_module'
+        type: 'BuilderiusSavedCompositeModule'
+
+  builderius_graphql.type_config.delete_saved_composite_module_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusDeleteSavedCompositeModuleOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.delete_saved_composite_module_output_type.field.result' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.delete_saved_composite_module_output_type.field.message' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.delete_saved_composite_module_output_type.field.result:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'result'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.delete_saved_composite_module_output_type.field.message:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'message'
+        type: 'String'

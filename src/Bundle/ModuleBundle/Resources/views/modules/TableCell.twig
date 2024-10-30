@@ -1,0 +1,9 @@
+[% if visibilityCondition is defined and not null %]
+[^- ('[% if builderius_visibility_condition(\"' ~ (visibilityCondition)|escape_quotes|raw ~ '\") == true %]')|raw -^]
+[% endif %]
+<td[^ ((tagId is defined and not null ? ' id="' ~ tagId ~ '"' : '') ~ ' class="uni-node-' ~ id ~ (tagClass is defined and not null ? ' ' ~ tagClass|join(' ') ~ '"' : '"') ~ ' href="' ~ href ~ '"' ~ (htmlAttribute is defined and not null ? ' ' ~ builderius_format_htmlattributes(htmlAttribute|raw) : ''))|raw ^]>
+    [^- dataTableCell|striptags('<a><abbr><address><article><aside><audio><b><bdo><bdi><blockquote><br><button><canvas><cite><code><data><datalist><del><details><dfn><div><dl><em><embed><fieldset><figure><footer><form><h1><h2><h3><h4><h5><h6><header><hgroup><hr><i><iframe><img><input><ins><kbd><label><main><map><mark><math><menu><meter><nav><noscript><object><ol><output><p><picture><pre><progress><q><ruby><s><samp><script><section><select><small><span><strong><sub><sup><svg><table><template><textarea><time><u><ul><var><video><wbr>')|raw -^]
+</td>
+[% if visibilityCondition is defined and not null %]
+[^- ('[% endif %]')|raw -^]
+[% endif %]

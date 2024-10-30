@@ -1,0 +1,62 @@
+services:
+  builderius_graphql.field_resolver.builderius_root_mutation.create_saved_fragment:
+    class: Builderius\Bundle\SavedFragmentBundle\GraphQL\Resolver\BuilderiusRootMutationFieldCreateSavedFragmentResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_template.checker.content_config'
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.update_saved_fragment:
+    class: Builderius\Bundle\SavedFragmentBundle\GraphQL\Resolver\BuilderiusRootMutationFieldUpdateSavedFragmentResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_template.checker.content_config'
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.delete_saved_fragment:
+    class: Builderius\Bundle\SavedFragmentBundle\GraphQL\Resolver\BuilderiusRootMutationFieldDeleteSavedFragmentResolver
+    arguments:
+      - '@event_dispatcher'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.saved_fragment:
+    class: Builderius\Bundle\SavedFragmentBundle\GraphQL\Resolver\BuilderiusRootQueryFieldSavedFragmentResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.saved_fragments:
+    class: Builderius\Bundle\SavedFragmentBundle\GraphQL\Resolver\BuilderiusRootQueryFieldSavedFragmentsResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_saved_fragment.field_resolver.builderius_root_mutation.create_category:
+    class: Builderius\Bundle\SavedFragmentBundle\GraphQL\Resolver\BuilderiusRootMutationFieldCreateSavedFragmentCategoryResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_category.provider.categories.composite'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_saved_fragment.field_resolver.builderius_root_mutation.update_category:
+    class: Builderius\Bundle\SavedFragmentBundle\GraphQL\Resolver\BuilderiusRootMutationFieldUpdateSavedFragmentCategoryResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_category.provider.categories.composite'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_saved_fragment.field_resolver.builderius_root_mutation.delete_category:
+    class: Builderius\Bundle\SavedFragmentBundle\GraphQL\Resolver\BuilderiusRootMutationFieldDeleteSavedFragmentCategoryResolver
+    arguments:
+      - '@event_dispatcher'
+    tags:
+      - { name: builderius_graphql_field_resolver }

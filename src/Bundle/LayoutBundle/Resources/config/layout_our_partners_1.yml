@@ -1,0 +1,912 @@
+services:
+  builderius_layout.layout_our_partners_1:
+    class: 'Builderius\Bundle\LayoutBundle\Model\BuilderiusLayout'
+    arguments:
+      - name: 'layout_our_partners_1'
+        label: 'Our partners #1'
+        technologies: ['html']
+        category: 'our_team_sections'
+        image: 'https://showcase.builderius.io/wp-content/uploads/2023/02/layout_our_partners_1.png'
+        tags:
+          - 'our partners'
+          - 'responsive'
+        config:
+          ---
+          modules:
+            ue2fc6733:
+              id: ue2fc6733
+              name: Source
+              label: Source
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: src
+                  value:
+                    a1: >-
+                      https://showcase.builderius.io/wp-content/uploads/2021/05/peugeot.jpg
+              parent: udab60092
+            u64e96256:
+              id: u64e96256
+              name: GenericBlock
+              label: headerInner
+              settings:
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexWrap
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: wrap
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 50
+                        b4: px
+                        a2: 50
+                        b2: px
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 1440
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 80
+                    '(max-width: 800px)':
+                      original:
+                        b1: auto
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                      ' #hamburger-input3:checked + nav':
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u275ac749
+            uf03ea896:
+              id: uf03ea896
+              name: GenericBlock
+              label: logo
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a4: 15
+                        a3: 30
+                        b4: px
+                        a2: 15
+                        b3: px
+                        b2: px
+                - name: filter
+                  value:
+                    all:
+                      original:
+                        i1:
+                          - a1: grayscale
+                            a2: '1'
+                      ':hover':
+                        i1:
+                          - a1: grayscale
+                            a2: '0'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: picture
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u1d1c01cf
+            u648fe8a8:
+              id: u648fe8a8
+              name: GenericBlock
+              label: logo
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a4: 15
+                        a3: 30
+                        b4: px
+                        a2: 15
+                        b3: px
+                        b2: px
+                - name: filter
+                  value:
+                    all:
+                      original:
+                        i1:
+                          - a1: grayscale
+                            a2: '1'
+                      ':hover':
+                        i1:
+                          - a1: grayscale
+                            a2: '0'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: picture
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u1d1c01cf
+            uc4854afe:
+              id: uc4854afe
+              name: GenericBlock
+              label: logo
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a4: 15
+                        a3: 30
+                        b4: px
+                        a2: 15
+                        b3: px
+                        b2: px
+                - name: filter
+                  value:
+                    all:
+                      original:
+                        i1:
+                          - a1: grayscale
+                            a2: '1'
+                      ':hover':
+                        i1:
+                          - a1: grayscale
+                            a2: '0'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: picture
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u1d1c01cf
+            u13d30527:
+              id: u13d30527
+              name: Source
+              label: Source
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: src
+                  value:
+                    a1: 'https://showcase.builderius.io/wp-content/uploads/2021/05/bmw.jpg'
+              parent: ud62d8eb5
+            uc0c76276:
+              id: uc0c76276
+              name: Image
+              label: Image
+              settings:
+                - name: objectFit
+                  value:
+                    all:
+                      original:
+                        a1: contain
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+              parent: ud8bbfb4d
+            ubd8c5d02:
+              id: ubd8c5d02
+              name: Source
+              label: Source
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: src
+                  value:
+                    a1: 'https://showcase.builderius.io/wp-content/uploads/2021/05/cisco.jpg'
+              parent: ud8bbfb4d
+            ud6e4d4e3:
+              id: ud6e4d4e3
+              name: Image
+              label: Image
+              settings:
+                - name: objectFit
+                  value:
+                    all:
+                      original:
+                        a1: contain
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+              parent: ud62d8eb5
+            u9ae9a74b:
+              id: u9ae9a74b
+              name: Heading
+              label: Heading H1
+              settings:
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a3: 15
+                        b3: px
+                - name: border
+                  value:
+                    all:
+                      original:
+                        a2: 2
+                        b2: px
+                        c2: solid
+                        d2: 'rgba(26, 106, 98, 1.00)'
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 15
+                        b3: px
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a6: 48
+                        a5: 40
+                        b6: px
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: serif
+                        c1: Spectral
+                    '(max-width: 800px)':
+                      original:
+                        a6: 40
+                        a5: 34
+                        b6: px
+                        b5: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                - name: htmlTagHeading
+                  value:
+                    a1: h1
+                - name: dataHeading
+                  value:
+                    a1: Our partners
+              parent: u64e96256
+            ud8bbfb4d:
+              id: ud8bbfb4d
+              name: GenericBlock
+              label: logo
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a4: 15
+                        a3: 30
+                        b4: px
+                        a2: 15
+                        b3: px
+                        b2: px
+                - name: filter
+                  value:
+                    all:
+                      original:
+                        i1:
+                          - a1: grayscale
+                            a2: '1'
+                      ':hover':
+                        i1:
+                          - a1: grayscale
+                            a2: '0'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: picture
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u1d1c01cf
+            u001a662d:
+              id: u001a662d
+              name: Image
+              label: Image
+              settings:
+                - name: objectFit
+                  value:
+                    all:
+                      original:
+                        a1: contain
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+              parent: uc4854afe
+            ud62d8eb5:
+              id: ud62d8eb5
+              name: GenericBlock
+              label: logo
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a4: 15
+                        a3: 30
+                        b4: px
+                        a2: 15
+                        b3: px
+                        b2: px
+                - name: filter
+                  value:
+                    all:
+                      original:
+                        i1:
+                          - a1: grayscale
+                            a2: '1'
+                      ':hover':
+                        i1:
+                          - a1: grayscale
+                            a2: '0'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: picture
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u1d1c01cf
+            ua265f319:
+              id: ua265f319
+              name: Source
+              label: Source
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: src
+                  value:
+                    a1: >-
+                      https://showcase.builderius.io/wp-content/uploads/2021/05/macrumors.jpg
+              parent: u648fe8a8
+            udccfa02f:
+              id: udccfa02f
+              name: Source
+              label: Source
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: src
+                  value:
+                    a1: 'https://showcase.builderius.io/wp-content/uploads/2021/05/adobe.jpg'
+              parent: uf03ea896
+            u3e812e09:
+              id: u3e812e09
+              name: Source
+              label: Source
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: src
+                  value:
+                    a1: 'https://showcase.builderius.io/wp-content/uploads/2021/05/disney.jpg'
+              parent: uc4854afe
+            ub0a65c0f:
+              id: ub0a65c0f
+              name: Image
+              label: Image
+              settings:
+                - name: objectFit
+                  value:
+                    all:
+                      original:
+                        a1: contain
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+              parent: udab60092
+            u1d1c01cf:
+              id: u1d1c01cf
+              name: GenericBlock
+              label: logo container
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a1: 40
+                        b1: px
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 600
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: space-evenly
+                - name: flexWrap
+                  value:
+                    all:
+                      original:
+                        a1: wrap
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u64e96256
+            u275ac749:
+              id: u275ac749
+              name: GenericBlock
+              label: 'partners #1'
+              settings:
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: padding
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a3: 50
+                        b3: px
+                        a1: 50
+                        b1: px
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 20
+                        b3: px
+                - name: backgroundColor
+                  value:
+                    all:
+                      original:
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: vh
+                        a1: 80
+                    '(max-width: 600px)':
+                      original:
+                        b1: auto
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            u37256856:
+              id: u37256856
+              name: Image
+              label: Image
+              settings:
+                - name: objectFit
+                  value:
+                    all:
+                      original:
+                        a1: contain
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+              parent: uf03ea896
+            udab60092:
+              id: udab60092
+              name: GenericBlock
+              label: logo
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a4: 15
+                        a3: 30
+                        b4: px
+                        a2: 15
+                        b3: px
+                        b2: px
+                - name: filter
+                  value:
+                    all:
+                      original:
+                        i1:
+                          - a1: grayscale
+                            a2: '1'
+                      ':hover':
+                        i1:
+                          - a1: grayscale
+                            a2: '0'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: picture
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u1d1c01cf
+            ua8dbc349:
+              id: ua8dbc349
+              name: Image
+              label: Image
+              settings:
+                - name: objectFit
+                  value:
+                    all:
+                      original:
+                        a1: contain
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+              parent: u648fe8a8
+          indexes:
+            root:
+              - u275ac749
+            u64e96256:
+              - u9ae9a74b
+              - u1d1c01cf
+            uf03ea896:
+              - udccfa02f
+              - u37256856
+            u648fe8a8:
+              - ua265f319
+              - ua8dbc349
+            uc4854afe:
+              - u3e812e09
+              - u001a662d
+            ud8bbfb4d:
+              - ubd8c5d02
+              - uc0c76276
+            ud62d8eb5:
+              - u13d30527
+              - ud6e4d4e3
+            u1d1c01cf:
+              - ud62d8eb5
+              - udab60092
+              - ud8bbfb4d
+              - u648fe8a8
+              - uc4854afe
+              - uf03ea896
+            u275ac749:
+              - u64e96256
+            udab60092:
+              - ue2fc6733
+              - ub0a65c0f
+          template:
+            settings:
+              - name: cssVars
+                value:
+                  all:
+                    original:
+                      i1:
+                        - a2: '--bgcolor'
+                          a1: color
+                          b2: 'rgba(15, 26, 38, 1.00)'
+                        - a2: '--textcolor'
+                          a1: color
+                          b2: 'rgba(255, 255, 255, 1.00)'
+                        - a1: color
+                          a2: '--textcolor-alt'
+                          b2: 'rgba(191, 206, 217, 1.00)'
+                        - a2: '--accentcolor'
+                          a1: color
+                          b2: 'rgba(252, 54, 59, 1.00)'
+                        - a2: '--accentborder'
+                          a1: any-value
+                          b2: 1px solid var(--accentcolor)
+              - name: responsiveStrategy
+                value:
+                  a1: desktop-first
+            type: singular
+            technology: html
+          version:
+            builderius: 0.9.6
+    tags:
+      - { name: builderius_layout }

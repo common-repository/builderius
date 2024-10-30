@@ -1,0 +1,20 @@
+services:
+  builderius_vcs.event_listener.builderius_branch_from_post_creation:
+    class: Builderius\Bundle\VCSBundle\EventListener\BuilderiusBranchFromPostCreationEventListener
+    arguments:
+      - '@builderius_vcs.factory.builderius_branch_from_post'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_branch_from_post_creation, method: createBranch }
+
+  builderius_vcs.event_listener.builderius_before_vcs_tag_changes:
+    class: Builderius\Bundle\VCSBundle\EventListener\BuilderiusBeforeVCSTagChangesEventListener
+    tags:
+      - { name: moomoo_event_listener, event: builderius_commit_before_tag_adding, method: onTagAdding }
+      - { name: moomoo_event_listener, event: builderius_commit_before_tag_removal, method: onTagRemoval }
+
+  builderius_vcs.event_listener.old_commits_deletion:
+    class: Builderius\Bundle\VCSBundle\EventListener\OldCommitsDeletionEventListener
+    arguments:
+      - '@builderius_vcs.factory.builderius_commit_from_post'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_commit_created, method: onCommitCreation }

@@ -1,0 +1,653 @@
+services:
+  builderius_layout.layout_hero_2:
+    class: 'Builderius\Bundle\LayoutBundle\Model\BuilderiusLayout'
+    arguments:
+      - name: 'layout_hero_2'
+        label: 'Hero #2'
+        technologies: ['html']
+        category: 'hero_sections'
+        image: 'https://showcase.builderius.io/wp-content/uploads/2023/02/layout_hero_2.png'
+        tags:
+          - 'dark'
+          - 'trwo columns'
+        config:
+          ---
+          modules:
+            u50447c69:
+              id: u50447c69
+              name: GenericBlock
+              label: 'hero #2'
+              settings:
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: padding
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a3: 50
+                        b3: px
+                        a1: 50
+                        b1: px
+                - name: backgroundColor
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--bgcolor'
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: vh
+                        a1: 80
+                    '(max-width: 600px)':
+                      original:
+                        b1: auto
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            u13b53c50:
+              id: u13b53c50
+              name: GenericBlock
+              label: headerInner
+              settings:
+                - name: flexWrap
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: wrap
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 50
+                        b4: px
+                        a2: 50
+                        b2: px
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 1440
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 80
+                    '(max-width: 800px)':
+                      original:
+                        b1: auto
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: space-between
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                      ' #hamburger-input3:checked + nav':
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u50447c69
+              index: 0
+            ue63ad53e:
+              id: ue63ad53e
+              name: GenericBlock
+              label: content left
+              settings:
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 48
+                        b1: '%'
+                    '(max-width: 600px)':
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u13b53c50
+              index: 0
+            ubb69f7e4:
+              id: ubb69f7e4
+              name: Paragraph
+              label: subtitle
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 60
+                        b3: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 24
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                    '(max-width: 800px)':
+                      original:
+                        a5: 19
+                        b5: px
+                - name: dataParagraph
+                  value:
+                    a1: 'Create stunning, professional forms in minutes, not hours.'
+              parent: ue63ad53e
+              index: 1
+            u3e38b890:
+              id: u3e38b890
+              name: Heading
+              label: Heading H1
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 15
+                        b3: px
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a6: 48
+                        a5: 40
+                        b6: px
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: serif
+                        c1: Spectral
+                    '(max-width: 800px)':
+                      original:
+                        a6: 40
+                        a5: 34
+                        b6: px
+                        b5: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: htmlTagHeading
+                  value:
+                    a1: h1
+                - name: dataHeading
+                  value:
+                    a1: 'Forms, powerful and beautiful'
+              parent: ue63ad53e
+              index: 0
+            u92834637:
+              id: u92834637
+              name: GenericBlock
+              label: cta wrapper
+              settings:
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ue63ad53e
+              index: 2
+            u2dc72307:
+              id: u2dc72307
+              name: Anchor
+              label: CTA
+              settings:
+                - name: backgroundColor
+                  value:
+                    all:
+                      ':hover':
+                        v1:
+                          - '--accentcolor'
+                        a1: 'rgba(252, 54, 59, 1.00)'
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 20
+                        a3: 10
+                        b4: px
+                        a2: 20
+                        b3: px
+                        a1: 10
+                        b2: px
+                        b1: px
+                - name: borderRadius
+                  value:
+                    all:
+                      original:
+                        a4: 25
+                        a3: 25
+                        b4: px
+                        a2: 25
+                        b3: px
+                        a1: 25
+                        b2: px
+                        b1: px
+                - name: border
+                  value:
+                    all:
+                      original:
+                        d1: 'rgba(252, 54, 59, 1.00)'
+                        c1: solid
+                        d2: 'rgba(252, 54, 59, 1.00)'
+                        b1: px
+                        c2: solid
+                        d3: 'rgba(252, 54, 59, 1.00)'
+                        b2: px
+                        c3: solid
+                        d4: 'rgba(252, 54, 59, 1.00)'
+                        a1: 1
+                        b3: px
+                        c4: solid
+                        a2: 1
+                        b4: px
+                        a3: 1
+                        a4: 1
+                        v1:
+                          - '--accentborder'
+                        v2:
+                          - '--accentborder'
+                        v3:
+                          - '--accentborder'
+                        v4:
+                          - '--accentborder'
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--accentcolor'
+                        a1: 'rgba(252, 54, 59, 1.00)'
+                      ':hover':
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: textTransform
+                  value:
+                    all:
+                      original:
+                        a1: uppercase
+                - name: textDecoration
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                        a2: normal
+                        a3: '700'
+                      ' span':
+                        a3: '400'
+                    '(max-width: 800px)':
+                      original:
+                        a5: 14
+                        b5: px
+                - name: dataAnchor
+                  value:
+                    a1: Get started - <span>for free</span>
+              parent: u92834637
+              index: 0
+            ub63257ef:
+              id: ub63257ef
+              name: Paragraph
+              label: CTA desc
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 30
+                        b3: px
+                        a1: 5
+                        b1: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 14
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                    '(max-width: 800px)':
+                      original:
+                        a5: 12
+                        b5: px
+                - name: dataParagraph
+                  value:
+                    a1: No credit card required
+              parent: u92834637
+              index: 1
+            u0ce57ee8:
+              id: u0ce57ee8
+              name: Svg
+              label: svg illustration
+              settings:
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 350
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 48
+                        b1: '%'
+                    '(max-width: 600px)':
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: dataSvg
+                  value:
+                    a1: >-
+                      <svg data-reactroot="" xmlns="http://www.w3.org/2000/svg"
+                      fill="none" viewBox="0 0 800 600" height="150" width="200"
+                      xmlns:xlink="http://www.w3.org/1999/xlink">
+
+                      <path stroke-width="1" stroke="#FF7373" fill="#FFE7C2" d="M696.247
+                      497.329H187.407C166.979 497.329 150.418 480.769 150.418
+                      460.34V460.34C150.418 439.911 166.979 423.351 187.407
+                      423.351H696.247C716.676 423.351 733.237 439.911 733.237
+                      460.34V460.34C733.237 480.769 716.676 497.329 696.247
+                      497.329Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="none" d="M696.247
+                      590H187.407C166.979 590 150.418 573.439 150.418
+                      553.011V553.011C150.418 532.582 166.979 516.021 187.407
+                      516.021H696.247C716.676 516.021 733.237 532.582 733.237
+                      553.011V553.011C733.237 573.439 716.676 590 696.247 590Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="#2F2933" d="M632.035
+                      543.231H109.665C92.3842 543.231 78.3242 529.171 78.3242
+                      511.89V498.36C78.3242 481.08 92.3842 467.02 109.665
+                      467.02H632.035C649.316 467.02 663.376 481.08 663.376
+                      498.36V511.89C663.376 529.171 649.316 543.231 632.035
+                      543.231ZM109.665 469.253C93.614 469.253 80.5571 482.31 80.5571
+                      498.36V511.89C80.5571 527.941 93.614 540.998 109.665
+                      540.998H632.035C648.086 540.998 661.143 527.941 661.143
+                      511.89V498.36C661.143 482.31 648.086 469.253 632.035
+                      469.253H109.665Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="none" d="M265.356
+                      341.883H96.5176V364.348H265.356V341.883Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="none" d="M234.838
+                      308.772H66V331.237H234.838V308.772Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="#FFE7C2" d="M713.799
+                      394.38H169.856C159.121 394.38 150.418 385.678 150.418
+                      374.943V168.986C150.418 158.251 159.121 149.548 169.856
+                      149.548H713.799C724.534 149.548 733.237 158.251 733.237
+                      168.986V374.943C733.237 385.678 724.534 394.38 713.799
+                      394.38Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="none" d="M671.742
+                      259.583H195.181C187.166 259.583 180.668 253.085 180.668
+                      245.07C180.668 237.054 187.166 230.556 195.181
+                      230.556H671.742C679.757 230.556 686.255 237.054 686.255
+                      245.07C686.255 253.085 679.757 259.583 671.742 259.583Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="none" d="M671.743
+                      294.611H195.183C191.483 294.611 188.484 291.613 188.484
+                      287.912C188.484 284.212 191.483 281.214 195.183
+                      281.214H671.743C675.443 281.214 678.441 284.212 678.441
+                      287.912C678.441 291.613 675.443 294.611 671.743 294.611Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="none" d="M413.729
+                      345.271H286.441C278.426 345.271 271.928 338.773 271.928
+                      330.757C271.928 322.742 278.426 316.244 286.441
+                      316.244H413.729C421.744 316.244 428.242 322.742 428.242
+                      330.757C428.242 338.773 421.744 345.271 413.729 345.271Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="#0D0D0D" d="M597.213
+                      345.271H469.926C461.91 345.271 455.412 338.773 455.412
+                      330.757C455.412 322.742 461.91 316.244 469.926
+                      316.244H597.213C605.229 316.244 611.727 322.742 611.727
+                      330.757C611.727 338.773 605.229 345.271 597.213 345.271Z"
+                      opacity="0.38"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="none" d="M200.728
+                      193.725C205.636 193.725 209.615 189.746 209.615 184.837C209.615
+                      179.929 205.636 175.949 200.728 175.949C195.819 175.949 191.84
+                      179.929 191.84 184.837C191.84 189.746 195.819 193.725 200.728
+                      193.725Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="none" d="M230.89
+                      193.725C235.798 193.725 239.778 189.746 239.778 184.837C239.778
+                      179.929 235.798 175.949 230.89 175.949C225.981 175.949 222.002
+                      179.929 222.002 184.837C222.002 189.746 225.981 193.725 230.89
+                      193.725Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="#2F2933" d="M649.609
+                      106.895C643.988 106.895 641.118 103.101 638.587 99.7541C636.153
+                      96.5379 633.853 93.4982 629.341 93.4982C624.83 93.4982 622.532
+                      96.5357 620.098 99.7541C617.567 103.101 614.697 106.895 609.073
+                      106.895C603.454 106.895 600.587 103.101 598.058 99.7541C595.624
+                      96.5379 593.328 93.4982 588.819 93.4982C584.309 93.4982 582.011
+                      96.5379 579.578 99.7541C577.048 103.101 574.179 106.895 568.56
+                      106.895C562.94 106.895 560.071 103.101 557.539 99.7519C555.108
+                      96.5357 552.812 93.4982 548.305 93.4982C543.798 93.4982 541.502
+                      96.5357 539.07 99.7541C536.541 103.101 533.674 106.895 528.057
+                      106.895C522.439 106.895 519.572 103.101 517.043 99.7541C514.611
+                      96.5357 512.315 93.4982 507.808 93.4982C503.301 93.4982 501.005
+                      96.5357 498.574 99.7541C496.044 103.101 493.177 106.895 487.56
+                      106.895C481.943 106.895 479.076 103.101 476.546 99.7541C474.115
+                      96.5379 471.817 93.4982 467.31 93.4982C462.802 93.4982 460.506
+                      96.5357 458.073 99.7541C455.544 103.101 452.676 106.895 447.057
+                      106.895C441.438 106.895 438.57 103.101 436.039 99.7519C433.61
+                      96.5357 431.314 93.4982 426.807 93.4982C422.299 93.4982 420.001
+                      96.5379 417.57 99.7541C415.04 103.101 412.173 106.895 406.556
+                      106.895C400.939 106.895 398.072 103.101 395.542 99.7541C393.111
+                      96.5357 390.815 93.4982 386.308 93.4982C385.691 93.4982 385.191
+                      92.9989 385.191 92.3818C385.191 91.7647 385.691 91.2654 386.308
+                      91.2654C391.925 91.2654 394.792 95.0595 397.322 98.4066C399.753
+                      101.625 402.049 104.662 406.556 104.662C411.063 104.662 413.359
+                      101.625 415.788 98.4087C418.32 95.0595 421.187 91.2654 426.807
+                      91.2654C432.424 91.2654 435.291 95.0595 437.82 98.4066C440.252
+                      101.623 442.55 104.662 447.057 104.662C451.564 104.662 453.86
+                      101.625 456.294 98.4066C458.823 95.0595 461.69 91.2654 467.31
+                      91.2654C472.929 91.2654 475.796 95.0595 478.328 98.4087C480.757
+                      101.625 483.053 104.662 487.56 104.662C492.067 104.662 494.363
+                      101.625 496.794 98.4066C499.324 95.0595 502.191 91.2654 507.808
+                      91.2654C513.425 91.2654 516.293 95.0595 518.822 98.4066C521.253
+                      101.625 523.549 104.662 528.057 104.662C532.564 104.662 534.86
+                      101.625 537.291 98.4066C539.82 95.0595 542.688 91.2654 548.305
+                      91.2654C553.924 91.2654 556.791 95.0595 559.321 98.4066C561.754
+                      101.623 564.05 104.662 568.56 104.662C573.069 104.662 575.365
+                      101.625 577.798 98.4066C580.328 95.0595 583.197 91.2654 588.819
+                      91.2654C594.438 91.2654 597.307 95.0595 599.837 98.4087C602.27
+                      101.625 604.566 104.662 609.073 104.662C613.585 104.662 615.885
+                      101.623 618.319 98.4066C620.85 95.0595 623.72 91.2654 629.341
+                      91.2654C634.965 91.2654 637.834 95.0595 640.366 98.4066C642.799
+                      101.625 645.098 104.662 649.609 104.662C650.226 104.662 650.726
+                      105.162 650.726 105.779C650.726 106.396 650.226 106.895 649.609
+                      106.895Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="none" d="M281.258
+                      169.257C320.016 169.257 351.435 137.838 351.435 99.0797C351.435
+                      60.3217 320.016 28.9022 281.258 28.9022C242.5 28.9022 211.08 60.3217
+                      211.08 99.0797C211.08 137.838 242.5 169.257 281.258
+                      169.257Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="none" d="M271.329
+                      167.452C232.017 167.452 200.035 135.471 200.035 96.158C200.035
+                      56.8456 232.017 24.864 271.329 24.864C310.642 24.864 342.623 56.8456
+                      342.623 96.158C342.623 135.471 310.642 167.452 271.329
+                      167.452ZM271.329 27.0968C233.249 27.0968 202.268 58.0775 202.268
+                      96.158C202.268 134.239 233.249 165.219 271.329 165.219C309.41
+                      165.219 340.39 134.239 340.39 96.158C340.39 58.0775 309.41 27.0968
+                      271.329 27.0968Z"></path>
+
+                      <path stroke-width="1" stroke="#FF7373" fill="none" d="M253.108
+                      65.0923L297.94 98.6264L277.233 98.2587L378.693 11.3053C380.967
+                      9.35646 384.39 9.62003 386.339 11.894C388.125 13.9781 388.052
+                      17.0275 386.278 19.0224L297.58 118.961L285.9 132.12L276.872
+                      118.593L245.791 72.0266C244.223 69.6774 244.856 66.5017 247.205
+                      64.9337C249.054 63.6998 251.422 63.8358 253.108 65.0923Z"></path>
+
+                      </svg>
+              parent: u13b53c50
+              index: 1
+          indexes:
+            root:
+              - u50447c69
+            u50447c69:
+              - u13b53c50
+            u13b53c50:
+              - ue63ad53e
+              - u0ce57ee8
+            ue63ad53e:
+              - u3e38b890
+              - ubb69f7e4
+              - u92834637
+            u92834637:
+              - u2dc72307
+              - ub63257ef
+          version:
+            builderius: 0.9.6
+    tags:
+      - { name: builderius_layout }

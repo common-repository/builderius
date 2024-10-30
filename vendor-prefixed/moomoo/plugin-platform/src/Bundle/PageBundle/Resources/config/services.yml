@@ -1,0 +1,10 @@
+services:
+  moomoo_page.registry:
+    class: 'Builderius\MooMoo\Platform\Bundle\PageBundle\Registry\PagesRegistry'
+
+  moomoo_page.abstract_page:
+    class: 'Builderius\MooMoo\Platform\Bundle\PageBundle\Model\AbstractPage'
+    abstract: true
+    calls:
+      - [ setTemplating, [ '@templating' ] ]
+

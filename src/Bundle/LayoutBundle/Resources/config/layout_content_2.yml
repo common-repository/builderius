@@ -1,0 +1,514 @@
+services:
+  builderius_layout.layout_content_2:
+    class: 'Builderius\Bundle\LayoutBundle\Model\BuilderiusLayout'
+    arguments:
+      - name: 'layout_content_2'
+        label: 'Content #2'
+        technologies: ['html']
+        category: 'content_sections'
+        image: 'https://showcase.builderius.io/wp-content/uploads/2023/02/layout_content_2.jpg'
+        tags:
+          - 'content'
+          - 'features'
+          - 'responsive'
+        config:
+          ---
+          modules:
+            u48931c31:
+              id: u48931c31
+              name: GenericBlock
+              label: inner
+              settings:
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 20
+                        b4: px
+                        a2: 20
+                        b2: px
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        b4: auto
+                        b2: auto
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 900
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ud6ca77b9
+            u04e43167:
+              id: u04e43167
+              name: Heading
+              label: post title
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 10
+                        b3: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--accentcolor'
+                        a1: 'rgba(252, 54, 59, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 18
+                        b5: px
+                        a3: '700'
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                - name: htmlTagHeading
+                  value:
+                    a1: h3
+                - name: dataHeading
+                  value:
+                    a1: '{{title}}'
+              parent: u36d9a1c3
+            uc5a16590:
+              id: uc5a16590
+              name: Paragraph
+              label: post content
+              settings:
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 14
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: textAlign
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: dataParagraph
+                  value:
+                    a1: '{{desc}}'
+              parent: u36d9a1c3
+            u36d9a1c3:
+              id: u36d9a1c3
+              name: GenericBlock
+              label: item
+              settings:
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: fill
+                  value:
+                    all:
+                      ' svg path':
+                        a1: 'rgba(221, 201, 120, 1.00)'
+                - name: margin
+                  value:
+                    all:
+                      ' svg':
+                        b4: auto
+                        b2: auto
+                        a3: 30
+                        b3: px
+                - name: height
+                  value:
+                    all:
+                      ' svg':
+                        b1: px
+                        a1: 100
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 200
+                      ' svg':
+                        b1: px
+                        a1: 100
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u4f1846f0
+            u97e4a701:
+              id: u97e4a701
+              name: Collection
+              label: post items
+              settings:
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexWrap
+                  value:
+                    all:
+                      original:
+                        a1: wrap
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 40
+                        b3: px
+                - name: gap
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 20
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: data-content
+                        b1: >-
+                          [{"imgUrl":"<svg aria-hidden='true' focusable='false'
+                          data-prefix='fab' data-icon='angellist' role='img'
+                          xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path
+                          fill='currentColor' d='M347.1 215.4c11.7-32.6 45.4-126.9
+                          45.4-157.1 0-26.6-15.7-48.9-43.7-48.9-44.6 0-84.6 131.7-97.1
+                          163.1C242 144 196.6 0 156.6 0c-31.1 0-45.7 22.9-45.7 51.7 0 35.3
+                          34.2 126.8 46.6 162-6.3-2.3-13.1-4.3-20-4.3-23.4 0-48.3
+                          29.1-48.3 52.6 0 8.9 4.9 21.4 8 29.7-36.9 10-51.1 34.6-51.1
+                          71.7C46 435.6 114.4 512 210.6 512c118 0 191.4-88.6 191.4-202.9
+                          0-43.1-6.9-82-54.9-93.7zM311.7 108c4-12.3 21.1-64.3 37.1-64.3
+                          8.6 0 10.9 8.9 10.9 16 0 19.1-38.6 124.6-47.1 148l-34-6
+                          33.1-93.7zM142.3 48.3c0-11.9 14.5-45.7 46.3 47.1l34.6
+                          100.3c-15.6-1.3-27.7-3-35.4
+                          1.4-10.9-28.8-45.5-119.7-45.5-148.8zM140 244c29.3 0 67.1 94.6
+                          67.1 107.4 0 5.1-4.9 11.4-10.6 11.4-20.9
+                          0-76.9-76.9-76.9-97.7.1-7.7 12.7-21.1 20.4-21.1zm184.3
+                          186.3c-29.1 32-66.3 48.6-109.7 48.6-59.4
+                          0-106.3-32.6-128.9-88.3-17.1-43.4 3.8-68.3 20.6-68.3 11.4 0 54.3
+                          60.3 54.3 73.1 0 4.9-7.7 8.3-11.7 8.3-16.1
+                          0-22.4-15.5-51.1-51.4-29.7 29.7 20.5 86.9 58.3 86.9 26.1 0
+                          43.1-24.2 38-42 3.7 0 8.3.3 11.7-.6 1.1 27.1 9.1 59.4 41.7 61.7
+                          0-.9 2-7.1 2-7.4 0-17.4-10.6-32.6-10.6-50.3 0-28.3 21.7-55.7
+                          43.7-71.7 8-6 17.7-9.7 27.1-13.1 9.7-3.7 20-8
+                          27.4-15.4-1.1-11.2-5.7-21.1-16.9-21.1-27.7 0-120.6 4-120.6-39.7
+                          0-6.7.1-13.1 17.4-13.1 32.3 0 114.3 8 138.3 29.1 18.1 16.1 24.3
+                          113.2-31 174.7zm-98.6-126c9.7 3.1 19.7 4 29.7 6-7.4 5.4-14
+                          12-20.3
+                          19.1-2.8-8.5-6.2-16.8-9.4-25.1z'></path></svg>","title":"Feature","desc":"Lorem
+                          ipsum dolor sit amet, consectetur"},{"imgUrl":"<svg
+                          aria-hidden='true' focusable='false' data-prefix='fab'
+                          data-icon='angellist' role='img'
+                          xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path
+                          fill='currentColor' d='M347.1 215.4c11.7-32.6 45.4-126.9
+                          45.4-157.1 0-26.6-15.7-48.9-43.7-48.9-44.6 0-84.6 131.7-97.1
+                          163.1C242 144 196.6 0 156.6 0c-31.1 0-45.7 22.9-45.7 51.7 0 35.3
+                          34.2 126.8 46.6 162-6.3-2.3-13.1-4.3-20-4.3-23.4 0-48.3
+                          29.1-48.3 52.6 0 8.9 4.9 21.4 8 29.7-36.9 10-51.1 34.6-51.1
+                          71.7C46 435.6 114.4 512 210.6 512c118 0 191.4-88.6 191.4-202.9
+                          0-43.1-6.9-82-54.9-93.7zM311.7 108c4-12.3 21.1-64.3 37.1-64.3
+                          8.6 0 10.9 8.9 10.9 16 0 19.1-38.6 124.6-47.1 148l-34-6
+                          33.1-93.7zM142.3 48.3c0-11.9 14.5-45.7 46.3 47.1l34.6
+                          100.3c-15.6-1.3-27.7-3-35.4
+                          1.4-10.9-28.8-45.5-119.7-45.5-148.8zM140 244c29.3 0 67.1 94.6
+                          67.1 107.4 0 5.1-4.9 11.4-10.6 11.4-20.9
+                          0-76.9-76.9-76.9-97.7.1-7.7 12.7-21.1 20.4-21.1zm184.3
+                          186.3c-29.1 32-66.3 48.6-109.7 48.6-59.4
+                          0-106.3-32.6-128.9-88.3-17.1-43.4 3.8-68.3 20.6-68.3 11.4 0 54.3
+                          60.3 54.3 73.1 0 4.9-7.7 8.3-11.7 8.3-16.1
+                          0-22.4-15.5-51.1-51.4-29.7 29.7 20.5 86.9 58.3 86.9 26.1 0
+                          43.1-24.2 38-42 3.7 0 8.3.3 11.7-.6 1.1 27.1 9.1 59.4 41.7 61.7
+                          0-.9 2-7.1 2-7.4 0-17.4-10.6-32.6-10.6-50.3 0-28.3 21.7-55.7
+                          43.7-71.7 8-6 17.7-9.7 27.1-13.1 9.7-3.7 20-8
+                          27.4-15.4-1.1-11.2-5.7-21.1-16.9-21.1-27.7 0-120.6 4-120.6-39.7
+                          0-6.7.1-13.1 17.4-13.1 32.3 0 114.3 8 138.3 29.1 18.1 16.1 24.3
+                          113.2-31 174.7zm-98.6-126c9.7 3.1 19.7 4 29.7 6-7.4 5.4-14
+                          12-20.3
+                          19.1-2.8-8.5-6.2-16.8-9.4-25.1z'></path></svg>","title":"Feature","desc":"Sed
+                          ut perspiciatis unde omnis iste natus"},{"imgUrl":"<svg
+                          aria-hidden='true' focusable='false' data-prefix='fab'
+                          data-icon='angellist' role='img'
+                          xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'><path
+                          fill='currentColor' d='M347.1 215.4c11.7-32.6 45.4-126.9
+                          45.4-157.1 0-26.6-15.7-48.9-43.7-48.9-44.6 0-84.6 131.7-97.1
+                          163.1C242 144 196.6 0 156.6 0c-31.1 0-45.7 22.9-45.7 51.7 0 35.3
+                          34.2 126.8 46.6 162-6.3-2.3-13.1-4.3-20-4.3-23.4 0-48.3
+                          29.1-48.3 52.6 0 8.9 4.9 21.4 8 29.7-36.9 10-51.1 34.6-51.1
+                          71.7C46 435.6 114.4 512 210.6 512c118 0 191.4-88.6 191.4-202.9
+                          0-43.1-6.9-82-54.9-93.7zM311.7 108c4-12.3 21.1-64.3 37.1-64.3
+                          8.6 0 10.9 8.9 10.9 16 0 19.1-38.6 124.6-47.1 148l-34-6
+                          33.1-93.7zM142.3 48.3c0-11.9 14.5-45.7 46.3 47.1l34.6
+                          100.3c-15.6-1.3-27.7-3-35.4
+                          1.4-10.9-28.8-45.5-119.7-45.5-148.8zM140 244c29.3 0 67.1 94.6
+                          67.1 107.4 0 5.1-4.9 11.4-10.6 11.4-20.9
+                          0-76.9-76.9-76.9-97.7.1-7.7 12.7-21.1 20.4-21.1zm184.3
+                          186.3c-29.1 32-66.3 48.6-109.7 48.6-59.4
+                          0-106.3-32.6-128.9-88.3-17.1-43.4 3.8-68.3 20.6-68.3 11.4 0 54.3
+                          60.3 54.3 73.1 0 4.9-7.7 8.3-11.7 8.3-16.1
+                          0-22.4-15.5-51.1-51.4-29.7 29.7 20.5 86.9 58.3 86.9 26.1 0
+                          43.1-24.2 38-42 3.7 0 8.3.3 11.7-.6 1.1 27.1 9.1 59.4 41.7 61.7
+                          0-.9 2-7.1 2-7.4 0-17.4-10.6-32.6-10.6-50.3 0-28.3 21.7-55.7
+                          43.7-71.7 8-6 17.7-9.7 27.1-13.1 9.7-3.7 20-8
+                          27.4-15.4-1.1-11.2-5.7-21.1-16.9-21.1-27.7 0-120.6 4-120.6-39.7
+                          0-6.7.1-13.1 17.4-13.1 32.3 0 114.3 8 138.3 29.1 18.1 16.1 24.3
+                          113.2-31 174.7zm-98.6-126c9.7 3.1 19.7 4 29.7 6-7.4 5.4-14
+                          12-20.3
+                          19.1-2.8-8.5-6.2-16.8-9.4-25.1z'></path></svg>","title":"Feature","desc":"Lorem
+                          ipsum dolor sit amet, consectetur"}]
+              parent: u48931c31
+            u35752249:
+              id: u35752249
+              name: Heading
+              label: Heading H1
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 15
+                        b3: px
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a6: 48
+                        a5: 40
+                        b6: px
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: serif
+                        c1: Spectral
+                    '(max-width: 800px)':
+                      original:
+                        a6: 40
+                        a5: 34
+                        b6: px
+                        b5: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: htmlTagHeading
+                  value:
+                    a1: h1
+                - name: dataHeading
+                  value:
+                    a1: Key Features
+              parent: u48931c31
+            u4f1846f0:
+              id: u4f1846f0
+              name: Template
+              label: Template
+              settings: []
+              parent: u97e4a701
+            u06dccf86:
+              id: u06dccf86
+              name: Paragraph
+              label: subtitle
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                    all:
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 60
+                        b3: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 24
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                    '(max-width: 800px)':
+                      original:
+                        a5: 19
+                        b5: px
+                - name: dataParagraph
+                  value:
+                    a1: >-
+                      The most complete solution to manage innovation and continuous
+                      improvement.
+              parent: u48931c31
+            ud6ca77b9:
+              id: ud6ca77b9
+              name: GenericBlock
+              label: 'content #2'
+              settings:
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a3: 40
+                        b3: px
+                        a1: 40
+                        b1: px
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 20
+                        b3: px
+                - name: backgroundColor
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--bgcolor'
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            u48a0f8be:
+              id: u48a0f8be
+              name: Svg
+              label: Raw Svg
+              settings:
+                - name: dataSvg
+                  value:
+                    a1: '{{{imgUrl}}}'
+              parent: u36d9a1c3
+          indexes:
+            root:
+              - ud6ca77b9
+            u48931c31:
+              - u35752249
+              - u06dccf86
+              - u97e4a701
+            u36d9a1c3:
+              - u48a0f8be
+              - u04e43167
+              - uc5a16590
+            u97e4a701:
+              - u4f1846f0
+            u4f1846f0:
+              - u36d9a1c3
+            ud6ca77b9:
+              - u48931c31
+          template:
+            type: singular
+            technology: html
+            settings:
+              - name: cssVars
+                value:
+                  all:
+                    original:
+                      i1:
+                        - a1: color
+                          a2: '--accentcolor'
+                          b2: 'rgba(252, 54, 59, 1.00)'
+                        - a1: color
+                          a2: '--textcolor-alt'
+                          b2: 'rgba(191, 206, 217, 1.00)'
+          version:
+            builderius: 0.9.6
+    tags:
+      - { name: builderius_layout }

@@ -1,0 +1,773 @@
+services:
+  builderius_graphql.type_config.builderius_root_query.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_query
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_graphql.type_config.builderius_root_query.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.root_query.field.vcs_owners' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_query.field.branches' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_query.field.deliverable_vcs_tags' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_query.field.existing_vcs_tags' ] ]
+
+  builderius_graphql.type_config.root_query.field.vcs_owners:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'vcs_owners'
+        type: '[BuilderiusVCSOwner]'
+    calls:
+      - [ addArgument, [ '@builderius_graphql.type_config.root_query.field.vcs_owners.argument.entity_type' ] ]
+      - [ addArgument, [ '@builderius_graphql.type_config.root_query.field.vcs_owners.argument.type' ] ]
+      - [ addArgument, [ '@builderius_graphql.type_config.root_query.field.vcs_owners.argument.technology' ] ]
+      - [ addArgument, [ '@builderius_graphql.type_config.root_query.field.vcs_owners.argument.author_name' ] ]
+      - [ addArgument, [ '@builderius_graphql.type_config.root_query.field.vcs_owners.argument.author_id' ] ]
+
+  builderius_graphql.type_config.root_query.field.vcs_owners.argument.entity_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'entity_type'
+        type: 'String'
+
+  builderius_graphql.type_config.root_query.field.vcs_owners.argument.type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::TYPE_FIELD
+        type: !php/const Builderius\Bundle\TemplateBundle\GraphQL\TypeConfig\TemplateTypeTypeConfig::NAME
+
+  builderius_graphql.type_config.root_query.field.vcs_owners.argument.technology:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::TECHNOLOGY_FIELD
+        type: !php/const Builderius\Bundle\TemplateBundle\GraphQL\TypeConfig\TemplateTechnologyTypeConfig::NAME
+
+  builderius_graphql.type_config.root_query.field.vcs_owners.argument.author_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'author_name'
+        type: 'String'
+
+  builderius_graphql.type_config.root_query.field.vcs_owners.argument.author_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'author_id'
+        type: 'Int'
+
+  builderius_graphql.type_config.root_query.field.branches:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'branches'
+        type: '[BuilderiusBranch]'
+    calls:
+      - [ addArgument, [ '@builderius_graphql.type_config.root_query.required_argument.owner_id' ] ]
+
+  builderius_graphql.type_config.root_query.required_argument.owner_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'owner_id'
+        type: 'Int'
+
+  builderius_graphql.type_config.root_query.field.deliverable_vcs_tags:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'deliverable_vcs_tags'
+        type: '[String]'
+
+  builderius_graphql.type_config.root_query.field.existing_vcs_tags:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'existing_vcs_tags'
+        type: '[ExistingVCSTag]'
+    calls:
+      - [ addArgument, [ '@builderius_graphql.type_config.root_query.required_argument.owner_id' ] ]
+
+  builderius_graphql.type_config.existing_vcs_tag_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'ExistingVCSTag'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.existing_vcs_tag_type.field.name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.existing_vcs_tag_type.field.count' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.existing_vcs_tag_type.field.locked_to_add' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.existing_vcs_tag_type.field.locked_to_remove' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.existing_vcs_tag_type.field.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'name'
+        type: 'String'
+
+  builderius_graphql.type_config.existing_vcs_tag_type.field.count:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'count'
+        type: 'Int'
+
+  builderius_graphql.type_config.existing_vcs_tag_type.field.locked_to_add:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'locked_to_add'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.existing_vcs_tag_type.field.locked_to_remove:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'locked_to_remove'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.builderius_root_mutation.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_mutation
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_graphql.type_config.builderius_root_mutation.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.create_branch' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.update_branch' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.delete_not_committed_config' ] ]
+      #- [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.delete_branch' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.create_commit' ] ]
+      #- [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.delete_commit' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.add_tag' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.remove_tag' ] ]
+
+  builderius_graphql.type_config.vcs_owner_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInterfaceTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusVCSOwner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.id' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.title' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.entity_type' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.type' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.technology' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.active_branch_name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.active_branch' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.branch' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.branches' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.default_content_config']]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.inner_commits_tags' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.author' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.created_at' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.vcs_owner_type.field.updated_at' ] ]
+      - [ 'setTypeResolver', [ '@builderius_graphql.type_resolver.builderius_vcs_owner' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.vcs_owner_type.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::ID_FIELD
+        type: 'Int'
+
+  builderius_graphql.type_config.vcs_owner_type.field.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::NAME_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.vcs_owner_type.field.entity_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::ENTITY_TYPE_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.vcs_owner_type.field.title:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::TITLE_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.vcs_owner_type.field.type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::TYPE_FIELD
+        type: 'String!'
+
+  builderius_graphql.type_config.vcs_owner_type.field.technology:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::TECHNOLOGY_FIELD
+        type: 'String!'
+
+  builderius_graphql.type_config.vcs_owner_type.field.active_branch_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::ACTIVE_BRANCH_NAME_GRAPHQL
+        type: 'String'
+
+  builderius_graphql.type_config.vcs_owner_type.field.active_branch:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::ACTIVE_BRANCH_GRAPHQL
+        type: 'BuilderiusBranch'
+
+  builderius_graphql.type_config.vcs_owner_type.field.branch:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::BRANCH_GRAPHQL
+        type: 'BuilderiusBranch'
+    calls:
+      - [addArgument, ['@builderius_graphql.type_config.vcs_owner_type.field.branch.argument.name']]
+
+  builderius_graphql.type_config.vcs_owner_type.field.branch.argument.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::NAME_FIELD
+        type: 'String!'
+
+  builderius_graphql.type_config.vcs_owner_type.field.branches:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::BRANCHES_FIELD
+        type: '[BuilderiusBranch]'
+
+  builderius_graphql.type_config.vcs_owner_type.field.inner_commits_tags:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::INNER_COMMITS_TAGS_FIELD
+        type: '[String]'
+
+  builderius_graphql.type_config.vcs_owner_type.field.default_content_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::DEFAULT_CONTENT_CONFIG_FIELD
+        type: 'Json'
+
+  builderius_graphql.type_config.vcs_owner_type.field.author:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::AUTHOR_FIELD
+        type: 'User'
+
+  builderius_graphql.type_config.vcs_owner_type.field.created_at:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::CREATED_AT_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.vcs_owner_type.field.updated_at:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\AbstractBuilderiusVCSOwner::UPDATED_AT_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.branch_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusBranch'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.owner' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.id' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.base_branch_name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.base_branch' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.base_commit_name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.base_commit' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.active_commit_name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.active_commit' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.commit' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.commits' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.inner_commits_tags' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.not_committed_config' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.ncc_base_commit_name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.author' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.created_at' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.updated_at' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.branch_type.field.owner:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::OWNER_FIELD
+        type: 'BuilderiusVCSOwner'
+
+  builderius_graphql.type_config.branch_type.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::ID_FIELD
+        type: 'Int'
+
+  builderius_graphql.type_config.branch_type.field.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::NAME_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.branch_type.field.base_branch_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::BASE_BRANCH_NAME_GRAPHQL
+        type: 'String'
+
+  builderius_graphql.type_config.branch_type.field.base_branch:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::BASE_BRANCH_GRAPHQL
+        type: 'BuilderiusBranch'
+
+  builderius_graphql.type_config.branch_type.field.base_commit_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::BASE_COMMIT_NAME_GRAPHQL
+        type: 'String'
+
+  builderius_graphql.type_config.branch_type.field.base_commit:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::BASE_COMMIT_GRAPHQL
+        type: 'BuilderiusCommit'
+
+  builderius_graphql.type_config.branch_type.field.active_commit_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::ACTIVE_COMMIT_NAME_GRAPHQL
+        type: 'String'
+
+  builderius_graphql.type_config.branch_type.field.active_commit:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::ACTIVE_COMMIT_GRAPHQL
+        type: 'BuilderiusCommit'
+
+  builderius_graphql.type_config.branch_type.field.commit:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'commit'
+        type: 'BuilderiusCommit'
+    calls:
+      - [addArgument, ['@builderius_graphql.type_config.branch_type.field.commit.argument.name']]
+
+  builderius_graphql.type_config.branch_type.field.commit.argument.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::NAME_FIELD
+        type: 'String!'
+
+  builderius_graphql.type_config.branch_type.field.commits:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::COMMITS_FIELD
+        type: '[BuilderiusCommit]'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.branch_type.field.commits.argument.newer_than']]
+
+  builderius_graphql.type_config.branch_type.field.inner_commits_tags:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::INNER_COMMITS_TAGS_FIELD
+        type: '[String]'
+
+  builderius_graphql.type_config.branch_type.field.commits.argument.newer_than:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'newer_than'
+        type: 'String'
+
+  builderius_graphql.type_config.branch_type.field.not_committed_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::NOT_COMMITTED_CONFIG_FIELD
+        type: 'Json'
+
+  builderius_graphql.type_config.branch_type.field.ncc_base_commit_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::NCC_BASE_COMMIT_NAME_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.branch_type.field.serialized_not_committed_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::SERIALIZED_NOT_COMMITTED_CONFIG_GRAPHQL
+        type: 'String'
+
+  builderius_graphql.type_config.branch_type.field.author:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::AUTHOR_FIELD
+        type: 'User'
+
+  builderius_graphql.type_config.branch_type.field.created_at:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::CREATED_AT_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.branch_type.field.updated_at:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::UPDATED_AT_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.commit_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCommit'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.id' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.description' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.branch' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.merged_branch_name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.merged_branch' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.merged_commit_name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.merged_commit' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.tags' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.content_config' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.author' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.created_at' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.commit_type.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::ID_FIELD
+        type: 'Int'
+
+  builderius_graphql.type_config.commit_type.field.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::NAME_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.commit_type.field.description:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::DESCRIPTION_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.commit_type.field.branch:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::BRANCH_FIELD
+        type: 'BuilderiusBranch'
+
+  builderius_graphql.type_config.commit_type.field.merged_branch_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::MERGED_BRANCH_NAME_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.commit_type.field.merged_branch:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::MERGED_BRANCH_FIELD
+        type: 'BuilderiusBranch'
+
+  builderius_graphql.type_config.commit_type.field.merged_commit_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::MERGED_COMMIT_NAME_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.commit_type.field.merged_commit:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::MERGED_COMMIT_FIELD
+        type: 'BuilderiusCommit'
+
+  builderius_graphql.type_config.commit_type.field.tags:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::TAGS_FIELD
+        type: '[String]'
+
+  builderius_graphql.type_config.commit_type.field.content_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::CONTENT_CONFIG_FIELD
+        type: 'Json'
+
+  builderius_graphql.type_config.commit_type.field.serialized_content_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::SERIALIZED_CONTENT_CONFIG_GRAPHQL
+        type: 'String!'
+
+  builderius_graphql.type_config.commit_type.field.author:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::AUTHOR_FIELD
+        type: 'User'
+
+  builderius_graphql.type_config.commit_type.field.created_at:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusCommit::CREATED_AT_FIELD
+        type: 'String'
+
+#-----------------createBranch------------------
+
+  builderius_graphql.type_config.root_mutation.field.create_branch:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'createBranch'
+        type: 'BuilderiusCreateBranchOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.create_branch.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.create_branch.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusCreateBranchInput!'
+
+  builderius_graphql.type_config.create_branch_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateBranchInput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.create_branch_input_type.field.name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_branch_input_type.field.base_branch_name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_branch_input_type.field.base_commit_name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_branch_input_type.field.owner_id' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_branch_input_type.field.author_id'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.serialized_not_committed_config' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_branch_input_type.field.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'name'
+        type: 'String!'
+
+  builderius_graphql.type_config.create_branch_input_type.field.base_branch_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'base_branch_name'
+        type: 'String!'
+
+  builderius_graphql.type_config.create_branch_input_type.field.base_commit_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'base_commit_name'
+        type: 'String!'
+
+  builderius_graphql.type_config.create_branch_input_type.field.owner_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'owner_id'
+        type: 'Int!'
+
+  builderius_graphql.type_config.create_branch_input_type.field.author_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'author_id'
+        type: 'Int'
+
+  builderius_graphql.type_config.create_branch_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateBranchOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.create_branch_output_type.field.branch' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_branch_output_type.field.branch:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'branch'
+        type: 'BuilderiusBranch'
+
+#---------------updateBranch-------------------
+
+  builderius_graphql.type_config.root_mutation.field.update_branch:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'updateBranch'
+        type: 'BuilderiusCreateBranchOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.update_branch.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.update_branch.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusUpdateBranchInput!'
+
+  builderius_graphql.type_config.update_branch_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusUpdateBranchInput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.update_branch_input_type.field.id' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.active_commit_name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.branch_type.field.serialized_not_committed_config' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.update_branch_input_type.field.ncc_base_commit_name']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.update_branch_input_type.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'id'
+        type: 'Int!'
+
+  builderius_graphql.type_config.update_branch_input_type.field.ncc_base_commit_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\VCSBundle\Model\BuilderiusBranch::NCC_BASE_COMMIT_NAME_FIELD
+        type: 'String'
+
+#---------------deleteNotCommittedConfig-----------------
+
+  builderius_graphql.type_config.root_mutation.field.delete_not_committed_config:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'deleteNotCommittedConfig'
+        type: 'BuilderiusCreateBranchOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.delete_not_committed_config.argument.branch_id'] ]
+
+  builderius_graphql.type_config.root_mutation.field.delete_not_committed_config.argument.branch_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'branch_id'
+        type: 'Int!'
+
+#---------------createCommit-----------------------------
+
+  builderius_graphql.type_config.root_mutation.field.create_commit:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'createCommit'
+        type: 'BuilderiusCreateCommitOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.create_commit.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.create_commit.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusCreateCommitInput!'
+
+  builderius_graphql.type_config.create_commit_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateCommitInput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.create_commit_input_type.field.author_id' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_commit_input_type.field.branch_id' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.description' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.commit_type.field.serialized_content_config' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_commit_input_type.field.merged_branch_name'] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_commit_input_type.field.merged_commit_name'] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_commit_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateCommitOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.create_commit_output_type.field.commit' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_commit_output_type.field.commit:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'commit'
+        type: 'BuilderiusCommit'
+
+  builderius_graphql.type_config.create_commit_input_type.field.author_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'author_id'
+        type: 'Int'
+
+  builderius_graphql.type_config.create_commit_input_type.field.branch_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'branch_id'
+        type: 'Int!'
+
+  builderius_graphql.type_config.create_commit_input_type.field.merged_branch_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'merged_branch_name'
+        type: 'String'
+
+  builderius_graphql.type_config.create_commit_input_type.field.merged_commit_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'merged_commit_name'
+        type: 'String'
+
+# ----------------addTag|removeTag------------------------------------------------
+
+  builderius_graphql.type_config.root_mutation.field.add_tag:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'addTag'
+        type: 'BuilderiusTagToggleOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.tag_toggle.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.remove_tag:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'removeTag'
+        type: 'BuilderiusTagToggleOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.tag_toggle.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.tag_toggle.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusTagToggleInput!'
+
+  builderius_graphql.type_config.tag_toggle_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusTagToggleInput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.tag_toggle_input_type.field.commit_id' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.tag_toggle_input_type.field.tag' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.tag_toggle_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusTagToggleOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.tag_toggle_output_type.field.commit' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.tag_toggle_output_type.field.commit:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'commit'
+        type: 'BuilderiusCommit'
+
+  builderius_graphql.type_config.tag_toggle_input_type.field.commit_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'commit_id'
+        type: 'Int'
+
+  builderius_graphql.type_config.tag_toggle_input_type.field.tag:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'tag'
+        type: 'String!'

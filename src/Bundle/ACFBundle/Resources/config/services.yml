@@ -1,0 +1,20 @@
+services:
+  builderius_acf.provider.dynamic_data_helpers.post_author_acf_fields:
+    class: Builderius\Bundle\ACFBundle\DynamicDataHelper\PostAuthorACFFieldsDynamicDataHelpersProvider
+    tags:
+      - { name: builderius_dynamic_data_helpers_provider }
+
+  builderius_acf.provider.dynamic_data_helpers.post_acf_fields:
+    class: Builderius\Bundle\ACFBundle\DynamicDataHelper\PostACFFieldsDynamicDataHelpersProvider
+    tags:
+      - { name: builderius_dynamic_data_helpers_provider }
+
+  builderius_acf.provider.dynamic_data_helpers.site_acf_fields:
+    class: Builderius\Bundle\ACFBundle\DynamicDataHelper\SiteACFFieldsDynamicDataHelpersProvider
+    tags:
+      - { name: builderius_dynamic_data_helpers_provider }
+
+  builderius_acf.provider.dynamic_data_helpers.user_acf_fields:
+    class: Builderius\Bundle\ACFBundle\DynamicDataHelper\UserACFFieldsDynamicDataHelpersProvider
+    tags:
+      - { name: builderius_dynamic_data_helpers_provider }

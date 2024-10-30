@@ -1,0 +1,940 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-19T10:15:44+02:00\n"
+"PO-Revision-Date: 2022-12-13 20:43+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar_EG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Domain: builderius\n"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesModal/index.js:54
+msgid ""
+"This process will overwrite all the existing templates and global settings "
+"with the templates and global settings from the release. Do you want to "
+"proceed?"
+msgstr ""
+"ستحل هذه العملية محل جميع القوالب الموجودة والإعدادات العامة باستخدام "
+"القوالب والإعدادات العامة من الإصدار. هل تريد المتابعة؟"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesModal/index.js:66
+msgid "Cancel extraction"
+msgstr "إلغاء فك الضغط"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesModal/index.js:67
+msgid "Cancel extraction operation and close the window"
+msgstr "قم بإلغاء عملية فك الضغط وإغلاق النافذة"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesModal/index.js:71
+msgid "Confirm extraction"
+msgstr "الموافقة علي فك الضغط"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesModal/index.js:72
+msgid "Confirm and proceed with extraction"
+msgstr "تأكيد ومتابعة فك الضغط"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesTable/index.js:195
+#: lib/adminScenes/DeliverablesApp/components/VcsOwnersTable/index.js:175
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:220
+msgid "Page"
+msgstr "صفحة"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesTable/index.js:200
+#: lib/adminScenes/DeliverablesApp/components/VcsOwnersTable/index.js:180
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:225
+msgid "Go to page"
+msgstr "اذهب الي صفحة"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesTable/index.js:221
+#: lib/adminScenes/DeliverablesApp/components/VcsOwnersTable/index.js:201
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:246
+msgid "Show"
+msgstr "عرض"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:22
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:161
+msgid "Created"
+msgstr "تم الانشاء"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:30
+msgid "Author"
+msgstr "الكاتب"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:43
+msgid "Entities"
+msgstr "جهات"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:62
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:312
+msgid "Name"
+msgstr "الاسم"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:66
+msgid "Description"
+msgstr "الوصف"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:80
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:186
+msgid "Actions"
+msgstr "الاحداث"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:130
+msgid "Export release"
+msgstr "تنزيل الاصدار"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:138
+msgid "Publish release"
+msgstr "نشر الاصدار"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:145
+msgid "Unpublish release"
+msgstr "لا تنشر الاصدار"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:152
+msgid "Extract release"
+msgstr "فك ضغط الاصدار"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:160
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:221
+msgid "Click again to confirm deleting"
+msgstr "اضغط مرة أخري للموافقة علي المسح"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:160
+msgid "Delete release"
+msgstr "مسح الاصدار"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:169
+msgid "Remove cache"
+msgstr "إزالة ذاكرة التخزين المؤقت"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columnsEntitiesSimple.js:11
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:56
+msgid "Title"
+msgstr "عنوان"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columnsEntitiesSimple.js:15
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:320
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:162
+msgid "Type"
+msgstr "نوع"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columnsEntitiesSimple.js:19
+msgid "Include in the release?"
+msgstr "تضمين في الإصدار؟"
+
+#: lib/adminScenes/DeliverablesApp/index.js:249
+msgid "A new release has been created!"
+msgstr "تم إنشاء إصدار جديد!"
+
+#: lib/adminScenes/DeliverablesApp/index.js:327
+msgid "The release has been published!"
+msgstr "تم نشر الإصدار !"
+
+#: lib/adminScenes/DeliverablesApp/index.js:399
+msgid "The release has been unpublished!"
+msgstr "لم يتم نشر الاصدار!"
+
+#: lib/adminScenes/DeliverablesApp/index.js:495
+msgid "Confirm extraction operation"
+msgstr "تأكيد عملية فك الضغط"
+
+#: lib/adminScenes/DeliverablesApp/index.js:512
+msgid "The cache has been removed!"
+msgstr "تم إزالة ذاكرة التخزين المؤقت!"
+
+#: lib/adminScenes/DeliverablesApp/index.js:515
+msgid "Something went wrong"
+msgstr "هناك خطأ ما"
+
+#: lib/adminScenes/DeliverablesApp/index.js:635
+msgid "Release was successfully exported"
+msgstr "تم تصدير الإصدار بنجاح"
+
+#: lib/adminScenes/DeliverablesApp/index.js:685
+msgid "The release has been imported!"
+msgstr "تم استيراد الإصدار!"
+
+#: lib/adminScenes/DeliverablesApp/index.js:847
+#: lib/adminScenes/HomeApp/index.js:77
+msgid "Releases"
+msgstr "اصدارات"
+
+#: lib/adminScenes/DeliverablesApp/index.js:848
+#: lib/adminScenes/TemplatesApp/index.js:632
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:576
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:510
+msgid "Add new"
+msgstr "أضف جديد"
+
+#: lib/adminScenes/DeliverablesApp/index.js:849
+msgid "Create a new release"
+msgstr "أضف اصدار جديد"
+
+#: lib/adminScenes/DeliverablesApp/index.js:853
+msgid "Import"
+msgstr "استيراد"
+
+#: lib/adminScenes/DeliverablesApp/index.js:854
+msgid "Import release"
+msgstr "إصدار استيراد"
+
+#: lib/adminScenes/DeliverablesApp/index.js:857
+msgid ""
+"Below is the list of the releases created. Releases are sets of specific "
+"versions of templates and global settings. Think of them as versions of the "
+"site or even site themes. There might be many releases, but only one of them "
+"can be published at one time. It takes one click to publish it. Just like "
+"WordPress themes, it is possible to switch between the releases any time."
+msgstr ""
+"فيما يلي قائمة الإصدارات التي تم إنشاؤها. الإصدارات عبارة عن مجموعات من "
+"إصدارات محددة من القوالب والإعدادات العامة. فكر فيها كإصدارات للموقع أو حتى "
+"سمات الموقع. قد يكون هناك العديد من الإصدارات ، ولكن يمكن نشر إصدار واحد "
+"منها فقط في وقت واحد. يستغرق الأمر نقرة واحدة لنشره. تمامًا مثل سمات "
+"WordPress ، من الممكن التبديل بين الإصدارات في أي وقت."
+
+#: lib/adminScenes/DeliverablesApp/index.js:860
+msgid ""
+"This is the release creation form wizard. Please, follow the instructions."
+msgstr "هذا هو معالج نموذج إنشاء الإصدار. من فضلك ، اتبع التعليمات."
+
+#: lib/adminScenes/DeliverablesApp/index.js:864
+#: lib/adminScenes/DeliverablesApp/index.js:905
+#: lib/adminScenes/DeliverablesApp/index.js:933
+#: lib/adminScenes/DeliverablesApp/index.js:969
+msgid "Step"
+msgstr "خطوة"
+
+#: lib/adminScenes/DeliverablesApp/index.js:864
+msgid "Add a name"
+msgstr "أضف اسم"
+
+#: lib/adminScenes/DeliverablesApp/index.js:866
+msgid ""
+"The name of the release can be anything, but it is wiser to keep it short."
+msgstr "يمكن أن يكون اسم الإصدار أي شيء ، ولكن من الحكمة إبقائه قصيرًا."
+
+#: lib/adminScenes/DeliverablesApp/index.js:872
+#: lib/components/PanelApplicants/index.js:107
+msgid "Preview"
+msgstr "معاينة"
+
+#: lib/adminScenes/DeliverablesApp/index.js:874
+msgid "Nothing was added yet. Please, start typing in the field above"
+msgstr "لم يتم إضافة أي شيء حتى الآن. من فضلك ، ابدأ الكتابة في الحقل أعلاه"
+
+#: lib/adminScenes/DeliverablesApp/index.js:878
+msgid ""
+"Sorry, this name has been taken. The full list of the existing release names "
+"on this site"
+msgstr ""
+"عذرا ، هذا الاسم مأخوذ. القائمة الكاملة لأسماء الإصدارات الموجودة على هذا "
+"الموقع"
+
+#: lib/adminScenes/DeliverablesApp/index.js:882
+msgid "Choose another name."
+msgstr "اختر اسم أخر"
+
+#: lib/adminScenes/DeliverablesApp/index.js:886
+msgid "looks good"
+msgstr "شكل جيد"
+
+#: lib/adminScenes/DeliverablesApp/index.js:892
+#: lib/adminScenes/DeliverablesApp/index.js:921
+#: lib/adminScenes/DeliverablesApp/index.js:954
+#: lib/adminScenes/DeliverablesApp/index.js:998
+msgid "Cancel release creation"
+msgstr "إلغاء إنشاء الإصدار"
+
+#: lib/adminScenes/DeliverablesApp/index.js:893
+#: lib/adminScenes/DeliverablesApp/index.js:922
+#: lib/adminScenes/DeliverablesApp/index.js:955
+#: lib/adminScenes/DeliverablesApp/index.js:997
+#: lib/adminScenes/DeliverablesApp/index.js:999 lib/Panel.js:3296
+#: lib/Panel.js:3339 lib/Panel.js:3379 lib/Panel.js:3417
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: lib/adminScenes/DeliverablesApp/index.js:896
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:418
+msgid "Next step"
+msgstr "الخطوة التالية"
+
+#: lib/adminScenes/DeliverablesApp/index.js:898
+msgid "Proceed to reviewing entities"
+msgstr "انتقل إلى مراجعة الكيانات"
+
+#: lib/adminScenes/DeliverablesApp/index.js:905
+msgid "Review entities"
+msgstr "عرض الكيانات"
+
+#: lib/adminScenes/DeliverablesApp/index.js:908
+msgid ""
+"Publishable entities are templates and global settings. Review these "
+"entities and decide which of them should be included into release (by "
+"checking the checkboxes next to them)."
+msgstr ""
+"الكيانات القابلة للنشر هي قوالب وإعدادات عامة. راجع هذه الكيانات وحدد أي "
+"منها يجب تضمينه في الإصدار (عن طريق تحديد مربعات الاختيار المجاورة لها)."
+
+#: lib/adminScenes/DeliverablesApp/index.js:925
+#: lib/adminScenes/DeliverablesApp/index.js:958
+#: lib/adminScenes/DeliverablesApp/index.js:1002
+msgid "Previous step"
+msgstr "الخطوة السابقة"
+
+#: lib/adminScenes/DeliverablesApp/index.js:925
+msgid "Back to release name"
+msgstr "الرجوع لاسم الاصدار"
+
+#: lib/adminScenes/DeliverablesApp/index.js:927
+msgid "Proceed to release description"
+msgstr "انتقل إلى إصدار الوصف"
+
+#: lib/adminScenes/DeliverablesApp/index.js:933
+msgid "Release description"
+msgstr "وصف الإصدار"
+
+#: lib/adminScenes/DeliverablesApp/index.js:935
+msgid "Enter the description for the new release and submit the data."
+msgstr "أدخل وصف الإصدار الجديد وأرسل البيانات."
+
+#: lib/adminScenes/DeliverablesApp/index.js:958
+msgid "Back to reviewing entities"
+msgstr "العودة إلى مراجعة الكيانات"
+
+#: lib/adminScenes/DeliverablesApp/index.js:962
+msgid "Proceed to release status"
+msgstr "انتقل إلى حالة الاصدار"
+
+#: lib/adminScenes/DeliverablesApp/index.js:969
+msgid "Release status"
+msgstr "حالة الاصدار"
+
+#: lib/adminScenes/DeliverablesApp/index.js:972
+msgid ""
+"Should the newly created release be published immediately (default "
+"behaviour) or should it be created with the \"draft\" status? Any "
+"\"drafted\" release can be published anytime then."
+msgstr ""
+"هل يجب نشر الإصدار الذي تم إنشاؤه حديثًا على الفور (السلوك الافتراضي) أم يجب "
+"إنشاؤه بحالة \"المسودة\"؟ يمكن نشر أي إصدار \"تمت صياغته\" في أي وقت بعد ذلك."
+
+#: lib/adminScenes/DeliverablesApp/index.js:987
+msgid "Publish the release upon creation"
+msgstr "نشر الإصدار عند إنشائه"
+
+#: lib/adminScenes/DeliverablesApp/index.js:989
+msgid "Do NOT publish the release upon creation"
+msgstr "لا تنشر البيان عند إنشائه"
+
+#: lib/adminScenes/DeliverablesApp/index.js:1002
+msgid "Back to release description"
+msgstr "العودة إلى وصف الإصدار"
+
+#: lib/adminScenes/DeliverablesApp/index.js:1006
+msgid "Submit"
+msgstr "موافقة"
+
+#: lib/adminScenes/DeliverablesApp/index.js:1020
+msgid "No releases created yet."
+msgstr "لم يتم إنشاء إصدارات حتى الآن."
+
+#: lib/adminScenes/DeliverablesApp/index.js:1028
+msgid "Create your first release now!"
+msgstr "أنشئ إصدارك الأول الآن!"
+
+#: lib/adminScenes/HomeApp/index.js:46
+msgid "Video tutorials"
+msgstr "فيديوهات للشرح"
+
+#: lib/adminScenes/HomeApp/index.js:47
+msgid "Documentation"
+msgstr "توثيق"
+
+#: lib/adminScenes/HomeApp/index.js:51
+msgid "Welcome!"
+msgstr "مرحبا"
+
+#: lib/adminScenes/HomeApp/index.js:54
+msgid ""
+"This is the home page for Builderius site builder. It is an all-in-one tool "
+"for creating beautiful and functional sites on WordPress. Start by adding "
+"your first template now!"
+msgstr ""
+"هذه هي الصفحة الرئيسية لـ Builderius site builder. إنها أداة شاملة لإنشاء "
+"مواقع جميلة وعملية على WordPress. ابدأ بإضافة نموذجك الأول الآن!"
+
+#: lib/adminScenes/HomeApp/index.js:56
+msgid ""
+"This is the home page for Builderius site builder. It is an all-in-one tool "
+"for creating beautiful and functional sites on WordPress."
+msgstr ""
+"هذه هي الصفحة الرئيسية لـ Builderius site builder. إنها أداة شاملة لإنشاء "
+"مواقع جميلة وعملية على WordPress."
+
+#: lib/adminScenes/HomeApp/index.js:64
+#: lib/adminScenes/TemplatesApp/index.js:631
+msgid "Templates"
+msgstr "قوالب"
+
+#: lib/adminScenes/HomeApp/index.js:66
+msgid "created"
+msgstr "تم الانشاء"
+
+#: lib/adminScenes/HomeApp/index.js:68
+msgid "Go to Templates page"
+msgstr "اذهب الي صفحة النماذج"
+
+#: lib/adminScenes/HomeApp/index.js:82
+msgid "created (published)"
+msgstr "تم إنشاؤه (منشور)"
+
+#: lib/adminScenes/HomeApp/index.js:84
+msgid "Go to Releases page"
+msgstr "انتقل إلى صفحة الإصدارات"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:21
+msgid ""
+"Determines entities from WP Template Hierarchy to which this template can be "
+"assigned"
+msgstr "يحدد الكيانات من WP Template Hierarchy التي يمكن تعيين هذا القالب لها"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:22
+msgid "Determines the markup language to be used for this template"
+msgstr "يحدد لغة الترميز التي سيتم استخدامها لهذا النموذج"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:26
+msgid ""
+"Please, choose name and type of the new template. Use \"Singular\" type for "
+"single posts and pages, \"Collection\" type for archive pages and \"Other "
+"pages\" for pages like 404 error page etc"
+msgstr ""
+"من فضلك ، اختر اسم ونوع القالب الجديد. استخدم النوع \"المفرد\" للمشاركات "
+"الفردية والصفحات ، ونوع \"المجموعة\" لصفحات الأرشيف و \"الصفحات الأخرى\" "
+"لصفحات مثل صفحة الخطأ 404 وما إلى ذلك."
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:27
+msgid ""
+"Please, choose template apply rules. These are conditions for displaying the "
+"template for specific posts, pages or other types of pages. We have also "
+"prepared several quick starters. Each group has these pre-defined rules to "
+"make the setup faster."
+msgstr ""
+"من فضلك ، اختر نموذج تطبيق القواعد. هذه شروط لعرض القالب لمنشورات أو صفحات "
+"معينة أو أنواع أخرى من الصفحات. لقد أعددنا أيضًا عدة مقبلات سريعة. كل مجموعة "
+"لديها هذه القواعد المحددة مسبقًا لجعل الإعداد أسرع."
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:285
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:39
+msgid "Error"
+msgstr "خطأ"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:298
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:49
+msgid "No rules have been created"
+msgstr "لم يتم إنشاء أي قواعد"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:302
+msgid "Some rules have errors"
+msgstr "بعض القواعد بها أخطاء"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:306
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:53
+msgid "At least one rule from group \"Templates Hierarchy\" should be created"
+msgstr "يجب إنشاء قاعدة واحدة على الأقل من المجموعة \"التسلسل الهرمي للقوالب\""
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:431
+msgid "Go back"
+msgstr "الرجوع للخلف"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:448
+msgid "Create template"
+msgstr "انشاء تموذج"
+
+#: lib/adminScenes/TemplatesApp/components/StarterDropdown/index.js:101
+msgid "starters"
+msgstr "مستهلات"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:89
+msgid "Close the window"
+msgstr "أغلق النافذة"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:114
+msgid "Discard changes"
+msgstr "لا تحفظ التغييرات"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:115
+msgid "Cancel all changes and close the window"
+msgstr "قم بإلغاء كل التغييرات وأغلق النافذة"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:121
+msgid "Keep changes"
+msgstr "الاحتفاظ بالتغييرات"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:122
+msgid "Keep changes and close the window"
+msgstr "حافظ على التغييرات وأغلق النافذة"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:163
+msgid "Technology"
+msgstr "تقنية"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:142
+msgid "Sort order"
+msgstr "امر ترتيب"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:159
+msgid "Apply rules"
+msgstr "تطبيق القواعد"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:177
+msgid "Change apply rules"
+msgstr "تغيير تطبيق القواعد"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:208
+msgid "Save changes"
+msgstr "حفظ التغييرات"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:215
+msgid "Cancel changes"
+msgstr "الغاء التغييرات"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:221
+msgid "Delete template"
+msgstr "الغاء النموذج"
+
+#: lib/adminScenes/TemplatesApp/index.js:88
+msgid "You have unsaved changes. If you proceed, they will be lost."
+msgstr "لم تحفظ التغييرات. إذا تابعت ، فسوف تضيع."
+
+#: lib/adminScenes/TemplatesApp/index.js:104
+msgid "Add new template"
+msgstr "أضف نموذج جديد"
+
+#: lib/adminScenes/TemplatesApp/index.js:136
+msgid "Please, discard changes or save them."
+msgstr "من فضلك ، تجاهل التغييرات أو احفظها."
+
+#: lib/adminScenes/TemplatesApp/index.js:207
+msgid "Please, fix errors first."
+msgstr "من فضلك ، أصلح الأخطاء أولاً."
+
+#: lib/adminScenes/TemplatesApp/index.js:302
+msgid "New template created!"
+msgstr "تم إنشاء نموذج جديد!"
+
+#: lib/adminScenes/TemplatesApp/index.js:413
+msgid "Template settings updated!"
+msgstr "تم تحديث إعدادات النموذج!"
+
+#: lib/adminScenes/TemplatesApp/index.js:465
+msgid "Changes to template settings were cancelled."
+msgstr "تم إلغاء التغييرات التي تم إجراؤها على إعدادات النموذج."
+
+#: lib/adminScenes/TemplatesApp/index.js:567
+msgid "Update apply rules"
+msgstr "تحديث تطبيق القواعد"
+
+#: lib/adminScenes/TemplatesApp/index.js:633
+msgid "Create a new template"
+msgstr "قم بإنشاء قالب جديد"
+
+#: lib/adminScenes/TemplatesApp/index.js:636
+msgid ""
+"Below is the list of templates created. Templates are designs created in "
+"Builderius which could be applied to multiple places on your website. You "
+"can create templates that apply to singular pages (posts/pages/etc), posts "
+"collection pages (post archives, search results etc) and other pages (404 "
+"error page/etc)."
+msgstr ""
+"فيما يلي قائمة القوالب التي تم إنشاؤها. القوالب هي تصميمات تم إنشاؤها في "
+"Builderius والتي يمكن تطبيقها على أماكن متعددة على موقع الويب الخاص بك. "
+"يمكنك إنشاء قوالب تنطبق على الصفحات الفردية (المنشورات / الصفحات / إلخ) "
+"وصفحات مجموعة المشاركات (أرشيفات المنشورات ونتائج البحث وما إلى ذلك) وصفحات "
+"أخرى (صفحة خطأ 404 / إلخ)."
+
+#: lib/adminScenes/TemplatesApp/index.js:647
+msgid "No templates created yet."
+msgstr "لم يتم إنشاء أي قوالب حتى الآن."
+
+#: lib/adminScenes/TemplatesApp/index.js:655
+msgid "Create your first template now!"
+msgstr "أنشئ نموذجك الأول الآن!"
+
+#: lib/components/PanelActionBtns/index.js:40
+msgid "Switch between light/dark versions"
+msgstr "قم بالتبديل بين الإصدارات المضيئة / المظلمة"
+
+#: lib/components/PanelActionBtns/index.js:47
+msgid "Enable/disable semi transparent panel"
+msgstr "تمكين / تعطيل لوحة شبه شفافة"
+
+#: lib/components/PanelActionBtns/index.js:55
+msgid "Left/right panel position"
+msgstr "موضع اللوحة اليسرى / اليمنى"
+
+#: lib/components/PanelActionBtns/index.js:63
+msgid "Big/small panel size"
+msgstr "حجم اللوحة الكبيرة / الصغيرة"
+
+#: lib/components/PanelActionBtns/index.js:71
+msgid "All templates WP admin page"
+msgstr "جميع قوالب صفحة المشرف WP"
+
+#: lib/components/PanelActionBtns/index.js:80
+msgid "Template part settings"
+msgstr "إعدادات جزء القالب"
+
+#: lib/components/PanelActionBtns/index.js:81
+msgid "Template settings"
+msgstr "اعدادات النموذج"
+
+#: lib/components/PanelActionBtns/index.js:88
+#: lib/panelPages/GlobalSettings/index.js:126
+msgid "Global settings"
+msgstr "اعدادات عامة"
+
+#: lib/components/PanelActionBtns/index.js:97
+msgid "Open Inspector"
+msgstr "افتح الInspector"
+
+#: lib/components/PanelActionBtns/index.js:105
+msgid "View dynamic data"
+msgstr "عرض البيانات الديناميكية"
+
+#: lib/components/PanelActionBtns/index.js:115
+msgid "Open revisions"
+msgstr "فتح المراجعات"
+
+#: lib/components/PanelApplicants/index.js:80
+msgid "- no applicants chosen -"
+msgstr "- لم يتم اختيار المتقدمين -"
+
+#: lib/components/PanelApplicants/index.js:106
+msgid "Save changes first"
+msgstr "احفظ التغييرات أولا"
+
+#: lib/components/QueryBuilderType/index.js:96
+msgid "Remove all rules"
+msgstr "مسح كل القواعد"
+
+#: lib/components/QueryBuilderType/index.js:96
+msgid "Clear"
+msgstr "مسح"
+
+#: lib/helpers/index.js:1443 lib/helpers/index.js:1481
+msgid "Caption"
+msgstr "وصف"
+
+#: lib/helpers/index.js:1449 lib/helpers/index.js:1487
+msgid "Alt text"
+msgstr "نص بديل"
+
+#: lib/helpers/index.js:1465
+msgid "Size"
+msgstr "حجم"
+
+#: lib/helpers/index.js:1804
+msgid "original (CSS selectors)"
+msgstr "أصلي (محددات CSS)"
+
+#: lib/helpers/index.js:2046
+msgid "Settings with errors cannot be copied!"
+msgstr "لا يمكن نسخ الإعدادات التي بها أخطاء!"
+
+#: lib/helpers/index.js:2064
+msgid "Already copied!"
+msgstr "تم نسخه بالفعل!"
+
+#: lib/helpers/index.js:2072
+msgid "Settings copied!"
+msgstr "تم نسخ الإعدادات!"
+
+#: lib/helpers/index.js:2076
+msgid "The module has no settings."
+msgstr "الوحدة ليس لديها إعدادات."
+
+#: lib/helpers/index.js:2105
+msgid "No copied settings in the clipboard!"
+msgstr "لا توجد إعدادات منسوخة في الحافظة!"
+
+#: lib/helpers/index.js:2137
+msgid "Settings applied!"
+msgstr "تم تطبيق الإعدادات!"
+
+#: lib/Panel.js:963
+msgid ""
+"Your session has expired. The element was not deleted. Please log in and try "
+"again."
+msgstr ""
+"انتهت صلاحية جلسة العمل الخاصة بك. لم يتم حذف العنصر. يرجى تسجيل الدخول "
+"وإعادة المحاولة."
+
+#: lib/Panel.js:1102
+msgid ""
+"There is possible DOM nesting error: label tag nested in another label tag"
+msgstr "هناك خطأ تداخل DOM محتمل: علامة التسمية متداخلة في علامة تسمية أخرى"
+
+#: lib/Panel.js:1220
+msgid "Usage of HTML attribute \"id\" with the same value as in other module"
+msgstr "استخدام سمة HTML \"id\" بنفس القيمة كما في وحدة أخرى"
+
+#: lib/Panel.js:1327
+msgid ""
+"Oops, your template does not have any applicants. Maybe it is too specific?"
+msgstr "عفوًا ، لا يحتوي نموذجك على أي متقدمين. ربما هو محدد جدا؟"
+
+#: lib/Panel.js:1758
+msgid "Saving is disabled! Please, finish merging and commit first."
+msgstr "تم تعطيل الحفظ! من فضلك ، قم بإنهاء merging and commit أولاً."
+
+#: lib/Panel.js:1821 lib/Panel.js:2691
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:261
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:376
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:416
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:219
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:331
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:364
+#: lib/panelPages/ModuleSettings/index.js:235
+msgid "Please, fix invalid settings first!"
+msgstr "من فضلك ، أصلح الإعدادات غير الصالحة أولاً!"
+
+#: lib/Panel.js:2024
+msgid "This module cannot be added due to possible DOM nesting error"
+msgstr "لا يمكن إضافة هذه الوحدة بسبب خطأ تداخل DOM محتمل"
+
+#: lib/Panel.js:2076 lib/Panel.js:2122
+msgid "This layout cannot be added due to possible DOM nesting error"
+msgstr "لا يمكن إضافة هذا التنسيق بسبب احتمال حدوث خطأ في تداخل DOM"
+
+#: lib/Panel.js:3172
+msgid "Error: no proper object type"
+msgstr "خطأ: لا يوجد نوع كائن مناسب"
+
+#: lib/Panel.js:3289
+msgid "Are you sure you want to remove all modules and start from scratch?"
+msgstr "هل أنت متأكد أنك تريد إزالة جميع الوحدات والبدء من الصفر؟"
+
+#: lib/Panel.js:3295 lib/Panel.js:3338 lib/Panel.js:3378
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:591
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:525
+msgid "Remove"
+msgstr "ازالة"
+
+#: lib/Panel.js:3332 lib/Panel.js:3372
+msgid "Are you sure you want to remove settings and start from scratch?"
+msgstr "هل أنت متأكد أنك تريد إزالة الإعدادات والبدء من نقطة الصفر؟"
+
+#: lib/Panel.js:3410
+msgid "Are you sure you want to delete module?"
+msgstr "هل أنت متأكد أنك تريد حذف الوحدة؟"
+
+#: lib/Panel.js:3416 lib/scenes/QueryBuilder/components/QBGroup/index.js:216
+#: lib/scenes/QueryBuilder/components/QBGroup/index.js:297
+msgid "Delete"
+msgstr "الغاء"
+
+#: lib/Panel.js:3526
+msgid "Nothing to save, all changes are already saved"
+msgstr "لا يوجد شيء لحفظه ، تم حفظ جميع التغييرات بالفعل"
+
+#: lib/Panel.js:3616
+msgid "Successfully saved!"
+msgstr "تم الحفظ بنجاح!"
+
+#: lib/Panel.js:3642
+msgid ""
+"Your session has expired. The changes were not saved. Please log in and try "
+"again."
+msgstr ""
+"انتهت صلاحية جلسة العمل الخاصة بك. لم يتم حفظ التغييرات. يرجى تسجيل الدخول "
+"وإعادة المحاولة."
+
+#: lib/Panel.js:3749
+msgid "Save all changes"
+msgstr "احفظ جميع التغييرات"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:283
+msgid "Add new media query"
+msgstr "إضافة media query"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:291
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:290
+msgid "Create"
+msgstr "انشاء"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:305
+msgid "Edit media query"
+msgstr "تحرير media query "
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:313
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:315
+msgid "Update"
+msgstr "تحديث"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:383
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:423
+msgid "CSS media query cannot be empty!"
+msgstr "لا يمكن أن يكون media query  CSS فارغًا!"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:568
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:590
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:502
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:524
+msgid "Click again to confirm removing"
+msgstr "انقر مرة أخرى لتأكيد الإزالة"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:569
+msgid "Remove all queries' settings"
+msgstr "قم بإزالة كافة إعدادات queries"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:583
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:517
+msgid "Edit"
+msgstr "تحرير"
+
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:280
+msgid "Add new CSS selector"
+msgstr "أضف محدد CSS جديدًا"
+
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:305
+msgid "Edit CSS selector"
+msgstr "تحرير محدد CSS"
+
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:338
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:371
+msgid "CSS selector cannot be empty!"
+msgstr "لا يمكن أن يكون محدد CSS فارغًا!"
+
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:503
+msgid "Remove all settings"
+msgstr "إزالة كل الاعدادات"
+
+#: lib/panelPages/components/SettingsErrorAlert/index.js:20
+msgid "One or more setting in this category are invalid"
+msgstr "إعداد واحد أو أكثر في هذه الفئة غير صالح"
+
+#: lib/panelPages/components/SettingsFilledNotice/index.js:35
+msgid "Contains non empty settings"
+msgstr "يحتوي على إعدادات غير فارغة"
+
+#: lib/panelPages/GlobalSettings/index.js:214
+#: lib/panelPages/ModuleSettings/index.js:370
+#: lib/panelPages/TemplateSettings/index.js:191
+msgid "Close settings"
+msgstr "أغلق الاعدادات"
+
+#: lib/panelPages/GlobalSettings/index.js:278
+#: lib/panelPages/ModuleSettings/index.js:449
+#: lib/panelPages/TemplateSettings/index.js:258
+msgid "Search for setting (min 2 char)"
+msgstr "البحث عن الإعداد (علي الأقل  2 حرف)"
+
+#: lib/panelPages/GlobalSettings/index.js:307
+#: lib/panelPages/ModuleSettings/index.js:478
+#: lib/panelPages/TemplateSettings/index.js:287
+msgid "No settings"
+msgstr "لا اعدادات"
+
+#: lib/panelPages/ModuleSettings/index.js:307
+msgid "ModuleSettings"
+msgstr "إعدادات الوحدة"
+
+#: lib/panelPages/ModuleSettings/index.js:487
+msgid "Module Settings"
+msgstr "اعدادات الوحدة"
+
+#: lib/panelPages/TemplateSettings/index.js:293
+msgid "Template Part Settings"
+msgstr "إعدادات جزء القالب"
+
+#: lib/panelPages/TemplateSettings/index.js:294
+msgid "Template Settings"
+msgstr "إعدادات القالب"
+
+#: lib/scenes/DynamicDataModal/index.js:91
+msgid "Copied!"
+msgstr "تم النسخ"
+
+#: lib/scenes/DynamicDataModal/index.js:152
+msgid "Dynamic data"
+msgstr "بيانات ديناميكية"
+
+#: lib/scenes/DynamicDataModal/index.js:154
+msgid "Update data"
+msgstr "تحديث البيانات"
+
+#: lib/scenes/DynamicDataModal/index.js:156
+msgid "No dynamic data yet. Please, add some data variables."
+msgstr "لا توجد بيانات ديناميكية حتى الآن. من فضلك ، أضف بعض متغيرات البيانات."
+
+#: lib/scenes/DynamicDataModal/index.js:209
+msgid "Open settings"
+msgstr "افتح الاعدادات"
+
+#: lib/scenes/DynamicDataModal/index.js:259
+msgid "Data"
+msgstr "بيانات"
+
+#: lib/scenes/DynamicDataModal/index.js:264
+msgid "Data flow"
+msgstr "حركة البيانات"
+
+#: lib/scenes/ElementsLibrary/components/Header/index.js:14
+msgid "Saved modules"
+msgstr "الوحدات المحفوظة"
+
+#: lib/scenes/ElementsLibrary/components/Header/index.js:15
+msgid "Saved layouts"
+msgstr "التصميمات المحفوظة"
+
+#: lib/scenes/Modal/components/GenericStateDialog/index.js:89
+msgid "The element itself is targeted."
+msgstr "العنصر نفسه مستهدف."
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:62
+msgid "Query to DB (GraphQL)"
+msgstr "الاستعلام إلى قاعدة البيانات (GraphQL)"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:63
+msgid "Static integer value"
+msgstr "قيمة رقم ثابتة"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:64
+msgid "Static float value"
+msgstr "قيمة كسور ثابتة"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:65
+msgid "Static string value"
+msgstr "قيمة أحرف ثابتة"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:66
+msgid "Static boolean value"
+msgstr "قيمة boolean ثابتة"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:67
+msgid "Static json value"
+msgstr "قيمة json الثابتة"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:68
+msgid "Expression"
+msgstr "تعبير"
+
+#: lib/scenes/QueryBuilder/components/QBGroup/index.js:213
+msgid "Add rule"
+msgstr "إضافة دور جديد"
+
+#: lib/scenes/QueryBuilder/components/QBGroup/index.js:214
+msgid "Add group"
+msgstr "إضافة مجموعة"
+
+#: lib/scenes/QueryBuilder/components/QBGroup/index.js:313
+msgid "Duplicate"
+msgstr "نسخ"

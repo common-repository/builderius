@@ -1,0 +1,65 @@
+services:
+  builderius_el.cache:
+    class: Builderius\Bundle\TemplateBundle\Cache\BuilderiusRuntimeObjectCache
+
+  builderius_el.expression_language:
+    class: Builderius\Bundle\ExpressionLanguageBundle\ExpressionLanguage
+    public: true
+
+  builderius_el.expression_language_lexer:
+    class: Builderius\Bundle\ExpressionLanguageBundle\Lexer
+
+  builderius_el.expression_function_provider.wp:
+    class: Builderius\Bundle\ExpressionLanguageBundle\Provider\WpFunctionsProvider
+    tags:
+      - { name: builderius_expression_function_provider }
+
+  builderius_el.expression_function_provider.escape:
+    class: Builderius\Bundle\ExpressionLanguageBundle\Provider\EscapeFunctionsProvider
+    tags:
+      - { name: builderius_expression_function_provider }
+
+  builderius_el.expression_function_provider.css:
+    class: Builderius\Bundle\ExpressionLanguageBundle\Provider\CssFunctionsProvider
+    tags:
+      - { name: builderius_expression_function_provider }
+
+  builderius_el.expression_function_provider.standard:
+    class: Builderius\Bundle\ExpressionLanguageBundle\Provider\StandardFunctionsProvider
+    lazy: true
+    tags:
+      - { name: builderius_expression_function_provider }
+
+  builderius_el.expression_function_provider.multilingual:
+    class: Builderius\Bundle\ExpressionLanguageBundle\Provider\MultilingualFunctionsProvider
+    lazy: true
+    arguments:
+      - '@event_dispatcher'
+    tags:
+      - { name: builderius_expression_function_provider }
+
+  builderius_el.expression_function_provider.superglobals:
+    class: Builderius\Bundle\ExpressionLanguageBundle\Provider\SuperglobalsFunctionsProvider
+    lazy: true
+    tags:
+      - { name: builderius_expression_function_provider }
+
+  builderius_el.expression_function_provider.array:
+    class: Builderius\Bundle\ExpressionLanguageBundle\Provider\ArrayFunctionsProvider
+    lazy: true
+    tags:
+      - { name: builderius_expression_function_provider }
+
+  builderius_el.expression_function_provider.string:
+    class: Builderius\Bundle\ExpressionLanguageBundle\Provider\StringFunctionsProvider
+    lazy: true
+    tags:
+      - { name: builderius_expression_function_provider }
+
+  builderius_el.expression_function_provider.tmp_vars:
+    class: Builderius\Bundle\ExpressionLanguageBundle\Provider\TmpVarsFunctionsProvider
+    lazy: true
+    calls:
+      - [ setTmpVarsContext, ['@builderius_el.cache']]
+    tags:
+      - { name: builderius_expression_function_provider }

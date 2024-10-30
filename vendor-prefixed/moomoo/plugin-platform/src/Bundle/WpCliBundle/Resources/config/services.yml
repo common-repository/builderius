@@ -1,0 +1,8 @@
+services:
+    moomoo_wpcli.registry.commands:
+        class: 'Builderius\MooMoo\Platform\Bundle\WpCliBundle\Registry\WpCliCommandsRegistry'
+        public: true
+
+    moomoo_wpcli.registrator.commands:
+        class: 'Builderius\MooMoo\Platform\Bundle\WpCliBundle\Registrator\WpCliCommandsRegistrator'
+        public: true

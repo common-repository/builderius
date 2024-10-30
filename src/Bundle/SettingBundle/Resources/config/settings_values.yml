@@ -1,0 +1,174 @@
+services:
+  #-----------------Not CSS-----------------------------------------------
+
+  builderius_setting.setting.htmltagheading.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: 'h1'
+
+  builderius_setting.setting.htmltagcontainer.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: 'div'
+
+  builderius_setting.setting.htmltagtablecontainer.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: 'th'
+
+  builderius_setting.setting.htmlinlinetagcontainer.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: 'span'
+
+  builderius_setting.setting.dataparagraph.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: 'Paragraph text here...'
+
+  builderius_setting.setting.dataselect.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: '<option value="one">One</option><option value="two">Two</option>'
+
+  builderius_setting.setting.dataheading.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: 'Sample Title'
+
+  builderius_setting.setting.islinkwrapper.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: false
+
+  builderius_setting.setting.databutton.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: 'Button'
+
+  builderius_setting.setting.datatime.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: '2020-01-06T00:00:00.000Z'
+
+  builderius_setting.setting.datetimeformat.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: ['d','/','m','/','Y']
+
+  builderius_setting.setting.datatablecell.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: 'Cell...'
+
+  builderius_setting.setting.datatableheader.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: 'Header...'
+
+  builderius_setting.setting.responsive_strategy.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: 'desktop-first'
+
+  builderius_setting.setting.interactive_mode.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          a1: false
+
+  builderius_setting.setting.datavars.default_value.global_all:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          i1:
+            - a1: 'graphQLQuery'
+              b1: 'site'
+              c1: >
+                query{
+                  siteurl: option_value(name: "siteurl")
+                  blogname: option_value(name: "blogname")
+                  blogdescription: option_value(name: "blogdescription")
+                  current_user{
+                    display_name
+                    first_name
+                    last_name
+                    avatar_url
+                    roles
+                  }
+                }
+
+  builderius_setting.setting.datavars.default_value.template_singular:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingValue'
+    arguments:
+      - default: true
+        value:
+          i1:
+            - a1: 'graphQLQuery'
+              b1: 'wp'
+              c1: >
+                query {
+                    post: queried_post {
+                        title: post_title
+                        content: post_content
+                    }
+                }
+
+  # -----------------------CSS--------------------------------------------
+
+  builderius_setting.setting.source.display.all.original.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingCssValue'
+    arguments:
+      - default: true
+        responsive_mode: 'all'
+        pseudo_class: 'original'
+        value:
+          a1: 'none'
+
+  builderius_setting.setting.collection.display.all.original.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingCssValue'
+    arguments:
+      - default: true
+        responsive_mode: 'all'
+        pseudo_class: 'original'
+        value:
+          a1: 'block'
+
+  builderius_setting.setting.accordion.display.all.original.default_value:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingCssValue'
+    arguments:
+      - default: true
+        responsive_mode: 'all'
+        pseudo_class: 'original'
+        value:
+          a1: 'block'

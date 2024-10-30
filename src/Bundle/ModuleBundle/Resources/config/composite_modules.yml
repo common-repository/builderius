@@ -1,0 +1,1399 @@
+services:
+  builderius_module.collection_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'CollectionComposite'
+        label: 'Collection'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'repeater'
+          - 'grid'
+          - 'collection'
+        category: 'dynamic'
+        config:
+          ---
+          modules:
+            uc4f46714f:
+              id: uc4f46714f
+              name: Collection
+              label: Collection
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: block
+                - name: interactiveMode
+                  value:
+                    a1: false
+              parent: ''
+            ubd474e6c7:
+              id: ubd474e6c7
+              name: Template
+              label: Template
+              settings: [ ]
+              parent: uc4f46714f
+              index: 0
+          indexes:
+            root:
+              - uc4f46714f
+            uc4f46714f:
+              - ubd474e6c7
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.header_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'HeaderComposite'
+        label: 'Header'
+        sort_order: 10
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'container'
+          - 'layout'
+          - 'header'
+          - 'wrapper'
+        category: 'layout'
+        config:
+          ---
+          modules:
+            u5f1f15:
+              id: u5f1f15
+              name: HtmlElement
+              label: header
+              settings:
+                - name: htmlElementTag
+                  value:
+                    a1: header
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+          indexes:
+            root:
+              - u5f1f15
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.footer_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'FooterComposite'
+        label: 'Footer'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'container'
+          - 'layout'
+          - 'footer'
+          - 'wrapper'
+        category: 'layout'
+        config:
+          ---
+          modules:
+            ucf83ce48c:
+              id: ucf83ce48c
+              name: HtmlElement
+              label: footer
+              settings:
+                - name: htmlElementTag
+                  value:
+                    a1: footer
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+          indexes:
+            root:
+              - ucf83ce48c
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.main_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'MainComposite'
+        label: 'Main'
+        sort_order: 30
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'container'
+          - 'layout'
+          - 'main'
+          - 'wrapper'
+          - 'content'
+        category: 'layout'
+        config:
+          ---
+          modules:
+            u64a185ab6:
+              id: u64a185ab6
+              name: HtmlElement
+              label: main
+              settings:
+                - name: htmlElementTag
+                  value:
+                    a1: main
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+          indexes:
+            root:
+              - u64a185ab6
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.section_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'SectionComposite'
+        label: 'Section'
+        sort_order: 40
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'container'
+          - 'layout'
+          - 'section'
+          - 'wrapper'
+          - 'content'
+        category: 'layout'
+        config:
+          ---
+          modules:
+            uafd723215:
+              id: uafd723215
+              name: HtmlElement
+              label: section
+              settings:
+                - name: htmlElementTag
+                  value:
+                    a1: section
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+          indexes:
+            root:
+              - uafd723215
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.article_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'ArticleComposite'
+        label: 'Article'
+        sort_order: 50
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'container'
+          - 'layout'
+          - 'article'
+          - 'wrapper'
+          - 'content'
+        category: 'layout'
+        config:
+          ---
+          modules:
+            uafd723215:
+              id: uafd723215
+              name: HtmlElement
+              label: article
+              settings:
+                - name: htmlElementTag
+                  value:
+                    a1: article
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+          indexes:
+            root:
+              - uafd723215
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.figure_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'FigureComposite'
+        label: 'Figure'
+        sort_order: 60
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'container'
+          - 'layout'
+          - 'figure'
+          - 'wrapper'
+          - 'content'
+        category: 'layout'
+        config:
+          ---
+          modules:
+            uafd723215:
+              id: uafd723215
+              name: HtmlElement
+              label: figure
+              settings:
+                - name: htmlElementTag
+                  value:
+                    a1: figure
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+          indexes:
+            root:
+              - uafd723215
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.aside_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'AsideComposite'
+        label: 'Aside'
+        sort_order: 70
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'container'
+          - 'layout'
+          - 'aside'
+          - 'wrapper'
+          - 'content'
+        category: 'layout'
+        config:
+          ---
+          modules:
+            uafd723215:
+              id: uafd723215
+              name: HtmlElement
+              label: aside
+              settings:
+                - name: htmlElementTag
+                  value:
+                    a1: aside
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+          indexes:
+            root:
+              - uafd723215
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.div_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'DivComposite'
+        label: 'Div'
+        sort_order: 80
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'container'
+          - 'layout'
+          - 'div'
+          - 'wrapper'
+        category: 'layout'
+        config:
+          ---
+          modules:
+            u587e2e4b4:
+              id: u587e2e4b4
+              name: HtmlElement
+              label: div
+              settings:
+                - name: htmlElementTag
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+          indexes:
+            root:
+              - u587e2e4b4
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.picture_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'PictureComposite'
+        label: 'Picture'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'picture'
+        category: 'media'
+        config:
+          ---
+          modules:
+            u71f654449:
+              id: u71f654449
+              name: HtmlElement
+              label: picture
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlElementTag
+                  value:
+                    a1: picture
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            ub856ca1e2:
+              id: ub856ca1e2
+              name: Image
+              label: Image
+              settings:
+                - name: objectFit
+                  value:
+                    all:
+                      original:
+                        a1: cover
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: "%"
+                        a1: 100
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: "%"
+                        a1: 100
+              parent: u71f654449
+              index: 1
+            u3116b69a1:
+              id: u3116b69a1
+              name: Source
+              label: Source
+              settings: [ ]
+              parent: u71f654449
+              index: 0
+          indexes:
+            root:
+              - u71f654449
+            u71f654449:
+              - u3116b69a1
+              - ub856ca1e2
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.video_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'VideoComposite'
+        label: 'Video'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'video'
+        category: 'media'
+        config:
+          ---
+          modules:
+            u43bf8c925:
+              id: u43bf8c925
+              name: HtmlElement
+              label: video
+              settings:
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: controls
+                - name: htmlElementTag
+                  value:
+                    a1: video
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            ud98fadcfe:
+              id: ud98fadcfe
+              name: Source
+              label: Source
+              settings:
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: src
+                        b1: https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4
+                - name: forVideo
+                  value:
+                    a1: true
+              parent: u43bf8c925
+              index: 0
+          indexes:
+            root:
+              - u43bf8c925
+            u43bf8c925:
+              - ud98fadcfe
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.link_button_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'LinkButtonComposite'
+        label: 'Link Button'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'link'
+          - 'button'
+        category: 'content'
+        config:
+          ---
+          modules:
+            uc904dd929:
+              id: uc904dd929
+              name: HtmlElement
+              label: link button
+              settings:
+                - name: backgroundColor
+                  value:
+                    all:
+                      original:
+                        a1: "#c5cff9"
+                      ":hover":
+                        a1: "#a9b8f7"
+                - name: color
+                  value:
+                    all:
+                      original:
+                        a1: "#000000"
+                - name: textDecoration
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: inline-flex
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 17
+                        a3: 9
+                        b4: px
+                        a2: 17
+                        b3: px
+                        a1: 9
+                        b2: px
+                        b1: px
+                - name: cursor
+                  value:
+                    all:
+                      ":hover":
+                        a1: pointer
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: href
+                        b1: "#"
+                - name: dataHtmlElement
+                  value:
+                    a1: Link button
+                - name: htmlElementTag
+                  value:
+                    a1: span
+                - name: isLinkWrapper
+                  value:
+                    a1: true
+              parent: ''
+          indexes:
+            root:
+              - uc904dd929
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.button_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'ButtonComposite'
+        label: 'Button'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'button'
+        category: 'content'
+        config:
+          ---
+          modules:
+            ua2586134d:
+              id: ua2586134d
+              name: Button
+              label: Button
+              settings:
+                - name: dataButton
+                  value:
+                    a1: Button
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: type
+                        b1: button
+              parent: ''
+          indexes:
+            root:
+              - ua2586134d
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.list_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'ListComposite'
+        label: 'List'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'list'
+          - 'ol'
+          - 'ul'
+        category: 'content'
+        config:
+          ---
+          modules:
+            ud8241a3f6:
+              id: ud8241a3f6
+              name: HtmlElement
+              label: list
+              settings:
+                - name: htmlElementTag
+                  value:
+                    a1: ul
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            ud612a7b83:
+              id: ud612a7b83
+              name: HtmlElement
+              label: li
+              settings:
+                - name: dataHtmlElement
+                  value:
+                    a1: List item 1
+                - name: htmlElementTag
+                  value:
+                    a1: li
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ud8241a3f6
+              index: 0
+            u86f1b9118:
+              id: u86f1b9118
+              name: HtmlElement
+              label: li
+              settings:
+                - name: dataHtmlElement
+                  value:
+                    a1: List item 2
+                - name: htmlElementTag
+                  value:
+                    a1: li
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ud8241a3f6
+              index: 1
+          indexes:
+            root:
+              - ud8241a3f6
+            ud8241a3f6:
+              - ud612a7b83
+              - u86f1b9118
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.text_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'TextComposite'
+        label: 'Text Element'
+        sort_order: 10
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'text'
+          - 'content'
+          - 'span'
+        category: 'content'
+        config:
+          ---
+          modules:
+            u0bc3b29ff:
+              id: u0bc3b29ff
+              name: HtmlElement
+              label: span
+              settings:
+                - name: dataHtmlElement
+                  value:
+                    a1: Text element content here...
+                - name: htmlElementTag
+                  value:
+                    a1: span
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+          indexes:
+            root:
+              - u0bc3b29ff
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.paragraph_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'ParagraphComposite'
+        label: 'Paragraph'
+        sort_order: 10
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'content'
+          - 'text'
+          - 'paragraph'
+        category: 'content'
+        config:
+          ---
+          modules:
+            u7030d2f92:
+              id: u7030d2f92
+              name: HtmlElement
+              label: Paragraph
+              settings:
+                - name: dataHtmlElement
+                  value:
+                    a1: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                      consequat.
+                - name: htmlElementTag
+                  value:
+                    a1: p
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+          indexes:
+            root:
+              - u7030d2f92
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.anchor_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'AnchorComposite'
+        label: 'Anchor'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'link'
+          - 'anchor'
+        category: 'content'
+        config:
+          ---
+          modules:
+            ubf62ecfe5:
+              id: ubf62ecfe5
+              name: HtmlElement
+              label: anchor
+              settings:
+                - name: cursor
+                  value:
+                    all:
+                      ":hover":
+                        a1: pointer
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: href
+                        b1: "#"
+                - name: dataHtmlElement
+                  value:
+                    a1: Inline link
+                - name: htmlElementTag
+                  value:
+                    a1: span
+                - name: isLinkWrapper
+                  value:
+                    a1: true
+              parent: ''
+          indexes:
+            root:
+              - ubf62ecfe5
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.submit_button_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'SubmitButtonComposite'
+        label: 'Submit Button'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'button'
+          - 'submit'
+        category: 'form'
+        config:
+          ---
+          modules:
+            ua2586134d:
+              id: ua2586134d
+              name: Button
+              label: submit button
+              settings:
+                - name: dataButton
+                  value:
+                    a1: Submit
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: type
+                        b1: submit
+              parent: ''
+          indexes:
+            root:
+              - ua2586134d
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.checkbox_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'CheckboxComposite'
+        label: 'Checkbox'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'checkbox'
+        category: 'form'
+        config:
+          ---
+          modules:
+            u9eb34d522:
+              id: u9eb34d522
+              name: Input
+              label: checkbox
+              settings:
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: type
+                        b1: checkbox
+              parent: ''
+          indexes:
+            root:
+              - u9eb34d522
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.radio_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'RadioComposite'
+        label: 'Radio Input'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'radio'
+        category: 'form'
+        config:
+          ---
+          modules:
+            u45e2747c6:
+              id: u45e2747c6
+              name: Input
+              label: radio input
+              settings:
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: type
+                        b1: radio
+              parent: ''
+          indexes:
+            root:
+              - u45e2747c6
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.svg_code_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'SvgCodeComposite'
+        label: 'SVG Code'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'svg'
+          - 'generic'
+        category: 'universal'
+        config:
+          ---
+          modules:
+            u76a3bf976:
+              id: u76a3bf976
+              name: SvgCode
+              label: Svg Code
+              settings:
+                - name: dataSvgCode
+                  value:
+                    a1: |-
+                      <svg xml:space="preserve" viewBox="0 0 512 512" height="36px" width="36px" y="0px" x="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg" id="Layer_1" version="1.1">
+                      <polygon points="259.216,29.942 330.27,173.919 489.16,197.007 374.185,309.08 401.33,467.31 259.216,392.612 117.104,467.31 144.25,309.08   29.274,197.007 188.165,173.919" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" stroke-width="6" stroke="currentColor" fill="currentColor"></polygon>
+                      </svg>
+              parent: ''
+          indexes:
+            root:
+              - u76a3bf976
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.cookie_notice_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'CookieNoticeComposite'
+        label: 'Cookie Notice'
+        sort_order: 20
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'cookie'
+          - 'consent'
+          - 'notice'
+        category: 'interactive'
+        config:
+          ---
+          modules:
+            u1b48aa6a9:
+              id: u1b48aa6a9
+              name: CookieNotice
+              label: Cookie Notice
+              settings:
+                - name: zIndex
+                  value:
+                    all:
+                      original:
+                        a1: '1000'
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        a1: '330'
+                        b1: px
+                - name: bottom
+                  value:
+                    all:
+                      original:
+                        a1: '20'
+                        b1: px
+                - name: position
+                  value:
+                    all:
+                      original:
+                        a1: fixed
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: open
+                        b1: true
+              parent: ''
+            u7ce84798e:
+              id: u7ce84798e
+              name: Heading
+              label: Cookie Label
+              settings:
+                - name: tagId
+                  value:
+                    a1: cookieLabel
+                - name: htmlTagHeading
+                  value:
+                    a1: h2
+                - name: dataHeading
+                  value:
+                    a1: "[[translate('Cookie settings')]]"
+              parent: u1b48aa6a9
+              index: 0
+            ud4f9f1ef4:
+              id: ud4f9f1ef4
+              name: Button
+              label: Accept Button
+              settings:
+                - name: dataButton
+                  value:
+                    a1: "[[translate('Accept')]]"
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: value
+                        b1: accept
+              parent: uc6f018bf6
+              index: 0
+            ue5af7f041:
+              id: ue5af7f041
+              name: Paragraph
+              label: Cookie Description
+              settings:
+                - name: tagId
+                  value:
+                    a1: cookieDescription
+                - name: dataParagraph
+                  value:
+                    a1: "[[translate('Our website uses some essential cookies to function well.
+                    With your permission, we would like to set up some additional cookies to
+                    improve your experience.')]]"
+              parent: u1b48aa6a9
+              index: 1
+            ub8046d541:
+              id: ub8046d541
+              name: Button
+              label: Reject Button
+              settings:
+                - name: dataButton
+                  value:
+                    a1: "[[translate('Reject')]]"
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: value
+                        b1: reject
+              parent: uc6f018bf6
+              index: 1
+            uc6f018bf6:
+              id: uc6f018bf6
+              name: Form
+              label: Form
+              settings:
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: method
+                        b1: dialog
+              parent: u1b48aa6a9
+              index: 2
+          indexes:
+            root:
+              - u1b48aa6a9
+            u1b48aa6a9:
+              - u7ce84798e
+              - ue5af7f041
+              - uc6f018bf6
+            uc6f018bf6:
+              - ud4f9f1ef4
+              - ub8046d541
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.table_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'TableComposite'
+        label: 'Table'
+        sort_order: 10
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'container'
+          - 'table'
+          - 'block'
+        category: 'table_content'
+        config:
+          ---
+          modules:
+            u9d0da4137:
+              id: u9d0da4137
+              name: Table
+              label: Table
+              settings:
+                - name: color
+                  value:
+                    all:
+                      " thead":
+                        a1: "#ffffff"
+                - name: backgroundColor
+                  value:
+                    all:
+                      " thead":
+                        a1: "#7b7b7b"
+                      " tbody tr:nth-of-type(odd)":
+                        a1: "#eeeeee"
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: '100'
+                        b1: "%"
+                - name: padding
+                  value:
+                    all:
+                      " td":
+                        a1: '0.25'
+                        a2: '0.25'
+                        a3: '0.25'
+                        a4: '0.25'
+                        b1: em
+                        b2: em
+                        b3: em
+                        b4: em
+                      " th":
+                        a1: '0.25'
+                        a2: '0.25'
+                        a3: '0.25'
+                        a4: '0.25'
+                        b1: em
+                        b2: em
+                        b3: em
+                        b4: em
+              parent: ''
+            u02b7d1599:
+              id: u02b7d1599
+              name: TableHead
+              label: Table Head
+              settings: [ ]
+              parent: u9d0da4137
+              index: 0
+            uf980d4cc7:
+              id: uf980d4cc7
+              name: TableRow
+              label: Table Row
+              settings: [ ]
+              parent: u02b7d1599
+              index: 0
+            ue2aab4333:
+              id: ue2aab4333
+              name: TableHeader
+              label: Table Header
+              settings:
+                - name: dataTableHeader
+                  value:
+                    a1: Header...
+              parent: uf980d4cc7
+              index: 0
+            u6d5fdae55:
+              id: u6d5fdae55
+              name: TableRow
+              label: Table Row
+              settings: [ ]
+              parent: u0edb6731b
+              index: 0
+            ue56c670dd:
+              id: ue56c670dd
+              name: TableCell
+              label: Table Cell
+              settings:
+                - name: dataTableCell
+                  value:
+                    a1: Cell...
+              parent: u6d5fdae55
+              index: 0
+            u113c4f840:
+              id: u113c4f840
+              name: TableCell
+              label: Table Cell
+              settings:
+                - name: dataTableCell
+                  value:
+                    a1: Cell...
+              parent: u44cbf253c
+              index: 0
+            u69e54a7ab:
+              id: u69e54a7ab
+              name: TableCell
+              label: Table Cell
+              settings:
+                - name: dataTableCell
+                  value:
+                    a1: Cell...
+              parent: u685cc695b
+              index: 0
+            u112bfce95:
+              id: u112bfce95
+              name: TableHeader
+              label: Table Header
+              settings:
+                - name: dataTableHeader
+                  value:
+                    a1: Header...
+              parent: uf980d4cc7
+              index: 1
+            u0edb6731b:
+              id: u0edb6731b
+              name: TableBody
+              label: Table Body
+              settings: [ ]
+              parent: u9d0da4137
+              index: 1
+            u97f735108:
+              id: u97f735108
+              name: TableCell
+              label: Table Cell
+              settings:
+                - name: dataTableCell
+                  value:
+                    a1: Cell...
+              parent: u6d5fdae55
+              index: 1
+            u1e62e6972:
+              id: u1e62e6972
+              name: TableCell
+              label: Table Cell
+              settings:
+                - name: dataTableCell
+                  value:
+                    a1: Cell...
+              parent: u44cbf253c
+              index: 1
+            u685cc695b:
+              id: u685cc695b
+              name: TableRow
+              label: Table Row
+              settings: [ ]
+              parent: u0edb6731b
+              index: 1
+            u771838ed4:
+              id: u771838ed4
+              name: TableCell
+              label: Table Cell
+              settings:
+                - name: dataTableCell
+                  value:
+                    a1: Cell...
+              parent: u685cc695b
+              index: 1
+            u87290d380:
+              id: u87290d380
+              name: TableHeader
+              label: Table Header
+              settings:
+                - name: dataTableHeader
+                  value:
+                    a1: Header...
+              parent: uf980d4cc7
+              index: 2
+            ufada62e5d:
+              id: ufada62e5d
+              name: TableCell
+              label: Table Cell
+              settings:
+                - name: dataTableCell
+                  value:
+                    a1: Cell...
+              parent: u6d5fdae55
+              index: 2
+            u44cbf253c:
+              id: u44cbf253c
+              name: TableRow
+              label: Table Row
+              settings: [ ]
+              parent: u0edb6731b
+              index: 2
+            u3ce20c677:
+              id: u3ce20c677
+              name: TableCell
+              label: Table Cell
+              settings:
+                - name: dataTableCell
+                  value:
+                    a1: Cell...
+              parent: u44cbf253c
+              index: 2
+            uff0719c3f:
+              id: uff0719c3f
+              name: TableCell
+              label: Table Cell
+              settings:
+                - name: dataTableCell
+                  value:
+                    a1: Cell...
+              parent: u685cc695b
+              index: 2
+          indexes:
+            root:
+              - u9d0da4137
+            u9d0da4137:
+              - u02b7d1599
+              - u0edb6731b
+            u02b7d1599:
+              - uf980d4cc7
+            uf980d4cc7:
+              - ue2aab4333
+              - u112bfce95
+              - u87290d380
+            u0edb6731b:
+              - u6d5fdae55
+              - u685cc695b
+              - u44cbf253c
+            u6d5fdae55:
+              - ue56c670dd
+              - u97f735108
+              - ufada62e5d
+            u44cbf253c:
+              - u113c4f840
+              - u1e62e6972
+              - u3ce20c677
+            u685cc695b:
+              - u69e54a7ab
+              - u771838ed4
+              - uff0719c3f
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }
+
+  builderius_module.accordion_composite_module:
+    class: Builderius\Bundle\ModuleBundle\Model\BuilderiusCompositeModule
+    arguments:
+      - name: 'AccordionComposite'
+        label: 'Accordion'
+        sort_order: 10
+        templateTypes: ['template']
+        technologies: [ 'html' ]
+        tags:
+          - 'accordion'
+          - 'faq'
+        category: 'interactive'
+        config:
+          ---
+          modules:
+            u5756cab96:
+              id: u5756cab96
+              name: Accordion
+              label: Accordion
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a1: '20'
+                        b1: px
+                        a3: '20'
+                        b3: px
+                - name: modCssVars
+                  value:
+                    all:
+                      original:
+                        i1:
+                          - a1: any-value
+                            a2: "--bldr-accordion-border-top"
+                            b2: '1px solid #555'
+                          - a1: color
+                            a2: "--bldr-accordion-icon-color"
+                            b2: "#000000"
+                          - a1: color
+                            a2: "--bldr-accordion-title-color"
+                            b2: "#000000"
+                          - a1: color
+                            a2: "--bldr-accordion-text-color"
+                            b2: "#616161"
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: block
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: data-content
+                        b1: '[{"name": "Some question?", "text": "Some answer here"},{"name": "Some question2?", "text": "Some answer here"}]'
+              parent: ''
+          indexes:
+            root:
+              - u5756cab96
+          version:
+            builderius: 0.12.0
+    tags:
+      - { name: builderius_composite_module }

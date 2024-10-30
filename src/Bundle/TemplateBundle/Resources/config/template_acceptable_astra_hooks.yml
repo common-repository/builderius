@@ -1,0 +1,231 @@
+services:
+  builderius_template.template_acceptable_hook.astra_html_before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_html_before
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_head_top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_head_top
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_head_bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_head_bottom
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_body_top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_body_top
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_header_before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_header_before
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_header:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_header
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_masthead_top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_masthead_top
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_main_header_bar_top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_main_header_bar_top
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_main_header_bar_bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_main_header_bar_bottom
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_masthead_bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_masthead_bottom
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_header_after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_header_after
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_content_before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_content_before
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_content_top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_content_top
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_primary_content_top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_primary_content_top
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_entry_before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_entry_before
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_entry_top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_entry_top
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_entry_content_before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_entry_content_before
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_the_excerpt_before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_the_excerpt_before
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_the_excerpt_after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_the_excerpt_after
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_entry_content_after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_entry_content_after
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_entry_bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_entry_bottom
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_entry_after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_entry_after
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_primary_content_bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_primary_content_bottom
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_sidebars_before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_sidebars_before
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_sidebars_after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_sidebars_after
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_content_bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_content_bottom
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_content_after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_content_after
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_footer_before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_footer_before
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_footer:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_footer
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_footer_content_top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_footer_content_top
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_footer_content_bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_footer_content_bottom
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_footer_after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_footer_after
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }
+
+  builderius_template.template_acceptable_hook.astra_body_bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: astra_body_bottom
+    tags:
+      - { name: builderius_template_acceptable_astra_hook }

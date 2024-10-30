@@ -1,0 +1,26 @@
+services:
+  builderius_graphql.field_resolver.builderius_root_query.global_settings_set:
+    class: Builderius\Bundle\SettingBundle\GraphQL\Resolver\BuilderiusRootQueryFieldGlobalSettingsSetResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_setting.factory.builderius_global_settings_set_from_post'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.global_settings_sets:
+    class: Builderius\Bundle\SettingBundle\GraphQL\Resolver\BuilderiusRootQueryFieldGlobalSettingsSetsResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_setting.factory.builderius_global_settings_set_from_post'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.update_global_settings_set:
+    class: Builderius\Bundle\SettingBundle\GraphQL\Resolver\BuilderiusRootMutationFieldUpdateGlobalSettingsSetResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_setting.factory.builderius_global_settings_set_from_post'
+      - '@moomoo_query.wp_query'
+      - '@builderius_vcs.factory.builderius_branch_from_post'
+    tags:
+      - { name: builderius_graphql_field_resolver }

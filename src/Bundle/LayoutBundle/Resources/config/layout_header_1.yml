@@ -1,0 +1,563 @@
+services:
+  builderius_layout.layout_header_1:
+    class: 'Builderius\Bundle\LayoutBundle\Model\BuilderiusLayout'
+    arguments:
+      - name: 'layout_header_1'
+        label: 'Header #1'
+        technologies: ['html']
+        category: 'headers'
+        image: 'https://showcase.builderius.io/wp-content/uploads/2023/02/layout_header_1.png'
+        tags:
+          - 'dark'
+          - 'two columns'
+        config:
+          ---
+          modules:
+            u80bc936e:
+              id: u80bc936e
+              name: GenericBlock
+              label: 'header #1'
+              settings:
+                - name: backgroundColor
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--bgcolor'
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            u55a04736:
+              id: u55a04736
+              name: GenericBlock
+              label: headerInner
+              settings:
+                - name: transition
+                  value:
+                    all:
+                      ' #hamburger-input:checked ~ label:before':
+                        i1:
+                          - d1: 0
+                            c1: linear
+                            b1: 0.2
+                            a1: transform
+                      ' #hamburger-input:checked ~ label:after':
+                        i1:
+                          - d1: 0
+                            c1: linear
+                            b1: 0.2
+                            a1: all
+                - name: top
+                  value:
+                    all:
+                      ' #hamburger-input:checked ~ label:before':
+                        b1: px
+                        a1: 6
+                - name: color
+                  value:
+                    all:
+                      ' #hamburger-input:checked ~ label':
+                        a1: 'rgba(255, 255, 255, 0.00)'
+                - name: transform
+                  value:
+                    all:
+                      ' #hamburger-input:checked ~ label:before':
+                        i1:
+                          - c1: rotate
+                            a1: 45
+                            b1: deg
+                      ' #hamburger-input:checked ~ label:after':
+                        i1:
+                          - c1: rotate
+                            a1: -45
+                            b1: deg
+                - name: flexWrap
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: wrap
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 50
+                        b4: px
+                        a2: 50
+                        b2: px
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 1440
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 80
+                    '(max-width: 800px)':
+                      original:
+                        b1: auto
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                      ' #hamburger-input:checked ~ label:after':
+                        b1: px
+                        a1: 16
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: space-between
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                      ' #hamburger-input:checked ~ nav':
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u80bc936e
+              index: 0
+            ua23d71a7:
+              id: ua23d71a7
+              name: Anchor
+              label: logo
+              settings:
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: modCssVars
+                  value:
+                    all:
+                      original: [ ]
+                - name: textTransform
+                  value:
+                    all:
+                      original:
+                        a1: uppercase
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 30
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: serif
+                        c1: Spectral
+                - name: textDecoration
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: dataAnchor
+                  value:
+                    a1: Logo
+              parent: u55a04736
+              index: 0
+            ue57009d6:
+              id: ue57009d6
+              name: Label
+              label: hamburger icon
+              settings:
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                - name: top
+                  value:
+                    all:
+                      ':after':
+                        b1: px
+                        a1: 6
+                - name: content
+                  value:
+                    all:
+                      ':before':
+                        a1: '""'
+                      ':after':
+                        a1: '""'
+                - name: boxSizing
+                  value:
+                    all:
+                      ':before':
+                        a1: border-box
+                      ':after':
+                        a1: border-box
+                - name: backgroundColor
+                  value:
+                    all:
+                      ':before':
+                        v1:
+                          - '--textcolor-alt'
+                      ':after':
+                        v1:
+                          - '--textcolor-alt'
+                - name: modCssVars
+                  value:
+                    all:
+                      original: [ ]
+                - name: boxShadow
+                  value:
+                    all:
+                      ':before':
+                        i1:
+                          - a2: 12
+                            a1: 0
+                            b2: px
+                            b1: px
+                            d2: px
+                            d1: 0
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                      ':before':
+                        a1: block
+                      ':after':
+                        a1: block
+                    '(max-width: 800px)':
+                      original:
+                        a1: block
+                - name: textIndent
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: -9999
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 16
+                      ':before':
+                        b1: px
+                        a1: 2
+                      ':after':
+                        b1: px
+                        a1: 2
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 16
+                      ':before':
+                        b1: px
+                        a1: 16
+                      ':after':
+                        b1: px
+                        a1: 10
+                - name: position
+                  value:
+                    all:
+                      original:
+                        a1: relative
+                      ':before':
+                        a1: absolute
+                      ':after':
+                        a1: absolute
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: for
+                        b1: hamburger-input
+                - name: dataLabel
+                  value:
+                    a1: X
+              parent: u55a04736
+              index: 2
+            u0e78d52d:
+              id: u0e78d52d
+              name: Input
+              label: hamburger checkbox
+              settings:
+                - name: transition
+                  value:
+                    all:
+                      ':before':
+                        i1:
+                          - d1: 0
+                            c1: linear
+                            b1: 0.2
+                            a1: transform
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: type
+                        b1: checkbox
+                      - a1: name
+                        b1: hamburger
+                - name: tagId
+                  value:
+                    a1: hamburger-input
+              parent: u55a04736
+              index: 1
+            u423564ee:
+              id: u423564ee
+              name: RawHtml
+              label: nav
+              settings:
+                - name: backgroundColor
+                  value:
+                    all:
+                      ' ul.specialMenu li:nth-of-type(2) a:hover':
+                        v1:
+                          - '--accentcolor'
+                        a1: 'rgba(252, 54, 59, 1.00)'
+                - name: flexWrap
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: wrap
+                - name: padding
+                  value:
+                    all:
+                      ' ul.specialMenu li:nth-of-type(2) a':
+                        a4: 15
+                        a3: 10
+                        b4: px
+                        a2: 15
+                        b3: px
+                        a1: 10
+                        b2: px
+                        b1: px
+                    '(max-width: 800px)':
+                      ' ul':
+                        a1: 20
+                        b1: px
+                        a3: 20
+                        b3: px
+                - name: borderRadius
+                  value:
+                    all:
+                      ' ul.specialMenu li:nth-of-type(2) a':
+                        a4: 25
+                        a3: 25
+                        b4: px
+                        a2: 25
+                        b3: px
+                        a1: 25
+                        b2: px
+                        b1: px
+                - name: border
+                  value:
+                    all:
+                      ' ul.specialMenu li:nth-of-type(2) a':
+                        d1: 'rgba(252, 54, 59, 1.00)'
+                        c1: solid
+                        d2: 'rgba(252, 54, 59, 1.00)'
+                        b1: px
+                        c2: solid
+                        d3: 'rgba(252, 54, 59, 1.00)'
+                        b2: px
+                        c3: solid
+                        d4: 'rgba(252, 54, 59, 1.00)'
+                        a1: 1
+                        b3: px
+                        c4: solid
+                        a2: 1
+                        b4: px
+                        a3: 1
+                        a4: 1
+                        v1:
+                          - '--accentborder'
+                        v2:
+                          - '--accentborder'
+                        v3:
+                          - '--accentborder'
+                        v4:
+                          - '--accentborder'
+                - name: textTransform
+                  value:
+                    all:
+                      ' ul.specialMenu li:nth-of-type(2) a':
+                        a1: uppercase
+                - name: font
+                  value:
+                    all:
+                      ' ul li a':
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                        a2: normal
+                        a5: 18
+                        b5: px
+                - name: textDecoration
+                  value:
+                    all:
+                      ' ul li a':
+                        a1: none
+                      ' ul li a:hover':
+                        a1: underline
+                      ' ul.specialMenu li:nth-of-type(2) a:hover':
+                        a1: none
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a4: 10
+                        b4: '%'
+                      ' ul li a':
+                        a2: 25
+                        b2: px
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                    '(max-width: 800px)':
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: space-between
+                    '(max-width: 800px)':
+                      original:
+                        a1: center
+                - name: color
+                  value:
+                    all:
+                      ' ul':
+                        v1:
+                          - '--textcolor-alt'
+                      ' ul li a':
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                      ' ul.specialMenu li:nth-of-type(2) a':
+                        v1:
+                          - '--accentcolor'
+                        a1: 'rgba(252, 54, 59, 1.00)'
+                      ' ul.specialMenu li:nth-of-type(2) a:hover':
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: listStyle
+                  value:
+                    all:
+                      ' ul':
+                        a1: none
+                - name: display
+                  value:
+                    all:
+                      ' ul':
+                        a1: flex
+                      original:
+                        a1: flex
+                    '(max-width: 800px)':
+                      original:
+                        a1: none
+                - name: dataRawHtml
+                  value:
+                    a1: |-
+                      <ul class="regularMenu">
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Tour</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Contact</a></li>
+                      </ul>
+                      <ul class="specialMenu">
+                        <li><a href="#">Sign In</a></li>
+                        <li><a href="#">Sign up free</a></li>
+                      </ul>
+                - name: htmlTagContainer
+                  value:
+                    a1: nav
+              parent: u55a04736
+              index: 3
+          indexes:
+            root:
+              - u80bc936e
+            u80bc936e:
+              - u55a04736
+            u55a04736:
+              - ua23d71a7
+              - u0e78d52d
+              - ue57009d6
+              - u423564ee
+          version:
+            builderius: 0.9.6
+    tags:
+      - { name: builderius_layout }

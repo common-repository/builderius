@@ -1,0 +1,469 @@
+services:
+  builderius_template.event_listener.branch_head_commit_content_generation.on_creation:
+    class: Builderius\Bundle\TemplateBundle\EventListener\BranchHeadCommitContentGenerationEventListener
+    arguments:
+      - '@builderius_template.provider.template_content.composite'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_branch_head_commit_created, method: onBranchHeadCommitSave }
+
+  builderius_template.event_listener.branch_head_commit_content_generation.on_update:
+    class: Builderius\Bundle\TemplateBundle\EventListener\BranchHeadCommitContentGenerationEventListener
+    arguments:
+      - '@builderius_template.provider.template_content.composite'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_branch_head_commit_updated, method: onBranchHeadCommitSave }
+
+  builderius_template.event_listener.branches_count_checking:
+    class: Builderius\Bundle\TemplateBundle\EventListener\BranchesCountCheckingEventListener
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_branch_before_create, method: beforeBranchCreate }
+
+  builderius_template.event_listener.builderius_config_before_export:
+    class: Builderius\Bundle\TemplateBundle\EventListener\BuilderiusConfigBeforeExportEventListener
+    tags:
+      - { name: moomoo_event_listener, event: builderius_config_before_export, method: onConfigExport }
+
+  builderius_template.event_listener.builderius_config_before_import:
+    class: Builderius\Bundle\TemplateBundle\EventListener\BuilderiusConfigBeforeImportEventListener
+    arguments:
+      - '@builderius_template.factory.builderius_template_from_post'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_config_before_import, method: onConfigImport }
+
+  builderius_template.event_listener.builderius_template_creation_on_deliverable_extraction:
+    class: Builderius\Bundle\TemplateBundle\EventListener\BuilderiusTemplateCreationOnDeliverableExtractListener
+    arguments:
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+      - '@builderius_template.version_converter.composite'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_deliverable_extraction, method: onDeliverableExtraction, priority: 50 }
+
+  builderius_template.event_listener.builderius_template_dsm_post_creation:
+    class: Builderius\Bundle\TemplateBundle\EventListener\BuilderiusTemplateDSMPostCreationEventListener
+    arguments:
+      - '@builderius_template.provider.template_types'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_dsm_post_creation, method: onDSMPostCreation }
+
+  builderius_template.event_listener.builderius_templates_delete_before_deliverable_extraction:
+    class: Builderius\Bundle\TemplateBundle\EventListener\BuilderiusTemplatesDeleteBeforeDeliverableExtractListener
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_deliverable_before_extraction, method: beforeDeliverableExtraction }
+
+  builderius_template.event_listener.builderius_template_vcs_owner_from_post_creation:
+    class: Builderius\Bundle\TemplateBundle\EventListener\BuilderiusTemplateVCSOwnerFromPostCreationEventListener
+    arguments:
+      - '@builderius_template.factory.builderius_template_from_post'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_vcs_owner_from_post_creation, method: createOwner }
+
+  builderius_template.event_listener.builderius_template_vcs_owners_resolve:
+    class: Builderius\Bundle\TemplateBundle\EventListener\BuilderiusTemplateVCSOwnersResolveEventListener
+    arguments:
+      - '@builderius_graphql.field_resolver.builderius_root_query.templates'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_vcs_owners_resolve, method: onResolve }
+
+  builderius_template.event_listener.commit_content_generation:
+    class: Builderius\Bundle\TemplateBundle\EventListener\CommitContentGenerationEventListener
+    arguments:
+      - '@builderius_template.provider.template_content.composite'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_commit_created, method: onCommitCreation }
+
+  builderius_template.event_listener.config_version_assignment:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ConfigVersionAssignmentEventListener
+    arguments:
+      - '@moomoo_kernel.provider.plugins_versions'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_commit_content_config_before_save, method: beforeConfigSave }
+      - { name: moomoo_event_listener, event: builderius_template_apply_rules_config_before_save, method: beforeConfigSave }
+      - { name: moomoo_event_listener, event: builderius_global_settings_config_before_save, method: beforeConfigSave }
+      - { name: moomoo_event_listener, event: builderius_template_default_not_committed_config_before_save, method: beforeConfigSave}
+      - { name: moomoo_event_listener, event: builderius_global_settings_set_default_not_committed_config_before_save, method: beforeConfigSave}
+      - { name: moomoo_event_listener, event: builderius_saved_composite_module_config_before_save, method: beforeConfigSave}
+
+  builderius_template.event_listener.inline_assets_registration.css.customize_preview:
+    class: Builderius\Bundle\TemplateBundle\EventListener\CssRegistrationInFrontendModeEventListener
+    arguments:
+      - '@builderius_template.provider.deliverable_template_sub_module'
+      - '@templating'
+    calls:
+      - ['addCondition', ['@is_customize_preview']]
+      - ['addCondition', ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_styles_registration, method: beforeAssetsRegistration, priority: 10 }
+
+  builderius_template.event_listener.add_ssr_to_html_attributes:
+    class: Builderius\Bundle\TemplateBundle\EventListener\AddSsrToHtmlAttributesEventListener
+    tags:
+      - { name: moomoo_event_listener, event: builderius_html_config_before_render, method: beforeRenderHtml, priority: 10 }
+
+  builderius_template.event_listener.inline_assets_registration.at_rules.frontend:
+    class: Builderius\Bundle\TemplateBundle\EventListener\AtRulesRegistrationInFrontendModeEventListener
+    arguments:
+      - '@builderius_template.provider.deliverable_template_sub_module'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@event_dispatcher'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_template']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_assets_before_registration, method: beforeAssetsRegistration, priority: 10 }
+
+  builderius_template.event_listener.inline_assets_registration.hook_templates.at_rules.frontend:
+    class: Builderius\Bundle\TemplateBundle\EventListener\AtRulesRegistrationInHookTemplatesFrontendModeEventListener
+    arguments:
+      - '@builderius_template.provider.deliverable_hook_template_sub_modules'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@event_dispatcher'
+      - '@builderius.cache.runtime'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_not_applied_builderius_deliverable_template']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_hook_templates']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_assets_before_registration, method: beforeAssetsRegistration, priority: 10 }
+
+  builderius_template.event_listener.inline_assets_registration.at_rules.preview:
+    class: Builderius\Bundle\TemplateBundle\EventListener\AtRulesRegistrationInPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.template'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@event_dispatcher'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_assets_before_registration, method: beforeAssetsRegistration, priority: 10 }
+
+  builderius_template.event_listener.inline_assets_registration.hook_templates.at_rules.preview:
+    class: Builderius\Bundle\TemplateBundle\EventListener\AtRulesRegistrationInHookTemplatesPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.hook_templates'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@event_dispatcher'
+      - '@builderius.cache.runtime'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_not_applied_builderius_template']]
+      - ['addCondition', ['@has_applied_builderius_hook_templates']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_assets_before_registration, method: beforeAssetsRegistration, priority: 10 }
+
+  builderius_template.event_listener.inline_assets_registration.css.frontend:
+    class: Builderius\Bundle\TemplateBundle\EventListener\CssRegistrationInFrontendModeEventListener
+    arguments:
+      - '@builderius_template.provider.deliverable_template_sub_module'
+      - '@templating'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_template']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_styles_registration, method: beforeAssetsRegistration, priority: 90 }
+
+  builderius_template.event_listener.inline_assets_registration.css.hook_templates_frontend:
+    class: Builderius\Bundle\TemplateBundle\EventListener\CssRegistrationInHookTemplatesFrontendModeEventListener
+    arguments:
+      - '@builderius_template.provider.deliverable_hook_template_sub_modules'
+      - '@templating'
+      - '@builderius.cache.runtime'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_not_applied_builderius_deliverable_template']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_hook_templates']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_styles_registration, method: beforeAssetsRegistration, priority: 90 }
+
+  builderius_template.event_listener.inline_assets_registration.css.preview:
+    class: Builderius\Bundle\TemplateBundle\EventListener\CssRegistrationInPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.template'
+      - '@templating'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_styles_registration, method: beforeAssetsRegistration, priority: 90 }
+
+  builderius_template.event_listener.inline_assets_registration.css.hook_templates_preview:
+    class: Builderius\Bundle\TemplateBundle\EventListener\CssRegistrationInHookTemplatesPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.hook_templates'
+      - '@templating'
+      - '@builderius.cache.runtime'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_not_applied_builderius_template']]
+      - ['addCondition', ['@has_applied_builderius_hook_templates']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_styles_registration, method: beforeAssetsRegistration, priority: 90 }
+
+  builderius_template.event_listener.inline_assets_registration.modules_assets.frontend:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesAssetsRegistrationInFrontendModeEventListener
+    arguments:
+      - '@builderius_template.provider.deliverable_template_sub_module'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_template']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_assets_before_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.inline_assets_registration.modules_assets.preview:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesAssetsRegistrationInPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.template'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.factory.builderius_template_from_post'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_assets_before_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.inline_assets_registration.modules_assets.hook_templates_preview:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesAssetsRegistrationInHookTemplatesPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.hook_templates'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+      - '@builderius.cache.runtime'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_not_applied_builderius_template']]
+      - ['addCondition', ['@has_applied_builderius_hook_templates']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_assets_before_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.inline_assets_registration.modules_assets.hook_templates_frontend:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesAssetsRegistrationInHookTemplatesFrontendModeEventListener
+    arguments:
+      - '@builderius_template.provider.deliverable_hook_template_sub_modules'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+      - '@builderius.cache.runtime'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_not_applied_builderius_deliverable_template']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_hook_templates']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_assets_before_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.inline_assets_registration.modules_inline_styles.preview:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesInlineAssetsRegistrationInPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.template'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.factory.builderius_template_from_post'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+      - '@templating'
+      - 'style'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_styles_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.inline_assets_registration.modules_inline_scripts.preview:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesInlineAssetsRegistrationInPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.template'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.factory.builderius_template_from_post'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+      - '@templating'
+      - 'script'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_scripts_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.inline_assets_registration.modules_inline_styles.frontend:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesInlineAssetsRegistrationInFrontendModeEventListener
+    arguments:
+      - '@builderius_template.provider.deliverable_template_sub_module'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+      - '@templating'
+      - 'style'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_template']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_styles_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.inline_assets_registration.modules_inline_scripts.frontend:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesInlineAssetsRegistrationInFrontendModeEventListener
+    arguments:
+      - '@builderius_template.provider.deliverable_template_sub_module'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+      - '@templating'
+      - 'script'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_template']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_scripts_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.inline_assets_registration.modules_inline_styles.hook_templates_preview:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesInlineAssetsRegistrationInHookTemplatesPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.hook_templates'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+      - '@builderius.cache.runtime'
+      - '@templating'
+      - 'style'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_not_applied_builderius_template']]
+      - ['addCondition', ['@has_applied_builderius_hook_templates']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_styles_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.inline_assets_registration.modules_inline_scripts.hook_templates_preview:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesInlineAssetsRegistrationInHookTemplatesPreviewModeEventListener
+    arguments:
+      - '@builderius_template.provider.hook_templates'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+      - '@builderius.cache.runtime'
+      - '@templating'
+      - 'script'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_not_applied_builderius_template']]
+      - ['addCondition', ['@has_applied_builderius_hook_templates']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_scripts_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.inline_assets_registration.modules_inline_styles.hook_templates_frontend:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesInlineAssetsRegistrationInHookTemplatesFrontendModeEventListener
+    arguments:
+      - '@builderius_template.provider.deliverable_hook_template_sub_modules'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+      - '@builderius.cache.runtime'
+      - '@templating'
+      - 'style'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_not_applied_builderius_deliverable_template']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_hook_templates']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_styles_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.inline_assets_registration.modules_inline_scripts.hook_templates_frontend:
+    class: Builderius\Bundle\TemplateBundle\EventListener\ModulesInlineAssetsRegistrationInHookTemplatesFrontendModeEventListener
+    arguments:
+      - '@builderius_template.provider.deliverable_hook_template_sub_modules'
+      - '@builderius_module.provider.composite'
+      - '@builderius_template.twig.template_data_vars_extension'
+      - '@builderius_el.expression_language'
+      - '@builderius.cache.runtime'
+      - '@templating'
+      - 'script'
+    calls:
+      - ['addCondition', ['@is_frontend']]
+      - ['addCondition', ['@is_not_builderius_builder_mode']]
+      - ['addCondition', ['@is_not_builderius_preview_in_dev_mode']]
+      - ['addCondition', ['@has_applied_builderius_deliverable']]
+      - ['addCondition', ['@has_not_applied_builderius_deliverable_template']]
+      - ['addCondition', ['@has_applied_builderius_deliverable_hook_templates']]
+    tags:
+      - { name: moomoo_event_listener, event: moomoo_inline_assets_before_scripts_registration, method: beforeAssetsRegistration }
+
+  builderius_template.event_listener.google_fonts.css_at_rules_optimization:
+    class: Builderius\Bundle\TemplateBundle\EventListener\GoogleFontsCssAtRulesOptimizationEventListener
+    tags:
+      - { name: moomoo_event_listener, event: builderius_template_css_at_rules, method: onCssAtRulesSave }
+
+  builderius_template.event_listener.master_branch_for_new_template_creation:
+    class: Builderius\Bundle\TemplateBundle\EventListener\MasterBranchForNewTemplatePostCreationEventListener
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_template_created, method: onTemplateCreation }
+
+  builderius_template.event_listener.template_css_settings_clear_on_type_change_to_hook:
+    class: Builderius\Bundle\TemplateBundle\EventListener\TemplateCssSettingsClearOnTemplateTypeChangedToHookEventListener
+    arguments:
+      - '@builderius_template.factory.builderius_template_from_post'
+      - '@builderius_template.provider.template_content.composite'
+      - '@builderius_setting.registry.settings'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_template_type_changed_to_hook, method: clearTemplateCss }
+
+  builderius_template.event_listener.dynamic_data_condition_evaluation:
+    class: Builderius\Bundle\TemplateBundle\EventListener\DynamicDataConditionEvaluationEventListener
+    arguments:
+      - '@builderius_template.twig.template_data_vars_extension'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_dynamic_data_condition_evaluation, method: onDynamicDataConditionEvaluation }

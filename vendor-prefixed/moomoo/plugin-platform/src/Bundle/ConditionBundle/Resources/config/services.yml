@@ -1,0 +1,10 @@
+services:
+    moomoo_condition.registry.conditions:
+        class: 'Builderius\MooMoo\Platform\Bundle\ConditionBundle\Registry\ConditionsRegistry'
+
+    moomoo_condition.command.conditions_list:
+        class: 'Builderius\MooMoo\Platform\Bundle\ConditionBundle\Command\ConditionsListCommand'
+        arguments:
+            - '@moomoo_condition.registry.conditions'
+        tags:
+            - { name: moomoo_wpcli_command }

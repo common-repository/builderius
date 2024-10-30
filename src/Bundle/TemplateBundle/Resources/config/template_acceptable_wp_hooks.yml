@@ -1,0 +1,99 @@
+services:
+  builderius_template.template_acceptable_hook.get_sidebar:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: get_sidebar
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.dynamic_sidebar:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: dynamic_sidebar
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.wp_meta:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: wp_meta
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.the_post:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: the_post
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.the_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - type: filter
+        name: the_content
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.loop_start:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: loop_start
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.loop_end:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: loop_end
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.loop_no_results:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: loop_no_results
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.comment_loop_start:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: comment_loop_start
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.comment_form:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: comment_form
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.wp_after_admin_bar_render:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: wp_after_admin_bar_render
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.get_header:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: get_header
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.wp_body_open:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: wp_body_open
+    tags:
+      - { name: builderius_template_acceptable_core_hook }
+
+  builderius_template.template_acceptable_hook.get_footer:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: get_footer
+    tags:
+      - { name: builderius_template_acceptable_core_hook }

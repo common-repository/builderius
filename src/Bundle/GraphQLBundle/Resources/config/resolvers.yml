@@ -1,0 +1,126 @@
+services:
+  builderius_graphql.field_resolver.post.post_content:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\PostContentResolver
+    calls:
+      - [setCache, ['@builderius.cache.runtime']]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.author:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\PostAuthorResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.permalink:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\PostPermalinkResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.has_featured_image:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\PostHasFeaturedImageResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.featured_image:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\PostFeaturedImageResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.featured_image.file_url:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\FeaturedImageFileUrlResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.comments_open:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\PostCommentsOpenResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.comments:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\PostCommentsResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.meta:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\PostMetaResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.meta_value:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\PostMetaValueResolver
+    arguments:
+      - '@builderius_graphql.subfields_cache'
+      - '@builderius_el.expression_language'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.comment.meta:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\CommentMetaResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.comment.meta_value:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\CommentMetaValueResolver
+    arguments:
+      - '@builderius_graphql.subfields_cache'
+      - '@builderius_el.expression_language'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.all.option_value:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\OptionValueResolver
+    arguments:
+      - '@builderius_graphql.subfields_cache'
+      - '@builderius_el.expression_language'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.all.hook_argument:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\HookArgumentResolver
+    arguments:
+      - ['All', 'Template']
+      - '@builderius_graphql.subfields_cache'
+      - '@builderius_el.expression_language'
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.all.current_user:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\CurrentUserResolver
+    arguments:
+      - ['All', 'Template']
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.all.current_url:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\CurrentUrlResolver
+    arguments:
+      - ['All', 'Template']
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.user.avatar_url:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\UserAvatarUrlResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.user.meta:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\UserMetaResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.user.meta_value:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\UserMetaValueResolver
+    arguments:
+      - '@builderius_graphql.subfields_cache'
+      - '@builderius_el.expression_language'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.superglobal_variable:
+    class: Builderius\Bundle\GraphQLBundle\Resolver\SuperglobalVariableResolver
+    arguments:
+      - '@builderius_graphql.subfields_cache'
+      - '@builderius_el.expression_language'
+    tags:
+      - { name: builderius_graphql_field_resolver }

@@ -1,0 +1,113 @@
+services:
+  builderius_graphql.field_resolver.builderius_root_mutation.create_branch:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusRootMutationFieldCreateBranchResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_template.checker.content_config'
+      - '@builderius_vcs.factory.builderius_branch_from_post'
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.delete_not_committed_config:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusRootMutationFieldDeleteNotCommittedConfigResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_vcs.factory.builderius_branch_from_post'
+      - '@moomoo_query.wp_query'
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.update_branch:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusRootMutationFieldUpdateBranchResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_template.checker.content_config'
+      - '@builderius_vcs.factory.builderius_branch_from_post'
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.deliverable_vcs_tags:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusRootQueryFieldDeliverableVcsTagsResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.existing_vcs_tags:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusRootQueryFieldExistingVcsTagsResolver
+    arguments:
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.branches:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusRootQueryFieldBranchesResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_vcs.factory.builderius_branch_from_post'
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.vcs_owners:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusRootQueryFieldVCSOwnersResolver
+    arguments:
+      - '@event_dispatcher'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.branche:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusRootQueryFieldBranchResolver
+    arguments:
+      - '@builderius_vcs.factory.builderius_branch_from_post'
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.create_commit:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusRootMutationFieldCreateCommitResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_template.checker.content_config'
+      - '@builderius_vcs.factory.builderius_commit_from_post'
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.add_tag:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusRootMutationFieldAddTagResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_vcs.factory.builderius_commit_from_post'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.remove_tag:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusRootMutationFieldRemoveTagResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_vcs.factory.builderius_commit_from_post'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_vcs_owner.branch:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusVCSOwnerFieldBranchResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_branch.commit:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusBranchFieldCommitResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_branch.commits:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusBranchFieldCommitsResolver
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.type_resolver.builderius_vcs_owner:
+    class: Builderius\Bundle\VCSBundle\GraphQL\Resolver\BuilderiusVCSOwnerTypeResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_graphql.provider.types.composite'

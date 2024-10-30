@@ -1,0 +1,274 @@
+services:
+  builderius_category.type_config.builderius_root_query.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_query
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_category.type_config.builderius_root_query.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.root_query.field.category' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_query.field.categories' ] ]
+
+  builderius_graphql.type_config.root_query.field.category:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'category'
+        type: 'BuilderiusCategory'
+    calls:
+      - [ addArgument, ['@builderius_graphql.type_config.root_query.field.categories.argument.group'] ]
+      - [ addArgument, ['@builderius_graphql.type_config.root_query.field.category.argument.name'] ]
+
+  builderius_graphql.type_config.root_query.field.categories:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'categories'
+        type: '[BuilderiusCategory]'
+    calls:
+      - [ addArgument, ['@builderius_graphql.type_config.root_query.field.categories.argument.group'] ]
+
+  builderius_graphql.type_config.root_query.field.category.argument.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory::NAME_FIELD
+        type: 'String!'
+
+  builderius_graphql.type_config.root_query.field.categories.argument.group:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'group'
+        type: 'BuilderiusCategoryGroup'
+
+  builderius_graphql.type_config.category_group_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCategoryGroup'
+    calls:
+      - ['addValue', ['@builderius_graphql.type_config.category_group.value.module']]
+      - ['addValue', ['@builderius_graphql.type_config.category_group.value.saved_fragment']]
+      - ['addValue', ['@builderius_graphql.type_config.category_group.value.setting']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.category_group.value.module:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    lazy: true
+    arguments:
+      - name: 'module'
+        value: 'module'
+
+  builderius_graphql.type_config.category_group.value.saved_fragment:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    lazy: true
+    arguments:
+      - name: 'saved_fragment'
+        value: 'saved_fragment'
+
+  builderius_graphql.type_config.category_group.value.setting:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    lazy: true
+    arguments:
+      - name: 'setting'
+        value: 'setting'
+
+  builderius_graphql.type_config.category_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCategory'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.id' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.label' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.groups' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.sort_order' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.editable' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.default' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.category.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory::ID_FIELD
+        type: 'Int'
+
+  builderius_graphql.type_config.category.field.name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory::NAME_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.category.field.label:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory::LABEL_FIELD
+        type: 'String'
+
+  builderius_graphql.type_config.category.field.groups:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory::GROUPS_FIELD
+        type: '[String]'
+
+  builderius_graphql.type_config.category.field.sort_order:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory::SORT_ORDER_FIELD
+        type: 'Int'
+
+  builderius_graphql.type_config.category.field.editable:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory::EDITABLE_FIELD
+        type: 'Boolean'
+
+  builderius_graphql.type_config.category.field.default:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory::DEFAULT_FIELD
+        type: 'Boolean'
+
+#--------------mutations---------------------
+
+  builderius_category.type_config.builderius_root_mutation.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_mutation
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_category.type_config.builderius_root_mutation.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.create_category' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.update_category' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.delete_category' ] ]
+
+  builderius_graphql.type_config.create_category_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateCategoryInput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_category.field.label' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.sort_order' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_category.field.groups' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.default' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_category.field.label:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'label'
+        type: 'String!'
+
+  builderius_graphql.type_config.create_category.field.groups:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'groups'
+        type: '[String]'
+
+  builderius_graphql.type_config.update_category_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusUpdateCategoryInput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.update_category_input_type.field.id' ]]
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.name' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.label' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.update_category_input_type.field.groups' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.category.field.default' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.update_category_input_type.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\SavedFragmentBundle\Model\BuilderiusSavedFragment::ID_FIELD
+        type: 'Int!'
+
+  builderius_graphql.type_config.update_category_input_type.field.groups:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'groups'
+        type: '[BuilderiusCategoryGroup]'
+
+  builderius_graphql.type_config.root_mutation.field.create_category:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'createCategory'
+        type: 'BuilderiusCreateCategoryOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.create_category.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.update_category:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'updateCategory'
+        type: 'BuilderiusCreateCategoryOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.update_category.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.delete_category:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'deleteCategory'
+        type: 'BuilderiusDeleteCategoryOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.delete_category.argument.id'] ]
+
+  builderius_graphql.type_config.root_mutation.field.create_category.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusCreateCategoryInput!'
+
+  builderius_graphql.type_config.root_mutation.field.delete_category.argument.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'id'
+        type: 'Int!'
+
+  builderius_graphql.type_config.root_mutation.field.update_category.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusUpdateCategoryInput!'
+
+  builderius_graphql.type_config.create_category_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateCategoryOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.create_category_output_type.field.category' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_category_output_type.field.category:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'category'
+        type: 'BuilderiusCategory'
+
+  builderius_graphql.type_config.delete_category_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusDeleteCategoryOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.delete_category_output_type.field.result' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.delete_category_output_type.field.message' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.delete_category_output_type.field.result:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'result'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.delete_category_output_type.field.message:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'message'
+        type: 'String'

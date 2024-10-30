@@ -1,0 +1,741 @@
+services:
+  builderius_setting.setting_component.base:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingComponent'
+    abstract: true
+    calls:
+      - method: setAcceptableOptions
+        arguments:
+          - name:
+              type: string
+              required: true
+            label:
+              type: string
+              required: true
+
+  builderius_setting.setting_component.input:
+    parent: builderius_setting.setting_component.base
+    arguments:
+      - name: 'SettingInput'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.select:
+    parent: builderius_setting.setting_component.base
+    arguments:
+      - name: 'SettingSelect'
+    calls:
+      - method: setAcceptableOptions
+        arguments:
+          - values:
+              type: array
+              required: true
+            allow_empty:
+              type: boolean
+              required: false
+              default: false
+            multiple:
+              type: boolean
+              required: false
+              default: false
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.select_clear:
+    parent: builderius_setting.setting_component.base
+    arguments:
+      - name: 'SettingSelectWithClear'
+    calls:
+      - method: setAcceptableOptions
+        arguments:
+          - values:
+              type: array
+              required: true
+            allow_empty:
+              type: boolean
+              required: false
+              default: false
+            multiple:
+              type: boolean
+              required: false
+              default: false
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.textarea:
+    parent: builderius_setting.setting_component.base
+    arguments:
+      - name: 'SettingTextarea'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.textareaasync:
+    parent: builderius_setting.setting_component.base
+    arguments:
+      - name: 'SettingTextareaAsync'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.reactselectasync:
+    parent: builderius_setting.setting_component.base
+    arguments:
+      - name: 'SettingReactSelectAsync'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.align-content:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingFlex'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.flex-shrink:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingFlexShrink'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.width:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingWidth'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.gap:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingGap'
+      - method: setAcceptableOptions
+        arguments:
+          - unitValues:
+              type: array
+              required: true
+            globalValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.margin:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingMargin'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.transform:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingTransform'
+      - method: setAcceptableOptions
+        arguments:
+          - unitValues:
+              type: array
+              required: true
+            values:
+              type: array
+              required: true
+            globalValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.font:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingFont'
+      - method: setAcceptableOptions
+        arguments:
+          - fontType:
+              type: array
+              required: true
+            genericFamily:
+              type: array
+              required: true
+            fontFamily:
+              type: array
+              required: true
+            fontFamilySubset:
+              type: array
+              required: true
+            fontStyle:
+              type: array
+              required: true
+            fontWeight:
+              type: array
+              required: true
+            fontVariant:
+              type: array
+              required: true
+            fontSize:
+              type: array
+              required: true
+            lineHeight:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.background_image:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingBgImage'
+      - method: setAcceptableOptions
+        arguments:
+          - values:
+              type: array
+              required: true
+            globalValues:
+              type: array
+              required: true
+            shapeValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.image:
+    parent: builderius_setting.setting_component.input
+    calls:
+      - [ 'setName', [ 'SettingImage' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.background_color:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingBgColor'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.border:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingBorder'
+      - method: setAcceptableOptions
+        arguments:
+          - globalValues:
+              type: array
+              required: true
+            lineWidthValues:
+              type: array
+              required: true
+            lineStyleValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.border_radius:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingBorderRadius'
+      - method: setAcceptableOptions
+        arguments:
+          - globalValues:
+              type: array
+              required: true
+            unitValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.outline:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingOutline'
+      - method: setAcceptableOptions
+        arguments:
+          - globalValues:
+              type: array
+              required: true
+            lineWidthValues:
+              type: array
+              required: true
+            lineStyleValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.color:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - [ 'setName', [ 'SettingColor' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.opacity:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingOpacity' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.background_position:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingBgPosition'
+      - method: setAcceptableOptions
+        arguments:
+          - unitValues:
+              type: array
+              required: true
+            keywordValues:
+              type: array
+              required: true
+            globalValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.transform_origin:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingTransformOrigin'
+      - method: setAcceptableOptions
+        arguments:
+          - unitValues:
+              type: array
+              required: true
+            keywordValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.select_repeater:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingSelectRepeater'
+      - method: setAcceptableOptions
+        arguments:
+          - values:
+              type: array
+              required: true
+            globalValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.input_repeater:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingInputRepeater'
+      - method: setAcceptableOptions
+        arguments:
+          - globalValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.tag_class:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingTagClass' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.select_advanced:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingSelectAdvanced' ] ]
+      - method: setAcceptableOptions
+        arguments:
+          - values:
+              type: array
+              required: true
+            multiple:
+              type: boolean
+              required: false
+              default: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.html_attribute:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingHtmlAttribute'
+      - method: setAcceptableOptions
+        arguments:
+          - forbiddenNames:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.text_shadow:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingTextShadow'
+      - method: setAcceptableOptions
+        arguments:
+          - unitValues:
+              type: array
+              required: true
+            globalValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.box_shadow:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingBoxShadow'
+      - method: setAcceptableOptions
+        arguments:
+          - positionValues:
+              type: array
+              required: false
+            unitValues:
+              type: array
+              required: true
+            globalValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.transition:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingTransition'
+      - method: setAcceptableOptions
+        arguments:
+          - functionValues:
+              type: array
+              required: true
+            propertyValues:
+              type: array
+              required: true
+            globalValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.list_style:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingListStyle'
+      - method: setAcceptableOptions
+        arguments:
+          - typeValues:
+              type: array
+              required: true
+            positionValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.datetimepicker:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingDatetimePicker' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.checkbox:
+    parent: builderius_setting.setting_component.base
+    arguments:
+      - name: 'SettingCheckbox'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.html_editor:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingHtmlEditor' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.html_editor_inline:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingHtmlEditorInline' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.dynamic_textarea:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingDynamicTextarea' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.dynamic_textarea_json:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingDynamicTextareaJson' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.dynamic_input:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingDynamicInput' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.json_editor:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingJsonEditor' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.json_editor_inline:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingJsonEditorInline' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.tagify:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingTagify'
+      - method: setAcceptableOptions
+        arguments:
+          - values:
+              type: array
+              required: true
+            multiple:
+              type: boolean
+              required: false
+              default: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.select_adv_non_c_non_m:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingSelectAdvancedNonCNonM'
+      - method: setAcceptableOptions
+        arguments:
+          - values:
+              type: array
+              required: true
+            multiple:
+              type: boolean
+              required: false
+              default: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.input_select:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingInputSelect'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.input_clip_path:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingClipPath'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.input_filter:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingFilter'
+      - method: setAcceptableOptions
+        arguments:
+          - globalValues:
+              type: array
+              required: true
+            doubleValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.re_init_btn:
+    parent: builderius_setting.setting_component.base
+    arguments:
+      - name: 'SettingReInitBtn'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.js_editor:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - [ 'setName', [ 'SettingJsEditor' ] ]
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.data_vars:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingDataVariables'
+      - method: setAcceptableOptions
+        arguments:
+          - variablesTypes:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.css_variables:
+    parent: builderius_setting.setting_component.select
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingCssVariables'
+      - method: setAcceptableOptions
+        arguments:
+          - values:
+              type: array
+              required: true
+            unitsValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.a1_repeater:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingA1Repeater'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.a1b1_repeater:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingA1B1Repeater'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.a1b1c1_repeater:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingA1B1C1Repeater'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.double_input:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingDoubleInput'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.a1b1c1_repeater_a1b1:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingA1B1C1RepeaterA1B1'
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.tmpl_areas:
+    parent: builderius_setting.setting_component.input
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingTmplAreas'
+      - method: setAcceptableOptions
+        arguments:
+          - globalValues:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.tmpl_cols:
+    parent: builderius_setting.setting_component.input
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingTmplCols'
+      - method: setAcceptableOptions
+        arguments:
+          - values:
+              type: array
+              required: true
+    tags:
+      - { name: builderius_setting_component }
+
+  builderius_setting.setting_component.input_rendering_condition:
+    parent: builderius_setting.setting_component.base
+    calls:
+      - method: setName
+        arguments:
+          - 'SettingRenderingCondition'
+    tags:
+      - { name: builderius_setting_component }

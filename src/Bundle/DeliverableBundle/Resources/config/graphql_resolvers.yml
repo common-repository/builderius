@@ -1,0 +1,6 @@
+services:
+  builderius_graphql.type_resolver.builderius_deliverable:
+    class: Builderius\Bundle\DeliverableBundle\GraphQL\Resolver\BuilderiusDeliverableTypeResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_graphql.provider.types.composite'

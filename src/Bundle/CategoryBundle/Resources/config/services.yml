@@ -1,0 +1,28 @@
+services:
+  builderius_category.provider.categories.composite:
+    class: Builderius\Bundle\CategoryBundle\Provider\CompositeBuilderiusCategoriesProvider
+    lazy: true
+
+  builderius_category.provider.categories.standard:
+    class: Builderius\Bundle\CategoryBundle\Provider\StandardBuilderiusCategoriesProvider
+    lazy: true
+    tags:
+      - { name: builderius_categories_provider }
+
+  builderius_category.registration.builderius_categories_asset_localization:
+    class: Builderius\Bundle\CategoryBundle\Registration\BuilderiusCategoriesScriptLocalization
+    arguments:
+      - '@builderius_category.provider.categories.composite'
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_category.category.general:
+    class: Builderius\Bundle\CategoryBundle\Model\BuilderiusCategory
+    arguments:
+      - name: 'general'
+        label: 'General'
+        sortOrder: 10
+        groups: ['setting', 'module']
+        default: true
+    tags:
+      - { name: builderius_category }

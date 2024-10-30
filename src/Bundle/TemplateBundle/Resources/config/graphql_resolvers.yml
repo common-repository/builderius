@@ -1,0 +1,56 @@
+services:
+  builderius_graphql.field_resolver.builderius_root_mutation.create_template:
+    class: Builderius\Bundle\TemplateBundle\GraphQL\Resolver\BuilderiusRootMutationFieldCreateTemplateResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_template.factory.builderius_template_from_post'
+      - '@builderius_template.provider.template_types'
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.update_template:
+    class: Builderius\Bundle\TemplateBundle\GraphQL\Resolver\BuilderiusRootMutationFieldUpdateTemplateResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_template.factory.builderius_template_from_post'
+      - '@builderius_template.provider.template_types'
+      - '@moomoo_query.wp_query'
+      - '@builderius_vcs.factory.builderius_branch_from_post'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.delete_template:
+    class: Builderius\Bundle\TemplateBundle\GraphQL\Resolver\BuilderiusRootMutationFieldDeleteTemplateResolver
+    arguments:
+      - '@event_dispatcher'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.duplicate_template:
+    class: Builderius\Bundle\TemplateBundle\GraphQL\Resolver\BuilderiusRootMutationFieldDuplicateTemplateResolver
+    arguments:
+      - '@builderius_template.factory.builderius_template_from_post'
+      - '@builderius_graphql.field_resolver.builderius_root_mutation.create_template'
+      - '@builderius_graphql.field_resolver.builderius_root_mutation.create_commit'
+      - '@event_dispatcher'
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.template:
+    class: Builderius\Bundle\TemplateBundle\GraphQL\Resolver\BuilderiusRootQueryFieldTemplateResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_template.factory.builderius_template_from_post'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.templates:
+    class: Builderius\Bundle\TemplateBundle\GraphQL\Resolver\BuilderiusRootQueryFieldTemplatesResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_template.factory.builderius_template_from_post'
+      - '@builderius_template.provider.template_types'
+    tags:
+      - { name: builderius_graphql_field_resolver }

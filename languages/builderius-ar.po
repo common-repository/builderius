@@ -1,0 +1,808 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-22T22:01:55+02:00\n"
+"PO-Revision-Date: 2022-12-13 19:57+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ar_EG\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=(n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5);\n"
+"X-Generator: Poedit 3.2.2\n"
+"X-Domain: builderius\n"
+
+#: Bundle/BuilderBundle/Registration/BuilderiusAdminNavBarNode.php:16
+#: Bundle/TestingBundle/YmlTranslations.php:29
+msgid "Builderius"
+msgstr "Builderius"
+
+#: Bundle/BuilderBundle/Registration/BuilderiusPreviewModeAdminNavBarNode.php:16
+msgid "Preview Mode"
+msgstr "وضع المعاينة"
+
+#: Bundle/ImportExportBundle/Ajax/BuilderiusConfigExportAjaxRequestHandler.php:134
+#: Bundle/ImportExportBundle/Ajax/BuilderiusReleaseExportAjaxRequestHandler.php:126
+msgid "Could not create the export file in %s"
+msgstr "القائمة تعذر إنشاء ملف التصدير في % s"
+
+#: Bundle/ImportExportBundle/Ajax/BuilderiusConfigImportAjaxRequestHandler.php:149
+#: Bundle/ImportExportBundle/Ajax/BuilderiusReleaseImportAjaxRequestHandler.php:283
+msgid "No configuration file found inside uploaded zip."
+msgstr "لم يتم العثور على ملف تكوين داخل ملف مضغوط تم تحميله."
+
+#: Bundle/ImportExportBundle/Ajax/BuilderiusConfigImportAjaxRequestHandler.php:154
+msgid "Content config file is empty. There is nothing to import."
+msgstr "ملف تهيئة المحتوى فارغ. لا يوجد شيء للاستيراد."
+
+#: Bundle/ImportExportBundle/Ajax/BuilderiusReleaseImportAjaxRequestHandler.php:291
+msgid "Release config file is empty. There is nothing to import."
+msgstr "إصدار ملف config فارغ. لا يوجد شيء للاستيراد."
+
+#: Bundle/TemplateBundle/ApplyRule/Category/BuilderiusTemplateApplyRuleThemeCategory.php:25
+msgid ""
+"The goal of apply rules in this category is to make possible to apply "
+"template based on Wordpress template hierarchy which is described in details "
+"here: https://wphierarchy.com/. Apply rules of this category are mandatory, "
+"so at least one rule should be created."
+msgstr ""
+"الهدف من تطبيق القواعد في هذه الفئة هو إتاحة إمكانية تطبيق القالب بناءً على "
+"التسلسل الهرمي لقالب Wordpress الموضح بالتفصيل هنا: https://wphierarchy."
+"com/. تطبيق قواعد هذه الفئة إلزامي ، لذلك يجب إنشاء قاعدة واحدة على الأقل."
+
+#: Bundle/TestingBundle/YmlTranslations.php:2
+msgid "Accordion"
+msgstr "الأكورديون"
+
+#: Bundle/TestingBundle/YmlTranslations.php:3
+msgid "Align Content"
+msgstr "محاذاة المحتوى"
+
+#: Bundle/TestingBundle/YmlTranslations.php:4
+msgid "Align Items"
+msgstr "محاذاة العناصر"
+
+#: Bundle/TestingBundle/YmlTranslations.php:5
+msgid "Align Self"
+msgstr "محاذاة العنصر نفسه"
+
+#: Bundle/TestingBundle/YmlTranslations.php:6
+msgid "All"
+msgstr "جميع"
+
+#: Bundle/TestingBundle/YmlTranslations.php:7
+msgid "All published blog posts"
+msgstr "جميع مشاركات المدونة المنشورة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:8
+msgid "All published pages"
+msgstr "جميع الصفحات المنشورة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:9
+msgid "All published pages or all published blog posts"
+msgstr "كل الصفحات المنشورة أو كل منشورات المدونة المنشورة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:10
+msgid "Anchor"
+msgstr "لينك"
+
+#: Bundle/TestingBundle/YmlTranslations.php:11
+msgid "Appearance"
+msgstr "المظهر"
+
+#: Bundle/TestingBundle/YmlTranslations.php:12
+msgid "Aspect Ratio"
+msgstr "ابعاد متزنة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:13
+msgid "Background"
+msgstr "خلفية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:14
+msgid "Background Attachment"
+msgstr "مرفق الخلفية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:15
+msgid "Background Clip"
+msgstr "مقطع الخلفية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:16
+msgid "Background Color"
+msgstr "لون الخلفية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:17
+msgid "Background Image"
+msgstr "صورة الخلفية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:18
+msgid "Background Origin"
+msgstr "أصل الخلفية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:19
+msgid "Background Position"
+msgstr "مكان الخلفية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:20
+msgid "Background Repeat"
+msgstr "تكرار الخلفية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:21
+msgid "Background Size"
+msgstr "حجم الخلفية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:22
+msgid "Block code"
+msgstr "وحدة الكود"
+
+#: Bundle/TestingBundle/YmlTranslations.php:23
+msgid "Blockquote"
+msgstr "وحدة اقتباس"
+
+#: Bundle/TestingBundle/YmlTranslations.php:24
+msgid "Blog Post"
+msgstr "مشاركة مدونة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:25
+msgid "Border"
+msgstr "حدود"
+
+#: Bundle/TestingBundle/YmlTranslations.php:26
+msgid "Border Radius"
+msgstr "استدارة الحدود"
+
+#: Bundle/TestingBundle/YmlTranslations.php:27
+msgid "Box Shadow"
+msgstr "ظل الصندوق"
+
+#: Bundle/TestingBundle/YmlTranslations.php:28
+msgid "Box Sizing"
+msgstr "حجم الصندوق"
+
+#: Bundle/TestingBundle/YmlTranslations.php:30
+msgid "Button"
+msgstr "زر"
+
+#: Bundle/TestingBundle/YmlTranslations.php:31
+msgid "CSS Variables"
+msgstr "متغيرات CSS"
+
+#: Bundle/TestingBundle/YmlTranslations.php:32
+msgid "CSS settings"
+msgstr "اعدادات CSS"
+
+#: Bundle/TestingBundle/YmlTranslations.php:33
+msgid "Caption"
+msgstr "شرح"
+
+#: Bundle/TestingBundle/YmlTranslations.php:34
+msgid "Category"
+msgstr "تصنيف"
+
+#: Bundle/TestingBundle/YmlTranslations.php:35
+msgid "Clear"
+msgstr "مسح"
+
+#: Bundle/TestingBundle/YmlTranslations.php:36
+msgid "Clip Path"
+msgstr "مسار المقطع"
+
+#: Bundle/TestingBundle/YmlTranslations.php:37
+msgid "Collection"
+msgstr "مجموعة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:38
+msgid "Color"
+msgstr "لون"
+
+#: Bundle/TestingBundle/YmlTranslations.php:39
+msgid "Conditions"
+msgstr "شروط"
+
+#: Bundle/TestingBundle/YmlTranslations.php:40
+msgid "Contain"
+msgstr "الحاوية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:41
+msgid "Content"
+msgstr "المحتوي"
+
+#: Bundle/TestingBundle/YmlTranslations.php:42
+msgid "Content #1"
+msgstr "المحتوي #1"
+
+#: Bundle/TestingBundle/YmlTranslations.php:43
+msgid "Content #2"
+msgstr "المحتوي #2"
+
+#: Bundle/TestingBundle/YmlTranslations.php:44
+msgid "Content #3"
+msgstr "المحتوي #3"
+
+#: Bundle/TestingBundle/YmlTranslations.php:45
+msgid "Content #4"
+msgstr "المحتوي #4"
+
+#: Bundle/TestingBundle/YmlTranslations.php:46
+msgid "Content Visibility"
+msgstr "رؤية المحتوي"
+
+#: Bundle/TestingBundle/YmlTranslations.php:47
+msgid "Content editor (HTML)"
+msgstr "محرر المحتوى (HTML)"
+
+#: Bundle/TestingBundle/YmlTranslations.php:48
+msgid "Cookie Consent"
+msgstr "الموافقة على ملفات تعريف الارتباط"
+
+#: Bundle/TestingBundle/YmlTranslations.php:49
+msgid "Cursor"
+msgstr "مؤشر"
+
+#: Bundle/TestingBundle/YmlTranslations.php:50
+msgid "Custom"
+msgstr "مخصص"
+
+#: Bundle/TestingBundle/YmlTranslations.php:51
+msgid "Data Variables"
+msgstr "متغيرات البيانات"
+
+#: Bundle/TestingBundle/YmlTranslations.php:52
+msgid "Data settings"
+msgstr "اعدادات البيانات"
+
+#: Bundle/TestingBundle/YmlTranslations.php:53
+msgid "Data web components"
+msgstr "مكونات ويب البيانات"
+
+#: Bundle/TestingBundle/YmlTranslations.php:54
+msgid "Date/Time format"
+msgstr "تنسيق التاريخ / الوقت"
+
+#: Bundle/TestingBundle/YmlTranslations.php:55
+msgid "Debug/re-initialize the script"
+msgstr "تصحيح / إعادة تهيئة البرنامج النصي"
+
+#: Bundle/TestingBundle/YmlTranslations.php:56
+msgid "Display"
+msgstr "عرض"
+
+#: Bundle/TestingBundle/YmlTranslations.php:57
+msgid "Dynamic Data"
+msgstr "بيانات ديناميكية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:58
+msgid "Extra"
+msgstr "أخري"
+
+#: Bundle/TestingBundle/YmlTranslations.php:59
+msgid "Fieldset"
+msgstr "مجموعة الحقول"
+
+#: Bundle/TestingBundle/YmlTranslations.php:60
+msgid "Figcaption"
+msgstr "Figcaption"
+
+#: Bundle/TestingBundle/YmlTranslations.php:61
+msgid "Fill"
+msgstr "Fill"
+
+#: Bundle/TestingBundle/YmlTranslations.php:62
+msgid "Filter"
+msgstr "تنقية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:63
+msgid "Flex Basis"
+msgstr "Flex Basis"
+
+#: Bundle/TestingBundle/YmlTranslations.php:64
+msgid "Flex Direction"
+msgstr "Flex Direction"
+
+#: Bundle/TestingBundle/YmlTranslations.php:65
+msgid "Flex Grow"
+msgstr "Flex Grow"
+
+#: Bundle/TestingBundle/YmlTranslations.php:66
+msgid "Flex Shrink"
+msgstr "Flex Shrink"
+
+#: Bundle/TestingBundle/YmlTranslations.php:67
+msgid "Flex Wrap"
+msgstr "Flex Wrap"
+
+#: Bundle/TestingBundle/YmlTranslations.php:68
+msgid "Float"
+msgstr "طفو"
+
+#: Bundle/TestingBundle/YmlTranslations.php:69
+msgid "Font"
+msgstr "الخط"
+
+#: Bundle/TestingBundle/YmlTranslations.php:70
+msgid "Footer #1"
+msgstr "الفوتر #1"
+
+#: Bundle/TestingBundle/YmlTranslations.php:71
+msgid "Footer #2"
+msgstr "الفوتر #2"
+
+#: Bundle/TestingBundle/YmlTranslations.php:72
+msgid "Form"
+msgstr "نموذج"
+
+#: Bundle/TestingBundle/YmlTranslations.php:73
+msgid "Forms"
+msgstr "نماذج"
+
+#: Bundle/TestingBundle/YmlTranslations.php:74
+msgid "Gap"
+msgstr "Gap"
+
+#: Bundle/TestingBundle/YmlTranslations.php:75
+msgid "General"
+msgstr "عام"
+
+#: Bundle/TestingBundle/YmlTranslations.php:76
+msgid "Generic (multi-purpose) elements"
+msgstr "عناصر عامة (متعددة الأغراض)"
+
+#: Bundle/TestingBundle/YmlTranslations.php:77
+msgid "Generic block"
+msgstr "وحدة عامة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:78
+msgid "Generic inline"
+msgstr "وحدة نفس السطر"
+
+#: Bundle/TestingBundle/YmlTranslations.php:79
+msgid "Generic table block"
+msgstr "كتلة الجدول العامة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:80
+msgid "Global"
+msgstr "عام"
+
+#: Bundle/TestingBundle/YmlTranslations.php:81
+msgid "Gutenberg Block"
+msgstr "وحدة جوتنبرج"
+
+#: Bundle/TestingBundle/YmlTranslations.php:82
+msgid "HTML attributes"
+msgstr "سمات HTML"
+
+#: Bundle/TestingBundle/YmlTranslations.php:83
+msgid "HTML tag ID"
+msgstr "معرف علامة HTML"
+
+#: Bundle/TestingBundle/YmlTranslations.php:84
+msgid "HTML tag custom attributes"
+msgstr "السمات المخصصة لعلامة HTML"
+
+#: Bundle/TestingBundle/YmlTranslations.php:85
+msgid "HTML tag custom classes"
+msgstr "فئات مخصصة لعلامة HTML"
+
+#: Bundle/TestingBundle/YmlTranslations.php:86
+msgid "Header #1"
+msgstr "عنوان #1"
+
+#: Bundle/TestingBundle/YmlTranslations.php:87
+msgid "Header #2"
+msgstr "عنوان #2"
+
+#: Bundle/TestingBundle/YmlTranslations.php:88
+msgid "Header #3"
+msgstr "عنوان #3"
+
+#: Bundle/TestingBundle/YmlTranslations.php:89
+msgid "Heading"
+msgstr "عنوان"
+
+#: Bundle/TestingBundle/YmlTranslations.php:90
+msgid "Hero #1"
+msgstr "كامل الاتساع #1"
+
+#: Bundle/TestingBundle/YmlTranslations.php:91
+msgid "Hero #2"
+msgstr "كامل الاتساع #2"
+
+#: Bundle/TestingBundle/YmlTranslations.php:92
+msgid "Hero #3"
+msgstr "كامل الاتساع #3"
+
+#: Bundle/TestingBundle/YmlTranslations.php:93
+msgid "Hero #4"
+msgstr "كامل الاتساع #4"
+
+#: Bundle/TestingBundle/YmlTranslations.php:94
+msgid "ID"
+msgstr "ID"
+
+#: Bundle/TestingBundle/YmlTranslations.php:95
+msgid "Image"
+msgstr "الصورة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:96
+msgid "Image src"
+msgstr "مصدر الصورة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:97
+msgid "Input"
+msgstr "مدخل"
+
+#: Bundle/TestingBundle/YmlTranslations.php:98
+msgid "Inset"
+msgstr "Inset"
+
+#: Bundle/TestingBundle/YmlTranslations.php:99
+msgid "Interactive elements"
+msgstr "عناصر تفاعلية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:100
+msgid "Isolation"
+msgstr "Isolation"
+
+#: Bundle/TestingBundle/YmlTranslations.php:101
+msgid "Justify Content"
+msgstr "Justify Content"
+
+#: Bundle/TestingBundle/YmlTranslations.php:102
+msgid "Label"
+msgstr "ملصق"
+
+#: Bundle/TestingBundle/YmlTranslations.php:103
+msgid "Layout"
+msgstr "تَخطِيط"
+
+#: Bundle/TestingBundle/YmlTranslations.php:104
+msgid "Legend"
+msgstr "عنوان تفسيري"
+
+#: Bundle/TestingBundle/YmlTranslations.php:105
+msgid "Letter Spacing"
+msgstr "تباعد الحروف"
+
+#: Bundle/TestingBundle/YmlTranslations.php:106
+msgid "Link URL"
+msgstr "URL رابط"
+
+#: Bundle/TestingBundle/YmlTranslations.php:107
+msgid "List"
+msgstr "قائمة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:108
+msgid "List Item"
+msgstr "قائمة الاغراض"
+
+#: Bundle/TestingBundle/YmlTranslations.php:109
+msgid "List Style"
+msgstr "نمط قائمة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:110
+msgid "List type"
+msgstr "نوع القائمة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:111
+msgid "Margin"
+msgstr "حافة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:112
+msgid "Min Height"
+msgstr "الحد الأدنى للارتفاع"
+
+#: Bundle/TestingBundle/YmlTranslations.php:113
+msgid "Min Width"
+msgstr "الحد الادني للعرض"
+
+#: Bundle/TestingBundle/YmlTranslations.php:114
+msgid "Mix Blend Mode"
+msgstr "وضع المزج"
+
+#: Bundle/TestingBundle/YmlTranslations.php:115
+msgid "Module"
+msgstr "وحدة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:116
+msgid "Multimedia/embedded"
+msgstr "الوسائط المتعددة / المضمنة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:117
+msgid "Object Fit"
+msgstr "تناسب الكائن"
+
+#: Bundle/TestingBundle/YmlTranslations.php:118
+msgid "Object Position"
+msgstr "تمركز الكائن"
+
+#: Bundle/TestingBundle/YmlTranslations.php:119
+msgid "Opacity"
+msgstr "التعتيم"
+
+#: Bundle/TestingBundle/YmlTranslations.php:120
+msgid "Option"
+msgstr "اختيار"
+
+#: Bundle/TestingBundle/YmlTranslations.php:121
+msgid "Order"
+msgstr "طلب"
+
+#: Bundle/TestingBundle/YmlTranslations.php:122
+msgid "Our partners #1"
+msgstr "شركاؤنا #1"
+
+#: Bundle/TestingBundle/YmlTranslations.php:123
+msgid "Output"
+msgstr "مخرج"
+
+#: Bundle/TestingBundle/YmlTranslations.php:124
+msgid "Overflow"
+msgstr "Overflow Wrap"
+
+#: Bundle/TestingBundle/YmlTranslations.php:125
+msgid "Overflow Wrap"
+msgstr "Overflow Wrap"
+
+#: Bundle/TestingBundle/YmlTranslations.php:126
+msgid "Padding"
+msgstr "حشوة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:127
+msgid "Paragraph"
+msgstr "فقرة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:128
+msgid "Perspective"
+msgstr "Perspective"
+
+#: Bundle/TestingBundle/YmlTranslations.php:129
+msgid "Pointer Events"
+msgstr "أحداث المؤشر"
+
+#: Bundle/TestingBundle/YmlTranslations.php:130
+msgid "Position"
+msgstr "تمركز"
+
+#: Bundle/TestingBundle/YmlTranslations.php:131
+msgid "Positioning"
+msgstr "التمركز"
+
+#: Bundle/TestingBundle/YmlTranslations.php:132
+msgid "Publish"
+msgstr "نشر"
+
+#: Bundle/TestingBundle/YmlTranslations.php:133
+msgid "Raw Html"
+msgstr "صف Html"
+
+#: Bundle/TestingBundle/YmlTranslations.php:134
+msgid "Raw Svg"
+msgstr "صف Svg"
+
+#: Bundle/TestingBundle/YmlTranslations.php:135
+msgid "Rendering condition"
+msgstr "العرض بالشرط"
+
+#: Bundle/TestingBundle/YmlTranslations.php:136
+msgid "Responsive Strategy"
+msgstr "إستراتيجية متجاوبة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:137
+msgid "SERVER|GET|POST|FILES|REQUEST|SESSION|ENV|COOKIE"
+msgstr ""
+"الخادم | الحصول على | البريد | الملفات | الطلب | الجلسة | ENV | ملف تعريف "
+"الارتباط"
+
+#: Bundle/TestingBundle/YmlTranslations.php:138
+msgid "Samp"
+msgstr "Samp"
+
+#: Bundle/TestingBundle/YmlTranslations.php:139
+msgid "Scroll Behaviour"
+msgstr "سلوك التمرير"
+
+#: Bundle/TestingBundle/YmlTranslations.php:140
+msgid "Select"
+msgstr "اختيار"
+
+#: Bundle/TestingBundle/YmlTranslations.php:141
+msgid "Server Side Rendering"
+msgstr "العرض من جانب الخادم"
+
+#: Bundle/TestingBundle/YmlTranslations.php:142
+msgid "Shortcode"
+msgstr "كود مختصر"
+
+#: Bundle/TestingBundle/YmlTranslations.php:143
+msgid "Single Post Page"
+msgstr "صفحة مشاركة واحدة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:144
+msgid "Singular (pages, posts, custom posts, front page)"
+msgstr "مفرد (صفحات ، منشورات ، منشورات مخصصة ، الصفحة الأولى)"
+
+#: Bundle/TestingBundle/YmlTranslations.php:145
+msgid "Singular Page"
+msgstr "صفحة مفردة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:146
+msgid "Size"
+msgstr "حجم"
+
+#: Bundle/TestingBundle/YmlTranslations.php:147
+msgid "Source"
+msgstr "مصدر"
+
+#: Bundle/TestingBundle/YmlTranslations.php:148
+msgid "Static Page"
+msgstr "صفحة ثابتة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:149
+msgid "Status"
+msgstr "الحالة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:150
+msgid "Stroke"
+msgstr "Stroke"
+
+#: Bundle/TestingBundle/YmlTranslations.php:151
+msgid "Summary"
+msgstr "مختصر"
+
+#: Bundle/TestingBundle/YmlTranslations.php:152
+msgid "Table"
+msgstr "الجدول"
+
+#: Bundle/TestingBundle/YmlTranslations.php:153
+msgid "Table Body"
+msgstr "جسم الجدول"
+
+#: Bundle/TestingBundle/YmlTranslations.php:154
+msgid "Table Cell"
+msgstr "خلية الجدول"
+
+#: Bundle/TestingBundle/YmlTranslations.php:155
+msgid "Table Column"
+msgstr "عمود الجدول"
+
+#: Bundle/TestingBundle/YmlTranslations.php:156
+msgid "Table Column Group"
+msgstr "مجموعة عمود الجدول"
+
+#: Bundle/TestingBundle/YmlTranslations.php:157
+msgid "Table Foot"
+msgstr "قدم الجدول"
+
+#: Bundle/TestingBundle/YmlTranslations.php:158
+msgid "Table Header"
+msgstr "عنوان الجدول"
+
+#: Bundle/TestingBundle/YmlTranslations.php:159
+msgid "Table Row"
+msgstr "صف الجدول"
+
+#: Bundle/TestingBundle/YmlTranslations.php:160
+msgid "Table content"
+msgstr "محتوى الجدول"
+
+#: Bundle/TestingBundle/YmlTranslations.php:161
+msgid "Tag"
+msgstr "الفئة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:162
+msgid "Tag name"
+msgstr "اسم العلامة / الفئة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:163
+msgid "Template"
+msgstr "القالب"
+
+#: Bundle/TestingBundle/YmlTranslations.php:164
+msgid "Templates"
+msgstr "القوالب"
+
+#: Bundle/TestingBundle/YmlTranslations.php:165
+msgid "Text Align"
+msgstr "محاذاة النص"
+
+#: Bundle/TestingBundle/YmlTranslations.php:166
+msgid "Text Decoration"
+msgstr "زخرفة النص"
+
+#: Bundle/TestingBundle/YmlTranslations.php:167
+msgid "Text Indent"
+msgstr "المسافة البادئة النص"
+
+#: Bundle/TestingBundle/YmlTranslations.php:168
+msgid "Text Overflow"
+msgstr "تجاوز النص"
+
+#: Bundle/TestingBundle/YmlTranslations.php:169
+msgid "Text Shadow"
+msgstr "ظل النص"
+
+#: Bundle/TestingBundle/YmlTranslations.php:170
+msgid "Text Transform"
+msgstr "تحويل النص"
+
+#: Bundle/TestingBundle/YmlTranslations.php:171
+msgid "Text content elements"
+msgstr "عناصر محتوى النص"
+
+#: Bundle/TestingBundle/YmlTranslations.php:172
+msgid "Textarea"
+msgstr "محتوي النص"
+
+#: Bundle/TestingBundle/YmlTranslations.php:173
+msgid "Time"
+msgstr "وقت"
+
+#: Bundle/TestingBundle/YmlTranslations.php:174
+msgid "Time tag content"
+msgstr "محتوى علامة الوقت"
+
+#: Bundle/TestingBundle/YmlTranslations.php:175
+msgid "Top"
+msgstr "أعلي"
+
+#: Bundle/TestingBundle/YmlTranslations.php:176
+msgid "Transform"
+msgstr "التحويل"
+
+#: Bundle/TestingBundle/YmlTranslations.php:177
+msgid "Transform Origin"
+msgstr "أصل التحويل"
+
+#: Bundle/TestingBundle/YmlTranslations.php:178
+msgid "Transform into link?"
+msgstr "تحويل إلى لينك؟"
+
+#: Bundle/TestingBundle/YmlTranslations.php:179
+msgid "Transition"
+msgstr "تنقل"
+
+#: Bundle/TestingBundle/YmlTranslations.php:180
+msgid "Typography"
+msgstr "أسلوب الطباعة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:181
+msgid "User Select"
+msgstr "تحديد المستخدم"
+
+#: Bundle/TestingBundle/YmlTranslations.php:182
+msgid "Video"
+msgstr "فيديو"
+
+#: Bundle/TestingBundle/YmlTranslations.php:183
+msgid "Visibility"
+msgstr "الرؤية"
+
+#: Bundle/TestingBundle/YmlTranslations.php:184
+msgid "Web components"
+msgstr "مكونات الويب"
+
+#: Bundle/TestingBundle/YmlTranslations.php:185
+msgid "White Space"
+msgstr "مساحة فارغة"
+
+#: Bundle/TestingBundle/YmlTranslations.php:186
+msgid "Width"
+msgstr "العرض"
+
+#: Bundle/TestingBundle/YmlTranslations.php:187
+msgid "Word Break"
+msgstr "سطر جديد"
+
+#: Bundle/TestingBundle/YmlTranslations.php:188
+msgid "Word Spacing"
+msgstr "تباعد الكلمات"
+
+#: Bundle/TestingBundle/YmlTranslations.php:189
+msgid "Wordpress"
+msgstr "ووردبريس"
+
+#: Bundle/TestingBundle/YmlTranslations.php:190
+msgid "Z-index"
+msgstr "Z-index"

@@ -1,0 +1,552 @@
+services:
+  builderius_layout.layout_hero_3:
+    class: 'Builderius\Bundle\LayoutBundle\Model\BuilderiusLayout'
+    arguments:
+      - name: 'layout_hero_3'
+        label: 'Hero #3'
+        technologies: ['html']
+        category: 'hero_sections'
+        image: 'https://showcase.builderius.io/wp-content/uploads/2023/02/layout_hero_3.png'
+        tags:
+          - 'dark'
+          - 'two columns'
+        config:
+          ---
+          modules:
+            u6f73cb5d:
+              id: u6f73cb5d
+              name: GenericBlock
+              label: 'hero #3'
+              settings:
+                - name: padding
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a3: 50
+                        b3: px
+                        a1: 50
+                        b1: px
+                - name: backgroundColor
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--bgcolor'
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: vh
+                        a1: 80
+                    '(max-width: 600px)':
+                      original:
+                        b1: auto
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            ua4f130e7:
+              id: ua4f130e7
+              name: GenericBlock
+              label: headerInner
+              settings:
+                - name: flexWrap
+                  value:
+                    '(max-width: 800px)':
+                      original:
+                        a1: wrap
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 50
+                        b4: px
+                        a2: 50
+                        b2: px
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 1440
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 80
+                    '(max-width: 800px)':
+                      original:
+                        b1: auto
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: boxSizing
+                  value:
+                    all:
+                      original:
+                        a1: border-box
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: space-between
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                      ' #hamburger-input3:checked + nav':
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u6f73cb5d
+              index: 0
+            u82fbaa9f:
+              id: u82fbaa9f
+              name: GenericBlock
+              label: content left
+              settings:
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 48
+                        b1: '%'
+                    '(max-width: 600px)':
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ua4f130e7
+              index: 0
+            u68f75862:
+              id: u68f75862
+              name: Paragraph
+              label: subtitle
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 60
+                        b3: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 24
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                    '(max-width: 800px)':
+                      original:
+                        a5: 19
+                        b5: px
+                - name: dataParagraph
+                  value:
+                    a1: 'Create stunning, professional forms in minutes, not hours.'
+              parent: u82fbaa9f
+              index: 1
+            ub5494730:
+              id: ub5494730
+              name: Heading
+              label: Heading H1
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 15
+                        b3: px
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a6: 48
+                        a5: 40
+                        b6: px
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: serif
+                        c1: Spectral
+                    '(max-width: 800px)':
+                      original:
+                        a6: 40
+                        a5: 34
+                        b6: px
+                        b5: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: htmlTagHeading
+                  value:
+                    a1: h1
+                - name: dataHeading
+                  value:
+                    a1: 'Forms, powerful and beautiful'
+              parent: u82fbaa9f
+              index: 0
+            u9e048d18:
+              id: u9e048d18
+              name: GenericBlock
+              label: cta wrapper
+              settings:
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u82fbaa9f
+              index: 2
+            u10dd3658:
+              id: u10dd3658
+              name: Paragraph
+              label: CTA desc
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 30
+                        b3: px
+                        a1: 5
+                        b1: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 14
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                    '(max-width: 800px)':
+                      original:
+                        a5: 12
+                        b5: px
+                - name: dataParagraph
+                  value:
+                    a1: No credit card required
+              parent: u9e048d18
+              index: 1
+            uc564d95a:
+              id: uc564d95a
+              name: Anchor
+              label: CTA
+              settings:
+                - name: backgroundColor
+                  value:
+                    all:
+                      ':hover':
+                        v1:
+                          - '--accentcolor'
+                        a1: 'rgba(252, 54, 59, 1.00)'
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 20
+                        a3: 10
+                        b4: px
+                        a2: 20
+                        b3: px
+                        a1: 10
+                        b2: px
+                        b1: px
+                - name: borderRadius
+                  value:
+                    all:
+                      original:
+                        a4: 25
+                        a3: 25
+                        b4: px
+                        a2: 25
+                        b3: px
+                        a1: 25
+                        b2: px
+                        b1: px
+                - name: border
+                  value:
+                    all:
+                      original:
+                        d1: 'rgba(252, 54, 59, 1.00)'
+                        c1: solid
+                        d2: 'rgba(252, 54, 59, 1.00)'
+                        b1: px
+                        c2: solid
+                        d3: 'rgba(252, 54, 59, 1.00)'
+                        b2: px
+                        c3: solid
+                        d4: 'rgba(252, 54, 59, 1.00)'
+                        a1: 1
+                        b3: px
+                        c4: solid
+                        a2: 1
+                        b4: px
+                        a3: 1
+                        a4: 1
+                        v1:
+                          - '--accentborder'
+                        v2:
+                          - '--accentborder'
+                        v3:
+                          - '--accentborder'
+                        v4:
+                          - '--accentborder'
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--accentcolor'
+                        a1: 'rgba(252, 54, 59, 1.00)'
+                      ':hover':
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: textTransform
+                  value:
+                    all:
+                      original:
+                        a1: uppercase
+                - name: textDecoration
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                        a2: normal
+                        a3: '700'
+                      ' span':
+                        a3: '400'
+                    '(max-width: 800px)':
+                      original:
+                        a5: 14
+                        b5: px
+                - name: dataAnchor
+                  value:
+                    a1: Get started - <span>for free</span>
+              parent: u9e048d18
+              index: 0
+            u000600ba:
+              id: u000600ba
+              name: GenericBlock
+              label: hero picture
+              settings:
+                - name: height
+                  value:
+                    all:
+                      original:
+                        a1: 350
+                        b1: px
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 48
+                        b1: '%'
+                    '(max-width: 600px)':
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: picture
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ua4f130e7
+              index: 1
+            u91608662:
+              id: u91608662
+              name: Source
+              label: Source
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: src
+                  value:
+                    a1: 'https://source.unsplash.com/v9FQR4tbIq8/700x700'
+              parent: u000600ba
+              index: 0
+            u3545cdf0:
+              id: u3545cdf0
+              name: Image
+              label: Image
+              settings:
+                - name: objectFit
+                  value:
+                    all:
+                      original:
+                        a1: cover
+                - name: height
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+              parent: u000600ba
+              index: 1
+          indexes:
+            root:
+              - u6f73cb5d
+            u6f73cb5d:
+              - ua4f130e7
+            ua4f130e7:
+              - u82fbaa9f
+              - u000600ba
+            u82fbaa9f:
+              - ub5494730
+              - u68f75862
+              - u9e048d18
+            u9e048d18:
+              - uc564d95a
+              - u10dd3658
+            u000600ba:
+              - u91608662
+              - u3545cdf0
+          version:
+            builderius: 0.9.6
+    tags:
+      - { name: builderius_layout }

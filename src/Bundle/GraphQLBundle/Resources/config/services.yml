@@ -1,0 +1,173 @@
+services:
+  builderius_graphql.subfields_cache:
+    class: Builderius\GraphQL\Cache\GraphQLObjectCache
+
+  builderius_graphql.executor.builderius_entities_graphql_queries:
+    class: Builderius\Bundle\GraphQLBundle\Executor\BuilderiusEntitiesGraphQLQueriesExecutor
+    public: true
+    arguments:
+      - '@builderius_graphql.provider.types.composite'
+      - '@builderius_graphql.provider.directives'
+      - '@builderius_graphql.subfields_cache'
+      - '@event_dispatcher'
+
+  builderius_graphql.provider.directives:
+    class: Builderius\Bundle\GraphQLBundle\Provider\Directive\GraphQLDirectivesProvider
+    arguments:
+      - '@builderius_graphql.provider.types.composite'
+    lazy: true
+
+  builderius_graphql.provider.field_resolvers:
+    class: Builderius\Bundle\GraphQLBundle\Provider\FieldResolver\GraphQLFieldResolversProvider
+    lazy: true
+
+  builderius_graphql.provider.type_configs:
+    class: Builderius\Bundle\GraphQLBundle\Provider\TypeConfig\GraphQLTypeConfigsProvider
+    arguments:
+      - '@builderius.cache.runtime'
+      - '@event_dispatcher'
+    lazy: true
+
+  builderius_graphql.provider.types.composite:
+    class: Builderius\Bundle\GraphQLBundle\Provider\Type\CompositeGraphQLTypesProvider
+    arguments:
+      - '@builderius.cache.runtime'
+    lazy: true
+
+  builderius_graphql.provider.types.standard:
+    class: Builderius\Bundle\GraphQLBundle\Provider\Type\StandardGraphQLTypesProvider
+    lazy: true
+    tags:
+      - { name: builderius_graphql_types_provider }
+
+  builderius_graphql.provider.types.config:
+    class: Builderius\Bundle\GraphQLBundle\Provider\Type\ConfigGraphQLTypesProvider
+    lazy: true
+    arguments:
+      - '@builderius_graphql.provider.type_configs'
+      - '@builderius_graphql.factory.type_from_config'
+      - '@builderius_graphql.provider.types.standard'
+      - '@builderius.cache.runtime'
+    tags:
+      - { name: builderius_graphql_types_provider }
+
+  builderius_graphql.factory.type_from_config.custom_scalar_type:
+    class: Builderius\Bundle\GraphQLBundle\Factory\TypeFromConfig\Chain\Element\GraphQLCustomScalarTypeFromConfigFactoryChainElement
+
+  builderius_graphql.factory.type_from_config.enum_type:
+    class: Builderius\Bundle\GraphQLBundle\Factory\TypeFromConfig\Chain\Element\GraphQLEnumTypeFromConfigFactoryChainElement
+    calls:
+      - [ 'setSuccessor', [ '@builderius_graphql.factory.type_from_config.custom_scalar_type' ] ]
+
+  builderius_graphql.factory.type_from_config.input_object_type:
+    class: Builderius\Bundle\GraphQLBundle\Factory\TypeFromConfig\Chain\Element\GraphQLInputObjectTypeFromConfigFactoryChainElement
+    arguments:
+      - '@builderius_graphql.provider.field_resolvers'
+      - '@builderius.cache.runtime'
+    calls:
+      - ['setTypesProvider', ['@builderius_graphql.provider.types.composite']]
+      - [ 'setSuccessor', [ '@builderius_graphql.factory.type_from_config.enum_type' ] ]
+
+  builderius_graphql.factory.type_from_config.object_type:
+    class: Builderius\Bundle\GraphQLBundle\Factory\TypeFromConfig\Chain\Element\GraphQLObjectTypeFromConfigFactoryChainElement
+    arguments:
+      - '@builderius_graphql.provider.field_resolvers'
+      - '@builderius.cache.runtime'
+    calls:
+      - ['setTypesProvider', ['@builderius_graphql.provider.types.composite']]
+      - [ 'setSuccessor', [ '@builderius_graphql.factory.type_from_config.interface_type' ] ]
+
+  builderius_graphql.factory.type_from_config.interface_type:
+    class: Builderius\Bundle\GraphQLBundle\Factory\TypeFromConfig\Chain\Element\GraphQLInterfaceTypeFromConfigFactoryChainElement
+    arguments:
+      - '@builderius_graphql.provider.field_resolvers'
+      - '@builderius.cache.runtime'
+    calls:
+      - [ 'setSuccessor', [ '@builderius_graphql.factory.type_from_config.input_object_type' ] ]
+
+  builderius_graphql.factory.type_from_config.object_root_type:
+    class: Builderius\Bundle\GraphQLBundle\Factory\TypeFromConfig\Chain\Element\GraphQLObjectRootTypeFromConfigFactoryChainElement
+    arguments:
+      - '@builderius_graphql.provider.field_resolvers'
+      - '@builderius.cache.runtime'
+    calls:
+      - ['setTypesProvider', ['@builderius_graphql.provider.types.composite']]
+      - [ 'setSuccessor', [ '@builderius_graphql.factory.type_from_config.object_type' ] ]
+
+  builderius_graphql.factory.type_from_config:
+    parent: builderius_graphql.factory.type_from_config.object_root_type
+
+  builderius_graphql.rest_api.endpoint.builderius_graphql_data_vars:
+    class: Builderius\Bundle\GraphQLBundle\RestApi\Endpoint\BuilderiusGraphQLDataVarsEndpoint
+    arguments:
+      - '@builderius.cache.persistent'
+    tags:
+      - { name: moomoo_rest_endpoint }
+
+  builderius_graphql.rest_api.endpoint.builderius_graphql:
+    class: Builderius\Bundle\GraphQLBundle\RestApi\Endpoint\BuilderiusGraphQLEndpoint
+    public: true
+    arguments:
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+    tags:
+      - { name: moomoo_rest_endpoint }
+
+  builderius_graphql.registration.graphql_root_schemas_asset_localization:
+    class: Builderius\Bundle\GraphQLBundle\Registration\BuilderiusGraphQLRootSchemasScriptLocalization
+    arguments:
+      - '@builderius_template.provider.template'
+      - '@builderius_graphql.provider.types.composite'
+      - '@builderius_graphql.provider.directives'
+    calls:
+      - [ addCondition, ['@has_applied_builderius_template']]
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-builder }
+
+  builderius_graphql.root_data_provider:
+    class: Builderius\Bundle\GraphQLBundle\Provider\RootData\GraphQLRootDataProvider
+    arguments:
+      - '@builderius.cache.runtime'
+
+  builderius_graphql.hook.applicant_graphql_datavars_providing:
+    class: Builderius\Bundle\GraphQLBundle\Hook\ApplicantGraphQLDataVarsProvidingHook
+    arguments:
+      - tag: wp_footer
+        priority: !php/const PHP_INT_MAX
+    calls:
+      - [ setGraphQLTypesProvider, ['@builderius_graphql.provider.types.composite']]
+      - [ setGraphqlDirectivesProvider, ['@builderius_graphql.provider.directives']]
+      - [ setGraphqlSubfieldsCache, ['@builderius_graphql.subfields_cache']]
+      - [ setEventDispatcher, ['@event_dispatcher']]
+      - [ setPersistentCache, ['@builderius.cache.persistent']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_graphql.event_listener.graphql_query_before_execution_recursion:
+    class: Builderius\Bundle\GraphQLBundle\EventListener\GraphQLQueryBeforeExecutionRecursionEventListener
+    tags:
+      - { name: moomoo_event_listener, event: builderius_graphql_query_before_execution, method: beforeQueryExecution }
+
+  builderius_graphql.event_listener.graphql_query_executed.is_private:
+    class: Builderius\Bundle\GraphQLBundle\EventListener\GraphQLPrivateSubfieldsEventListener
+    tags:
+      - { name: moomoo_event_listener, event: builderius_graphql_subfields_resolved, method: onSubfieldsResolved }
+
+  builderius_graphql.event_listener.option_value_field_adding_to_all_object_types:
+    class: Builderius\Bundle\GraphQLBundle\EventListener\OptionValueFieldAddingToAllGraphQLObjectTypesListener
+    arguments:
+      - '@builderius_graphql.type_config.field.option_value'
+    tags:
+      - { name: moomoo_event_listener, event: before_get_graphql_type_configs, method: beforeGetGraphqlTypeConfigs }
+
+  builderius_graphql.event_listener.superglobal_variable_field_adding_to_all_object_types:
+    class: Builderius\Bundle\GraphQLBundle\EventListener\SuperglobalVariableFieldAddingToAllGraphQLObjectTypesListener
+    arguments:
+      - '@builderius_graphql.type_config.field.superglobal_variable'
+    tags:
+      - { name: moomoo_event_listener, event: before_get_graphql_type_configs, method: beforeGetGraphqlTypeConfigs }
+
+  builderius_graphql.helper.local_variables:
+    class: Builderius\Bundle\GraphQLBundle\Helper\GraphQLLocalVarsAwareHelper
+    arguments:
+      - '@builderius_graphql.subfields_cache'
+      - '@builderius_el.expression_language'

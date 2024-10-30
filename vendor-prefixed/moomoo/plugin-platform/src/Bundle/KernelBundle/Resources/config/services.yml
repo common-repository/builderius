@@ -1,0 +1,58 @@
+services:
+    templating.name_parser:
+        class: 'Builderius\MooMoo\Platform\Bundle\KernelBundle\Templating\TemplateNameParser'
+        arguments:
+            - '@service_container'
+
+    templating.php.loader:
+        class: 'Builderius\Symfony\Component\Templating\Loader\FilesystemLoader'
+        arguments:
+            - []
+
+    templating.php.engine:
+        class: 'Builderius\Symfony\Component\Templating\PhpEngine'
+        arguments:
+            - '@templating.name_parser'
+            - '@templating.php.loader'
+
+    twig.loader.filesystem:
+        class: 'Builderius\Twig\Loader\FilesystemLoader'
+
+    twig:
+        class: 'Builderius\Twig\Environment'
+        arguments:
+            - '@twig.loader.filesystem'
+
+    templating.twig.engine:
+        class: 'Builderius\MooMoo\Platform\Bundle\KernelBundle\Templating\Twig\TwigEngine'
+        arguments:
+            - '@twig'
+            - '@templating.name_parser'
+
+    templating:
+        class: 'Builderius\Symfony\Component\Templating\DelegatingEngine'
+        public: true
+        arguments:
+            - ['@templating.php.engine', '@templating.twig.engine']
+
+    moomoo_kernel.boot_service.composite:
+        class: 'Builderius\MooMoo\Platform\Bundle\KernelBundle\Boot\CompositeBootService'
+        public: true
+
+    moomoo_kernel.provider.plugins_versions:
+        class: 'Builderius\MooMoo\Platform\Bundle\KernelBundle\Provider\PluginsVersionsProvider'
+        public: true
+        arguments:
+            - '%kernel.plugins%'
+
+    moomoo_kernel.provider.plugin_name_for_class:
+        class: 'Builderius\MooMoo\Platform\Bundle\KernelBundle\Provider\PluginNameForClassProvider'
+        arguments:
+            - '@service_container'
+
+    event_dispatcher:
+        class: 'Builderius\MooMoo\Platform\Bundle\KernelBundle\EventDispatcher\EventDispatcher'
+        public: true
+
+    runtime_object_cache:
+        class: 'Builderius\MooMoo\Platform\Bundle\KernelBundle\Cache\RuntimeObjectCache'

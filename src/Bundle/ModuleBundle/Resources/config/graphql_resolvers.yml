@@ -1,0 +1,32 @@
+services:
+  builderius_graphql.field_resolver.builderius_root_mutation.create_saved_composite_module:
+    class: Builderius\Bundle\ModuleBundle\GraphQL\Resolver\BuilderiusRootMutationFieldCreateSavedCompositeModuleResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@builderius_template.checker.content_config'
+      - '@builderius_module.provider.composite'
+      - '@builderius_module.provider.composite_modules'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.delete_all_saved_composite_modules:
+    class: Builderius\Bundle\ModuleBundle\GraphQL\Resolver\BuilderiusRootMutationFieldDeleteAllSavedCompositeModulesResolver
+    arguments:
+      - '@event_dispatcher'
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_mutation.delete_saved_composite_module:
+    class: Builderius\Bundle\ModuleBundle\GraphQL\Resolver\BuilderiusRootMutationFieldDeleteSavedCompositeModuleResolver
+    arguments:
+      - '@event_dispatcher'
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.builderius_root_query.saved_composite_modules:
+    class: Builderius\Bundle\ModuleBundle\GraphQL\Resolver\BuilderiusRootQueryFieldSavedCompositeModulesResolver
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: builderius_graphql_field_resolver }

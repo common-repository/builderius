@@ -1,0 +1,816 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Builderius\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-22T22:01:55+02:00\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: support@builderius.io\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : 2);\n"
+"X-Generator: Poedit 3.2\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"X-Poedit-SearchPathExcluded-1: vendor-prefixed\n"
+
+#: Bundle/BuilderBundle/Registration/BuilderiusAdminNavBarNode.php:16
+#: Bundle/TestingBundle/YmlTranslations.php:29
+msgid "Builderius"
+msgstr ""
+
+#: Bundle/BuilderBundle/Registration/BuilderiusPreviewModeAdminNavBarNode.php:16
+msgid "Preview Mode"
+msgstr "Режим перегляду"
+
+#: Bundle/ImportExportBundle/Ajax/BuilderiusConfigExportAjaxRequestHandler.php:134
+#: Bundle/ImportExportBundle/Ajax/BuilderiusReleaseExportAjaxRequestHandler.php:126
+msgid "Could not create the export file in %s"
+msgstr "Не вдалося створити файл експорту в %s"
+
+#: Bundle/ImportExportBundle/Ajax/BuilderiusConfigImportAjaxRequestHandler.php:149
+#: Bundle/ImportExportBundle/Ajax/BuilderiusReleaseImportAjaxRequestHandler.php:283
+msgid "No configuration file found inside uploaded zip."
+msgstr "У завантаженому файлі zip не знайдено файлу конфігурації."
+
+#: Bundle/ImportExportBundle/Ajax/BuilderiusConfigImportAjaxRequestHandler.php:154
+msgid "Content config file is empty. There is nothing to import."
+msgstr "Файл конфігурації вмісту порожній. Імпортувати нічого."
+
+#: Bundle/ImportExportBundle/Ajax/BuilderiusReleaseImportAjaxRequestHandler.php:291
+msgid "Release config file is empty. There is nothing to import."
+msgstr "Файл конфігурації релізу порожній. Імпортувати нічого."
+
+# apply rule category tooltip
+#: Bundle/TemplateBundle/ApplyRule/Category/BuilderiusTemplateApplyRuleThemeCategory.php:25
+msgid ""
+"The goal of apply rules in this category is to make possible to apply "
+"template based on Wordpress template hierarchy which is described in details "
+"here: https://wphierarchy.com/. Apply rules of this category are mandatory, "
+"so at least one rule should be created."
+msgstr ""
+"Метою правил застосування в цій категорії є можливість застосувати шаблон на "
+"основі ієрархії шаблонів Wordpress, яка детально описана тут: https://"
+"wphierarchy.com/. Правила застосування цієї категорії є обов’язковими, тому "
+"слід створити хоча б одне правило."
+
+#: Bundle/TestingBundle/YmlTranslations.php:2
+msgid "Accordion"
+msgstr "Акордеон"
+
+#: Bundle/TestingBundle/YmlTranslations.php:3
+msgid "Align Content"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:4
+msgid "Align Items"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:5
+msgid "Align Self"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:6
+msgid "All"
+msgstr "Все"
+
+#: Bundle/TestingBundle/YmlTranslations.php:7
+msgid "All published blog posts"
+msgstr "Усі опубліковані дописи"
+
+#: Bundle/TestingBundle/YmlTranslations.php:8
+msgid "All published pages"
+msgstr "Усі опубліковані сторінки"
+
+#: Bundle/TestingBundle/YmlTranslations.php:9
+msgid "All published pages or all published blog posts"
+msgstr "Усі опубліковані сторінки або усі опубліковані дописи"
+
+#: Bundle/TestingBundle/YmlTranslations.php:10
+msgid "Anchor"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:11
+msgid "Appearance"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:12
+msgid "Aspect Ratio"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:13
+msgid "Background"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:14
+msgid "Background Attachment"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:15
+msgid "Background Clip"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:16
+msgid "Background Color"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:17
+msgid "Background Image"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:18
+msgid "Background Origin"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:19
+msgid "Background Position"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:20
+msgid "Background Repeat"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:21
+msgid "Background Size"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:22
+msgid "Block code"
+msgstr "Код блоку"
+
+#: Bundle/TestingBundle/YmlTranslations.php:23
+msgid "Blockquote"
+msgstr "Цитата"
+
+#: Bundle/TestingBundle/YmlTranslations.php:24
+msgid "Blog Post"
+msgstr "Допис"
+
+#: Bundle/TestingBundle/YmlTranslations.php:25
+msgid "Border"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:26
+msgid "Border Radius"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:27
+msgid "Box Shadow"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:28
+msgid "Box Sizing"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:30
+msgid "Button"
+msgstr "Кнопка"
+
+#: Bundle/TestingBundle/YmlTranslations.php:31
+msgid "CSS Variables"
+msgstr "CSS Змінні"
+
+#: Bundle/TestingBundle/YmlTranslations.php:32
+msgid "CSS settings"
+msgstr "CSS налаштування"
+
+#: Bundle/TestingBundle/YmlTranslations.php:33
+msgid "Caption"
+msgstr "Підпис"
+
+#: Bundle/TestingBundle/YmlTranslations.php:34
+msgid "Category"
+msgstr "Категорія"
+
+#: Bundle/TestingBundle/YmlTranslations.php:35
+msgid "Clear"
+msgstr "Очистити"
+
+#: Bundle/TestingBundle/YmlTranslations.php:36
+msgid "Clip Path"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:37
+msgid "Collection"
+msgstr "Колекція"
+
+#: Bundle/TestingBundle/YmlTranslations.php:38
+msgid "Color"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:39
+msgid "Conditions"
+msgstr "Умови"
+
+#: Bundle/TestingBundle/YmlTranslations.php:40
+msgid "Contain"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:41
+msgid "Content"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:42
+msgid "Content #1"
+msgstr "Вміст №1"
+
+#: Bundle/TestingBundle/YmlTranslations.php:43
+msgid "Content #2"
+msgstr "Вміст №2"
+
+#: Bundle/TestingBundle/YmlTranslations.php:44
+msgid "Content #3"
+msgstr "Вміст №3"
+
+#: Bundle/TestingBundle/YmlTranslations.php:45
+msgid "Content #4"
+msgstr "Вміст №4"
+
+#: Bundle/TestingBundle/YmlTranslations.php:46
+msgid "Content Visibility"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:47
+msgid "Content editor (HTML)"
+msgstr "Редактор контенту (HTML)"
+
+#: Bundle/TestingBundle/YmlTranslations.php:48
+msgid "Cookie Consent"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:49
+msgid "Cursor"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:50
+msgid "Custom"
+msgstr "Власні"
+
+#: Bundle/TestingBundle/YmlTranslations.php:51
+msgid "Data Variables"
+msgstr "Датавари"
+
+#: Bundle/TestingBundle/YmlTranslations.php:52
+msgid "Data settings"
+msgstr "Налаштування даних"
+
+#: Bundle/TestingBundle/YmlTranslations.php:53
+msgid "Data web components"
+msgstr "Веб-компоненти даних"
+
+#: Bundle/TestingBundle/YmlTranslations.php:54
+msgid "Date/Time format"
+msgstr "Формат дати/часу"
+
+#: Bundle/TestingBundle/YmlTranslations.php:55
+msgid "Debug/re-initialize the script"
+msgstr "Налагодити/повторно ініціалізувати сценарій"
+
+#: Bundle/TestingBundle/YmlTranslations.php:56
+msgid "Display"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:57
+msgid "Dynamic Data"
+msgstr "Динамічні дані"
+
+#: Bundle/TestingBundle/YmlTranslations.php:58
+msgid "Extra"
+msgstr "Екстра"
+
+#: Bundle/TestingBundle/YmlTranslations.php:59
+msgid "Fieldset"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:60
+msgid "Figcaption"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:61
+msgid "Fill"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:62
+msgid "Filter"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:63
+msgid "Flex Basis"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:64
+msgid "Flex Direction"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:65
+msgid "Flex Grow"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:66
+msgid "Flex Shrink"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:67
+msgid "Flex Wrap"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:68
+msgid "Float"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:69
+msgid "Font"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:70
+msgid "Footer #1"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:71
+msgid "Footer #2"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:72
+msgid "Form"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:73
+msgid "Forms"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:74
+msgid "Gap"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:75
+msgid "General"
+msgstr "Загальне"
+
+#: Bundle/TestingBundle/YmlTranslations.php:76
+msgid "Generic (multi-purpose) elements"
+msgstr "Загальні (багатоцільові) елементи"
+
+#: Bundle/TestingBundle/YmlTranslations.php:77
+msgid "Generic block"
+msgstr "Дженерік блок"
+
+#: Bundle/TestingBundle/YmlTranslations.php:78
+msgid "Generic inline"
+msgstr "Дженерік інлайн"
+
+#: Bundle/TestingBundle/YmlTranslations.php:79
+msgid "Generic table block"
+msgstr "Дженерік блок таблиці"
+
+#: Bundle/TestingBundle/YmlTranslations.php:80
+msgid "Global"
+msgstr "Глобальний"
+
+#: Bundle/TestingBundle/YmlTranslations.php:81
+msgid "Gutenberg Block"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:82
+msgid "HTML attributes"
+msgstr "HTML атрибути"
+
+#: Bundle/TestingBundle/YmlTranslations.php:83
+msgid "HTML tag ID"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:84
+msgid "HTML tag custom attributes"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:85
+msgid "HTML tag custom classes"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:86
+msgid "Header #1"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:87
+msgid "Header #2"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:88
+msgid "Header #3"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:89
+msgid "Heading"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:90
+msgid "Hero #1"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:91
+msgid "Hero #2"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:92
+msgid "Hero #3"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:93
+msgid "Hero #4"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:94
+msgid "ID"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:95
+msgid "Image"
+msgstr "Зображення"
+
+#: Bundle/TestingBundle/YmlTranslations.php:96
+msgid "Image src"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:97
+msgid "Input"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:98
+msgid "Inset"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:99
+msgid "Interactive elements"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:100
+msgid "Isolation"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:101
+msgid "Justify Content"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:102
+msgid "Label"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:103
+msgid "Layout"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:104
+msgid "Legend"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:105
+msgid "Letter Spacing"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:106
+msgid "Link URL"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:107
+msgid "List"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:108
+msgid "List Item"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:109
+msgid "List Style"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:110
+msgid "List type"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:111
+msgid "Margin"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:112
+msgid "Min Height"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:113
+msgid "Min Width"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:114
+msgid "Mix Blend Mode"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:115
+msgid "Module"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:116
+msgid "Multimedia/embedded"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:117
+msgid "Object Fit"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:118
+msgid "Object Position"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:119
+msgid "Opacity"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:120
+msgid "Option"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:121
+msgid "Order"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:122
+msgid "Our partners #1"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:123
+msgid "Output"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:124
+msgid "Overflow"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:125
+msgid "Overflow Wrap"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:126
+msgid "Padding"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:127
+msgid "Paragraph"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:128
+msgid "Perspective"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:129
+msgid "Pointer Events"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:130
+msgid "Position"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:131
+msgid "Positioning"
+msgstr ""
+
+# admin menu
+#: Bundle/TestingBundle/YmlTranslations.php:132
+msgid "Publish"
+msgstr "Опублікувати"
+
+#: Bundle/TestingBundle/YmlTranslations.php:133
+msgid "Raw Html"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:134
+msgid "Raw Svg"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:135
+msgid "Rendering condition"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:136
+msgid "Responsive Strategy"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:137
+msgid "SERVER|GET|POST|FILES|REQUEST|SESSION|ENV|COOKIE"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:138
+msgid "Samp"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:139
+msgid "Scroll Behaviour"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:140
+msgid "Select"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:141
+msgid "Server Side Rendering"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:142
+msgid "Shortcode"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:143
+msgid "Single Post Page"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:144
+msgid "Singular (pages, posts, custom posts, front page)"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:145
+msgid "Singular Page"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:146
+msgid "Size"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:147
+msgid "Source"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:148
+msgid "Static Page"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:149
+msgid "Status"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:150
+msgid "Stroke"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:151
+msgid "Summary"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:152
+msgid "Table"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:153
+msgid "Table Body"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:154
+msgid "Table Cell"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:155
+msgid "Table Column"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:156
+msgid "Table Column Group"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:157
+msgid "Table Foot"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:158
+msgid "Table Header"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:159
+msgid "Table Row"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:160
+msgid "Table content"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:161
+msgid "Tag"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:162
+msgid "Tag name"
+msgstr ""
+
+# admin menu
+#: Bundle/TestingBundle/YmlTranslations.php:163
+msgid "Template"
+msgstr "Шаблон"
+
+# admin menu
+#: Bundle/TestingBundle/YmlTranslations.php:164
+msgid "Templates"
+msgstr "Шаблони"
+
+#: Bundle/TestingBundle/YmlTranslations.php:165
+msgid "Text Align"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:166
+msgid "Text Decoration"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:167
+msgid "Text Indent"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:168
+msgid "Text Overflow"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:169
+msgid "Text Shadow"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:170
+msgid "Text Transform"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:171
+msgid "Text content elements"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:172
+msgid "Textarea"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:173
+msgid "Time"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:174
+msgid "Time tag content"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:175
+msgid "Top"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:176
+msgid "Transform"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:177
+msgid "Transform Origin"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:178
+msgid "Transform into link?"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:179
+msgid "Transition"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:180
+msgid "Typography"
+msgstr "Типографія"
+
+#: Bundle/TestingBundle/YmlTranslations.php:181
+msgid "User Select"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:182
+msgid "Video"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:183
+msgid "Visibility"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:184
+msgid "Web components"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:185
+msgid "White Space"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:186
+msgid "Width"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:187
+msgid "Word Break"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:188
+msgid "Word Spacing"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:189
+msgid "Wordpress"
+msgstr ""
+
+#: Bundle/TestingBundle/YmlTranslations.php:190
+msgid "Z-index"
+msgstr ""

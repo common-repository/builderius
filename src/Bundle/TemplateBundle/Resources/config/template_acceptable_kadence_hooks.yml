@@ -1,0 +1,262 @@
+services:
+  builderius_template.template_acceptable_hook.kadence_before_wrapper:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_before_wrapper
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_after_wrapper:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_after_wrapper
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_before_header:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_before_header
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_header:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_header
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_after_header:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_after_header
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_before_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_before_content
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_after_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_before_content
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_entry_hero:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_entry_hero
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_before_main_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_before_main_content
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_after_main_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_after_main_content
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_before_sidebar:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_before_sidebar
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_dynamic_sidebar_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_dynamic_sidebar_content
+        type: filter
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_after_sidebar:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_after_sidebar
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_single_before_inner_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_single_before_inner_content
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_single_before_entry_header:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_single_before_entry_header
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_entry_header:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_entry_header
+        accepted_args: 2
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_single_before_entry_title:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_single_before_entry_title
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_single_after_entry_title:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_single_after_entry_title
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_single_after_entry_header:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_single_after_entry_header
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_single_before_entry_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_single_before_entry_content
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_single_after_entry_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_single_after_entry_content
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_single_after_inner_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_single_after_inner_content
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_before_comments:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_before_comments
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_comments:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_comments
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_after_comments:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_after_comments
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_before_comments_list:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_before_comments_list
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_after_comments_list:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_after_comments_list
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_archive_before_entry_header:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_archive_before_entry_header
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_entry_archive_header:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_entry_archive_header
+        accepted_args: 2
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_archive_after_entry_header:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_archive_after_entry_header
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_before_footer:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_before_footer
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_footer:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_footer
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_after_footer:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_after_footer
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_404_before_inner_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_404_before_inner_content
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_404_after_inner_content:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_404_after_inner_content
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_before_mobile_navigation_popup:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_before_mobile_navigation_popup
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }
+
+  builderius_template.template_acceptable_hook.kadence_after_mobile_navigation_popup:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: kadence_after_mobile_navigation_popup
+    tags:
+      - { name: builderius_template_acceptable_kadence_hook }

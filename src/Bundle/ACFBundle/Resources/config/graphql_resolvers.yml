@@ -1,0 +1,289 @@
+services:
+  builderius_graphql.field_resolver.post.acf_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFValueResolver
+    arguments:
+      - ['Post', 'User']
+      - 'acf_value'
+      - false
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_post_object_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFPostObjectValueResolver
+    arguments:
+      - ['Post', 'User']
+      - 'acf_post_object_value'
+      - false
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_multiple_post_object_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFMultiplePostObjectValueResolver
+    arguments:
+      - ['Post', 'User']
+      - 'acf_multiple_post_object_value'
+      - false
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_relationship_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRelationshipValueResolver
+    arguments:
+      - ['Post', 'User']
+      - 'acf_relationship_value'
+      - false
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_group_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFGroupValueResolver
+    arguments:
+      - ['Post', 'User']
+      - 'acf_group_value'
+      - false
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_repeater_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRepeaterValueResolver
+    arguments:
+      - ['Post', 'User']
+      - 'acf_repeater_value'
+      - false
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_user_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFUserValueResolver
+    arguments:
+      - ['Post', 'User']
+      - 'acf_user_value'
+      - false
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_multiple_user_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFMultipleUserValueResolver
+    arguments:
+      - ['Post', 'User']
+      - 'acf_multiple_user_value'
+      - false
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.acf_field_object:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFFieldObjectResolver
+    arguments:
+      - ['All', 'Template']
+    calls:
+      - [setLocalVarsHelper, ['@builderius_graphql.helper.local_variables']]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.option.acf_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFValueResolver
+    arguments:
+      - ['All', 'Template']
+      - 'acf_option_value'
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.option.acf_post_object_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFPostObjectValueResolver
+    arguments:
+      - ['All', 'Template']
+      - 'acf_option_post_object_value'
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.option.acf_multiple_post_object_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFMultiplePostObjectValueResolver
+    arguments:
+      - ['All', 'Template']
+      - 'acf_option_multiple_post_object_value'
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.option.acf_relationship_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRelationshipValueResolver
+    arguments:
+      - ['All', 'Template']
+      - 'acf_option_relationship_value'
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.option.acf_group_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFGroupValueResolver
+    arguments:
+      - ['All', 'Template']
+      - 'acf_option_group_value'
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.option.acf_repeater_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRepeaterValueResolver
+    arguments:
+      - ['All', 'Template']
+      - 'acf_option_repeater_value'
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.option.acf_user_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFUserValueResolver
+    arguments:
+      - ['All', 'Template']
+      - 'acf_option_user_value'
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.option.acf_multiple_user_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFMultipleUserValueResolver
+    arguments:
+      - ['All', 'Template']
+      - 'acf_option_multiple_user_value'
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_repeater_row_simple_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRepeaterRowSimpleValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_repeater_row_post_object_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRepeaterRowPostObjectValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_repeater_row_multiple_post_object_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRepeaterRowMultiplePostObjectValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_repeater_row_group_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRepeaterRowGroupValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_repeater_row_repeater_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRepeaterRowRepeaterValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_repeater_row_relationship_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRepeaterRowRelationshipValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_repeater_row_user_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRepeaterRowUserValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_repeater_row_multiple_user_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFRepeaterRowMultipleUserValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_group_field_simple_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFGroupFieldSimpleValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_group_field_post_object_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFGroupFieldPostObjectValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_group_field_multiple_post_object_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFGroupFieldMultiplePostObjectValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_group_field_group_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFGroupFieldGroupValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_group_field_repeater_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFGroupFieldRepeaterValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_group_field_relationship_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFGroupFieldRelationshipValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_group_field_user_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFGroupFieldUserValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }
+
+  builderius_graphql.field_resolver.post.acf_group_field_multiple_user_value:
+    class: Builderius\Bundle\ACFBundle\GraphQL\Resolver\ACFGroupFieldMultipleUserValueResolver
+    calls:
+      - [ setLocalVarsHelper, [ '@builderius_graphql.helper.local_variables' ] ]
+    tags:
+      - { name: builderius_graphql_field_resolver }

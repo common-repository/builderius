@@ -1,0 +1,16 @@
+services:
+    moomoo_request.registry.request_handlers:
+        class: 'Builderius\MooMoo\Platform\Bundle\RequestBundle\Registry\RequestHandlersRegistry'
+        public: true
+
+    moomoo_request.handlers_registrator.ajax:
+        class: 'Builderius\MooMoo\Platform\Bundle\RequestBundle\Handler\Registrator\Chain\Element\AjaxRequestHandlersRegistratorChainElement'
+        calls:
+            - ['setSuccessor', ['@moomoo_request.handlers_registrator.not_ajax']]
+
+    moomoo_request.handlers_registrator.not_ajax:
+        class: 'Builderius\MooMoo\Platform\Bundle\RequestBundle\Handler\Registrator\Chain\Element\NotAjaxRequestHandlersRegistratorChainElement'
+
+    moomoo_request.handlers_registrator.main:
+        parent: moomoo_request.handlers_registrator.ajax
+        public: true

@@ -1,0 +1,235 @@
+services:
+  #-----------------Paths-------------------------------------------------
+  #-----------------Global------------------------------------------------
+  builderius_setting.path.global.primary.dynamic_data:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.global'
+        tab: '@builderius_builder.form_tab.primary'
+        category: '@builderius_setting.setting_category.dynamic_data'
+
+  builderius_setting.path.global.primary.general:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.global'
+        tab: '@builderius_builder.form_tab.primary'
+        category: '@builderius_category.category.general'
+
+  builderius_setting.path.global.primary.data_vars:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.global'
+        tab: '@builderius_builder.form_tab.primary'
+        category: '@builderius_setting.category.data_vars'
+
+  builderius_setting.path.global.advanced.css_vars:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.global'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.category.css_vars'
+
+  builderius_setting.path.global.advanced.layout:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.global'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.layout'
+
+  builderius_setting.path.global.advanced.positioning:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.global'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.positioning'
+
+  builderius_setting.path.global.advanced.size:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.global'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.size'
+
+  builderius_setting.path.global.advanced.typography:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.global'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.typography'
+
+  builderius_setting.path.global.advanced.border:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.global'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.border'
+
+  builderius_setting.path.global.advanced.background:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.global'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.background'
+
+  builderius_setting.path.global.advanced.extra:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.global'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.extra'
+
+  #---------------------Template----------------------------------------
+  builderius_setting.path.template.primary.general:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.template'
+        tab: '@builderius_builder.form_tab.primary'
+        category: '@builderius_category.category.general'
+
+  builderius_setting.path.template.primary.data_vars:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.template'
+        tab: '@builderius_builder.form_tab.primary'
+        category: '@builderius_setting.category.data_vars'
+
+  builderius_setting.path.template.advanced.layout:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.template'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.layout'
+
+  builderius_setting.path.template.advanced.positioning:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.template'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.positioning'
+
+  builderius_setting.path.template.advanced.size:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.template'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.size'
+
+  builderius_setting.path.template.advanced.typography:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.template'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.typography'
+
+  builderius_setting.path.template.advanced.border:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.template'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.border'
+
+  builderius_setting.path.template.advanced.background:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.template'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.background'
+
+  builderius_setting.path.template.advanced.extra:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.template'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.extra'
+
+  builderius_setting.path.template.advanced.css_vars:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.template'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.category.css_vars'
+
+# -------------------Modules--------------------------------------------
+  builderius_setting.path.module.primary.content:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.primary'
+        category: '@builderius_setting.setting_category.content'
+
+  builderius_setting.path.module.primary.html_attr:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.primary'
+        category: '@builderius_setting.category.html_attr'
+
+  builderius_setting.path.module.primary.conditions:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.primary'
+        category: '@builderius_setting.category.conditions'
+
+  builderius_setting.path.module.primary.quick_typography:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.primary'
+        category: '@builderius_setting.setting_category.quick_typography'
+
+  builderius_setting.path.module.advanced.layout:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.layout'
+
+  builderius_setting.path.module.advanced.positioning:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.positioning'
+
+  builderius_setting.path.module.advanced.size:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.size'
+
+  builderius_setting.path.module.advanced.typography:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.typography'
+
+  builderius_setting.path.module.advanced.border:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.border'
+
+  builderius_setting.path.module.advanced.background:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.background'
+
+  builderius_setting.path.module.advanced.extra:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.setting_category.extra'
+
+  builderius_setting.path.module.advanced.css_vars:
+    class: 'Builderius\Bundle\SettingBundle\Model\BuilderiusSettingPath'
+    arguments:
+      - form: '@builderius_builder.form.module'
+        tab: '@builderius_builder.form_tab.advanced'
+        category: '@builderius_setting.category.css_vars'

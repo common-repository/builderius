@@ -1,0 +1,121 @@
+services:
+  moomoo_asset.registry.assets:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Registry\AssetsRegistry'
+    public: true
+
+  moomoo_asset.registry.inline_assets:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Registry\InlineAssetsRegistry'
+    public: true
+
+  moomoo_asset.path_provider.absolute:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Path\Chain\Element\AbsoluteAssetPathProvider'
+
+  moomoo_asset.path_provider.bundle:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Path\Chain\Element\BundleAssetPathProvider'
+    arguments:
+      - '@service_container'
+    calls:
+      - [ 'setSuccessor', [ '@moomoo_asset.path_provider.absolute' ] ]
+
+  moomoo_asset.path_provider.plugin:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Path\Chain\Element\PluginAssetPathProvider'
+    calls:
+      - [ 'setSuccessor', [ '@moomoo_asset.path_provider.bundle' ] ]
+
+  moomoo_asset.path_provider.uploads:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Path\Chain\Element\UploadsAssetPathProvider'
+    calls:
+      - [ 'setSuccessor', [ '@moomoo_asset.path_provider.plugin' ] ]
+
+  moomoo_asset.path_provider.main:
+    parent: moomoo_asset.path_provider.uploads
+
+  moomoo_asset.registrator.frontend.abstract:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Registrator\Assets\Chain\Element\AbstractAssetsRegistratorChainElement'
+    abstract: true
+    arguments:
+      - '@moomoo_asset.path_provider.main'
+      - '@event_dispatcher'
+
+  moomoo_asset.registrator.frontend.style:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Registrator\Assets\Chain\Element\StyleAssetsRegistratorChainElement'
+    parent: moomoo_asset.registrator.frontend.abstract
+
+  moomoo_asset.registrator.frontend.script:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Registrator\Assets\Chain\Element\ScriptAssetsRegistratorChainElement'
+    parent: moomoo_asset.registrator.frontend.abstract
+    calls:
+      - [ 'setSuccessor', [ '@moomoo_asset.registrator.frontend.style' ] ]
+
+  moomoo_asset.registrator.frontend:
+    parent: moomoo_asset.registrator.frontend.script
+    public: true
+
+  moomoo_asset.registrator.admin.abstract:
+    parent: moomoo_asset.registrator.frontend.abstract
+    calls:
+      - [ 'setRegistrationFunction', [ 'admin_enqueue_scripts' ] ]
+
+  moomoo_asset.registrator.admin.style:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Registrator\Assets\Chain\Element\StyleAssetsRegistratorChainElement'
+    parent: moomoo_asset.registrator.admin.abstract
+
+  moomoo_asset.registrator.admin.script:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Registrator\Assets\Chain\Element\ScriptAssetsRegistratorChainElement'
+    parent: moomoo_asset.registrator.admin.abstract
+    calls:
+      - [ 'setSuccessor', [ '@moomoo_asset.registrator.admin.style' ] ]
+
+  moomoo_asset.registrator.admin:
+    parent: moomoo_asset.registrator.admin.script
+    public: true
+
+  moomoo_asset.registrator.inline_assets.frontend.style:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Registrator\InlineAssets\Chain\Element\FrontendStyleInlineAssetsRegistratorChainElement'
+    arguments:
+      - '@event_dispatcher'
+
+  moomoo_asset.registrator.inline_assets.frontend.script:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Registrator\InlineAssets\Chain\Element\FrontendScriptInlineAssetsRegistratorChainElement'
+    arguments:
+      - '@event_dispatcher'
+    calls:
+      - [ 'setSuccessor', [ '@moomoo_asset.registrator.inline_assets.frontend.style' ] ]
+
+  moomoo_asset.registrator.inline_assets.frontend:
+    parent: moomoo_asset.registrator.inline_assets.frontend.script
+    public: true
+
+  moomoo_asset.registrator.inline_assets.admin.style:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Registrator\InlineAssets\Chain\Element\AdminStyleInlineAssetsRegistratorChainElement'
+    arguments:
+      - '@event_dispatcher'
+
+  moomoo_asset.registrator.inline_assets.admin.script:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Registrator\InlineAssets\Chain\Element\AdminScriptInlineAssetsRegistratorChainElement'
+    arguments:
+      - '@event_dispatcher'
+    calls:
+      - [ 'setSuccessor', [ '@moomoo_asset.registrator.inline_assets.admin.style' ] ]
+
+  moomoo_asset.registrator.inline_assets.admin:
+    parent: moomoo_asset.registrator.inline_assets.admin.script
+    public: true
+
+  moomoo_asset.hook.style_loader_tag:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Hook\StyleLoaderTagFilter'
+    arguments:
+      - tag: 'style_loader_tag'
+        priority: 999
+        accepted_args: 2
+    tags:
+      - { name: moomoo_hook }
+
+  moomoo_asset.hook.script_loader_tag:
+    class: 'Builderius\MooMoo\Platform\Bundle\AssetBundle\Hook\ScriptLoaderTagFilter'
+    arguments:
+      - tag: 'script_loader_tag'
+        priority: 999
+        accepted_args: 2
+    tags:
+      - { name: moomoo_hook }

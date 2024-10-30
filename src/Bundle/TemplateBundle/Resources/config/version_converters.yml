@@ -1,0 +1,63 @@
+services:
+  builderius_template.version_converter.composite:
+    class: Builderius\Bundle\TemplateBundle\Converter\Version\CompositeBuilderiusTemplateConfigVersionConverter
+    public: true
+    lazy: true
+    arguments:
+      - '@moomoo_kernel.provider.plugin_name_for_class'
+
+  builderius_template.version_converter.0.9.4.1.media_queries:
+    class: Builderius\Bundle\TemplateBundle\Converter\Version\v0_9_4_1\BuilderiusTemplateConfigMediaQueriesConverter
+    arguments:
+      - '@builderius_setting.registry.settings'
+      - '@event_dispatcher'
+      - '@builderius_setting.converter.to_array'
+    tags:
+      - { name: builderius_template_config_version_converter }
+
+  builderius_template.version_converter.0.9.5.modules_settings:
+    class: Builderius\Bundle\TemplateBundle\Converter\Version\v0_9_5\BuilderiusTemplateConfigModulesSettingsConverter
+    tags:
+      - { name: builderius_template_config_version_converter }
+
+  builderius_template.version_converter.0.9.5.template_settings:
+    class: Builderius\Bundle\TemplateBundle\Converter\Version\v0_9_5\BuilderiusTemplateConfigTemplateSettingsConverter
+    tags:
+      - { name: builderius_template_config_version_converter }
+
+  builderius_template.version_converter.0.9.8.10.bg_image_settings:
+    class: Builderius\Bundle\TemplateBundle\Converter\Version\v0_9_8_10\BuilderiusTemplateConfigBgImageSettingsConverter
+    tags:
+      - { name: builderius_template_config_version_converter }
+
+  builderius_template.version_converter.0.9.9.5.type_changing:
+    class: Builderius\Bundle\TemplateBundle\Converter\Version\v0_9_9_5\BuilderiusTemplateTypeChangingConverter
+    tags:
+      - { name: builderius_template_config_version_converter }
+
+  builderius_template.version_converter.0.9.9.5.bg_image_settings:
+    class: Builderius\Bundle\TemplateBundle\Converter\Version\v0_9_9_5\BuilderiusTemplateConfigBgImageSettingsConverter
+    tags:
+      - { name: builderius_template_config_version_converter }
+
+  builderius_template.version_converter.0.10.0.modules_settings:
+    class: Builderius\Bundle\TemplateBundle\Converter\Version\v0_10_0\BuilderiusTemplateConfigModulesConverter
+    tags:
+      - { name: builderius_template_config_version_converter }
+
+  builderius_template.version_converter.0.11.1.modules_settings:
+    class: Builderius\Bundle\TemplateBundle\Converter\Version\v0_11_1\BuilderiusTemplateConfigModulesConverter
+    tags:
+      - { name: builderius_template_config_version_converter }
+
+  builderius_template.version_converter.0.11.2.modules_settings:
+    class: Builderius\Bundle\TemplateBundle\Converter\Version\v0_11_2\BuilderiusTemplateConfigModulesConverter
+    tags:
+      - { name: builderius_template_config_version_converter }
+
+  builderius_template.version_converter.0.11.9.modules_settings:
+    class: Builderius\Bundle\TemplateBundle\Converter\Version\v0_11_9\BuilderiusTemplateConfigModulesConverter
+    arguments:
+      - '@builderius_setting.registry.settings'
+    tags:
+      - { name: builderius_template_config_version_converter }

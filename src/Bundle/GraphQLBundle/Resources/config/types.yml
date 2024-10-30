@@ -1,0 +1,99 @@
+services:
+  builderius_graphql.type.datavar:
+    class: Builderius\Bundle\GraphQLBundle\Type\DataVarType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.string:
+    class: Builderius\GraphQL\Type\Definition\StringType
+    factory: ['Builderius\GraphQL\Type\Definition\Type', 'string']
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.string_or_datavar:
+    class: Builderius\Bundle\GraphQLBundle\Type\StringOrDataVarType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.boolean:
+    class: Builderius\GraphQL\Type\Definition\BooleanType
+    factory: ['Builderius\GraphQL\Type\Definition\Type', 'boolean']
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.array_or_datavar:
+    class: Builderius\Bundle\GraphQLBundle\Type\ArrayOrDataVarType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.boolean_or_datavar:
+    class: Builderius\Bundle\GraphQLBundle\Type\BooleanOrDataVarType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.int:
+    class: Builderius\GraphQL\Type\Definition\IntType
+    factory: ['Builderius\GraphQL\Type\Definition\Type', 'int']
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.int_or_datavar:
+    class: Builderius\Bundle\GraphQLBundle\Type\IntOrDataVarType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.float:
+    class: Builderius\GraphQL\Type\Definition\FloatType
+    factory: ['Builderius\GraphQL\Type\Definition\Type', 'float']
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.float_or_datavar:
+    class: Builderius\Bundle\GraphQLBundle\Type\FloatOrDataVarType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.mixed:
+    class: Builderius\Bundle\GraphQLBundle\Type\MixedType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.mixed_or_datavar:
+    class: Builderius\Bundle\GraphQLBundle\Type\MixedOrDataVarType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.json:
+    class: Builderius\Bundle\GraphQLBundle\Type\JsonType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.string_with_operator:
+    class: Builderius\Bundle\GraphQLBundle\Type\StringWithOperatorType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.boolean_with_operator:
+    class: Builderius\Bundle\GraphQLBundle\Type\BooleanWithOperatorType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.int_with_operator:
+    class: Builderius\Bundle\GraphQLBundle\Type\IntWithOperatorType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.float_with_operator:
+    class: Builderius\Bundle\GraphQLBundle\Type\FloatWithOperatorType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.mixed_with_operator:
+    class: Builderius\Bundle\GraphQLBundle\Type\MixedWithOperatorType
+    tags:
+      - { name: builderius_graphql_type }
+
+  builderius_graphql.type.thumbnail_size:
+    class: Builderius\Bundle\GraphQLBundle\Type\ThumbnailSizeType
+    tags:
+      - { name: builderius_graphql_type }

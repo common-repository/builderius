@@ -1,0 +1,33 @@
+services:
+  builderius_template.provider.template_acceptable_hooks:
+    class: Builderius\Bundle\TemplateBundle\Provider\TemplateAcceptableHook\BuilderiusCompositeTemplateAcceptableHooksProvider
+
+  builderius_template.provider.template_acceptable_hooks.wp_core:
+    class: Builderius\Bundle\TemplateBundle\Provider\TemplateAcceptableHook\BuilderiusWpCoreTemplateAcceptableHooksProvider
+    tags:
+      - { name: builderius_template_acceptable_hooks_provider }
+
+  builderius_template.provider.template_acceptable_hooks.generatepress:
+    class: Builderius\Bundle\TemplateBundle\Provider\TemplateAcceptableHook\BuilderiusGeneratePressTemplateAcceptableHooksProvider
+    tags:
+      - { name: builderius_template_acceptable_hooks_provider }
+
+  builderius_template.provider.template_acceptable_hooks.kadence:
+    class: Builderius\Bundle\TemplateBundle\Provider\TemplateAcceptableHook\BuilderiusKadenceTemplateAcceptableHooksProvider
+    tags:
+      - { name: builderius_template_acceptable_hooks_provider }
+
+  builderius_template.provider.template_acceptable_hooks.astra:
+    class: Builderius\Bundle\TemplateBundle\Provider\TemplateAcceptableHook\BuilderiusAstraTemplateAcceptableHooksProvider
+    tags:
+      - { name: builderius_template_acceptable_hooks_provider }
+
+  builderius_template.provider.template_acceptable_hooks.blocksy:
+    class: Builderius\Bundle\TemplateBundle\Provider\TemplateAcceptableHook\BuilderiusBlocksyTemplateAcceptableHooksProvider
+    tags:
+      - { name: builderius_template_acceptable_hooks_provider }
+
+  builderius_template.provider.template_acceptable_hooks.blocksy_wc:
+    class: Builderius\Bundle\TemplateBundle\Provider\TemplateAcceptableHook\BuilderiusBlocksyWCTemplateAcceptableHooksProvider
+    tags:
+      - { name: builderius_template_acceptable_hooks_provider }

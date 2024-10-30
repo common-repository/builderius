@@ -1,0 +1,938 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Builderius\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-19T10:15:44+02:00\n"
+"PO-Revision-Date: 2022-11-22 23:41+0200\n"
+"Last-Translator: support@builderius.io\n"
+"Language-Team: support@builderius.io\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.2\n"
+"X-Domain: builderius\n"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesModal/index.js:54
+msgid ""
+"This process will overwrite all the existing templates and global settings "
+"with the templates and global settings from the release. Do you want to "
+"proceed?"
+msgstr ""
+"Цей процес замінить усі існуючі шаблони та глобальні налаштування шаблонами "
+"та глобальними налаштуваннями з релізу. Ви хочете продовжити?"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesModal/index.js:66
+msgid "Cancel extraction"
+msgstr "Відмінити видобування"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesModal/index.js:67
+msgid "Cancel extraction operation and close the window"
+msgstr "Відмінити операцію видобування і закрити вікно"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesModal/index.js:71
+msgid "Confirm extraction"
+msgstr "Підтвердити видобування"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesModal/index.js:72
+msgid "Confirm and proceed with extraction"
+msgstr "Підтвердити та продовжити видобування"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesTable/index.js:195
+#: lib/adminScenes/DeliverablesApp/components/VcsOwnersTable/index.js:175
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:220
+msgid "Page"
+msgstr "Сторінка"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesTable/index.js:200
+#: lib/adminScenes/DeliverablesApp/components/VcsOwnersTable/index.js:180
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:225
+msgid "Go to page"
+msgstr "Перейти на сторінку"
+
+#: lib/adminScenes/DeliverablesApp/components/ReleasesTable/index.js:221
+#: lib/adminScenes/DeliverablesApp/components/VcsOwnersTable/index.js:201
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:246
+msgid "Show"
+msgstr "Показати"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:22
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:161
+msgid "Created"
+msgstr "Створено"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:30
+msgid "Author"
+msgstr "Автор"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:43
+msgid "Entities"
+msgstr "Сутності"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:62
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:312
+msgid "Name"
+msgstr "Назва"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:66
+msgid "Description"
+msgstr "Опис"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:80
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:186
+msgid "Actions"
+msgstr "Дії"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:130
+msgid "Export release"
+msgstr "Експортувати реліз"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:138
+msgid "Publish release"
+msgstr "Опублікувати реліз"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:145
+msgid "Unpublish release"
+msgstr "Відмінити публікацію релізу"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:152
+msgid "Extract release"
+msgstr "Видобути реліз"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:160
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:221
+msgid "Click again to confirm deleting"
+msgstr "Натисніть ще раз, щоб підтвердити видалення"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:160
+msgid "Delete release"
+msgstr "Видалити реліз"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columns.js:169
+msgid "Remove cache"
+msgstr "Очистити кеш"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columnsEntitiesSimple.js:11
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:56
+msgid "Title"
+msgstr "Назва"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columnsEntitiesSimple.js:15
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:320
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:162
+msgid "Type"
+msgstr "Тип"
+
+#: lib/adminScenes/DeliverablesApp/helpers/columnsEntitiesSimple.js:19
+msgid "Include in the release?"
+msgstr "Додати до релізу?"
+
+#: lib/adminScenes/DeliverablesApp/index.js:249
+msgid "A new release has been created!"
+msgstr "Новий реліз створено!"
+
+#: lib/adminScenes/DeliverablesApp/index.js:327
+msgid "The release has been published!"
+msgstr "Реліз опубліковано!"
+
+#: lib/adminScenes/DeliverablesApp/index.js:399
+msgid "The release has been unpublished!"
+msgstr "Публікацію релізу скасовано!"
+
+#: lib/adminScenes/DeliverablesApp/index.js:495
+msgid "Confirm extraction operation"
+msgstr "Підтвердити операцію витягання"
+
+#: lib/adminScenes/DeliverablesApp/index.js:512
+msgid "The cache has been removed!"
+msgstr "Кеш було очищено!"
+
+#: lib/adminScenes/DeliverablesApp/index.js:515
+msgid "Something went wrong"
+msgstr "Щось пішло не так"
+
+#: lib/adminScenes/DeliverablesApp/index.js:635
+msgid "Release was successfully exported"
+msgstr "Реліз було успішно експортовано"
+
+#: lib/adminScenes/DeliverablesApp/index.js:685
+msgid "The release has been imported!"
+msgstr "Реліз було імпортовано!"
+
+#: lib/adminScenes/DeliverablesApp/index.js:847
+#: lib/adminScenes/HomeApp/index.js:77
+msgid "Releases"
+msgstr "Релізи"
+
+#: lib/adminScenes/DeliverablesApp/index.js:848
+#: lib/adminScenes/TemplatesApp/index.js:632
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:576
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:510
+msgid "Add new"
+msgstr "Додати новий"
+
+#: lib/adminScenes/DeliverablesApp/index.js:849
+msgid "Create a new release"
+msgstr "Створити новий реліз"
+
+#: lib/adminScenes/DeliverablesApp/index.js:853
+msgid "Import"
+msgstr "Імпорт"
+
+#: lib/adminScenes/DeliverablesApp/index.js:854
+msgid "Import release"
+msgstr "Імпортувати реліз"
+
+#: lib/adminScenes/DeliverablesApp/index.js:857
+msgid ""
+"Below is the list of the releases created. Releases are sets of specific "
+"versions of templates and global settings. Think of them as versions of the "
+"site or even site themes. There might be many releases, but only one of them "
+"can be published at one time. It takes one click to publish it. Just like "
+"WordPress themes, it is possible to switch between the releases any time."
+msgstr ""
+"Нижче наведено список створених релізів. Релізи — це набори певних версій "
+"шаблонів і глобальних налаштувань. Думайте про них як про версії сайту або "
+"навіть про теми сайту. Може бути багато релізів, але лише один із них може "
+"бути опублікований одночасно. Щоб опублікувати його, потрібен один клік. Як "
+"і теми WordPress, можна будь-коли перемикатися між релізами."
+
+#: lib/adminScenes/DeliverablesApp/index.js:860
+msgid ""
+"This is the release creation form wizard. Please, follow the instructions."
+msgstr "Це майстер створення релізу. Будь ласка, дотримуйтесь інструкцій."
+
+#: lib/adminScenes/DeliverablesApp/index.js:864
+#: lib/adminScenes/DeliverablesApp/index.js:905
+#: lib/adminScenes/DeliverablesApp/index.js:933
+#: lib/adminScenes/DeliverablesApp/index.js:969
+msgid "Step"
+msgstr "Крок"
+
+#: lib/adminScenes/DeliverablesApp/index.js:864
+msgid "Add a name"
+msgstr "Додати назву"
+
+#: lib/adminScenes/DeliverablesApp/index.js:866
+msgid ""
+"The name of the release can be anything, but it is wiser to keep it short."
+msgstr "Назва релізу може бути будь-якою, але краще, щоб вона була короткою."
+
+#: lib/adminScenes/DeliverablesApp/index.js:872
+#: lib/components/PanelApplicants/index.js:107
+msgid "Preview"
+msgstr "Перегляд"
+
+#: lib/adminScenes/DeliverablesApp/index.js:874
+msgid "Nothing was added yet. Please, start typing in the field above"
+msgstr "Ще нічого не додано. Будь ласка, почніть вводити текст у полі вище"
+
+#: lib/adminScenes/DeliverablesApp/index.js:878
+msgid ""
+"Sorry, this name has been taken. The full list of the existing release names "
+"on this site"
+msgstr ""
+"Вибачте, цю назву використано. Повний список існуючих назв релізів на цьому "
+"сайті"
+
+#: lib/adminScenes/DeliverablesApp/index.js:882
+msgid "Choose another name."
+msgstr "Виберіть іншу назвую."
+
+#: lib/adminScenes/DeliverablesApp/index.js:886
+msgid "looks good"
+msgstr "виглядає чудово"
+
+#: lib/adminScenes/DeliverablesApp/index.js:892
+#: lib/adminScenes/DeliverablesApp/index.js:921
+#: lib/adminScenes/DeliverablesApp/index.js:954
+#: lib/adminScenes/DeliverablesApp/index.js:998
+msgid "Cancel release creation"
+msgstr "Скасувати створення релізу"
+
+#: lib/adminScenes/DeliverablesApp/index.js:893
+#: lib/adminScenes/DeliverablesApp/index.js:922
+#: lib/adminScenes/DeliverablesApp/index.js:955
+#: lib/adminScenes/DeliverablesApp/index.js:997
+#: lib/adminScenes/DeliverablesApp/index.js:999 lib/Panel.js:3296
+#: lib/Panel.js:3339 lib/Panel.js:3379 lib/Panel.js:3417
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: lib/adminScenes/DeliverablesApp/index.js:896
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:418
+msgid "Next step"
+msgstr "Наступний крок"
+
+#: lib/adminScenes/DeliverablesApp/index.js:898
+msgid "Proceed to reviewing entities"
+msgstr "Перейдіть до перегляду сутностей"
+
+#: lib/adminScenes/DeliverablesApp/index.js:905
+msgid "Review entities"
+msgstr "Перегляд сутностей"
+
+#: lib/adminScenes/DeliverablesApp/index.js:908
+msgid ""
+"Publishable entities are templates and global settings. Review these "
+"entities and decide which of them should be included into release (by "
+"checking the checkboxes next to them)."
+msgstr ""
+"Публікувані сутності – це шаблони та глобальні налаштування. Перегляньте ці "
+"сутності та вирішіть, які з них слід включити до релізу (поставивши прапорці "
+"біля них)."
+
+#: lib/adminScenes/DeliverablesApp/index.js:925
+#: lib/adminScenes/DeliverablesApp/index.js:958
+#: lib/adminScenes/DeliverablesApp/index.js:1002
+msgid "Previous step"
+msgstr "Попередній крок"
+
+#: lib/adminScenes/DeliverablesApp/index.js:925
+msgid "Back to release name"
+msgstr "Повернутися до назви релізу"
+
+#: lib/adminScenes/DeliverablesApp/index.js:927
+msgid "Proceed to release description"
+msgstr "Перейти до опису релізу"
+
+#: lib/adminScenes/DeliverablesApp/index.js:933
+msgid "Release description"
+msgstr "Опис релізу"
+
+#: lib/adminScenes/DeliverablesApp/index.js:935
+msgid "Enter the description for the new release and submit the data."
+msgstr "Введіть опис нового релізу та надішліть дані."
+
+#: lib/adminScenes/DeliverablesApp/index.js:958
+msgid "Back to reviewing entities"
+msgstr "Повернутися до перегляду сутностей"
+
+#: lib/adminScenes/DeliverablesApp/index.js:962
+msgid "Proceed to release status"
+msgstr "Перейти до статусу релізу"
+
+#: lib/adminScenes/DeliverablesApp/index.js:969
+msgid "Release status"
+msgstr "Статус релізу"
+
+#: lib/adminScenes/DeliverablesApp/index.js:972
+msgid ""
+"Should the newly created release be published immediately (default "
+"behaviour) or should it be created with the \"draft\" status? Any \"drafted"
+"\" release can be published anytime then."
+msgstr ""
+"Чи слід негайно опублікувати щойно створений реліз (поведінка за "
+"замовчуванням) чи його слід створити зі статусом \"чернетка\"? Будь-який "
+"\"проектний\" випуск можна опублікувати будь-коли."
+
+#: lib/adminScenes/DeliverablesApp/index.js:987
+msgid "Publish the release upon creation"
+msgstr "Опублікувати реліз після створення"
+
+#: lib/adminScenes/DeliverablesApp/index.js:989
+msgid "Do NOT publish the release upon creation"
+msgstr "НЕ публікувати реліз після створення"
+
+#: lib/adminScenes/DeliverablesApp/index.js:1002
+msgid "Back to release description"
+msgstr "Повернутися до опису релізу"
+
+#: lib/adminScenes/DeliverablesApp/index.js:1006
+msgid "Submit"
+msgstr "Надіслати"
+
+#: lib/adminScenes/DeliverablesApp/index.js:1020
+msgid "No releases created yet."
+msgstr "Релізів ще не створено."
+
+#: lib/adminScenes/DeliverablesApp/index.js:1028
+msgid "Create your first release now!"
+msgstr "Створіть свій перший реліз зараз!"
+
+#: lib/adminScenes/HomeApp/index.js:46
+msgid "Video tutorials"
+msgstr "Відеоуроки"
+
+#: lib/adminScenes/HomeApp/index.js:47
+msgid "Documentation"
+msgstr "Документація"
+
+#: lib/adminScenes/HomeApp/index.js:51
+msgid "Welcome!"
+msgstr "Ласкаво просимо!"
+
+#: lib/adminScenes/HomeApp/index.js:54
+msgid ""
+"This is the home page for Builderius site builder. It is an all-in-one tool "
+"for creating beautiful and functional sites on WordPress. Start by adding "
+"your first template now!"
+msgstr ""
+"Це домашня сторінка сайт білдера Builderius. Це універсальний інструмент для "
+"створення красивих і функціональних сайтів на WordPress. Почніть із "
+"додавання свого першого шаблону прямо зараз!"
+
+#: lib/adminScenes/HomeApp/index.js:56
+msgid ""
+"This is the home page for Builderius site builder. It is an all-in-one tool "
+"for creating beautiful and functional sites on WordPress."
+msgstr ""
+"Це домашня сторінка сайт білдера Builderius. Це універсальний інструмент для "
+"створення красивих і функціональних сайтів на WordPress."
+
+#: lib/adminScenes/HomeApp/index.js:64
+#: lib/adminScenes/TemplatesApp/index.js:631
+msgid "Templates"
+msgstr "Шаблони"
+
+#: lib/adminScenes/HomeApp/index.js:66
+msgid "created"
+msgstr "створено"
+
+#: lib/adminScenes/HomeApp/index.js:68
+msgid "Go to Templates page"
+msgstr "Перейти на сторінку Шаблонів"
+
+#: lib/adminScenes/HomeApp/index.js:82
+msgid "created (published)"
+msgstr "створено (опубліковано)"
+
+#: lib/adminScenes/HomeApp/index.js:84
+msgid "Go to Releases page"
+msgstr "Перейти на сторінку Релізів"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:21
+msgid ""
+"Determines entities from WP Template Hierarchy to which this template can be "
+"assigned"
+msgstr ""
+"Визначає сторінки з ієрархії шаблонів WP, яким можна призначити цей шаблон"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:22
+msgid "Determines the markup language to be used for this template"
+msgstr "Визначає мову розмітки для цього шаблону"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:26
+msgid ""
+"Please, choose name and type of the new template. Use \"Singular\" type for "
+"single posts and pages, \"Collection\" type for archive pages and \"Other "
+"pages\" for pages like 404 error page etc"
+msgstr ""
+"Виберіть назву та тип нового шаблону. Використовуйте тип \"Singular\" для "
+"окремих публікацій і сторінок, Тип \"Collection\" для сторінок архіву та "
+"\"Other\" для сторінок, таких як сторінка помилки 404 тощо"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:27
+msgid ""
+"Please, choose template apply rules. These are conditions for displaying the "
+"template for specific posts, pages or other types of pages. We have also "
+"prepared several quick starters. Each group has these pre-defined rules to "
+"make the setup faster."
+msgstr ""
+"Будь ласка, виберіть правила застосування для шаблону. Це умови застосування "
+"шаблону для конкретних дописів, сторінок або інших типів сторінок. Ми також "
+"підготували кілька попередньо визначених правил. Кожна група має ці "
+"попередньо визначені правила, щоб зробити налаштування швидшим."
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:285
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:39
+msgid "Error"
+msgstr "Помилка"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:298
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:49
+msgid "No rules have been created"
+msgstr "Жодного правила застосування не створено"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:302
+msgid "Some rules have errors"
+msgstr "Деякі правила мають помилки"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:306
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:53
+msgid "At least one rule from group \"Templates Hierarchy\" should be created"
+msgstr ""
+"Необхідно створити принаймні одне правило з групи \"Ієрархія шаблонів\""
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:431
+msgid "Go back"
+msgstr "Повернутися назад"
+
+#: lib/adminScenes/TemplatesApp/components/AddNewTmplForm/index.js:448
+msgid "Create template"
+msgstr "Створити шаблон"
+
+#: lib/adminScenes/TemplatesApp/components/StarterDropdown/index.js:101
+msgid "starters"
+msgstr "попередньо створені правила"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:89
+msgid "Close the window"
+msgstr "Закрити вікно"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:114
+msgid "Discard changes"
+msgstr "Відмінити зміни"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:115
+msgid "Cancel all changes and close the window"
+msgstr "Відмінити всі зміни і закрити вікно"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:121
+msgid "Keep changes"
+msgstr "Зберегти зміни"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesModal/index.js:122
+msgid "Keep changes and close the window"
+msgstr "Зберегти зміни і закрити вікно"
+
+#: lib/adminScenes/TemplatesApp/components/TemplatesTable/index.js:163
+msgid "Technology"
+msgstr "Технологія"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:142
+msgid "Sort order"
+msgstr "Порядок сортування"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:159
+msgid "Apply rules"
+msgstr "Правила застосування"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:177
+msgid "Change apply rules"
+msgstr "Змінити правила застосування"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:208
+msgid "Save changes"
+msgstr "Зберегти зміни"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:215
+msgid "Cancel changes"
+msgstr "Відмінити зміни"
+
+#: lib/adminScenes/TemplatesApp/helpers/columns.js:221
+msgid "Delete template"
+msgstr "Видалити шаблон"
+
+#: lib/adminScenes/TemplatesApp/index.js:88
+msgid "You have unsaved changes. If you proceed, they will be lost."
+msgstr "У вас є незбережені зміни. Якщо ви продовжите, вони будуть втрачені."
+
+#: lib/adminScenes/TemplatesApp/index.js:104
+msgid "Add new template"
+msgstr "Додати новий шаблон"
+
+#: lib/adminScenes/TemplatesApp/index.js:136
+msgid "Please, discard changes or save them."
+msgstr "Будь ласка, скасуйте зміни або збережіть їх."
+
+#: lib/adminScenes/TemplatesApp/index.js:207
+msgid "Please, fix errors first."
+msgstr "Будь-ласка виправте помилки."
+
+#: lib/adminScenes/TemplatesApp/index.js:302
+msgid "New template created!"
+msgstr "Новий шаблон створено!"
+
+#: lib/adminScenes/TemplatesApp/index.js:413
+msgid "Template settings updated!"
+msgstr "Налаштування шаблону оновлено!"
+
+#: lib/adminScenes/TemplatesApp/index.js:465
+msgid "Changes to template settings were cancelled."
+msgstr "Зміни налаштувань шаблону скасовано."
+
+#: lib/adminScenes/TemplatesApp/index.js:567
+msgid "Update apply rules"
+msgstr "Оновити правила застосування"
+
+#: lib/adminScenes/TemplatesApp/index.js:633
+msgid "Create a new template"
+msgstr "Створіть новий шаблон"
+
+#: lib/adminScenes/TemplatesApp/index.js:636
+msgid ""
+"Below is the list of templates created. Templates are designs created in "
+"Builderius which could be applied to multiple places on your website. You "
+"can create templates that apply to singular pages (posts/pages/etc), posts "
+"collection pages (post archives, search results etc) and other pages (404 "
+"error page/etc)."
+msgstr ""
+"Нижче наведено список створених шаблонів. Шаблони — це дизайни, створені в "
+"Builderius, який можна застосувати до багатьох місць на вашому веб-сайті. Ви "
+"можете створювати шаблони, які застосовуються до окремих сторінок (дописів/"
+"сторінок тощо), дописів сторінки колекції (архіви публікацій, результати "
+"пошуку тощо) та інші сторінки (сторінка помилки 404 тощо)."
+
+#: lib/adminScenes/TemplatesApp/index.js:647
+msgid "No templates created yet."
+msgstr "Жодного шаблону ще не створено."
+
+#: lib/adminScenes/TemplatesApp/index.js:655
+msgid "Create your first template now!"
+msgstr "Створіть свій перший шаблон прямо зараз!"
+
+#: lib/components/PanelActionBtns/index.js:40
+msgid "Switch between light/dark versions"
+msgstr "Перемикання між світлою та темною версіями"
+
+#: lib/components/PanelActionBtns/index.js:47
+msgid "Enable/disable semi transparent panel"
+msgstr "Увімкнути/вимкнути напівпрозору панель"
+
+#: lib/components/PanelActionBtns/index.js:55
+msgid "Left/right panel position"
+msgstr "Ліве/праве положення панелі"
+
+#: lib/components/PanelActionBtns/index.js:63
+msgid "Big/small panel size"
+msgstr "Великий/малий розмір панелі"
+
+#: lib/components/PanelActionBtns/index.js:71
+msgid "All templates WP admin page"
+msgstr "Перейти на сторінку Шаблонів"
+
+#: lib/components/PanelActionBtns/index.js:80
+msgid "Template part settings"
+msgstr "Налаштування частини шаблону"
+
+#: lib/components/PanelActionBtns/index.js:81
+msgid "Template settings"
+msgstr "Налаштування шаблону"
+
+#: lib/components/PanelActionBtns/index.js:88
+#: lib/panelPages/GlobalSettings/index.js:126
+msgid "Global settings"
+msgstr "Глобальні налаштування"
+
+#: lib/components/PanelActionBtns/index.js:97
+msgid "Open Inspector"
+msgstr "Відкрити інспектор"
+
+#: lib/components/PanelActionBtns/index.js:105
+msgid "View dynamic data"
+msgstr "Переглянути динамічні дані"
+
+#: lib/components/PanelActionBtns/index.js:115
+msgid "Open revisions"
+msgstr "Відкрити ревізії"
+
+#: lib/components/PanelApplicants/index.js:80
+msgid "- no applicants chosen -"
+msgstr "- жоден аплікант не вибрано -"
+
+#: lib/components/PanelApplicants/index.js:106
+msgid "Save changes first"
+msgstr "Спершу збережіть зміни"
+
+#: lib/components/QueryBuilderType/index.js:96
+msgid "Remove all rules"
+msgstr "Видалити всі правила"
+
+#: lib/components/QueryBuilderType/index.js:96
+msgid "Clear"
+msgstr "Очистити"
+
+#: lib/helpers/index.js:1443 lib/helpers/index.js:1481
+msgid "Caption"
+msgstr ""
+
+#: lib/helpers/index.js:1449 lib/helpers/index.js:1487
+msgid "Alt text"
+msgstr ""
+
+#: lib/helpers/index.js:1465
+msgid "Size"
+msgstr ""
+
+#: lib/helpers/index.js:1804
+msgid "original (CSS selectors)"
+msgstr "оригінал (CSS selectors)"
+
+#: lib/helpers/index.js:2046
+msgid "Settings with errors cannot be copied!"
+msgstr "Налаштування з помилками не можуть бути скопійовані!"
+
+#: lib/helpers/index.js:2064
+msgid "Already copied!"
+msgstr "Вже скопійовано!"
+
+#: lib/helpers/index.js:2072
+msgid "Settings copied!"
+msgstr "Налаштування скопійовано!"
+
+#: lib/helpers/index.js:2076
+msgid "The module has no settings."
+msgstr "Модуль не має налаштувань."
+
+#: lib/helpers/index.js:2105
+msgid "No copied settings in the clipboard!"
+msgstr "Не має скопійованих налаштувань!"
+
+#: lib/helpers/index.js:2137
+msgid "Settings applied!"
+msgstr "Налашутвання застосовано!"
+
+#: lib/Panel.js:963
+msgid ""
+"Your session has expired. The element was not deleted. Please log in and try "
+"again."
+msgstr ""
+
+#: lib/Panel.js:1102
+msgid ""
+"There is possible DOM nesting error: label tag nested in another label tag"
+msgstr ""
+
+#: lib/Panel.js:1220
+msgid "Usage of HTML attribute \"id\" with the same value as in other module"
+msgstr ""
+
+#: lib/Panel.js:1327
+msgid ""
+"Oops, your template does not have any applicants. Maybe it is too specific?"
+msgstr ""
+
+#: lib/Panel.js:1758
+msgid "Saving is disabled! Please, finish merging and commit first."
+msgstr ""
+
+#: lib/Panel.js:1821 lib/Panel.js:2691
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:261
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:376
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:416
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:219
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:331
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:364
+#: lib/panelPages/ModuleSettings/index.js:235
+msgid "Please, fix invalid settings first!"
+msgstr "Будь-ласка виправте помилки!"
+
+#: lib/Panel.js:2024
+msgid "This module cannot be added due to possible DOM nesting error"
+msgstr ""
+
+#: lib/Panel.js:2076 lib/Panel.js:2122
+msgid "This layout cannot be added due to possible DOM nesting error"
+msgstr ""
+
+#: lib/Panel.js:3172
+msgid "Error: no proper object type"
+msgstr ""
+
+#: lib/Panel.js:3289
+msgid "Are you sure you want to remove all modules and start from scratch?"
+msgstr "Ви впенені, зо хочете видалити всі модулі і почати спочатку?"
+
+#: lib/Panel.js:3295 lib/Panel.js:3338 lib/Panel.js:3378
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:591
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:525
+msgid "Remove"
+msgstr "Видалити"
+
+#: lib/Panel.js:3332 lib/Panel.js:3372
+msgid "Are you sure you want to remove settings and start from scratch?"
+msgstr "Ви впевнені, що хочете видалити налаштування і початку спочатку?"
+
+#: lib/Panel.js:3410
+msgid "Are you sure you want to delete module?"
+msgstr "Ви впевнені що хочете видалити модуль?"
+
+#: lib/Panel.js:3416 lib/scenes/QueryBuilder/components/QBGroup/index.js:216
+#: lib/scenes/QueryBuilder/components/QBGroup/index.js:297
+msgid "Delete"
+msgstr "Видалити"
+
+#: lib/Panel.js:3526
+msgid "Nothing to save, all changes are already saved"
+msgstr "Нічого зберігати, все зміни вже збережені"
+
+#: lib/Panel.js:3616
+msgid "Successfully saved!"
+msgstr "Успішно збережено!"
+
+#: lib/Panel.js:3642
+msgid ""
+"Your session has expired. The changes were not saved. Please log in and try "
+"again."
+msgstr ""
+"Ваша сесія завершена. Зміни не були збережені. Будь ласка, увійдіть і "
+"спробуйте ще раз."
+
+#: lib/Panel.js:3749
+msgid "Save all changes"
+msgstr "Зберегти зміни"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:283
+msgid "Add new media query"
+msgstr "Додати новий media query"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:291
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:290
+msgid "Create"
+msgstr "Створити"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:305
+msgid "Edit media query"
+msgstr "Редашувати media query"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:313
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:315
+msgid "Update"
+msgstr "Оновити"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:383
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:423
+msgid "CSS media query cannot be empty!"
+msgstr " CSS media query не може бути порожнім!"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:568
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:590
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:502
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:524
+msgid "Click again to confirm removing"
+msgstr "Натисніть ще раз, щоб підтвердити видалення"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:569
+msgid "Remove all queries' settings"
+msgstr "Видалити всі правила"
+
+#: lib/panelPages/components/FormControlsElements/components/BreakpointsControl/index.js:583
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:517
+msgid "Edit"
+msgstr "Редагувати"
+
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:280
+msgid "Add new CSS selector"
+msgstr "Додати новий CSS selector"
+
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:305
+msgid "Edit CSS selector"
+msgstr "Редагувати CSS selector"
+
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:338
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:371
+msgid "CSS selector cannot be empty!"
+msgstr "CSS selector не може бути порожнім!"
+
+#: lib/panelPages/components/FormControlsElements/components/ValueTypesControl/index.js:503
+msgid "Remove all settings"
+msgstr "Видалити всі налаштування"
+
+#: lib/panelPages/components/SettingsErrorAlert/index.js:20
+msgid "One or more setting in this category are invalid"
+msgstr "Один або кілька параметрів у цій категорії неправильні"
+
+#: lib/panelPages/components/SettingsFilledNotice/index.js:35
+msgid "Contains non empty settings"
+msgstr "Містить непорожні налаштування"
+
+#: lib/panelPages/GlobalSettings/index.js:214
+#: lib/panelPages/ModuleSettings/index.js:370
+#: lib/panelPages/TemplateSettings/index.js:191
+msgid "Close settings"
+msgstr "Закрити налаштування"
+
+#: lib/panelPages/GlobalSettings/index.js:278
+#: lib/panelPages/ModuleSettings/index.js:449
+#: lib/panelPages/TemplateSettings/index.js:258
+msgid "Search for setting (min 2 char)"
+msgstr "Пошук налаштувань (мінімум 2 символи)"
+
+#: lib/panelPages/GlobalSettings/index.js:307
+#: lib/panelPages/ModuleSettings/index.js:478
+#: lib/panelPages/TemplateSettings/index.js:287
+msgid "No settings"
+msgstr "Немає налаштувань"
+
+#: lib/panelPages/ModuleSettings/index.js:487
+msgid "Module Settings"
+msgstr "Налаштування модуля"
+
+#: lib/panelPages/TemplateSettings/index.js:293
+msgid "Template Part Settings"
+msgstr "Налаштування частини шаблону"
+
+#: lib/panelPages/TemplateSettings/index.js:294
+msgid "Template Settings"
+msgstr "Налаштування шаблону"
+
+#: lib/scenes/DynamicDataModal/index.js:91
+msgid "Copied!"
+msgstr "Скопійовано!"
+
+#: lib/scenes/DynamicDataModal/index.js:152
+msgid "Dynamic data"
+msgstr "Динамічні дані"
+
+#: lib/scenes/DynamicDataModal/index.js:154
+msgid "Update data"
+msgstr "Оновити дані"
+
+#: lib/scenes/DynamicDataModal/index.js:156
+msgid "No dynamic data yet. Please, add some data variables."
+msgstr "Немає динамічних даних. Будь ласка, створіть датавари."
+
+#: lib/scenes/DynamicDataModal/index.js:209
+msgid "Open settings"
+msgstr "Відкрити налаштування"
+
+#: lib/scenes/DynamicDataModal/index.js:259
+msgid "Data"
+msgstr "Дані"
+
+#: lib/scenes/DynamicDataModal/index.js:264
+msgid "Data flow"
+msgstr "Потік даних"
+
+#: lib/scenes/ElementsLibrary/components/Header/index.js:14
+msgid "Saved modules"
+msgstr "Збережені модулі"
+
+#: lib/scenes/ElementsLibrary/components/Header/index.js:15
+msgid "Saved layouts"
+msgstr "Збережені лейаути"
+
+#: lib/scenes/Modal/components/GenericStateDialog/index.js:89
+msgid "The element itself is targeted."
+msgstr "Сам елемент є цільовим."
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:62
+msgid "Query to DB (GraphQL)"
+msgstr "Запит до БД (GraphQL)"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:63
+msgid "Static integer value"
+msgstr "Статичне ціле значення"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:64
+msgid "Static float value"
+msgstr "Статичне плаваюче значення"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:65
+msgid "Static string value"
+msgstr "Статичне строкове значення"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:66
+msgid "Static boolean value"
+msgstr "Статичне логічне значення"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:67
+msgid "Static json value"
+msgstr "Статичне json значення"
+
+#: lib/scenes/Modal/components/ModalDataVariables/index.js:68
+msgid "Expression"
+msgstr "Вираз"
+
+#: lib/scenes/QueryBuilder/components/QBGroup/index.js:213
+msgid "Add rule"
+msgstr "Додати правило"
+
+#: lib/scenes/QueryBuilder/components/QBGroup/index.js:214
+msgid "Add group"
+msgstr "Додати групу"
+
+#: lib/scenes/QueryBuilder/components/QBGroup/index.js:313
+msgid "Duplicate"
+msgstr "Дублювати"

@@ -1,0 +1,50 @@
+services:
+  builderius_vcs.model.builderius_branch_post_type:
+    class: Builderius\Bundle\VCSBundle\Registration\BuilderiusBranchPostType
+    tags:
+      - { name: moomoo_post_type }
+
+  builderius_vcs.model.builderius_commit_post_type:
+    class: Builderius\Bundle\VCSBundle\Registration\BuilderiusCommitPostType
+    tags:
+      - { name: moomoo_post_type }
+
+  builderius_vcs.model.builderius_branch_head_commit_post_type:
+    class: Builderius\Bundle\VCSBundle\Registration\BuilderiusBranchHeadCommitPostType
+    tags:
+      - { name: moomoo_post_type }
+
+  builderius_vcs.model.builderius_vcs_tag_taxonomy:
+    class: Builderius\Bundle\VCSBundle\Registration\BuilderiusVCSTagTaxonomy
+    tags:
+      - { name: moomoo_taxonomy }
+
+  builderius_vcs.factory.builderius_branch_from_post:
+    class: Builderius\Bundle\VCSBundle\Factory\BuilderiusBranchFromPostFactory
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_vcs.factory.builderius_commit_from_post'
+      - '@builderius.cache.runtime'
+      - '@event_dispatcher'
+
+  builderius_vcs.factory.builderius_commit_from_post:
+    class: Builderius\Bundle\VCSBundle\Factory\BuilderiusCommitFromPostFactory
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius.cache.runtime'
+      - '@event_dispatcher'
+
+  builderius_vcs.factory.builderius_vcs_owner_from_post:
+    parent: builderius_template.factory.builderius_vcs_owner_template_from_post
+    calls:
+      - [setSuccessor, ['@builderius_setting.factory.builderius_vcs_owner_global_settings_set_from_post']]
+
+  builderius_vcs.hook.delete_commits_on_branch_post_delete:
+    class: Builderius\Bundle\VCSBundle\Hook\DeleteCommitsOnBuilderiusBranchPostDeleteHook
+    arguments:
+      - tag: 'before_delete_post'
+        priority: 20
+    calls:
+      - [setWpQuery, ['@moomoo_query.wp_query']]
+    tags:
+      - { name: moomoo_hook }

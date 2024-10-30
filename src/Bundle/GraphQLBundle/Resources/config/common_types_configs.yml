@@ -1,0 +1,231 @@
+services:
+  builderius_graphql.type_config.operator_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumTypeConfig
+    lazy: true
+    arguments:
+      - name: 'Operator'
+    calls:
+      - ['addValue', ['@builderius_graphql.type_config.operator_type.value.equal']]
+      - ['addValue', ['@builderius_graphql.type_config.operator_type.value.not_equal']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.operator_type.value.equal:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    lazy: true
+    arguments:
+      - name: 'equal'
+        value: '==='
+
+  builderius_graphql.type_config.operator_type.value.not_equal:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    lazy: true
+    arguments:
+      - name: 'notEqual'
+        value: '!=='
+
+  builderius_graphql.type_config.order_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumTypeConfig
+    lazy: true
+    arguments:
+      - name: 'Order'
+    calls:
+      - ['addValue', ['@builderius_graphql.type_config.sort_type.value.asc']]
+      - ['addValue', ['@builderius_graphql.type_config.sort_type.value.desc']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.sort_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumTypeConfig
+    lazy: true
+    arguments:
+      - name: 'Sort'
+    calls:
+      - ['addValue', ['@builderius_graphql.type_config.sort_type.value.asc']]
+      - ['addValue', ['@builderius_graphql.type_config.operator_type.value.not_equal']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.sort_type.value.asc:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    arguments:
+      - name: 'ASC'
+        value: 'ASC'
+
+  builderius_graphql.type_config.sort_type.value.desc:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    arguments:
+      - name: 'DESC'
+        value: 'DESC'
+
+  builderius_graphql.type_config.meta_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'Meta'
+    calls:
+      - ['addField', ['@builderius_graphql.type_config.meta_type.field.key']]
+      - ['addField', ['@builderius_graphql.type_config.meta_type.field.value']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.meta_type.field.key:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'key'
+        type: 'String'
+    calls:
+      - ['addArgument', ['@builderius_graphql.type_config.field_argument.operator']]
+
+  builderius_graphql.type_config.meta_type.field.value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'value'
+        type: 'Mixed'
+    calls:
+      - ['addArgument', ['@builderius_graphql.type_config.field_argument.operator']]
+
+  builderius_graphql.type_config.field_argument.operator:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'operator'
+        type: 'Operator'
+
+  builderius_graphql.type_config.field.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'ID'
+        type: 'Int'
+
+  builderius_graphql.type_config.field.meta:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'meta'
+        type: '[Meta]'
+
+  builderius_graphql.type_config.field.meta_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'meta_value'
+        type: 'Mixed'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_key']]
+
+  builderius_graphql.field_argument.required_key:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'key'
+        type: 'StringOrDataVar!'
+
+  builderius_graphql.field_argument.required_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'name'
+        type: 'StringOrDataVar!'
+
+  builderius_graphql.field_argument.required_position:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'position'
+        type: 'Int!'
+
+  builderius_graphql.type_config.field.option_value:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'option_value'
+        type: 'Mixed'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_name']]
+
+  builderius_graphql.type_config.field.hook_argument:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'hook_argument'
+        type: 'Mixed'
+    calls:
+      - ['addArgument', ['@builderius_graphql.field_argument.required_position']]
+
+  builderius_graphql.type_config.field.current_url:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    lazy: true
+    arguments:
+      - name: 'current_url'
+        type: 'String'
+
+  builderius_graphql.type_config.all_root_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectRootTypeConfig
+    lazy: true
+    arguments:
+      - name: 'All'
+        appliedToAllTemplateTypes: true
+        rootDataProvider: '@builderius_graphql.root_data_provider'
+    calls:
+      - ['addField', ['@builderius_graphql.type_config.field.option_value']]
+      - ['addField', ['@builderius_graphql.type_config.singular_root_type.field.queried_post']]
+      - ['addField', ['@builderius_graphql.type_config.field.current_user']]
+      - ['addField', ['@builderius_graphql.type_config.field.hook_argument']]
+      - ['addField', ['@builderius_graphql.type_config.field.current_url']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.singular_root_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectRootTypeConfig
+    lazy: true
+    arguments:
+      - name: 'Template'
+        templateType: 'template'
+        rootDataProvider: '@builderius_graphql.root_data_provider'
+    calls:
+      - ['addField', ['@builderius_graphql.type_config.field.option_value']]
+      - ['addField', ['@builderius_graphql.type_config.singular_root_type.field.queried_post']]
+      - ['addField', ['@builderius_graphql.type_config.field.current_user']]
+      - ['addField', ['@builderius_graphql.type_config.field.hook_argument']]
+      - ['addField', ['@builderius_graphql.type_config.field.current_url']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.singular_root_type.field.queried_post:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'queried_post'
+        type: 'Post'
+
+  builderius_graphql.type_config.field.current_user:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'current_user'
+        type: 'User'
+
+  builderius_graphql.directive.private:
+    class: Builderius\GraphQL\Type\Definition\Directive
+    arguments:
+      - name: 'private'
+        description: 'Private field'
+        locations: [!php/const Builderius\GraphQL\Language\DirectiveLocation::FIELD]
+    tags:
+      - { name: builderius_graphql_directive }
+
+  builderius_graphql.directive.recursive:
+    class: Builderius\GraphQL\Type\Definition\Directive
+    arguments:
+      - name: 'recursive'
+        description: 'Recursive field'
+        locations: [!php/const Builderius\GraphQL\Language\DirectiveLocation::FIELD]
+        args:
+          depth:
+            type: 'Int'
+            description: Recursion depth
+            defaultValue: 10
+          index:
+            type: 'Int'
+            description: Index where recursive field should be inserted
+          offset:
+            type: 'String'
+            description: Field name which will be base for recursion
+    tags:
+      - { name: builderius_graphql_directive }

@@ -1,0 +1,124 @@
+services:
+  builderius_deliverable.condition.has_applied_builderius_deliverable:
+    class: Builderius\Bundle\DeliverableBundle\Condition\HasAppliedBuilderiusDeliverableCondition
+    arguments:
+      - name: has_applied_builderius_deliverable
+        description: 'Condition to check whether Builderius Deliverable applied'
+        lazy: true
+    calls:
+      - ['setBuilderiusDeliverableProvider', ['@builderius_deliverable.provider.deliverable.composite']]
+    tags:
+      - {name: moomoo_condition}
+
+  builderius_deliverable.condition.is_builderius_deliverables_admin_page:
+    class: Builderius\MooMoo\Platform\Bundle\ConditionBundle\Model\IsRequestHasParameterCondition
+    arguments:
+      - name: is_builderius_deliverables_admin_page
+        description: 'Condition to check whether the current admin page is Builderius Publish page'
+        arguments:
+          requestType: 'GET'
+          parameter: 'page'
+          value: 'builderius-deliverables'
+    calls:
+      - ['addDependOnCondition', ['@is_backend']]
+    tags:
+      - { name: moomoo_condition }
+
+  builderius_deliverable.page.builderius-deliverables:
+    class: Builderius\MooMoo\Platform\Bundle\PageBundle\Model\SimplePage
+    arguments:
+      - 'builderius-deliverables'
+      - 'BuilderiusDeliverableBundle:deliverablesApp.twig'
+    calls:
+      - [setTemplating, ['@templating']]
+    tags:
+      - { name: moomoo_page }
+
+  builderius_deliverable.admin_menu_page.builderius-deliverables:
+    class: Builderius\MooMoo\Platform\Bundle\MenuBundle\Model\AdminMenuPage
+    arguments:
+      - page_title: 'Publish'
+        menu_title: 'Publish'
+        menu_slug: 'builderius-deliverables'
+        capability: 'manage_options'
+        page: 'builderius-deliverables'
+        parent: 'builderius'
+        position: 20
+        translation_domain: 'builderius'
+    calls:
+      - [addCondition, ['@user_has_development_capability']]
+    tags:
+      - { name: moomoo_admin_menu_page }
+
+  builderius_deliverable.asset.js.admin_deliverables_index:
+    class: Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Script
+    arguments:
+      - category: 'admin'
+        handle: 'builderius-admin-deliverables-index'
+        source: 'builderius:admin-deliverables-index.js'
+        dependencies: ['builderius-admin-react-dom', 'wp-api-request']
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+        inFooter: true
+    calls:
+      - [addCondition, ['@is_builderius_deliverables_admin_page']]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_deliverable.asset.css.admin_deliverables_index:
+    class: Builderius\MooMoo\Platform\Bundle\AssetBundle\Model\Style
+    arguments:
+      - category: 'admin'
+        handle: 'builderius-admin-deliverables-index'
+        source: 'builderius:admin-deliverables-index.css'
+        version: "@=service('moomoo_kernel.provider.plugins_versions').getPluginVersion('builderius')"
+    calls:
+      - [addCondition, ['@is_builderius_deliverables_admin_page']]
+    tags:
+      - { name: moomoo_asset }
+
+  builderius_deliverable.registration.builderius_user_asset_localization:
+    class: Builderius\Bundle\BuilderBundle\Registration\BuilderiusBuilderUserScriptLocalization
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-admin-deliverables-index }
+
+  builderius_deliverable.provider.deliverable.composite:
+    class: Builderius\Bundle\DeliverableBundle\Provider\CompositeBuilderiusDeliverableProvider
+
+  builderius_deliverable.model.builderius_dsm_post_type:
+    class: Builderius\Bundle\DeliverableBundle\Registration\BulderiusDeliverableSubModulePostType
+    tags:
+      - { name: moomoo_post_type }
+
+  builderius_deliverable.factory.dsm_from_post:
+    class: Builderius\Bundle\DeliverableBundle\Factory\BuilderiusDeliverableSubModuleFromPostFactory
+    arguments:
+      - '@builderius.cache.runtime'
+      - '@event_dispatcher'
+
+  builderius_deliverable.factory.builderius_deliverable_from_post:
+    parent: builderius_release.factory.builderius_deliverable_release_from_post
+
+  builderius_deliverable.registration.builderius_deliverables_page_url_asset_localization:
+    class: Builderius\Bundle\DeliverableBundle\Registration\BuilderiusDeliverablesPageUrlScriptLocalization
+    tags:
+      - { name: moomoo_script_localization, handle: builderius-admin-home-index, priority: 0 }
+
+  builderius_deliverable.hook.admin_deliverables_index_sctipt_translations_load:
+    class: Builderius\Bundle\DeliverableBundle\Hook\AdminDeliverablesIndexScriptTranslationsLoadHook
+    arguments:
+      - tag: 'admin_enqueue_scripts'
+        priority: 20
+    calls:
+      - [addCondition, ['@is_builderius_deliverables_admin_page']]
+    tags:
+      - { name: moomoo_hook }
+
+  builderius_deliverable.hook.admin_deliverables_index_sctipt_translations_file_path_change:
+    class: Builderius\Bundle\DeliverableBundle\Hook\AdminDeliverablesIndexScriptTranslationsFilePathChangeHook
+    arguments:
+      - tag: 'load_script_translation_file'
+        accepted_args: 3
+    calls:
+      - [addCondition, ['@is_builderius_deliverables_admin_page']]
+    tags:
+      - { name: moomoo_hook }

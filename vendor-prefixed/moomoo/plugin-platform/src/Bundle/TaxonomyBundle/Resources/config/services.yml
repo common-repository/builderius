@@ -1,0 +1,8 @@
+services:
+    moomoo_taxonomy.registry.taxonomies:
+        class: 'Builderius\MooMoo\Platform\Bundle\TaxonomyBundle\Registry\TaxonomiesRegistry'
+        public: true
+
+    moomoo_taxonomy.registrator.taxonomies:
+        class: 'Builderius\MooMoo\Platform\Bundle\TaxonomyBundle\Registrator\TaxonomiesRegistrator'
+        public: true

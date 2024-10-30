@@ -1,0 +1,469 @@
+services:
+  builderius_template.template_acceptable_hook.blocksy:comments:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:comments:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:comments:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:comments:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:comments:bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:comments:bottom
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:comments:title:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:comments:title:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:comments:title:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:comments:title:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:comments:top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:comments:top
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:content:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:content:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:content:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:content:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:content:bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:content:bottom
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:content:top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:content:top
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:footer:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:footer:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:footer:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:footer:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:head:end:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:head:end
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:head:start:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:head:start
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:header:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:header:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:header:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:header:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:header:offcanvas:desktop:bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:header:offcanvas:desktop:bottom
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:header:offcanvas:desktop:top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:header:offcanvas:desktop:top
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:header:offcanvas:mobile:bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:header:offcanvas:mobile:bottom
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:header:offcanvas:mobile:top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:header:offcanvas:mobile:top
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:hero:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:hero:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:hero:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:hero:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:hero:description:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:hero:description:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:hero:description:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:hero:description:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:hero:element:render:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:hero:element:render
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:hero:title:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:hero:title:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:hero:title:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:hero:title:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:loop:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:loop:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:loop:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:loop:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:loop:card:end:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:loop:card:end
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:loop:card:start:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:loop:card:start
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:sidebar:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:sidebar:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:sidebar:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:sidebar:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:sidebar:end:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:sidebar:end
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:sidebar:start:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:sidebar:start
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:bottom
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:container:bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:container:bottom
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:container:top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:container:top
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:content:bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:content:bottom
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:content:top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:content:top
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:related_posts:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:related_posts:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:related_posts:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:related_posts:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:related_posts:bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:related_posts:bottom
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:related_posts:card:bottom:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:related_posts:card:bottom
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:related_posts:card:top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:related_posts:card:top
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:related_posts:featured_image:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:related_posts:featured_image:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:related_posts:featured_image:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:related_posts:featured_image:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:related_posts:title:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:related_posts:title:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:related_posts:title:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:related_posts:title:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:related_posts:top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:related_posts:top
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:single:top:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:single:top
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:template:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:template:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:template:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:template:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-card:actions:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-card:actions:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-card:actions:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-card:actions:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-card:price:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-card:price:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-card:price:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-card:price:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-card:thumbnail:end:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-card:thumbnail:end
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-card:thumbnail:start:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-card:thumbnail:start
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-card:title:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-card:title:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-card:title:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-card:title:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-single:excerpt:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-single:excerpt:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-single:excerpt:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-single:excerpt:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-single:tabs:after:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-single:tabs:after
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-single:tabs:before:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-single:tabs:before
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-view:end:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-view:end
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }
+
+  builderius_template.template_acceptable_hook.blocksy:woocommerce:product-view:start:
+    class: Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplateAcceptableHook
+    arguments:
+      - name: blocksy:woocommerce:product-view:start
+    tags:
+      - { name: builderius_template_acceptable_blocksy_wc_hook }

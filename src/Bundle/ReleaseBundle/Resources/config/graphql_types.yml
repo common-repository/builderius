@@ -1,0 +1,262 @@
+services:
+  builderius_release.type_config.builderius_root_query.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_query
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_release.type_config.builderius_root_query.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_release.type_config.root_query.field.release' ] ]
+      - [ 'addField', [ '@builderius_release.type_config.root_query.field.releases' ] ]
+
+  builderius_release.type_config.builderius_root_mutation.decorator:
+    decorates: builderius_graphql.type_config.builderius_root_mutation
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfigDecorator
+    arguments:
+      - '@builderius_release.type_config.builderius_root_mutation.decorator.inner'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.create_release' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.delete_release' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.publish_release' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.unpublish_release' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.root_mutation.field.extract_release' ] ]
+
+  builderius_release.type_config.root_query.field.release:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'release'
+        type: 'BuilderiusRelease'
+    calls:
+      - [ 'addArgument', ['@builderius_release.type_config.root_query.field.release.argument.id'] ]
+
+  builderius_release.type_config.root_query.field.releases:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'releases'
+        type: '[BuilderiusRelease]'
+    calls:
+      - [ 'addArgument', ['@builderius_release.type_config.root_query.field.releases.argument.status'] ]
+
+  builderius_release.type_config.root_query.field.release.argument.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\TemplateBundle\Model\BuilderiusTemplate::ID_FIELD
+        type: 'Int!'
+
+  builderius_release.type_config.root_query.field.releases.argument.status:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: !php/const Builderius\Bundle\ReleaseBundle\Model\BuilderiusRelease::STATUS_FIELD
+        type: 'BuilderiusReleaseStatusType'
+
+  builderius_graphql.type_config.release_status_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumTypeConfig
+    arguments:
+      - name: 'BuilderiusReleaseStatusType'
+    calls:
+      - [addValue, ['@builderius_graphql.type_config.release_status_type.value_draft']]
+      - [addValue, ['@builderius_graphql.type_config.release_status_type.value_publish']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.release_status_type.value_draft:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    arguments:
+      - name: 'draft'
+        description: 'draft'
+        value: 'draft'
+
+  builderius_graphql.type_config.release_status_type.value_publish:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLEnumValueConfig
+    arguments:
+      - name: 'publish'
+        description: 'publish'
+        value: 'publish'
+
+  builderius_graphql.type_config.release_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusRelease'
+    calls:
+      - [ 'addInterface', ['@builderius_graphql.type_config.deliverable_type']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_release_input_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLInputObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateReleaseInput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.create_release_input_type.field.tag' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_release_input_type.field.description' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_release_input_type.field.serialized_entities_data' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.create_release_input_type.field.publish' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_release_input_type.field.tag:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'tag'
+        type: 'String!'
+
+  builderius_graphql.type_config.create_release_input_type.field.description:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'description'
+        type: 'String'
+
+  builderius_graphql.type_config.create_release_input_type.field.serialized_entities_data:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'serialized_entities_data'
+        type: 'String!'
+
+  builderius_graphql.type_config.create_release_input_type.field.publish:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'publish'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.root_mutation.field.create_release:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'createRelease'
+        type: 'BuilderiusCreateReleaseOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.create_release.argument.input'] ]
+
+  builderius_graphql.type_config.root_mutation.field.create_release.argument.input:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'input'
+        type: 'BuilderiusCreateReleaseInput!'
+
+  builderius_graphql.type_config.create_release_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusCreateReleaseOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.create_release_output_type.field.release' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.create_release_output_type.field.release:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'release'
+        type: 'BuilderiusRelease'
+
+  builderius_graphql.type_config.root_mutation.field.delete_release:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'deleteRelease'
+        type: 'BuilderiusDeleteReleaseOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.delete_release.argument.id'] ]
+
+  builderius_graphql.type_config.root_mutation.field.delete_release.argument.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'id'
+        type: 'Int!'
+
+  builderius_graphql.type_config.delete_release_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusDeleteReleaseOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.delete_release_output_type.field.result' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.delete_release_output_type.field.message' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.delete_release_output_type.field.result:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'result'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.delete_release_output_type.field.message:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'message'
+        type: 'String'
+
+  builderius_graphql.type_config.root_mutation.field.publish_release:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'publishRelease'
+        type: 'BuilderiusToggleReleaseStatusOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.toggle_release_status.argument.id'] ]
+
+  builderius_graphql.type_config.root_mutation.field.unpublish_release:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'unpublishRelease'
+        type: 'BuilderiusToggleReleaseStatusOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.toggle_release_status.argument.id'] ]
+
+  builderius_graphql.type_config.root_mutation.field.toggle_release_status.argument.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'id'
+        type: 'Int!'
+
+  builderius_graphql.type_config.toggle_release_status_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusToggleReleaseStatusOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.toggle_release_status_output_type.field.release' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.toggle_release_status_output_type.field.release:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'release'
+        type: 'BuilderiusRelease'
+
+  builderius_graphql.type_config.root_mutation.field.extract_release:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'extractRelease'
+        type: 'BuilderiusExtractReleaseOutput'
+    calls:
+      - [ 'addArgument', ['@builderius_graphql.type_config.root_mutation.field.extract_release.argument.id'] ]
+
+  builderius_graphql.type_config.root_mutation.field.extract_release.argument.id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldArgumentConfig
+    arguments:
+      - name: 'id'
+        type: 'Int!'
+
+  builderius_graphql.type_config.extract_release_output_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'BuilderiusExtractReleaseOutput'
+    calls:
+      - [ 'addField', [ '@builderius_graphql.type_config.extract_release_output_type.field.result' ] ]
+      - [ 'addField', [ '@builderius_graphql.type_config.extract_release_output_type.field.message' ] ]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.extract_release_output_type.field.result:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'result'
+        type: 'Boolean'
+
+  builderius_graphql.type_config.extract_release_output_type.field.message:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'message'
+        type: 'String'

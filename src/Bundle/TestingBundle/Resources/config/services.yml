@@ -1,0 +1,5 @@
+services:
+  builderius_testing.command.temp_translation_files_generation:
+    class: Builderius\Bundle\TestingBundle\Command\BuilderiusTempTranslationFilesGenerationCommand
+    tags:
+      - { name: moomoo_wpcli_command }

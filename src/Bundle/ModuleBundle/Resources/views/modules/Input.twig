@@ -1,0 +1,7 @@
+[% if visibilityCondition is defined and not null %]
+[^- ('[% if builderius_visibility_condition(\"' ~ (visibilityCondition)|escape_quotes|raw ~ '\") == true %]')|raw -^]
+[% endif %]
+<input[^ ((tagId is defined and not null ? ' id="' ~ tagId ~ '"' : '') ~ ' class="uni-node-' ~ id ~ (tagClass is defined and not null ? ' ' ~ tagClass|join(' ') ~ '"' : '"') ~ (htmlAttribute is defined and not null ? ' ' ~ builderius_format_htmlattributes(htmlAttribute|raw) : ''))|raw ^]>
+[% if visibilityCondition is defined and not null %]
+[^- ('[% endif %]')|raw -^]
+[% endif %]

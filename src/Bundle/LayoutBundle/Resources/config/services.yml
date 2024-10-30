@@ -1,0 +1,9 @@
+services:
+    builderius_layout.provider.standard:
+        class: 'Builderius\Bundle\LayoutBundle\Provider\StandardBuilderiusLayoutsProvider'
+        lazy: true
+        public: true
+        arguments:
+            - '@builderius.cache.runtime'
+        tags:
+            - { name: builderius_layout_provider }

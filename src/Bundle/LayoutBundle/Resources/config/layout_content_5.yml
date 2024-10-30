@@ -1,0 +1,492 @@
+services:
+  builderius_layout.layout_content_5:
+    class: 'Builderius\Bundle\LayoutBundle\Model\BuilderiusLayout'
+    arguments:
+      - name: 'layout_content_5'
+        label: 'Content #5'
+        technologies: ['html']
+        category: 'content_sections'
+        image: 'https://showcase.builderius.io/wp-content/uploads/2023/02/layout_content_5.png'
+        tags:
+          - 'dark'
+        config:
+          ---
+          modules:
+            u4c83dcf3:
+              id: u4c83dcf3
+              name: GenericBlock
+              label: 'content #5'
+              settings:
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a3: 40
+                        b3: px
+                        a1: 40
+                        b1: px
+                - name: backgroundColor
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--bgcolor'
+                        a1: 'rgba(15, 26, 38, 1.00)'
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+            u5d5d7c5f:
+              id: u5d5d7c5f
+              name: GenericBlock
+              label: inner
+              settings:
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 20
+                        b4: px
+                        a2: 20
+                        b2: px
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        b4: auto
+                        b2: auto
+                - name: maxWidth
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 900
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u4c83dcf3
+              index: 0
+            u8e64c041:
+              id: u8e64c041
+              name: Heading
+              label: Heading H2
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 15
+                        b3: px
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a6: 48
+                        a5: 40
+                        b6: px
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: serif
+                        c1: Spectral
+                    '(max-width: 800px)':
+                      original:
+                        a6: 40
+                        a5: 34
+                        b6: px
+                        b5: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: htmlTagHeading
+                  value:
+                    a1: h2
+                - name: dataHeading
+                  value:
+                    a1: Categories
+              parent: u5d5d7c5f
+              index: 0
+            u5f46f648:
+              id: u5f46f648
+              name: Collection
+              label: post items
+              settings:
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexWrap
+                  value:
+                    all:
+                      original:
+                        a1: wrap
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 40
+                        b3: px
+                        a1: 20
+                        b1: px
+                - name: gap
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 20
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: data-content
+                        b1: >-
+                          [{"imgUrl":"<svg aria-hidden='true' focusable='false'
+                          data-prefix='fas' data-icon='skiing' class='svg-inline--fa
+                          fa-skiing fa-w-16' role='img' viewBox='0 0 512 512'><path
+                          fill='currentColor' d='M432 96c26.5 0 48-21.5 48-48S458.5 0 432
+                          0s-48 21.5-48 48 21.5 48 48 48zm73 356.1c-9.4-9.4-24.6-9.4-33.9
+                          0-12.1 12.1-30.5 15.4-45.1 8.7l-135.8-70.2 49.2-73.8c12.7-19
+                          10.2-44.5-6-60.6L293 215.7l-107-53.1c-2.9 19.9 3.4 40 17.7
+                          54.4l75.1 75.2-45.9 68.8L35 258.7c-11.7-6-26.2-1.5-32.3 10.3-6.1
+                          11.8-1.5 26.3 10.3 32.3l391.9 202.5c11.9 5.5 24.5 8.1 37.1 8.1
+                          23.2 0 46-9 63-26 9.3-9.3 9.3-24.5 0-33.8zM120 91.6l-11.5
+                          22.5c14.4 7.3 31.2 4.9 42.8-4.8l47.2 23.4c-.1.1-.1.2-.2.3l114.5
+                          56.8 32.4-13 6.4 19.1c4 12.1 12.6 22 24 27.7l58.1 29c15.9 7.9 35
+                          1.5 42.9-14.3 7.9-15.8
+                          1.5-35-14.3-42.9l-52.1-26.1-17.1-51.2c-8.1-24.2-40.9-56.6-84.5-39.2l-81.2
+                          32.5-62.5-31c.3-14.5-7.2-28.6-20.9-35.6l-11.1
+                          21.7h-.2l-34.4-7c-1.8-.4-3.7.2-5 1.7-1.9 2.2-1.7 5.5.5 7.4l26.2
+                          23z'></path></svg>","title":"Skiing","url":"#"},{"imgUrl":"<svg
+                          aria-hidden='true' focusable='false' data-prefix='fas'
+                          data-icon='skiing' class='svg-inline--fa fa-skiing fa-w-16'
+                          role='img' viewBox='0 0 512 512'><path fill='currentColor'
+                          d='M432 96c26.5 0 48-21.5 48-48S458.5 0 432 0s-48 21.5-48 48
+                          21.5 48 48 48zm73 356.1c-9.4-9.4-24.6-9.4-33.9 0-12.1 12.1-30.5
+                          15.4-45.1 8.7l-135.8-70.2 49.2-73.8c12.7-19 10.2-44.5-6-60.6L293
+                          215.7l-107-53.1c-2.9 19.9 3.4 40 17.7 54.4l75.1 75.2-45.9
+                          68.8L35 258.7c-11.7-6-26.2-1.5-32.3 10.3-6.1 11.8-1.5 26.3 10.3
+                          32.3l391.9 202.5c11.9 5.5 24.5 8.1 37.1 8.1 23.2 0 46-9 63-26
+                          9.3-9.3 9.3-24.5 0-33.8zM120 91.6l-11.5 22.5c14.4 7.3 31.2 4.9
+                          42.8-4.8l47.2 23.4c-.1.1-.1.2-.2.3l114.5 56.8 32.4-13 6.4 19.1c4
+                          12.1 12.6 22 24 27.7l58.1 29c15.9 7.9 35 1.5 42.9-14.3 7.9-15.8
+                          1.5-35-14.3-42.9l-52.1-26.1-17.1-51.2c-8.1-24.2-40.9-56.6-84.5-39.2l-81.2
+                          32.5-62.5-31c.3-14.5-7.2-28.6-20.9-35.6l-11.1
+                          21.7h-.2l-34.4-7c-1.8-.4-3.7.2-5 1.7-1.9 2.2-1.7 5.5.5 7.4l26.2
+                          23z'></path></svg>","title":"Skiing","url":"#"},{"imgUrl":"<svg
+                          aria-hidden='true' focusable='false' data-prefix='fas'
+                          data-icon='skiing' class='svg-inline--fa fa-skiing fa-w-16'
+                          role='img' viewBox='0 0 512 512'><path fill='currentColor'
+                          d='M432 96c26.5 0 48-21.5 48-48S458.5 0 432 0s-48 21.5-48 48
+                          21.5 48 48 48zm73 356.1c-9.4-9.4-24.6-9.4-33.9 0-12.1 12.1-30.5
+                          15.4-45.1 8.7l-135.8-70.2 49.2-73.8c12.7-19 10.2-44.5-6-60.6L293
+                          215.7l-107-53.1c-2.9 19.9 3.4 40 17.7 54.4l75.1 75.2-45.9
+                          68.8L35 258.7c-11.7-6-26.2-1.5-32.3 10.3-6.1 11.8-1.5 26.3 10.3
+                          32.3l391.9 202.5c11.9 5.5 24.5 8.1 37.1 8.1 23.2 0 46-9 63-26
+                          9.3-9.3 9.3-24.5 0-33.8zM120 91.6l-11.5 22.5c14.4 7.3 31.2 4.9
+                          42.8-4.8l47.2 23.4c-.1.1-.1.2-.2.3l114.5 56.8 32.4-13 6.4 19.1c4
+                          12.1 12.6 22 24 27.7l58.1 29c15.9 7.9 35 1.5 42.9-14.3 7.9-15.8
+                          1.5-35-14.3-42.9l-52.1-26.1-17.1-51.2c-8.1-24.2-40.9-56.6-84.5-39.2l-81.2
+                          32.5-62.5-31c.3-14.5-7.2-28.6-20.9-35.6l-11.1
+                          21.7h-.2l-34.4-7c-1.8-.4-3.7.2-5 1.7-1.9 2.2-1.7 5.5.5 7.4l26.2
+                          23z'></path></svg>","title":"Skiing","url":"#"}]
+              parent: u5d5d7c5f
+              index: 1
+            uf45247fa:
+              id: uf45247fa
+              name: Template
+              label: Template
+              settings: [ ]
+              parent: u5f46f648
+              index: 0
+            uc9b54569:
+              id: uc9b54569
+              name: GenericBlock
+              label: item
+              settings:
+                - name: textDecoration
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: color
+                  value:
+                    all:
+                      ':hover h3':
+                        v1:
+                          - '--accentcolor'
+                        a1: 'rgba(252, 54, 59, 1.00)'
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 20
+                        a3: 30
+                        b4: px
+                        a2: 20
+                        b3: px
+                        a1: 35
+                        b2: px
+                        b1: px
+                - name: borderRadius
+                  value:
+                    all:
+                      original:
+                        a4: 5
+                        a3: 5
+                        b4: px
+                        a2: 5
+                        b3: px
+                        a1: 5
+                        b2: px
+                        b1: px
+                - name: border
+                  value:
+                    all:
+                      original:
+                        d1: 'rgba(191, 206, 217, 1.00)'
+                        c1: solid
+                        d2: 'rgba(191, 206, 217, 1.00)'
+                        b1: px
+                        c2: solid
+                        d3: 'rgba(191, 206, 217, 1.00)'
+                        b2: px
+                        c3: solid
+                        d4: 'rgba(191, 206, 217, 1.00)'
+                        a1: 1
+                        b3: px
+                        c4: solid
+                        a2: 1
+                        b4: px
+                        a3: 1
+                        a4: 1
+                        v1:
+                          - '--bordercolor'
+                        v2:
+                          - '--bordercolor'
+                        v3:
+                          - '--bordercolor'
+                        v4:
+                          - '--bordercolor'
+                      ':hover':
+                        d1: 'rgba(252, 54, 59, 1.00)'
+                        c1: solid
+                        d2: 'rgba(252, 54, 59, 1.00)'
+                        b1: px
+                        c2: solid
+                        d3: 'rgba(252, 54, 59, 1.00)'
+                        b2: px
+                        c3: solid
+                        d4: 'rgba(252, 54, 59, 1.00)'
+                        a1: 1
+                        b3: px
+                        c4: solid
+                        a2: 1
+                        b4: px
+                        a3: 1
+                        a4: 1
+                        v1:
+                          - '--accentborder'
+                        v2:
+                          - '--accentborder'
+                        v3:
+                          - '--accentborder'
+                        v4:
+                          - '--accentborder'
+                - name: margin
+                  value:
+                    all:
+                      ' svg':
+                        a3: 20
+                        b3: px
+                      original:
+                        a4: 20
+                        a3: 20
+                        b4: px
+                        a2: 20
+                        b3: px
+                        a1: 20
+                        b2: px
+                        b1: px
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: fill
+                  value:
+                    all:
+                      ' svg path':
+                        a1: 'rgba(221, 201, 120, 1.00)'
+                - name: height
+                  value:
+                    all:
+                      ' svg':
+                        b1: px
+                        a1: 100
+                - name: width
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 150
+                      ' svg':
+                        b1: px
+                        a1: 100
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: href
+                  value:
+                    a1: '{{{url}}}'
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: true
+              parent: uf45247fa
+              index: 0
+            ud8fe6b60:
+              id: ud8fe6b60
+              name: Heading
+              label: post title
+              settings:
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 10
+                        b3: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 18
+                        b5: px
+                        a3: '700'
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                - name: htmlTagHeading
+                  value:
+                    a1: h3
+                - name: dataHeading
+                  value:
+                    a1: '{{title}}'
+              parent: uc9b54569
+              index: 1
+            uce2672d5:
+              id: uce2672d5
+              name: Svg
+              label: Raw Svg
+              settings:
+                - name: dataSvg
+                  value:
+                    a1: '{{{imgUrl}}}'
+              parent: uc9b54569
+              index: 0
+          indexes:
+            root:
+              - u4c83dcf3
+            u4c83dcf3:
+              - u5d5d7c5f
+            u5d5d7c5f:
+              - u8e64c041
+              - u5f46f648
+            u5f46f648:
+              - uf45247fa
+            uf45247fa:
+              - uc9b54569
+            uc9b54569:
+              - uce2672d5
+              - ud8fe6b60
+          version:
+            builderius: 0.9.6
+    tags:
+      - { name: builderius_layout }

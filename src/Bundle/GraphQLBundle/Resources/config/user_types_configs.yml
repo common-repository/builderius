@@ -1,0 +1,82 @@
+services:
+  builderius_graphql.type_config.user_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'User'
+    calls:
+      - ['addField', ['@builderius_graphql.type_config.field.id']]
+      - ['addField', ['@builderius_graphql.type_config.user_type.field.avatar_url']]
+      - ['addField', ['@builderius_graphql.type_config.user_type.field.nickname']]
+      - ['addField', ['@builderius_graphql.type_config.user_type.field.display_name']]
+      - ['addField', ['@builderius_graphql.type_config.user_type.field.description']]
+      - ['addField', ['@builderius_graphql.type_config.user_type.field.first_name']]
+      - ['addField', ['@builderius_graphql.type_config.user_type.field.last_name']]
+      - ['addField', ['@builderius_graphql.type_config.user_type.field.user_login']]
+      - ['addField', ['@builderius_graphql.type_config.user_type.field.user_email']]
+      - ['addField', ['@builderius_graphql.type_config.user_type.field.user_url']]
+      - ['addField', ['@builderius_graphql.type_config.user_type.field.roles']]
+      - ['addField', ['@builderius_graphql.type_config.field.meta']]
+      - ['addField', ['@builderius_graphql.type_config.field.meta_value']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.user_type.field.avatar_url:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'avatar_url'
+        type: 'String'
+
+  builderius_graphql.type_config.user_type.field.nickname:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'nickname'
+        type: 'String'
+
+  builderius_graphql.type_config.user_type.field.display_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'display_name'
+        type: 'String'
+
+  builderius_graphql.type_config.user_type.field.description:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'description'
+        type: 'String'
+
+  builderius_graphql.type_config.user_type.field.first_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'first_name'
+        type: 'String'
+
+  builderius_graphql.type_config.user_type.field.last_name:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'last_name'
+        type: 'String'
+
+  builderius_graphql.type_config.user_type.field.user_login:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'user_login'
+        type: 'String'
+
+  builderius_graphql.type_config.user_type.field.user_email:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'user_email'
+        type: 'String'
+
+  builderius_graphql.type_config.user_type.field.user_url:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'user_url'
+        type: 'String'
+
+  builderius_graphql.type_config.user_type.field.roles:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'roles'
+        type: '[String]'

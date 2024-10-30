@@ -1,0 +1,507 @@
+services:
+  builderius_layout.layout_hero_4:
+    class: 'Builderius\Bundle\LayoutBundle\Model\BuilderiusLayout'
+    arguments:
+      - name: 'layout_hero_4'
+        label: 'Hero #4'
+        technologies: ['html']
+        category: 'hero_sections'
+        image: 'https://showcase.builderius.io/wp-content/uploads/2023/02/layout_hero_4.jpg'
+        tags:
+          - 'hero'
+          - 'main'
+          - 'responsive'
+        config:
+          ---
+          modules:
+            u5f1a887f:
+              id: u5f1a887f
+              name: Paragraph
+              label: CTA desc
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 30
+                        b3: px
+                        a1: 5
+                        b1: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 14
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                    '(max-width: 800px)':
+                      original:
+                        a5: 12
+                        b5: px
+                - name: dataParagraph
+                  value:
+                    a1: No credit card required
+              parent: u4129b1c9
+            u5ab645d3:
+              id: u5ab645d3
+              name: Source
+              label: source - original
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: src
+                  value:
+                    a1: 'https://source.unsplash.com/wpU4veNGnHg/1600x1000'
+              parent: ud1fe4928
+            ud1fe4928:
+              id: ud1fe4928
+              name: GenericBlock
+              label: picture
+              settings:
+                - name: backgroundImage
+                  value:
+                    all:
+                      original: []
+                      ':after':
+                        i1:
+                          - b1: linear-gradient
+                            c1: 120
+                            d1: "rgba(255, 255, 255, 0.15) 1%%, rgba(61, 173, 221, 0.57) 99%%"
+                          - b1: linear-gradient
+                            c1: 297
+                            d1: "rgba(105, 135, 151, 0.41) 1%%, rgba(42, 62, 155, 0.63) 99%%"
+                          - b1: linear-gradient
+                            c1: 147
+                            d1: "rgba(255, 255, 255, 0.02) 1%%, rgba(96, 40, 185, 0.86) 99%%"
+                - name: content
+                  value:
+                    all:
+                      ':after':
+                        a1: ''''''
+                - name: left
+                  value:
+                    all:
+                      ':after':
+                        b1: px
+                        a1: 0
+                - name: zIndex
+                  value:
+                    all:
+                      original:
+                        a1: -1
+                - name: bottom
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 0
+                - name: top
+                  value:
+                    all:
+                      original:
+                        b1: px
+                        a1: 0
+                      ':after':
+                        b1: px
+                        a1: 0
+                - name: position
+                  value:
+                    all:
+                      original:
+                        a1: absolute
+                      ':after':
+                        a1: absolute
+                - name: height
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                      ':after':
+                        a1: 100
+                        b1: '%'
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                      ':after':
+                        a1: 100
+                        b1: '%'
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                      ':after':
+                        a1: block
+                - name: htmlTagContainer
+                  value:
+                    a1: picture
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: u4129b1c9
+            u3b9b6b0c:
+              id: u3b9b6b0c
+              name: Source
+              label: source - mobile
+              settings:
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: htmlAttribute
+                  value:
+                    i1:
+                      - a1: media
+                        b1: '(max-width: 420px)'
+                - name: src
+                  value:
+                    a1: 'https://source.unsplash.com/wpU4veNGnHg/840x550'
+              parent: ud1fe4928
+            uc9d68f15:
+              id: uc9d68f15
+              name: Image
+              label: Image
+              settings:
+                - name: objectFit
+                  value:
+                    all:
+                      original:
+                        a1: cover
+                - name: height
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+              parent: ud1fe4928
+            u7a21351c:
+              id: u7a21351c
+              name: Anchor
+              label: CTA
+              settings:
+                - name: backgroundColor
+                  value:
+                    all:
+                      ':hover':
+                        v1:
+                          - '--accentcolor'
+                        a1: 'rgba(252, 54, 59, 1.00)'
+                - name: cursor
+                  value:
+                    all:
+                      ':hover':
+                        a1: pointer
+                - name: padding
+                  value:
+                    all:
+                      original:
+                        a4: 20
+                        a3: 10
+                        b4: px
+                        a2: 20
+                        b3: px
+                        a1: 10
+                        b2: px
+                        b1: px
+                - name: borderRadius
+                  value:
+                    all:
+                      original:
+                        a4: 25
+                        a3: 25
+                        b4: px
+                        a2: 25
+                        b3: px
+                        a1: 25
+                        b2: px
+                        b1: px
+                - name: border
+                  value:
+                    all:
+                      original:
+                        d1: 'rgba(252, 54, 59, 1.00)'
+                        c1: solid
+                        d2: 'rgba(252, 54, 59, 1.00)'
+                        b1: px
+                        c2: solid
+                        d3: 'rgba(252, 54, 59, 1.00)'
+                        b2: px
+                        c3: solid
+                        d4: 'rgba(252, 54, 59, 1.00)'
+                        a1: 1
+                        b3: px
+                        c4: solid
+                        a2: 1
+                        b4: px
+                        a3: 1
+                        a4: 1
+                        v1:
+                          - '--accentborder'
+                        v2:
+                          - '--accentborder'
+                        v3:
+                          - '--accentborder'
+                        v4:
+                          - '--accentborder'
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--accentcolor'
+                        a1: 'rgba(252, 54, 59, 1.00)'
+                      ':hover':
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: textTransform
+                  value:
+                    all:
+                      original:
+                        a1: uppercase
+                - name: textDecoration
+                  value:
+                    all:
+                      original:
+                        a1: none
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                        a2: normal
+                        a3: '700'
+                      ' span':
+                        a3: '400'
+                    '(max-width: 800px)':
+                      original:
+                        a5: 14
+                        b5: px
+                - name: dataAnchor
+                  value:
+                    a1: Get started - <span>for free</span>
+              parent: u4129b1c9
+            udab99cff:
+              id: udab99cff
+              name: Paragraph
+              label: subtitle
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 60
+                        b3: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor-alt'
+                        a1: 'rgba(191, 206, 217, 1.00)'
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a5: 24
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: sans-serif
+                        c1: Karla
+                    '(max-width: 800px)':
+                      original:
+                        a5: 19
+                        b5: px
+                - name: dataParagraph
+                  value:
+                    a1: 'Create stunning, professional forms in minutes, not hours.'
+              parent: u4129b1c9
+            u11416700:
+              id: u11416700
+              name: Heading
+              label: Heading H1
+              settings:
+                - name: textAlign
+                  value:
+                    '(max-width: 600px)':
+                      original:
+                        a1: center
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 15
+                        b3: px
+                - name: font
+                  value:
+                    all:
+                      original:
+                        a6: 48
+                        a5: 40
+                        b6: px
+                        b5: px
+                        a2: normal
+                        a1: google
+                        b1: serif
+                        c1: Spectral
+                    '(max-width: 800px)':
+                      original:
+                        a6: 40
+                        a5: 34
+                        b6: px
+                        b5: px
+                - name: color
+                  value:
+                    all:
+                      original:
+                        v1:
+                          - '--textcolor'
+                        a1: 'rgba(255, 255, 255, 1.00)'
+                - name: htmlTagHeading
+                  value:
+                    a1: h1
+                - name: dataHeading
+                  value:
+                    a1: 'Forms, powerful and beautiful'
+              parent: u4129b1c9
+            u4129b1c9:
+              id: u4129b1c9
+              name: GenericBlock
+              label: 'hero #4'
+              settings:
+                - name: zIndex
+                  value:
+                    all:
+                      original:
+                        a1: 1
+                - name: position
+                  value:
+                    all:
+                      original:
+                        a1: relative
+                - name: margin
+                  value:
+                    all:
+                      original:
+                        a3: 20
+                        b3: px
+                - name: height
+                  value:
+                    all:
+                      original:
+                        b1: vh
+                        a1: 80
+                - name: width
+                  value:
+                    all:
+                      original:
+                        a1: 100
+                        b1: '%'
+                - name: justifyContent
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: alignItems
+                  value:
+                    all:
+                      original:
+                        a1: center
+                - name: flexDirection
+                  value:
+                    all:
+                      original:
+                        a1: column
+                - name: display
+                  value:
+                    all:
+                      original:
+                        a1: flex
+                - name: htmlTagContainer
+                  value:
+                    a1: div
+                - name: isLinkWrapper
+                  value:
+                    a1: false
+              parent: ''
+          indexes:
+            root:
+              - u4129b1c9
+            ud1fe4928:
+              - u3b9b6b0c
+              - u5ab645d3
+              - uc9d68f15
+            u4129b1c9:
+              - ud1fe4928
+              - u11416700
+              - udab99cff
+              - u7a21351c
+              - u5f1a887f
+          template:
+            settings:
+              - name: cssVars
+                value:
+                  all:
+                    original:
+                      i1:
+                        - a2: '--bgcolor'
+                          a1: color
+                          b2: 'rgba(15, 26, 38, 1.00)'
+                        - a2: '--textcolor'
+                          a1: color
+                          b2: 'rgba(255, 255, 255, 1.00)'
+                        - a1: color
+                          a2: '--textcolor-alt'
+                          b2: 'rgba(191, 206, 217, 1.00)'
+                        - a2: '--accentcolor'
+                          a1: color
+                          b2: 'rgba(252, 54, 59, 1.00)'
+                        - a2: '--accentborder'
+                          a1: any-value
+                          b2: 1px solid var(--accentcolor)
+              - name: responsiveStrategy
+                value:
+                  a1: desktop-first
+            type: singular
+            technology: html
+          version:
+            builderius: 0.9.6
+    tags:
+      - { name: builderius_layout }

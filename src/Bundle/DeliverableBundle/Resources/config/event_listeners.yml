@@ -1,0 +1,7 @@
+services:
+  builderius_deliverable.event_listener.deliverable_deleted:
+    class: Builderius\Bundle\DeliverableBundle\EventListener\BuilderiusDeliverableDeletedEventListener
+    arguments:
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: moomoo_event_listener, event: builderius_deliverable_deleted, method: onDeliverableDeleted }

@@ -1,0 +1,15 @@
+services:
+  builderius_responsive.provider.responsive_strategies:
+    class: 'Builderius\Bundle\ResponsiveBundle\Provider\BuilderiusResponsiveStrategiesProvider'
+    public: true
+    lazy: true
+
+  builderius_responsive.responsive_strategy.desktop_first:
+    class: 'Builderius\Bundle\ResponsiveBundle\Strategy\DesktopFirstBuilderiusResponsiveStrategy'
+    tags:
+      - { name: builderius_responsive_strategy }
+
+  builderius_responsive.responsive_strategy.mobile_first:
+    class: 'Builderius\Bundle\ResponsiveBundle\Strategy\MobileFirstBuilderiusResponsiveStrategy'
+    tags:
+      - { name: builderius_responsive_strategy }

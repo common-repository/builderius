@@ -1,0 +1,127 @@
+services:
+  builderius_template.registry.apply_rule_starters:
+    class: Builderius\Bundle\TemplateBundle\ApplyRule\Starter\Registry\BuilderiusTemplateApplyRuleStartersRegistry
+    lazy: true
+
+  builderius_template.apply_rule_starter.html.theme.all_published_pages:
+    class: Builderius\Bundle\TemplateBundle\ApplyRule\Starter\BuilderiusTemplateApplyRuleStarter
+    arguments:
+      - name: all_published_pages
+        title: 'All published pages'
+        category: theme
+        template_types: ['template']
+        technologies: ['html']
+        config:
+          theme:
+            condition: and
+            rules:
+              - value: singular
+                type: chain
+                name: singular
+                rules:
+                  - value: page
+                    type: chain
+                    name: page
+                    rules:
+                      - type: select
+                        name: has_status
+                        value: publish
+                        operator: "=="
+                    condition: and
+                condition: and
+            type: group
+    tags:
+      - { name: builderius_template_apply_rule_starter }
+
+  builderius_template.apply_rule_starter.html.theme.all_published_blog_posts:
+    class: Builderius\Bundle\TemplateBundle\ApplyRule\Starter\BuilderiusTemplateApplyRuleStarter
+    arguments:
+      - name: all_published_blog_posts
+        title: 'All published blog posts'
+        category: theme
+        template_types: [ 'template' ]
+        technologies: [ 'html' ]
+        config:
+          theme:
+            condition: and
+            rules:
+              - value: singular
+                type: chain
+                name: singular
+                rules:
+                  - value: single
+                    type: chain
+                    name: single
+                    rules:
+                      - value: blog_post
+                        type: chain
+                        name: blog_post
+                        rules:
+                          - type: select
+                            name: has_status
+                            value: publish
+                            operator: "=="
+                        condition: and
+                    condition: and
+                condition: and
+            type: group
+    tags:
+      - { name: builderius_template_apply_rule_starter }
+
+  builderius_template.apply_rule_starter.html.theme.all_published_pages_or_all_published_blog_posts:
+    class: Builderius\Bundle\TemplateBundle\ApplyRule\Starter\BuilderiusTemplateApplyRuleStarter
+    arguments:
+      - name: all_published_pages_or_all_published_blog_posts
+        title: 'All published pages or all published blog posts'
+        category: theme
+        template_types: [ 'template' ]
+        technologies: [ 'html' ]
+        config:
+          theme:
+            condition: and
+            rules:
+              - value: singular
+                type: chain
+                name: singular
+                rules:
+                  - value: page
+                    type: chain
+                    name: page
+                    rules:
+                      - type: select
+                        name: has_status
+                        value: publish
+                        operator: "=="
+                    condition: and
+                  - value: single
+                    type: chain
+                    name: single
+                    rules:
+                      - value: blog_post
+                        type: chain
+                        name: blog_post
+                        rules:
+                          - type: select
+                            name: has_status
+                            value: publish
+                            operator: "=="
+                        condition: and
+                    condition: and
+                condition: or
+            type: group
+    tags:
+      - { name: builderius_template_apply_rule_starter }
+
+  builderius_template.apply_rule_starter.html.theme.page_with_id:
+    class: Builderius\Bundle\TemplateBundle\ApplyRule\Starter\PageWithIdApplyRuleStarter
+    arguments:
+      - '@builderius_template.apply_rule.arguments_provider.available_pages.id'
+    tags:
+      - { name: builderius_template_apply_rule_starter }
+
+  builderius_template.apply_rule_starter.html.theme.post_with_id:
+    class: Builderius\Bundle\TemplateBundle\ApplyRule\Starter\PostWithIdApplyRuleStarter
+    arguments:
+      - '@builderius_template.apply_rule.arguments_provider.available_blog_posts.id'
+    tags:
+      - { name: builderius_template_apply_rule_starter }

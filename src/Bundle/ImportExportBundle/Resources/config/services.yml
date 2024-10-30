@@ -1,0 +1,99 @@
+services:
+  builderius_importexport.ajax.request_handler.builderius_config_export:
+    class: Builderius\Bundle\ImportExportBundle\Ajax\BuilderiusConfigExportAjaxRequestHandler
+    arguments:
+      - '@moomoo_query.wp_query'
+      - '@builderius_vcs.factory.builderius_branch_from_post'
+      - '@builderius_importexport.provider.attachment_converters'
+    tags:
+      - { name: moomoo_request_handler }
+
+  builderius_importexport.ajax.request_handler.builderius_config_import:
+    class: Builderius\Bundle\ImportExportBundle\Ajax\BuilderiusConfigImportAjaxRequestHandler
+    arguments:
+      - '@builderius_template.version_converter.composite'
+      - '@builderius_template.checker.content_config'
+      - '@builderius_importexport.provider.attachment_converters'
+      - '@event_dispatcher'
+    tags:
+      - { name: moomoo_request_handler }
+
+  builderius_importexport.ajax.request_handler.builderius_release_export:
+    class: Builderius\Bundle\ImportExportBundle\Ajax\BuilderiusReleaseExportAjaxRequestHandler
+    arguments:
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+      - '@builderius_importexport.provider.attachment_converters'
+    tags:
+      - { name: moomoo_request_handler }
+
+  builderius_importexport.ajax.request_handler.builderius_release_import:
+    class: Builderius\Bundle\ImportExportBundle\Ajax\BuilderiusReleaseImportAjaxRequestHandler
+    arguments:
+      - '@builderius_template.provider.template_content.composite'
+      - '@builderius_template.version_converter.composite'
+      - '@builderius_template.checker.content_config'
+      - '@builderius_importexport.provider.attachment_converters'
+      - '@event_dispatcher'
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+      - '@moomoo_query.wp_query'
+    tags:
+      - { name: moomoo_request_handler }
+
+  builderius_importexport.ajax.request_handler.builderius_composite_modules_export:
+    class: Builderius\Bundle\ImportExportBundle\Ajax\BuilderiusCompositeModulesExportAjaxRequestHandler
+    arguments:
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+      - '@builderius_template.version_converter.composite'
+      - '@builderius_category.provider.categories.composite'
+      - '@builderius_importexport.provider.attachment_converters'
+    tags:
+      - { name: moomoo_request_handler }
+
+  builderius_importexport.ajax.request_handler.builderius_composite_modules_import:
+    class: Builderius\Bundle\ImportExportBundle\Ajax\BuilderiusCompositeModulesImportAjaxRequestHandler
+    arguments:
+      - '@builderius_template.version_converter.composite'
+      - '@builderius_template.checker.content_config'
+      - '@builderius_importexport.provider.attachment_converters'
+      - '@event_dispatcher'
+      - '@builderius_graphql.executor.builderius_entities_graphql_queries'
+    tags:
+      - { name: moomoo_request_handler }
+
+  builderius_importexport.provider.attachment_converters:
+    class: Builderius\Bundle\ImportExportBundle\Provider\ImportExportAttachmentConvertersProvider
+
+  builderius_importexport.converter.attachment.src:
+    class: Builderius\Bundle\ImportExportBundle\Converter\ImportExportSrcSettingAttachmentConverter
+    tags:
+      - { name: builderius_importexport_attachment_converter }
+
+  builderius_importexport.converter.attachment.background_image:
+    class: Builderius\Bundle\ImportExportBundle\Converter\ImportExportBackgroundImageSettingAttachmentConverter
+    tags:
+      - { name: builderius_importexport_attachment_converter }
+
+  builderius_importexport.converter.attachment.list_style:
+    class: Builderius\Bundle\ImportExportBundle\Converter\ImportExportListStyleSettingAttachmentConverter
+    tags:
+      - { name: builderius_importexport_attachment_converter }
+
+  builderius_importexport.converter.attachment.data_vars:
+    class: Builderius\Bundle\ImportExportBundle\Converter\ImportExportDataVarsSettingAttachmentConverter
+    tags:
+      - { name: builderius_importexport_attachment_converter }
+
+  builderius_importexport.converter.attachment.html_attribute:
+    class: Builderius\Bundle\ImportExportBundle\Converter\ImportExportHtmlAttributeSettingAttachmentConverter
+    tags:
+      - { name: builderius_importexport_attachment_converter }
+
+  builderius_importexport.converter.attachment.css_vars:
+    class: Builderius\Bundle\ImportExportBundle\Converter\ImportExportCssVarsSettingAttachmentConverter
+    tags:
+      - { name: builderius_importexport_attachment_converter }
+
+  builderius_importexport.converter.attachment.mod_css_vars:
+    class: Builderius\Bundle\ImportExportBundle\Converter\ImportExportModCssVarsSettingAttachmentConverter
+    tags:
+      - { name: builderius_importexport_attachment_converter }

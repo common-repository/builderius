@@ -1,0 +1,50 @@
+services:
+  moomoo_builder.builder_mode.url_generator:
+    class: 'Builderius\MooMoo\Platform\Bundle\PostBundle\Url\PostUrlGenerator'
+    calls:
+      - [ 'addQueryArgument', [ 'builderius' ] ]
+
+  builderius_builder.page.builderius-home:
+    class: 'Builderius\MooMoo\Platform\Bundle\PageBundle\Model\SimplePage'
+    arguments:
+      - 'builderius-home'
+      - 'BuilderiusBuilderBundle:homePage.twig'
+    calls:
+      - [setTemplating, ['@templating']]
+    tags:
+      - { name: moomoo_page }
+
+  builderius_builder.admin_menu_page.builderius:
+    class: 'Builderius\MooMoo\Platform\Bundle\MenuBundle\Model\AdminMenuPage'
+    arguments:
+      - page_title: 'Builderius'
+        menu_title: 'Builderius'
+        menu_slug: 'builderius'
+        capability: 'manage_options'
+        page: 'builderius-home'
+        translation_domain: 'builderius'
+    tags:
+      - { name: moomoo_admin_menu_page }
+
+  builderius_builder.admin_bar_node.builderius:
+    class: Builderius\Bundle\BuilderBundle\Registration\BuilderiusAdminNavBarNode
+    arguments:
+      - id: 'builderius'
+    calls:
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_admin_bar_showing'] ]
+      - [ 'addCondition', [ '@user_is_builderius_developer' ] ]
+    tags:
+        - { name: moomoo_admin_bar_node }
+
+  builderius_builder.admin_bar_node.builderius_preview_mode:
+    class: Builderius\Bundle\BuilderBundle\Registration\BuilderiusPreviewModeAdminNavBarNode
+    arguments:
+      - id: 'builderius-preview-mode'
+        parent: 'builderius'
+    calls:
+      - [ 'addCondition', [ '@is_not_builderius_builder_mode' ] ]
+      - [ 'addCondition', [ '@is_admin_bar_showing'] ]
+      - [ 'addCondition', [ '@user_is_builderius_developer' ] ]
+    tags:
+      - { name: moomoo_admin_bar_node, priority: 1000 }

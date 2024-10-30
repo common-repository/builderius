@@ -1,0 +1,124 @@
+services:
+  builderius_graphql.type_config.comment_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLObjectTypeConfig
+    lazy: true
+    arguments:
+      - name: 'Comment'
+    calls:
+      - ['addField', ['@builderius_graphql.type_config.field.id']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_id']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_post_id']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_author']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_author_email']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_author_url']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_author_ip']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_date']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_date_gmt']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_content']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_karma']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_approved']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_agent']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_type']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.comment_parent']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.user_id']]
+      - ['addField', ['@builderius_graphql.type_config.comment_type.field.children']]
+      - ['addField', ['@builderius_graphql.type_config.field.meta']]
+      - ['addField', ['@builderius_graphql.type_config.field.meta_value']]
+    tags:
+      - { name: builderius_graphql_type_config }
+
+  builderius_graphql.type_config.comment_type.field.comment_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_ID'
+        type: 'Int'
+
+  builderius_graphql.type_config.comment_type.field.comment_post_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_post_ID'
+        type: 'Int'
+
+  builderius_graphql.type_config.comment_type.field.comment_author:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_author'
+        type: 'String'
+
+  builderius_graphql.type_config.comment_type.field.comment_author_email:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_author_email'
+        type: 'String'
+
+  builderius_graphql.type_config.comment_type.field.comment_author_url:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_author_url'
+        type: 'String'
+
+  builderius_graphql.type_config.comment_type.field.comment_author_ip:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_author_IP'
+        type: 'String'
+
+  builderius_graphql.type_config.comment_type.field.comment_date:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_date'
+        type: 'String'
+
+  builderius_graphql.type_config.comment_type.field.comment_date_gmt:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_date_gmt'
+        type: 'String'
+
+  builderius_graphql.type_config.comment_type.field.comment_content:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_content'
+        type: 'String'
+
+  builderius_graphql.type_config.comment_type.field.comment_karma:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_karma'
+        type: 'Mixed'
+
+  builderius_graphql.type_config.comment_type.field.comment_approved:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_approved'
+        type: 'String'
+
+  builderius_graphql.type_config.comment_type.field.comment_agent:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_agent'
+        type: 'String'
+
+  builderius_graphql.type_config.comment_type.field.comment_type:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_type'
+        type: 'String'
+
+  builderius_graphql.type_config.comment_type.field.comment_parent:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'comment_parent'
+        type: 'Int'
+
+  builderius_graphql.type_config.comment_type.field.user_id:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'user_id'
+        type: 'Int'
+
+  builderius_graphql.type_config.comment_type.field.children:
+    class: Builderius\Bundle\GraphQLBundle\Config\GraphQLFieldConfig
+    arguments:
+      - name: 'children'
+        type: '[Comment]'

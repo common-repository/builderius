@@ -1,0 +1,203 @@
+services:
+  builderius_module.provider.rendering_conditions:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingConditionsProvider
+
+  builderius_module.rendering_condition.post_id:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingCondition
+    arguments:
+      - name: post_id
+        label: Post ID
+        category: post
+        sortOrder: 10
+        operators: ['select_equals', 'select_not_equals']
+        widgetType: select
+        placeholder: 'Please select Post ID'
+        valueListProvider: '@builderius_template.apply_rule.arguments_provider.available_singulars.id'
+        graphqlPath:
+          "'query.post.__aliasFor'": "'queried_post'"
+          "'query.post.ID'": true
+        expression: '"wp.post.ID " ~ operator ~ " " ~ value'
+    tags:
+      - { name: builderius_module_rendering_condition }
+
+  builderius_module.rendering_condition.post_parent:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingCondition
+    arguments:
+      - name: post_parent
+        label: Post parent
+        category: post
+        sortOrder: 20
+        operators: ['select_equals', 'select_not_equals']
+        widgetType: select
+        placeholder: 'Please select Post ID'
+        valueListProvider: '@builderius_template.apply_rule.arguments_provider.available_singulars.id'
+        graphqlPath:
+          "'query.post.__aliasFor'": "'queried_post'"
+          "'query.post.parent.__aliasFor'": "'post_parent'"
+        expression: '"wp.post.parent " ~ operator ~ " " ~ value'
+    tags:
+      - { name: builderius_module_rendering_condition }
+
+  builderius_module.rendering_condition.post_status:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingCondition
+    arguments:
+      - name: post_status
+        label: Post status
+        category: post
+        sortOrder: 30
+        operators: ['select_equals', 'select_not_equals']
+        widgetType: select
+        placeholder: 'Please select Post Status'
+        valueListProvider: '@builderius_template.apply_rule.arguments_provider.available_post_statuses'
+        graphqlPath:
+          "'query.post.__aliasFor'": "'queried_post'"
+          "'query.post.status.__aliasFor'": "'post_status'"
+        expression: "'wp.post.status ' ~ operator ~ ' \"' ~ value ~ '\"'"
+    tags:
+      - { name: builderius_module_rendering_condition }
+
+  builderius_module.rendering_condition.is_empty_post_content:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingCondition
+    arguments:
+      - name: is_empty_post_content
+        label: Post content
+        category: post
+        sortOrder: 40
+        operators: ['select_equals']
+        widgetType: select
+        valueList:
+          - value: true
+            title: "empty"
+          - value: false
+            title: "not empty"
+        graphqlPath:
+          "'query.post.__aliasFor'": "'queried_post'"
+          "'query.post.content.__aliasFor'": "'post_content'"
+        expression: "'is_empty(wp.post.content) ' ~ operator ~ ' ' ~ value"
+    tags:
+      - { name: builderius_module_rendering_condition }
+
+  builderius_module.rendering_condition.is_empty_post_excerpt:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingCondition
+    arguments:
+      - name: is_empty_post_excerpt
+        label: Post excerpt
+        category: post
+        sortOrder: 50
+        operators: ['select_equals']
+        widgetType: select
+        valueList:
+          - value: true
+            title: "empty"
+          - value: false
+            title: "not empty"
+        graphqlPath:
+          "'query.post.__aliasFor'": "'queried_post'"
+          "'query.post.excerpt.__aliasFor'": "'post_excerpt'"
+        expression: "'is_empty(wp.post.excerpt) ' ~ operator ~ ' ' ~ value"
+    tags:
+      - { name: builderius_module_rendering_condition }
+
+  builderius_module.rendering_condition.post_has_category:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingCondition
+    arguments:
+      - name: post_has_category
+        label: Post category
+        category: post
+        sortOrder: 60
+        operators: ['select_in', 'select_not_in']
+        widgetType: select
+        placeholder: 'Please select category'
+        valueListProvider: '@builderius_template.apply_rule.arguments_provider.available_categories'
+        graphqlPath:
+          "'query.post.__aliasFor'": "'queried_post'"
+          "'query.post.categories.term_id'": true
+        expression: "value ~ ' ' ~ operator ~ ' foreach(wp.post.categories, (value) -> {value.term_id} )'"
+    tags:
+      - { name: builderius_module_rendering_condition }
+
+  builderius_module.rendering_condition.post_has_tag:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingCondition
+    arguments:
+      - name: post_has_tag
+        label: Post tag
+        category: post
+        sortOrder: 70
+        operators: ['select_in', 'select_not_in']
+        widgetType: select
+        placeholder: 'Please select tag'
+        valueListProvider: '@builderius_template.apply_rule.arguments_provider.available_tags'
+        graphqlPath:
+          "'query.post.__aliasFor'": "'queried_post'"
+          "'query.post.tags.term_id'": true
+        expression: "value ~ ' ' ~ operator ~ ' foreach(wp.post.tags, (value) -> {value.term_id} )'"
+    tags:
+      - { name: builderius_module_rendering_condition }
+
+  builderius_module.rendering_condition.has_featured_image:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingCondition
+    arguments:
+      - name: has_featured_image
+        label: Featured image
+        category: post
+        sortOrder: 80
+        operators: ['select_equals']
+        widgetType: select
+        valueList:
+          - value: true
+            title: set
+          - value: false
+            title: not set
+        graphqlPath:
+          "'query.post.__aliasFor'": "'queried_post'"
+          "'query.post.has_featured_image'": true
+        expression: '"wp.post.has_featured_image " ~ operator ~ " " ~ value'
+    tags:
+      - { name: builderius_module_rendering_condition }
+
+  builderius_module.rendering_condition.post_comments_allowed:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingCondition
+    arguments:
+      - name: post_comments_allowed
+        label: Post comments allowed
+        category: post
+        sortOrder: 90
+        operators: ['select_equals']
+        widgetType: select
+        valueList:
+          - value: true
+            title: "true"
+          - value: false
+            title: "false"
+        graphqlPath:
+          "'query.post.__aliasFor'": "'queried_post'"
+          "'query.post.comments_allowed.__aliasFor'": "'comments_open'"
+        expression: '"wp.post.comments_allowed " ~ operator ~ " " ~ value'
+    tags:
+      - { name: builderius_module_rendering_condition }
+
+  builderius_module.rendering_condition.dynamic_data:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingCondition
+    arguments:
+      - name: dynamic_data
+        label: Dynamic data
+        category: advanced
+        sortOrder: 10
+        operators: ['equal', 'not_equal', 'less', 'less_or_equal', 'greater', 'greater_or_equal', 'contains', 'does_not_contain', 'is_empty', 'is_not_empty', 'is_null', 'is_not_null', 'is_true', 'is_not_true', 'is_false', 'is_not_false']
+        widgetType: double_dynamic_input
+        expression: "'compare_dynamic_data(\"' ~ value.a1 ~ '\", \"' ~ value.b1 ~ '\", \"' ~ operator ~ '\")'"
+    tags:
+      - { name: builderius_module_rendering_condition }
+
+  builderius_module.rendering_condition.expression:
+    class: Builderius\Bundle\ModuleBundle\RenderingCondition\BuilderiusModuleRenderingCondition
+    arguments:
+      - name: expression
+        label: Expression
+        category: advanced
+        sortOrder: 20
+        operators: ['select_equals']
+        widgetType: textarea
+        expression: 'value'
+    tags:
+      - { name: builderius_module_rendering_condition }

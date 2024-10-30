@@ -1,0 +1,4 @@
+services:
+    moomoo_shortcode.registrator.shortcodes:
+        class: 'Builderius\MooMoo\Platform\Bundle\ShortcodeBundle\Registrator\ShortcodesRegistrator'
+        public: true

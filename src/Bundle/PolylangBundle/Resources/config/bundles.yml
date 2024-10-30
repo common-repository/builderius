@@ -1,0 +1,2 @@
+bundles:
+    - { name: Builderius\Bundle\PolylangBundle\BuilderiusPolylangBundle }

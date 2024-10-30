@@ -1,0 +1,8 @@
+services:
+    moomoo_meta_box.registry.meta_boxes:
+        class: 'Builderius\MooMoo\Platform\Bundle\MetaBoxBundle\Registry\MetaBoxesRegistry'
+        public: true
+
+    moomoo_meta_box.registrator.meta_boxes:
+        class: 'Builderius\MooMoo\Platform\Bundle\MetaBoxBundle\Registrator\MetaBoxesRegistrator'
+        public: true
